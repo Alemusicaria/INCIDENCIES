@@ -2,13 +2,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Salleguard Login</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- Custom CSS File link -->
-    <link rel="stylesheet" href="css/styles.css?v=1"> 
+    <link rel="stylesheet" href="public/css/styles.css?v=1"> 
 
 </head>
 <body>
@@ -20,14 +20,31 @@
 
     <section class="home" id="home">
         <div class="container">
-            <h1>Inicia Sessió</h1>
-            <br>
-            <a>Nom d'usuari<a/>
-            <a>Contrasenya</a>
-            <br>
-            <a>Inicia la sessió</a>
-            <a>¿Has oblitad el teu nom d' usuari o contrsenya?</a>
-            <a>Aqui puedes registrarte aaaaaa</a>
+            <!-- User Avatar -->
+            <div class="user">
+                <img src="Images/Login/user.png" alt="">
+            </div>
+
+            <!-- Form -->
+            <form action="#" method="POST" class="form-content">
+                <h1>Inicia Sessió</h1>
+
+                <div class="input-container">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Nom d'usuari" required>
+                </div>
+
+                <div class="input-container">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Contrasenya" required minlength="3">
+                </div>
+
+                <button type="submit" class="form-btn">Iniciar Sessió</button>
+                
+                <p class="text-center">
+                    <a href="#" class="forgot-password">¿Has oblidat el teu nom d' usuari o contrasenya?</a>
+                </p>
+            </form>
         </div>
     </section>
 

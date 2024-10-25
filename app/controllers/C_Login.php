@@ -8,7 +8,7 @@ class C_Login {
     }
 
     public function mostrarLogin() {
-        require_once "Views/Formularios/V_Login.php";
+        require_once("Views/Formularios/V_Login.php");
     }
 
 }
