@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    /* Colors */  
+}
+
+* {
+    font-family: "Roboto", serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+} 
+
+html, body {
+    height: 100%;
+
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+    height: 100%; /* Asegura que el html y body ocupen el 100% de la altura */
+    margin: 0; /* Elimina el margen por defecto */
+
+    display: flex; /* Asegura que el body se comporte como un contenedor flex */
+    flex-direction: column; /* Asegura que los elementos hijos se apilen verticalmente */
+}
+
+body {
+    background: linear-gradient(
+        rgba(27,44,100,0.9),
+        rgba(27,44,100,0.9)
+    ), url('../Images/Login/Sallenet_Fondo1.png') no-repeat;   
+    background-size: cover;
+    background-position: center;
+    flex: 1; /* Asegura que el body ocupe todo el espacio disponible */
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 55%;
+    }
+}
+
+.header {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+
+    margin-left: 20px;
+    margin-right: 20px;
+
+    text-align: center; /* Centrar el contenido horizontalmente */
+    display: flex; 
+    justify-content: center; /* Centrar horizontalmente */
+
+    z-index: 1;
+}
+
+.header img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+.home {
+    /*
+    z-index: 0;
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+    */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    min-height: calc(100vh - 100px); /* Mantiene espacio para el footer */
+    padding-bottom: 100px; /* Espacio adicional para que el contenido no se superponga con el footer */
+}
+
+.home .container{
+    background-color: white;
+    max-width: 800px;
+    width: 50%;
+
+    display: flex;
+    align-items: center; /* centrar verticalmente */
+    justify-content: center; /* centrar horizontalmente */
+    flex-flow: column;
+    text-align: center;
+
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 30px;
+
+    position: absolute;
+
+    z-index: 1;
+}
+
+.footer {
+    width: 100%; /* Asegúrate de que el footer ocupe todo el ancho */
+
+    text-align: center; /* Centrar el texto */
+    padding: 1rem; /* Espaciado interno */
+
+    background-color: #1B2C64;
+    color: white; /* Cambiar el color del texto a blanco para contrastar */
+
+    margin-top: auto; /* Asegura que el footer se pegue al final de la página */
+}
+
+.footer img {
+    max-width: 100px;
+    width: 100%;
+    height: auto;
+}
