@@ -6,7 +6,8 @@ CREATE TABLE usuaris (
     telefon VARCHAR(20),
     rol ENUM('Professor', 'Tecnic', 'Admin') NOT NULL,
     habilitat BOOLEAN DEFAULT TRUE,
-    data_registre TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    data_registre TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    foto TEXT
 );
 
 CREATE TABLE sales (
