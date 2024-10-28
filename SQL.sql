@@ -17,7 +17,7 @@ CREATE TABLE incidencies (
     titol_fallo VARCHAR(150),
     descripcio TEXT NOT NULL,
     tipus_incidencia ENUM('Calefacció', 'Electricitat/Fontaner', 'Informàtica', 'Fusteria', 'Ferrer', 'Obres', 'Audiovisual', 'Equips de seguretat', 'Neteja de clavegueram') NOT NULL,
-    ubicacio VARCHAR(100),
+    id_ubicacio VARCHAR(100),
     data_incidencia TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estat ENUM('Pendent', 'En Progrés', 'Resolta') DEFAULT 'Pendent',
     prioritat ENUM('Baixa', 'Mitjana', 'Alta') DEFAULT 'Baixa',
