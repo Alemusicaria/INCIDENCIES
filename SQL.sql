@@ -23,3 +23,10 @@ CREATE TABLE incidencies (
     prioritat ENUM('Baixa', 'Mitjana', 'Alta') DEFAULT 'Baixa',
     imatges TEXT
 );
+
+
+CREATE TABLE sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    planta ENUM('Planta -1', 'Planta 0', 'Planta 1', 'Planta 2', 'Planta 3', 'Planta 4', 'Altres') NOT NULL,
+    sala VARCHAR(100) NOT NULL
+);
