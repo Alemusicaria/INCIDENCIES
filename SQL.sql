@@ -9,6 +9,12 @@ CREATE TABLE usuaris (
     data_registre TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE sales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    planta ENUM('Planta -1', 'Planta 0', 'Planta 1', 'Planta 2', 'Planta 3', 'Planta 4', 'Altres') NOT NULL,
+    sala VARCHAR(100) NOT NULL
+);
+
 CREATE TABLE incidencies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     creador_nom_cognoms VARCHAR(100) NOT NULL,
@@ -23,10 +29,4 @@ CREATE TABLE incidencies (
     prioritat ENUM('Baixa', 'Mitjana', 'Alta') DEFAULT 'Baixa',
     imatges TEXT,
     FOREIGN KEY (id_ubicacio) REFERENCES sales(id) ON DELETE SET NULL ON UPDATE CASCADE
-);
-
-CREATE TABLE sales (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    planta ENUM('Planta -1', 'Planta 0', 'Planta 1', 'Planta 2', 'Planta 3', 'Planta 4', 'Altres') NOT NULL,
-    sala VARCHAR(100) NOT NULL
 );
