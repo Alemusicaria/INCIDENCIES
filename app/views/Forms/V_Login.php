@@ -31,7 +31,7 @@
 
                 <div class="input-container">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Nom d'usuari" required>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correu eletrònic" required>
                 </div>
 
                 <div class="input-container">
