@@ -36,7 +36,7 @@ require_once "autoload.php";
         }
     } else {
         // Mostrar el login por defecto si no hay controlador en la URL
-        require "app/Views/Forms/V_Login.php";
+        // require "app/Views/Forms/V_Login.php";
+        require "public/index.php";
     }
-
 ?>
