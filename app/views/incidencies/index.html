@@ -10,21 +10,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <!-- Incluir CSS de FullCalendar -->
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css' rel='stylesheet' />
     <style>
-        /* Estilo opcional per al calendari */
         #calendar {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 10px auto;
             overflow: hidden;
-            /* Assegura que no hi hagi scroll */
         }
 
-        /* Ajustar la mida de la lletra del calendari */
         .fc {
+            font-size: 0.45em;
+        }
+
+        .view-buttons {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .view-buttons button {
+            margin: 0 5px;
+            background-color: #75858d;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 2px;
             font-size: 0.5em;
-            /* Mida de lletra més petita (ajusta aquest valor com calgui) */
+            transition: background-color 0.3s;
+        }
+
+        .view-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estil per a la secció del dia seleccionat */
+        #selected-date {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+
+        /* Estil per al dia seleccionat */
+        .selected-day {
+            background-color: #2c9ea770 !important;
+            /* Color de fons del dia seleccionat */
+            color: white;
+            /* Color del text */
         }
     </style>
 </head>
@@ -53,50 +85,7 @@
                         <span>Task</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
-                        <i class="lni lni-protection"></i>
-                        <span>Auth</span>
-                    </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Login</a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link">Register</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
-                        data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
-                        <i class="lni lni-layout"></i>
-                        <span>Multi Level</span>
-                    </a>
-                    <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
-                                data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
-                                Two Links
-                            </a>
-                            <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 1</a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">Link 2</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-popup"></i>
-                        <span>Notification</span>
-                    </a>
-                </li>
+                <!-- Més enllaços... -->
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
                         <i class="lni lni-cog"></i>
@@ -113,15 +102,22 @@
         </aside>
         <div class="main p-3">
             <div class="text-center">
-                <h1>
-                    Sidebar Bootstrap 5
-                </h1>
+                <h1>Incidències</h1>
+            </div>
+            <div class="view-buttons">
+                <button class="btn btn-primary" data-view="dayGridDay">Dia</button>
+                <button class="btn btn-primary" data-view="timeGridWeek">Setmana</button>
+                <button class="btn btn-primary" data-view="dayGridMonth">Mes</button>
             </div>
             <div id='calendar'></div>
+            <!-- Espai per mostrar la data seleccionada -->
+            <div id="selected-date" style="display:none;">
+                <h4>Data Seleccionada:</h4>
+                <p id="date-text"></p>
+            </div>
         </div>
     </div>
 
-    <!-- Incluir JavaScript de FullCalendar -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
@@ -134,11 +130,39 @@
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                firstDay: 1, // Començar la setmana pel dilluns
-                locale: 'ca' // Establir la localització en català
+                firstDay: 1,
+                locale: 'ca',
+                buttonText: { // Aquí és on canviem "today" per "avui"
+                    today: 'Avui'
+                },
+                dateClick: function (info) {
+                    // Mostrar la data seleccionada
+                    var dateText = info.dateStr; // Obtenim la data clicada
+                    document.getElementById('date-text').innerText = dateText; // Actualitzem el text
+                    document.getElementById('selected-date').style.display = 'block'; // Mostrem la secció
+
+                    // Remove class from previously selected day
+                    var previouslySelected = document.querySelector('.selected-day');
+                    if (previouslySelected) {
+                        previouslySelected.classList.remove('selected-day');
+                    }
+
+                    // Get the clicked date's element and add the class
+                    var dayEl = info.dayEl; // Element del dia clicat
+                    dayEl.classList.add('selected-day'); // Afegim la classe per canviar el color
+                }
             });
 
             calendar.render();
+
+            // Afegir event listener als botons de canvi de vista
+            var viewButtons = document.querySelectorAll('.view-buttons button');
+            viewButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    var view = this.getAttribute('data-view');
+                    calendar.changeView(view);
+                });
+            });
         });
     </script>
     <script src="script.js"></script>
