@@ -41,7 +41,7 @@ body {
     margin-left: 20px;
     margin-right: 20px;
 
-    /*margin-bottom: 20px; /* Espacio entre el header y el home */
+    margin-bottom: 0px; /* Espacio entre el header y el home */
 
     text-align: center; /* Centrar el contenido horizontalmente */
     justify-content: center; /* Centrar horizontalmente */
