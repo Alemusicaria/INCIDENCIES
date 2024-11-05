@@ -1,28 +1,34 @@
+<?php
+
+// Mostrar errores
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Iniciar la sesión
+session_start();
+
+require_once "autoload.php";
+
+?>
 
 <?php
-    require_once "autoload.php"; // Asegúrate de que este archivo exista y esté configurado correctamente
 
-    if (isset($_GET["controller"])) {
-        $controller = $_GET["controller"];
+    if (isset($_GET["controller"])) { // Comprueba si hay un controlador en la URL
+        $controller = $_GET["controller"]; // Obtiene el controlador de la URL
 
-        if (class_exists($controller)) {
-            $controller = "C_" . $controller; // Agrega "Controller" al nombre de la clase
+        $controller = "C_" . $controller; // Asigna el nombre del controlador con el prefijo C_
 
-            // Verifica si la clase del controlador existe antes de instanciarla
-            if (class_exists($controller)) {
-                $controller = new $controller(); // Crea una instancia del controlador
+        if (class_exists($controller)) { // Verifica que la clase existe
+            $controller= new $controller(); // Instancia el controlador
 
-                if (isset($_GET["method"])) {
-                    $method = $_GET["method"];
+            if (isset($_GET["method"])) { // Comprueba si hay un metodo en la URL
+                $method = $_GET["method"]; // Obtiene el metodo de la URL
 
-                    // Verifica si el método existe en el controlador
-                    if (method_exists($controller, $method)) {
-                        $controller->$method(); // Llama al método correspondiente
-                    } else {
-                        echo "No existe el método " . htmlspecialchars($method); // Escapa la salida para evitar inyección de HTML
-                    }
+                if (method_exists($controller, $method)) { // Verifica que el metodo existe
+                    $controller->$method(); // Llama al metodo del controlador
                 } else {
-                    echo "No existe el método en el controlador " . htmlspecialchars($controller);
+                    echo "ERROR: Metodo no existe " . $method;
                 }
             } else {
                 echo "No existe la clase del controlador " . htmlspecialchars($controller);
@@ -31,6 +37,8 @@
             echo "No existe el controlador " . htmlspecialchars($controller);
         }
     } else {
-        require "app/Views/Forms/V_Login.php";
+        // require "app/Views/Forms/V_Login.php";
+        require "public/index.php";
     }
+
 ?>
