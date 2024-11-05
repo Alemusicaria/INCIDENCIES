@@ -26,7 +26,7 @@
             </div>
 
             <!-- Form -->
-            <form action="index.php/?controllers=Login&method=verificar_login" method="POST" class="form-content">
+            <form action="index.php?controller=C_Login&method=Verificar_Login" method="POST" class="form-content">
                 <h1>Inicia Sessió</h1>
 
                 <div class="input-container">
