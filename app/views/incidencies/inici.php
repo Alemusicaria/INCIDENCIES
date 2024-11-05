@@ -201,6 +201,7 @@
             margin-left: 250px;
             /* Desplaça la pàgina cap a la dreta quan el menú està actiu */
         }
+        
     </style>
 
 
@@ -316,7 +317,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light menu-background">
                 <div class="container-fluid">
                     <!-- PER OBRIR MENU LATERAL -->
-                    <img src="../../../Images/menu.png" alt="Menu" class="menu-button" id="toggle-menu" onclick="toggleMenu()">
+                    <div class="menu-button" id="menuToggle">☰</div>
 
                     <!-- LOGO DE LA SALLE -->
                     <img src="../../../Images/Login/la_salle_white.jpeg" alt="" style="width: 100px;">
@@ -339,28 +340,13 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
             <!-- Script per mostrar i amagar el menú lateral -->
             <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    const toggleButton = document.getElementById("toggle-menu");
-                    const nav = document.querySelector(".nav");
-                    const container = document.querySelector(".container");
-
-                    toggleButton.addEventListener("click", function() {
-                        nav.classList.toggle("active"); // Afegeix o elimina la classe 'active' del menú
-                        container.classList.toggle("menu-active"); // Afegeix o elimina la classe 'menu-active' al contenidor
-                    });
-                });
-                $(document).ready(function() {
-                    // Funció per obrir o tancar el menú
-                    $(".menu-button").click(function() {
-                        $("#menuLateral").toggle();
-                    });
-
-                    // Amaga el menú quan es fa clic a qualsevol enllaç dins el menú
-                    $("#menuLateral a").click(function() {
-                        $("#menuLateral").hide();
-                    });
-                });
-            </script>
+        $(document).ready(function() {
+            $('#menuToggle').click(function() {
+                $('#sidebarMenu').toggle(); // Mostrar/ocultar el menú
+                $('#mainContent').toggleClass('menu-active'); // Afegir/cloure la classe per ajustar el marge
+            });
+        });
+    </script>
         </body>
     </header>
 
