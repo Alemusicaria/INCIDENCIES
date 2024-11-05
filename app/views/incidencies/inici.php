@@ -242,9 +242,7 @@
         <div class="container-fluid">
           <!-- PER OBRIR MENU LATERAL -->
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
-            <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-              <use xlink:href="#bootstrap" />
-            </svg>
+           <img src="../../../Images/menu.png" alt=""style="width: 30px;">
           </a>
           <!-- LOGO DE LA SALLE -->
           <img src="../../../Images/Login/la_salle_white.jpeg" alt="" style="width: 100px;">
