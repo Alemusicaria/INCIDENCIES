@@ -2,13 +2,37 @@
 
 class Incidencia
 {
-    private $conn;
+    private $con;
 
-    public function __construct($db)
+    public function __construct()
     {
-        $this->conn = $db;
+        // Connexió amb la base de dades
+        $this->con = new mysqli("localhost", "root", "", "incidencies");
+
+        // Comprovació de connexió
+        if ($this->con->connect_error) {
+            die("Error de connexió: " . $this->con->connect_error);
+        }
     }
 
+
+    public function login($data)
+    {
+        // Consulta SQL per verificar l'usuari i la contrasenya
+        $sql = "SELECT * FROM usuaris WHERE correu = ? AND contrasenya = ?";
+
+        // Preparar la consulta
+        $stmt = $this->con->prepare($sql);
+        $stmt->bind_param("ss", $data['correu'], $data['contrasenya']);
+
+        // Executar la consulta
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        // Comprovar si hi ha coincidències
+        return $result->num_rows > 0; // Retorna true si l'usuari existeix, sinó false
+    }
+    /*
     // Obtenir totes les incidències
     public function getAll()
     {
@@ -33,4 +57,5 @@ class Incidencia
         $stmt = $this->conn->prepare($query);
         return $stmt->execute([$id]);
     }
+*/
 }

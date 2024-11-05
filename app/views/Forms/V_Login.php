@@ -26,12 +26,12 @@
             </div>
 
             <!-- Form -->
-            <form action="#" method="POST" class="form-content">
+            <form action="index.php/?controllers=Login&method=verificar_login" method="POST" class="form-content">
                 <h1>Inicia Sessió</h1>
 
                 <div class="input-container">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="username" id="username" class="form-control" placeholder="Nom d'usuari" required>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Correu eletrònic" required>
                 </div>
 
                 <div class="input-container">

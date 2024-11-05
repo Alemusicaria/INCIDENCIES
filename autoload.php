@@ -1,9 +1,8 @@
-<?php
+<?php 
 
 function autocargar($classname){
-    require_once("Controllers/" . $classname . ".php");
+    include "controllers/" .  $classname . ".php";
 }
 
 spl_autoload_register("autocargar");
 
-?>

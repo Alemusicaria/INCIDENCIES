@@ -31,12 +31,14 @@ require_once "autoload.php";
                     echo "ERROR: Metodo no existe " . $method;
                 }
             } else {
-                echo "ERROR: Contorlador no existe " . $controller;
+                echo "No existe la clase del controlador " . htmlspecialchars($controller);
             }
+        } else {
+            echo "No existe el controlador " . htmlspecialchars($controller);
         }
     } else {
-        // Mostrar el login por defecto si no hay controlador en la URL
-        require "app/Views/Forms/V_Login.php";
+        // require "app/Views/Forms/V_Login.php";
+        require "public/index.php";
     }
 
 ?>
