@@ -168,7 +168,7 @@ body {
     border-radius: 5px; /* Bordes redondeados */
     width: 100%; /* Para que todos los inputs ocupen el ancho completo */
     box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
-    transition: border-color 0.3s, box-shadow 0.3s`, background-color 0.3s; /* Agregado para color de fondo */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; /* Agregado para color de fondo */
 }
 
 .form-control:focus {
