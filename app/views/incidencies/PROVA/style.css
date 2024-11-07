@@ -205,3 +205,13 @@ a.sidebar-link:hover {
     color: white;
     /* Color del text */
 }
+.incidencia {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e9ecef;
+}
+.incidencia strong {
+    color: #007bff; /* Color del títol de l'incidència */
+}
