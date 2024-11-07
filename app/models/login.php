@@ -1,12 +1,13 @@
-<?php 
-class Login 
+<?php
+
+class login
 {
     public function verificar_login()
     {
         $email = $_POST['email'];
-        $contraseña = $_POST['contraseña'];
+        $contraseña = $_POST['password'];
 
-        $mysql = new mysqli("localhost", "root", "", "incidencias_mvc_grupal");
+        $mysql = new mysqli("localhost", "root", "", "mvc");
 
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
@@ -34,4 +35,5 @@ class Login
             }
         }
     }
+
 }
