@@ -44,10 +44,23 @@ error_reporting(E_ALL);
                 <h1>Incidències</h1>
             </div>
             <div class="view-buttons">
+                <div class="btn-group w-100 mb-3" role="group" aria-label="Basic radio toggle button group">
+                    <label class="btn btn-outline-primary w-100" data-view="dayGridDay">Dia</label>
+                    <label class="btn btn-outline-primary w-100" data-view="timeGridWeek">Setmana</label>
+                    <label class="btn btn-outline-primary w-100" data-view="dayGridMonth">Mes</label>
+                </div>
+                
+
                 <button class="btn btn-primary" data-view="dayGridDay">Dia</button>
                 <button class="btn btn-primary" data-view="timeGridWeek">Setmana</button>
                 <button class="btn btn-primary" data-view="dayGridMonth">Mes</button>
             </div>
+            
+            
+            <!--                        
+            -->
+
+
             <div id='calendar'></div>
             <!-- Espai per mostrar la data seleccionada -->
             <div id="selected-date" style="display:none;">
