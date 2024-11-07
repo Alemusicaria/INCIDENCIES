@@ -9,27 +9,27 @@
     </div>
     <ul class="sidebar-nav">
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="perfil.php" class="sidebar-link">
                 <i class="lni lni-user"></i>
                 <span>Perfil</span>
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="index.php" class="sidebar-link">
                 <i class="lni lni-home"></i>
                 <span>Inici</span>
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="incidencies.php" class="sidebar-link">
                 <i class="lni lni-agenda"></i>
                 <span>Les meves incidències</span>
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="gestionar_professors.php" class="sidebar-link">
                 <i class="lni lni-cog"></i>
-                <span>Gestionar professor</span>
+                <span>Gestionar professors</span>
             </a>
         </li>
     </ul>
@@ -40,3 +40,4 @@
         </a>
     </div>
 </aside>
+<script src="assets/js/script_default.js"></script>

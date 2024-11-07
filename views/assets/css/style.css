@@ -168,3 +168,30 @@ a.sidebar-link:hover {
     border-radius: 5px;
 }
 
+.btn-professional {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-professional:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-warning-custom {
+    background-color: #f0ad4e;
+    border: none;
+}
+
+.btn-secondary-custom {
+    background-color: #6c757d;
+    border: none;
+}
+
+.btn-danger-custom {
+    background-color: #d9534f;
+    border: none;
+}

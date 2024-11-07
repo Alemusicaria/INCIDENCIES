@@ -1,9 +1,3 @@
-<!------------------------------------------------------------------------>
-<!------------------------------------------------------------------------>
-<!--------------------------        MENU        -------------------------->
-<!------------------------------------------------------------------------>
-<!------------------------------------------------------------------------>
-
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -17,12 +11,6 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
         <?php
         include("layouts/menu/menu.php"); // Aquí se incluye la barra lateral
         ?>
-
-        <!------------------------------------------------------------------------->
-        <!------------------------------------------------------------------------->
-        <!--------------------------        INICI        -------------------------->
-        <!------------------------------------------------------------------------->
-        <!------------------------------------------------------------------------->
 
         <div class="main p-3">
             <div class="text-center">
@@ -43,13 +31,12 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
             </div>
             <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-            <script src="assets/js/script_default.js"></script>
             <script src="assets/js/script_inici.js"></script>
         </div>
     </div>
-    <!------------------------------------------------------------------------>
-    <!--------------------------        FOOTER        ------------------------>
-    <!------------------------------------------------------------------------>
+    <?php
+    include("layouts/footer/footer.php"); // Aquí se incluye la barra lateral
+    ?>
 </body>
 
 </html>
