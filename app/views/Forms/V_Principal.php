@@ -1,2 +1,2 @@
-<h1>hola mundo</h1>
-<button></button>
+<h1>hola mundo <?php echo $_SESSION['usuario']; ?>!</h1>
+<button>ingresar incidencia</button>

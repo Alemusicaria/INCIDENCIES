@@ -1,8 +1,8 @@
 
 
 
-
 <?php
+session_start(); // Inicia la sesión para poder acceder a las variables de sesión
 require_once "autoload.php"; // Asegúrate de que este archivo exista y esté configurado correctamente
 
     if (isset($_GET["controller"])) {
