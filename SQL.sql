@@ -30,8 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `incidencies` (
   `id` int(11) NOT NULL,
   `creador_nom_cognoms` varchar(100) NOT NULL,
-  `reporter_nom_cognoms` varchar(100) NOT NULL,
-  `reporter_email` varchar(100) NOT NULL,
   `titol_fallo` varchar(150) NOT NULL,
   `descripcio` text NOT NULL,
   `tipus_incidencia` enum('Calefacció','Electricitat/Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram') NOT NULL,
