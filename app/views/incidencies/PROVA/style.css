@@ -63,6 +63,10 @@ body {
     color: #FFF;
 }
 
+.sidebar-logo {
+margin-top: 1em;
+}
+
 .sidebar-logo a {
     color: #FFF;
     font-size: 1.15rem;
@@ -152,4 +156,14 @@ a.sidebar-link:hover {
 .incidencia strong {
     color: #007bff;
     /* Color del títol de l'incidència */
+}
+
+.incidencia-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.incidencia-link:hover {
+    background-color: #f8f9fa;
+    border-radius: 5px;
 }

@@ -15,11 +15,24 @@ if ($conn->connect_error) {
     die("Connexió fallida: " . $conn->connect_error);
 }
 
-// Obtenim la data passada com a paràmetre
-$data = $_GET['data'];
+// Comprovem si s'ha passat la data com a paràmetre GET
+if (!isset($_GET['data']) || empty($_GET['data'])) {
+    echo json_encode(['error' => 'Data no especificada']);
+    exit();
+}
 
-// Preparem la consulta per obtenir només les incidències de la data especificada
-$sql = "SELECT * FROM incidencies WHERE DATE(data_incidencia) = ?";
+// Validar que la data segueix el format YYYY-MM-DD
+$data = $_GET['data'];
+if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $data)) {
+    echo json_encode(['error' => 'Format de data no vàlid. Utilitza YYYY-MM-DD']);
+    exit();
+}
+
+// Preparem la consulta per obtenir les incidències de la data especificada i les seves ubicacions
+$sql = "SELECT i.*, s.planta, s.sala 
+        FROM incidencies i 
+        LEFT JOIN sales s ON i.id_ubicacio = s.id 
+        WHERE DATE(i.data_incidencia) = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $data);
 $stmt->execute();
