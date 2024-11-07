@@ -63,10 +63,6 @@ body {
     color: #FFF;
 }
 
-.sidebar-logo {
-    margin: auto 0;
-}
-
 .sidebar-logo a {
     color: #FFF;
     font-size: 1.15rem;
@@ -102,73 +98,6 @@ a.sidebar-link:hover {
     border-left: 3px solid #3b7ddd;
 }
 
-.sidebar-item {
-    position: relative;
-}
-
-#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
-    position: absolute;
-    top: 0;
-    left: 70px;
-    background-color: #0e2238;
-    padding: 0;
-    min-width: 15rem;
-    display: none;
-}
-
-#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
-    display: block;
-    max-height: 15em;
-    width: 100%;
-    opacity: 1;
-}
-
-#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
-    border: solid;
-    border-width: 0 .075rem .075rem 0;
-    content: "";
-    display: inline-block;
-    padding: 2px;
-    position: absolute;
-    right: 1.5rem;
-    top: 1.4rem;
-    transform: rotate(-135deg);
-    transition: all .2s ease-out;
-}
-
-#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
-    transform: rotate(45deg);
-    transition: all .2s ease-out;
-}
-
-.view-buttons button {
-    margin: 0 5px;
-    background-color: #75858d;
-    /* Color de fons del botó */
-    border: none;
-    /* Sense bordes */
-    color: white;
-    /* Color del text */
-    padding: 5px 10px;
-    /* Espaiat intern (reduït) */
-    border-radius: 5px;
-    /* Cantons arrodonits */
-    font-size: 0.8em;
-    /* Mida de lletra més petita (ajusta aquest valor com calgui) */
-    transition: background-color 0.3s;
-    /* Transició suau */
-}
-
-#calendar {
-    max-width: 900px;
-    margin: 10px auto;
-    overflow: hidden;
-}
-
-.fc {
-    font-size: 0.45em;
-}
-
 .view-buttons {
     text-align: center;
     margin-top: 50px;
@@ -189,7 +118,16 @@ a.sidebar-link:hover {
     background-color: #0056b3;
 }
 
-/* Estil per a la secció del dia seleccionat */
+#calendar {
+    max-width: 900px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.fc {
+    font-size: 0.45em;
+}
+
 #selected-date {
     margin-top: 20px;
     padding: 15px;
@@ -198,13 +136,11 @@ a.sidebar-link:hover {
     background-color: #f8f9fa;
 }
 
-/* Estil per al dia seleccionat */
 .selected-day {
     background-color: #2c9ea770 !important;
-    /* Color de fons del dia seleccionat */
     color: white;
-    /* Color del text */
 }
+
 .incidencia {
     margin: 10px 0;
     padding: 10px;
@@ -212,6 +148,8 @@ a.sidebar-link:hover {
     border-radius: 5px;
     background-color: #e9ecef;
 }
+
 .incidencia strong {
-    color: #007bff; /* Color del títol de l'incidència */
+    color: #007bff;
+    /* Color del títol de l'incidència */
 }
