@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-class M_Login
+class login
 {
     public function verificar_login()
     {
@@ -35,4 +35,5 @@ class M_Login
             }
         }
     }
+
 }
