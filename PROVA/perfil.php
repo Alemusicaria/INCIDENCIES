@@ -120,7 +120,7 @@
 
             <!-- Botó per tornar a l'inici -->
             <div class="text-center mt-4">
-                <a href="inici.html" class="btn btn-primary btn-professional">Torna a l'inici</a>
+                <a href="index.php" class="btn btn-primary btn-professional">Torna a l'inici</a>
             </div>
         </div>
     </div>
