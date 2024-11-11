@@ -1,36 +1,59 @@
 <?php
+
 class incidencias
 {
-
     public function ingresar_incidencias()
     {
-        $Nombre = $_POST['Nombre'];
+
+        if (isset($_SESSION['usuario'])) {
+            $Nombre = $_SESSION['usuario'];
+        } else {
+            die("Error: No se ha encontrado el usuario en la sesión.");
+        }
+
+        
+
         $TituloFallo = $_POST['TituloFallo'];
-        $Tipo = $_POST['Tipo'];
         $Descripcion = $_POST['Descripcion'];
-        $Prioridad = $_POST['Prioridad'];
-        $Estado = $_POST['Estado'];
+        $Categoria = $_POST['Categoria'];
         $Planta = $_POST['Planta'];
+        $Salon = $_POST['Salon'];
+        $Estado = $_POST['Estado'];
+        $Prioridad = $_POST['Prioridad'];
+        
+        $Foto = $_FILES['Foto']['name'];
+        $ruta = $_FILES['Foto']['tmp_name'];
+        $destino = "../Images/Repocitorio/".$Foto;
+        move_uploaded_file($ruta, $destino);
 
-        $mysql = new mysqli("localhost", "root", "", "mvc");
-
+        $mysql = new mysqli("localhost", "root", "", "incidencies");
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
         }
 
-        if (empty($Nombre) || empty($TituloFallo) || empty($Tipo) || empty($Descripcion) || empty($Prioridad) || empty($Estado) || empty($Planta)) {
-            $_SESSION['error'] = "Por favor, completa todos los campos.";
-            return false;
-        }
+        $query_ubicacion = "SELECT id FROM sales WHERE planta = '$Planta' AND sala = '$Salon'";
+        $result = $mysql->query($query_ubicacion);
 
-        $result = $mysql->query("INSERT INTO incidencias (Nombre, TituloFallo, Tipo, Descripcion, Prioridad, Estado, Planta) VALUES ('$Nombre', '$TituloFallo', '$Tipo', '$Descripcion', '$Prioridad', '$Estado', '$Planta')");
-
-        if ($result) {
-            $_SESSION['exito'] = "Incidencia ingresada correctamente.";
-            return true;
-        } else {
-            $_SESSION['error'] = "Hubo un error al ingresar la incidencia.";
+        if($result->num_rows > 0)
+        {
+            $row = $result->fetch_assoc();
+            $id_ubicacion = $row['id'];
+            
+            $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges)
+            VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Estado', '$Prioridad', '$destino')";
+            if ($mysql->query($query_incidencias) === TRUE) {
+                $_SESSION['exito'] = "Incidencia ingresada con éxito.";
+                return true;
+            } else {
+                $_SESSION['error'] = "Error al insertar la incidencia:";
+                return false;
+            }
+        }else
+        {
+            $_SESSION['error'] = "Error al insertar la incidencia:";
             return false;
         }
     }
+
+ 
 }

@@ -1,13 +1,14 @@
 <?php
 
-class login
+class Login
 {
     public function verificar_login()
     {
+        
         $email = $_POST['email'];
         $contraseña = $_POST['password'];
 
-        $mysql = new mysqli("localhost", "root", "", "mvc");
+        $mysql = new mysqli("localhost", "root", "", "incidencies");
 
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
@@ -18,21 +19,23 @@ class login
             return false;
         }
 
-        $result = $mysql->query("SELECT * FROM usuarios WHERE email = '$email'");
+        $result = $mysql->query("SELECT * FROM usuaris WHERE correu = '$email'");
 
         if ($result->num_rows === 0) {
             $_SESSION['error'] = "Usuario no encontrado.";
             return false;
         } else {
             $usuario = $result->fetch_assoc();
-            if (password_verify($contraseña, $usuario['contraseña'])) {
+            if ($contraseña=$usuario['contrasenya']) {
                 // Login exitoso
-                $_SESSION['usuario'] = $usuario['nombre']; 
+                $_SESSION['usuario'] = $usuario['nom_cognoms']; 
                 return true;
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
                 return false;
             }
+                
+           
         }
     }
 
