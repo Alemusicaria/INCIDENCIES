@@ -23,7 +23,7 @@ class incidencias
         
         $Foto = $_FILES['Foto']['name'];
         $ruta = $_FILES['Foto']['tmp_name'];
-        $destino = "../Images/Repocitorio/".$Foto;
+        $destino = "Images/Repocitori/".$Foto;
         move_uploaded_file($ruta, $destino);
 
         $mysql = new mysqli("localhost", "root", "", "incidencies");
