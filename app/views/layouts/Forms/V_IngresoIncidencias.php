@@ -1,5 +1,5 @@
 
-<form action="index.php/?controller=Incidencias&method=Ingresar_Incidencias" method="post">
+<form action="index.php?controller=Incidencias&method=Ingresar_Incidencias" method="post">
    
     <div class="form-group">
         <label for="TituloFallo">Titulo de la Incidencia </label>
@@ -88,4 +88,3 @@
 
     <button type="submit" class="btn btn-primary">Insertar</button>
 </form>
-
