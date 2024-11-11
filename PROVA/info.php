@@ -50,6 +50,27 @@ error_reporting(E_ALL);
             background-color: #F4F6FF; /* Color de fondo del input */
             transition: border-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
         }
+
+        .input-container select {
+            padding-left: 30px; /* Espacio para el icono */
+            width: 100%; /* Asegura que el select ocupe el ancho completo */
+            height: 40px; /* Altura del select */
+            border: 1px solid #ccc; /* Estilo del borde */
+            border-radius: 5px; /* Esquinas redondeadas */
+            background-color: #F4F6FF; /* Color de fondo del select */
+            font-size: 16px; /* Tamaño de fuente para que sea coherente con el diseño */
+            transition: border-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+        }
+
+        .input-container select:focus {
+            border-color: #4CAF50; /* Color verde para el borde */
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Sombra verde */
+            outline: none; /* Elimina el borde por defecto de los navegadores */
+        }
+
+        .input-container select:hover {
+            border-color: #888; /* Cambia el borde al pasar el mouse */
+        }
     </style>
 
 </head>
@@ -66,65 +87,76 @@ error_reporting(E_ALL);
 
                 <label>Titulo de la Incidencia</label>
                 <div class="input-container">
-                    <i class="fa-solid fa-heading"></i>
+                    <i class="fa-solid fa-pencil-alt"></i>
                     <input type="text" name="TituloFallo" id="TituloFallo" required>
                 </div>
 
                 <label>Tipo de Incidencia</label>
                 <div class="input-container">
-                    <i class="fa-solid fa-heading"></i>
-                    <input type="text" name="Categoria" id="Categoria" required>
+                    <i class="fas fa-th-list"></i>
+                    <select id="Categoria" name="Categoria" class="form-control" required>
+                        <option value="Calefaccio"> Calefacció</option>
+                        <option value="Electricitat"> Electricitat</option>
+                        <option value="Fontaner"> Fontaner</option>
+                        <option value="Informatica"> Informàtica</option>
+                        <option value="Fusteria"> Fusteria</option>
+                        <option value="Ferrer"> Ferrer</option>
+                        <option value="Obres"> Obres</option>
+                        <option value="Audiovisual"> Audiovisual</option>
+                        <option value="Equips de seguretat"> Equips de seguretat</option>
+                        <option value="Neteja de clavegueram"> Neteja de clavegueram</option>
+                        <option value="Otros"> Otros</option>
+                    </select>
                 </div>
 
-                <label>Email del reporter</label>
+                <label>Planta</label>
                 <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
+                    <i class="fas fa-building"></i>
+                    <select id="Planta" name="Planta" class="form-control">
+                        <option value="Planta -1">Planta -1</option>
+                        <option value="Planta 0">Planta 0</option>
+                        <option value="Planta 1">Planta 1</option>
+                        <option value="Planta 2">Planta 2</option>
+                        <option value="Planta 3">Planta 3</option>
+                        <option value="Planta 4">Planta 4</option>
+                    </select>
+                </div>
+                
+                <label>Numero Sala</label>
+                <div class="input-container">
+                    <i class="fas fa-door-closed"></i>
+                    <input type="text" name="Salon" id="Salon" required>
                 </div>
 
-                <label>Titol del fallo</label>
+                <label>Estado</label>
                 <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
-                </div>
+                    <input type="radio" class="btn-check" name="Estado" id="Pendent" value="Pendent" required>
+                    <label class="btn btn-outline-success" for="Pendent">Pendent</label>
 
-                <lable>Tipus del fallo</label>
-                <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
-                </div>
+                    <input type="radio" class="btn-check" name="Estado" id="En Progrés" value="En Progrés" required>
+                    <label class="btn btn-outline-danger" for="En Progrés">En Progrés</label>
 
-                <label>Data de creació</label>
-                <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
-                </div>
-
-                <label>Descripció</label>
-                <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
-                </div>
-
-                <label>Ubicació</label>
-                <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
+                    <input type="radio" class="btn-check" name="Estado" id="Resolta" value="Resolta" required>
+                    <label class="btn btn-outline-warning" for="Resolta">Resolta</label>
                 </div>
 
                 <label>Prioritat</label>
                 <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
+                    <input type="radio" class="btn-check" name="Prioridad" id="Baixa" value="Baixa" required>
+                    <label class="btn btn-outline-success" for="Baixa">Baixa</label>
+
+                    <input type="radio" class="btn-check" name="Prioridad" id="Mitjana" value="Mitjana" required>
+                    <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
+
+                    <input type="radio" class="btn-check" name="Prioridad" id="Alta" value="Alta" required>
+                    <label class="btn btn-outline-warning" for="Alta">Alta</label>
                 </div>
 
-                <label>Estat</label>
-                <div class="input-container">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" name="correo" id="correo" required>
-                </div>
+                <i class="fas fa-camera"></i>
+                <label>Foto</label>
+                <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
 
-                <label>Imatgés</label>
+                <label>Descripció</label>
                 <div class="input-container">
                     <i class="fas fa-envelope"></i>
                     <input type="email" name="correo" id="correo" required>
