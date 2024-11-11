@@ -2,7 +2,7 @@
 
 class Login
 {
-    public function verificar_login()
+    public function Verificar_Login()
     {
         
         $email = $_POST['email'];
@@ -14,11 +14,6 @@ class Login
             die('Problemas con la conexión a la base de datos');
         }
 
-        if (empty($email) || empty($contraseña)) {
-            $_SESSION['error'] = "Por favor, completa todos los campos.";
-            return false;
-        }
-
         $result = $mysql->query("SELECT * FROM usuaris WHERE correu = '$email'");
 
         if ($result->num_rows === 0) {
@@ -26,16 +21,14 @@ class Login
             return false;
         } else {
             $usuario = $result->fetch_assoc();
-            if ($contraseña=$usuario['contrasenya']) {
+            if (password_verify($contraseña, $usuario['contrasenya'])) {
                 // Login exitoso
                 $_SESSION['usuario'] = $usuario['nom_cognoms']; 
                 return true;
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
                 return false;
-            }
-                
-           
+            }    
         }
     }
 

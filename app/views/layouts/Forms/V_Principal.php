@@ -2,3 +2,6 @@
 <button onclick="window.location.href='index.php?controller=Incidencias&method=vista_ingreso_incidencias';">
     Ir a Vista Ingreso de Incidencias
 </button>
+<button onclick="window.location.href='index.php?controller=Registro&method=registro';">
+    Ir a Vista Usuario
+</button>

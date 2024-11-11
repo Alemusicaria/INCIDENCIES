@@ -18,7 +18,7 @@ class IncidenciasController
 
     public function vista_ingreso_incidencias()
     {
-        require "app/views/Forms/V_IngresoIncidencias.php";
+        require "app/views/layouts/Forms/V_IngresoIncidencias.php";
     }
 
     

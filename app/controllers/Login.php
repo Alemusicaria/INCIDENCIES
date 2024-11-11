@@ -7,7 +7,7 @@ class LoginController
     public function verificar_login()
     {
         $login = new login();
-        if ($login->verificar_login()) {
+        if ($login->Verificar_Login()) {
             // Si el login es exitoso, redirige a la página de inicio
             header( "Location: index.php?controller=Login&method=bienvenido" );
             exit;
@@ -20,11 +20,11 @@ class LoginController
 
     public function login()
     {
-        require "app/views/Forms/V_Login.php";
+        require "app/views/layouts/Forms/V_Login.php";
     }
 
     public function bienvenido()
     {
-        require "app/views/Forms/V_Principal.php";
+        require "app/views/layouts/Forms/V_Principal.php";
     }
 }
