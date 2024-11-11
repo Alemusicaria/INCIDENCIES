@@ -59,8 +59,6 @@ error_reporting(E_ALL);
             
             <!--                        
             -->
-
-
             <div id='calendar'></div>
             <!-- Espai per mostrar la data seleccionada -->
             <div id="selected-date" style="display:none;">
