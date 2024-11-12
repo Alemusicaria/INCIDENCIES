@@ -30,7 +30,8 @@
 
     <div class="form-group">
         <label for="Planta">Planta</label>
-        <select id="Planta" name="Planta" class="form-control"required>
+        <select id="Planta" name="Planta" class="form-control" required onchange="cargarSalas()">
+            <option value="">Selecciona una planta</option>
             <option value="Planta -1">Planta -1</option>
             <option value="Planta 0">Planta 0</option>
             <option value="Planta 1">Planta 1</option>
@@ -40,9 +41,11 @@
         </select>
     </div>
 
-    <div>
-        <label for="Salon">Numero Sala</label>
-        <input type="text" class="form-control" id="Salon" name="Salon"required>
+    <div class="form-group">
+        <label for="Salon">Número de Sala</label>
+        <select id="Salon" name="Salon" class="form-control" required>
+            <option value="">Selecciona una planta primero</option>
+        </select>
     </div>
 
     <div class="form-group">
@@ -84,3 +87,5 @@
     
     <button type="submit" class="btn btn-primary">Insertar</button>
 </form>
+
+<script src="app/views/layouts/js/cargarSalas.js"></script>

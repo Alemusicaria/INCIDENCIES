@@ -54,5 +54,23 @@ class incidencias
             }
     }
 
+    public function obtenerSalasPorPlanta($planta)
+    {
+        $mysql = new mysqli("localhost", "root", "", "incidencies");
+        if ($mysql->connect_error) {
+            die('Problemas con la conexión a la base de datos');
+        }
+
+        $query = "SELECT sala FROM sales WHERE planta = '$planta'";
+        $result = $mysql->query($query);
+
+        $salas = [];
+        while ($row = $result->fetch_assoc()) {
+            $salas[] = $row['sala'];
+        }
+
+        return $salas;
+    }
+
  
 }
