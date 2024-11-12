@@ -31,45 +31,33 @@ error_reporting(E_ALL);
             width: 100%; /* Asegura que el input ocupe el ancho completo */
             margin-bottom: 10px; /* Espacio entre inputs */
 
-        }
-
-        .input-container i {
-            position: absolute; /* Posiciona el icono de manera absoluta */
-            left: 10px; /* Ajusta el espacio desde la izquierda */
-            top: 50%; /* Centra el icono verticalmente */
-            transform: translateY(-50%); /* Alinea verticalmente el icono */
-            color: #888; /* Color del icono */
+            background-color: #FFFFFF; /* Color de fondo del input */
         }
 
         .input-container input {
-            padding-left: 30px; /* Espacio para el icono */
+            padding-left: 10px;
             width: 100%; /* Asegura que el input ocupe el ancho completo */
             height: 40px; /* Altura del input */
             border: 1px solid #ccc; /* Estilo del borde */
             border-radius: 5px; /* Esquinas redondeadas */
-            background-color: #F4F6FF; /* Color de fondo del input */
             transition: border-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
         }
 
         .input-container select {
-            padding-left: 30px; /* Espacio para el icono */
             width: 100%; /* Asegura que el select ocupe el ancho completo */
             height: 40px; /* Altura del select */
             border: 1px solid #ccc; /* Estilo del borde */
             border-radius: 5px; /* Esquinas redondeadas */
-            background-color: #F4F6FF; /* Color de fondo del select */
             font-size: 16px; /* Tamaño de fuente para que sea coherente con el diseño */
             transition: border-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
         }
 
         .input-container select:focus {
-            border-color: #4CAF50; /* Color verde para el borde */
             box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Sombra verde */
             outline: none; /* Elimina el borde por defecto de los navegadores */
         }
 
         .input-container select:hover {
-            border-color: #888; /* Cambia el borde al pasar el mouse */
         }
     </style>
 
@@ -85,15 +73,15 @@ error_reporting(E_ALL);
             <h1> Detalles de la incidencia </h1>
             <form method="post" action="#">
 
+                <i class="fa-solid fa-pencil-alt"></i>
                 <label>Titulo de la Incidencia</label>
                 <div class="input-container">
-                    <i class="fa-solid fa-pencil-alt"></i>
                     <input type="text" name="TituloFallo" id="TituloFallo" required>
                 </div>
-
+                
+                <i class="fas fa-th-list"></i>
                 <label>Tipo de Incidencia</label>
                 <div class="input-container">
-                    <i class="fas fa-th-list"></i>
                     <select id="Categoria" name="Categoria" class="form-control" required>
                         <option value="Calefaccio"> Calefacció</option>
                         <option value="Electricitat"> Electricitat</option>
@@ -109,9 +97,9 @@ error_reporting(E_ALL);
                     </select>
                 </div>
 
+                <i class="fas fa-building"></i>
                 <label>Planta</label>
                 <div class="input-container">
-                    <i class="fas fa-building"></i>
                     <select id="Planta" name="Planta" class="form-control">
                         <option value="Planta -1">Planta -1</option>
                         <option value="Planta 0">Planta 0</option>
@@ -122,11 +110,13 @@ error_reporting(E_ALL);
                     </select>
                 </div>
                 
+                <i class="fas fa-door-closed"></i>
                 <label>Numero Sala</label>
                 <div class="input-container">
-                    <i class="fas fa-door-closed"></i>
                     <input type="text" name="Salon" id="Salon" required>
                 </div>
+
+                                <!--
 
                 <label>Estado</label>
                 <div class="input-container">
@@ -140,6 +130,7 @@ error_reporting(E_ALL);
                     <label class="btn btn-outline-warning" for="Resolta">Resolta</label>
                 </div>
 
+
                 <label>Prioritat</label>
                 <div class="input-container">
                     <input type="radio" class="btn-check" name="Prioridad" id="Baixa" value="Baixa" required>
@@ -152,16 +143,16 @@ error_reporting(E_ALL);
                     <label class="btn btn-outline-warning" for="Alta">Alta</label>
                 </div>
 
+                                    -->
                 <i class="fas fa-camera"></i>
                 <label>Foto</label>
-                <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
+                <input type="file" class="form-control" name="Foto" id="Foto">
 
+                <i class="fas fa-envelope"></i>
                 <label>Descripció</label>
                 <div class="input-container">
-                    <i class="fas fa-envelope"></i>
                     <input type="email" name="correo" id="correo" required>
                 </div>
-
             </form>
         </div>
     </div>
