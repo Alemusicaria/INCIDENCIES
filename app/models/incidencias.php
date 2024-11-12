@@ -31,15 +31,21 @@ class incidencias
             }
 
             $query_ubicacion = "SELECT id FROM sales WHERE planta = '$Planta' AND sala = '$Salon'";
-            $result = $mysql->query($query_ubicacion);
+            $result_ubicacion = $mysql->query($query_ubicacion);
 
-            if($result->num_rows > 0)
+            $query_usuario = "SELECT id FROM usuaris WHERE nom_cognoms = '$Nombre'";
+            $result_usuario = $mysql->query($query_usuario);
+            
+            if($result_ubicacion->num_rows > 0 && $result_usuario->num_rows > 0)
             {
-                $row = $result->fetch_assoc();
-                $id_ubicacion = $row['id'];
+                $row_ubicacion = $result_ubicacion->fetch_assoc();
+                $id_ubicacion = $row_ubicacion['id'];
+
+                $row_usuario = $result_usuario->fetch_assoc();
+                $id_usuario = $row_usuario['id'];
                 
-                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges)
-                VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Estado', '$Prioridad', '$destino')";
+                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges, id_usuario)
+                VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Estado', '$Prioridad', '$destino', '$id_usuario')";
                 if ($mysql->query($query_incidencias) === TRUE) {
                     $_SESSION['exito'] = "Incidencia ingresada con éxito.";
                     return true;

@@ -5,3 +5,6 @@
 <button onclick="window.location.href='index.php?controller=Registro&method=registro';">
     Ir a Vista Usuario
 </button>
+<button onclick="window.location.href='index.php?controller=Cuadro_Incidencias&method=mostrar_incidencias';">
+    Ir a MOSTARAS
+</button>
