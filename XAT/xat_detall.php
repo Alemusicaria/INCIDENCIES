@@ -17,6 +17,7 @@ if (isset($_GET['usuari_id'])) {
     // Obtenir el nom de l'usuari destinatari
     $query_usuari = "SELECT nom_cognoms FROM usuaris WHERE id = $usuari_id_destinatari";
     $resultat_usuari = mysqli_query($conn, $query_usuari);
+
     if ($resultat_usuari) {
         $usuari_destinatari = mysqli_fetch_assoc($resultat_usuari);
     } else {
@@ -37,7 +38,7 @@ if (isset($_GET['usuari_id'])) {
     WHERE (m.usuari_id = $usuari_id AND m.destinatari_id = $usuari_id_destinatari)
     OR (m.usuari_id = $usuari_id_destinatari AND m.destinatari_id = $usuari_id)
     ORDER BY m.data ASC
-";
+    ";
     $resultat_missatges = mysqli_query($conn, $query_missatges);
 
     if (!$resultat_missatges) {
@@ -77,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
 <body>
     <div class="container">
         <header>
-            <h1>Conversant amb: <?php echo $usuari_destinatari['nom_cognoms']; ?></h1>
+            <h1>Conversant amb: <?php echo isset($usuari_destinatari) ? $usuari_destinatari['nom_cognoms'] : ''; ?></h1>
             <form action="tancar_sessio.php" method="post">
                 <button class="logout-btn" type="submit">Tancar sessió</button>
             </form>
@@ -85,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
 
         <!-- Missatges amb l'usuari -->
         <section class="missatges">
-            <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
+            <?php if (isset($resultat_missatges) && mysqli_num_rows($resultat_missatges) > 0): ?>
                 <ul>
                     <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
                         <li>
