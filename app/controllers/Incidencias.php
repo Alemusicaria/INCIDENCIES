@@ -18,8 +18,17 @@ class IncidenciasController
 
     public function vista_ingreso_incidencias()
     {
-        require "app/views/Forms/V_IngresoIncidencias.php";
+        require "app/views/layouts/Forms/V_IngresoIncidencias.php";
     }
 
+    public function obtenerSalas()
+    {
+        if (isset($_POST['planta'])) {
+            $planta = $_POST['planta'];
+            $incidenciasModel = new incidencias();
+            $salas = $incidenciasModel->obtenerSalasPorPlanta($planta);
+            echo json_encode($salas);
+        }
+    }
     
 }
