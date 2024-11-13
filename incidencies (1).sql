@@ -97,20 +97,6 @@ CREATE TABLE `missatges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `missatges`
---
-
-INSERT INTO `missatges` (`id`, `grup_id`, `xat_id`, `usuari_id`, `missatge`, `data`) VALUES
-(9, NULL, 1, 1, 'Hola, com estàs?', '2024-11-11 11:21:52'),
-(10, NULL, 1, 2, 'Estic bé, gràcies! I tu?', '2024-11-11 11:21:52'),
-(11, NULL, 1, 1, 'Tot bé, gràcies per preguntar.', '2024-11-11 11:21:52'),
-(12, NULL, 1, 2, 'Què tal la feina?', '2024-11-11 11:21:52'),
-(17, 1, NULL, 1, 'Benvinguts al grup, tots!', '2024-11-11 11:22:44'),
-(18, 1, NULL, 2, 'Hola, estic emocionat de formar part del grup!', '2024-11-11 11:22:44'),
-(19, 1, NULL, 3, 'Què tal a tots?', '2024-11-11 11:22:44'),
-(20, 1, NULL, 1, 'Estem planificant una trobada per aquest cap de setmana.', '2024-11-11 11:22:44'),
-(21, 1, NULL, 3, 'Aleix hdsfhgfdhdfghdfgh', '2024-11-11 11:26:15');
-
 -- --------------------------------------------------------
 
 --

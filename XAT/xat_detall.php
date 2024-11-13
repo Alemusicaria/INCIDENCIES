@@ -10,54 +10,49 @@ if (!isset($_SESSION['id'])) {
 
 $usuari_id = $_SESSION['id'];
 
-// Obtenim l'ID de l'usuari des de la URL
-if (isset($_GET['usuari_id'])) {
-    $usuari_id_destinatari = $_GET['usuari_id'];
+// Comprovem que 'conversa_id' està definit a la URL
+if (isset($_GET['conversa_id'])) {
+    $conversa_id = $_GET['conversa_id'];
 
-    // Obtenir el nom de l'usuari destinatari
-    $query_usuari = "SELECT nom_cognoms FROM usuaris WHERE id = $usuari_id_destinatari";
-    $resultat_usuari = mysqli_query($conn, $query_usuari);
+    // Comprovem si la conversa existeix
+    $query_conversa = "
+        SELECT id, usuari1_id, usuari2_id 
+        FROM converses_privades
+        WHERE id = $conversa_id AND (usuari1_id = $usuari_id OR usuari2_id = $usuari_id)
+    ";
+    $resultat_conversa = mysqli_query($conn, $query_conversa);
+    $conversa = mysqli_fetch_assoc($resultat_conversa);
 
-    if ($resultat_usuari) {
-        $usuari_destinatari = mysqli_fetch_assoc($resultat_usuari);
-    } else {
-        echo "Error en la consulta per obtenir l'usuari.";
+    if (!$conversa) {
+        echo "Conversa no trobada o no autoritzat a veure-la.";
         exit();
     }
 
-    if (!$usuari_destinatari) {
-        echo "Usuari no trobat.";
-        exit();
-    }
-
-    // Obtenir els missatges entre l'usuari logejat i el destinatari
+    // Obtenir els missatges de la conversa
     $query_missatges = "
-    SELECT m.missatge, m.data, u.nom_cognoms
-    FROM missatges m
-    JOIN usuaris u ON m.usuari_id = u.id
-    WHERE (m.usuari_id = $usuari_id AND m.destinatari_id = $usuari_id_destinatari)
-    OR (m.usuari_id = $usuari_id_destinatari AND m.destinatari_id = $usuari_id)
-    ORDER BY m.data ASC
+        SELECT m.missatge, m.data, u.nom_cognoms
+        FROM missatges m
+        JOIN usuaris u ON m.usuari_id = u.id
+        WHERE m.conversa_id = $conversa_id
+        ORDER BY m.data ASC
     ";
     $resultat_missatges = mysqli_query($conn, $query_missatges);
-
-    if (!$resultat_missatges) {
-        echo "Error en la consulta dels missatges: " . mysqli_error($conn);
-        exit();
-    }
+} else {
+    echo "Conversa no trobada.";
+    exit();
 }
 
-// Afegir un missatge a la base de dades
+// Afegir un missatge a la conversa privada
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
     $missatge = mysqli_real_escape_string($conn, $_POST['missatge']);
 
     $query_inserir = "
-        INSERT INTO missatges (usuari_id, destinatari_id, missatge, data)
-        VALUES ($usuari_id, $usuari_id_destinatari, '$missatge', NOW())
+        INSERT INTO missatges (conversa_id, usuari_id, missatge, data)
+        VALUES ($conversa_id, $usuari_id, '$missatge', NOW())
     ";
 
     if (mysqli_query($conn, $query_inserir)) {
-        header("Location: usuari_detall.php?usuari_id=$usuari_id_destinatari");
+        header("Location: xat_detall.php?conversa_id=$conversa_id");
         exit();
     } else {
         echo "Error al enviar el missatge: " . mysqli_error($conn);
@@ -71,20 +66,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuari - Detall</title>
+    <title>Xat Privat</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Conversant amb: <?php echo isset($usuari_destinatari) ? $usuari_destinatari['nom_cognoms'] : ''; ?></h1>
+            <h1>Xat amb <?php echo get_nom_conversa($conversa, $conn); ?></h1>
             <form action="tancar_sessio.php" method="post">
                 <button class="logout-btn" type="submit">Tancar sessió</button>
             </form>
         </header>
 
-        <!-- Missatges amb l'usuari -->
+        <!-- Missatges del xat privat -->
         <section class="missatges">
             <?php if (isset($resultat_missatges) && mysqli_num_rows($resultat_missatges) > 0): ?>
                 <ul>
@@ -97,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
                     <?php endwhile; ?>
                 </ul>
             <?php else: ?>
-                <p>No hi ha missatges amb aquest usuari.</p>
+                <p>No hi ha missatges en aquest xat.</p>
             <?php endif; ?>
         </section>
 
@@ -109,8 +104,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
             </form>
         </section>
 
-        <a href="xat.php">Tornar a les converses</a>
+        <a href="xat.php">Tornar a la llista de converses</a>
     </div>
 </body>
 
 </html>
+
+<?php
+// Funció per obtenir el nom de l'usuari amb qui estàs xatejant
+function get_nom_conversa($conversa, $conn)
+{
+    $usuari_id = ($conversa['usuari1_id'] == $_SESSION['id']) ? $conversa['usuari2_id'] : $conversa['usuari1_id'];
+    $query = "SELECT nom_cognoms FROM usuaris WHERE id = $usuari_id";
+    $resultat = mysqli_query($conn, $query);
+    $usuari = mysqli_fetch_assoc($resultat);
+    return $usuari['nom_cognoms'];
+}
+?>

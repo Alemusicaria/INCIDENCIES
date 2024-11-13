@@ -127,10 +127,11 @@ if (isset($_GET['cerca'])) {
                 <ul>
                     <?php while ($row = mysqli_fetch_assoc($resultat_converses)): ?>
                         <li>
-                            <a href="xat_detall.php?xat_id=<?php echo $row['id']; ?>">
+                            <a href="xat_detall.php?conversa_id=<?php echo $row['id']; ?>">
                                 <?php echo $row['usuari_conversant']; ?>
                             </a>
                         </li>
+
                     <?php endwhile; ?>
                 </ul>
             <?php else: ?>
