@@ -44,7 +44,7 @@ class incidencias
                 $row_usuario = $result_usuario->fetch_assoc();
                 $id_usuario = $row_usuario['id'];
                 
-                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, prioritat, imatges, id_usuario)
+                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, prioritat, imatges, id_usuari)
                 VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Prioridad', '$destino', '$id_usuario')";
                 if ($mysql->query($query_incidencias) === TRUE) {
                     $_SESSION['exito'] = "Incidencia ingresada con éxito.";

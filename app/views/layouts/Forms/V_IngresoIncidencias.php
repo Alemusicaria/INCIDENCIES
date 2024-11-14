@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php
-include("layouts/header/header.php"); // Aquí se incluye la barra lateral
+include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lateral
 ?>
 
 <body>

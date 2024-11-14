@@ -16,23 +16,38 @@
                 <span>Perfil</span>
             </a>
         </li>
+        <!-- MENU DEL ADMIN-->
+
+        <?php if ($_SESSION['rol'] == 'Admin'): ?>
+            <li class="sidebar-item">
+                <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
+                    <i class="lni lni-agenda"></i>
+                    <span>Les meves incidències</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="gestionar_professors.php" class="sidebar-link">
+                    <i class="lni lni-cog"></i>
+                    <span>Gestionar professors</span>
+                </a>
+            </li>
+        <?php endif; ?>
+
+        <!-- MENU DEL PROFESOR-->
+
+        <!-- MENU DEL TECNICO-->
+
         <li class="sidebar-item">
-            <a href="index.php" class="sidebar-link">
-                <i class="lni lni-home"></i>
-                <span>Inici</span>
+            <a href="perfil.php" class="sidebar-link">
+                <i class="lni lni-user"></i>
+                <span>Perfil</span>
             </a>
         </li>
+
         <li class="sidebar-item">
-            <a href="incidencies.php" class="sidebar-link">
-                <i class="lni lni-agenda"></i>
-                <span>Les meves incidències</span>
-            </a>
-        </li>
-        
-        <li class="sidebar-item">
-            <a href="gestionar_professors.php" class="sidebar-link">
-                <i class="lni lni-cog"></i>
-                <span>Gestionar professors</span>
+            <a href="perfil.php" class="sidebar-link">
+                <i class="lni lni-user"></i>
+                <span>Perfil</span>
             </a>
         </li>
     </ul>
