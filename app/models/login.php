@@ -5,7 +5,7 @@ class Login
     public function Verificar_Login()
     {
         
-        $email = $_POST['email'];
+        $email = $_POST['username'];
         $contraseña = $_POST['password'];
 
         $mysql = new mysqli("localhost", "root", "", "incidencies");
