@@ -82,7 +82,7 @@ body {
 }
 
 .logo1 img {
-    width: 30%; /* Adjust image width */
+    width: 20%; /* Adjust image width */
     height: auto; /* Maintain aspect ratio */
 }
 
@@ -96,7 +96,7 @@ body {
 }
 
 .logo2 img {
-    width: 85%; /* Adjust image width */
+    width: 70%; /* Adjust image width */
     height: auto; /* Maintain aspect ratio */
 }
 
