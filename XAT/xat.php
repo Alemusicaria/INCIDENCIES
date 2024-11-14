@@ -115,7 +115,7 @@ if (isset($_GET['cerca'])) {
         <!-- Cercador dinàmic -->
         <section class="cercador">
             <input type="text" id="cercador" placeholder="Cerca una conversa o grup" oninput="cercar()">
-            <a href="crear_xat.php" class="crear-xat-btn">
+            <a href="crear_conversa.php" class="crear-xat-btn">
                 <img src="../Images/Login/Fondo1.png" alt="Crear Xat" style="width:50px">
             </a>
         </section>
@@ -127,7 +127,7 @@ if (isset($_GET['cerca'])) {
                 <ul>
                     <?php while ($row = mysqli_fetch_assoc($resultat_converses)): ?>
                         <li>
-                            <a href="xat_detall.php?conversa_id=<?php echo $row['id']; ?>">
+                            <a href="xat_detall.php?xat_id=<?php echo $row['id']; ?>">
                                 <?php echo $row['usuari_conversant']; ?>
                             </a>
                         </li>
