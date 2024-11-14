@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       dayEl.classList.add('selected-day'); // Afegim la classe per canviar el color
 
       // Aquí es fa la sol·licitud per obtenir les incidències d'aquell dia
-      fetch('get_incidencies.php?data=' + dateText)
+      fetch('app/views/php/get_incidencies.php?data=' + dateText)
         .then(response => response.json())
         .then(data => {
           const incidenciesContainer = document.getElementById('incidencies-container');
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
               // Crear un enllaç que redirigeixi a la pàgina de detall de la incidència
               div.innerHTML = `
-                          <a href="info.php?id=${incidencia.id_incidencia}" class="incidencia-link">
+                          <a href="app/views/layouts/Forms/V_MostrarInfo.php?id=${incidencia.id}" class="incidencia-link">
                               <strong>${incidencia.titol_fallo}</strong>
                               <br><span><em>Ubicació: ${incidencia.ubicacio}</em></span>
                           </a>`;
@@ -58,11 +58,28 @@ document.addEventListener('DOMContentLoaded', function () {
   calendar.render();
 
   // Afegir event listener als botons de canvi de vista
+  /*
   var viewButtons = document.querySelectorAll('.view-buttons button');
   viewButtons.forEach(function (button) {
     button.addEventListener('click', function () {
       var view = this.getAttribute('data-view');
       calendar.changeView(view);
+    });
+  });*/
+  // Agregar event listener a los labels en btn-group para cambiar la vista del calendario
+  var viewLabels = document.querySelectorAll('.btn-group label');
+  viewLabels.forEach(function (label) {
+    label.addEventListener('click', function () {
+      var view = this.getAttribute('data-view');
+      calendar.changeView(view);
+
+      // Remover la clase 'active' de todos los labels
+      viewLabels.forEach(function (lbl) {
+        lbl.classList.remove('active');
+      });
+
+      // Añadir la clase 'active' al label seleccionado
+      this.classList.add('active');
     });
   });
 });
