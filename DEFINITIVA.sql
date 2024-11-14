@@ -51,12 +51,13 @@ CREATE TABLE `incidencies` (
   `creador_nom_cognoms` varchar(100) NOT NULL,
   `titol_fallo` varchar(150) NOT NULL,
   `descripcio` text NOT NULL,
-  `tipus_incidencia` enum('Calefacció','Electricitat/Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram') NOT NULL,
+  `tipus_incidencia` enum('Calefacció','Electricitat','Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram','Altres') NOT NULL,
   `id_ubicacio` int(11) DEFAULT NULL,
   `data_incidencia` timestamp NOT NULL DEFAULT current_timestamp(),
   `estat` enum('Pendent','En Progrés','Resolta') DEFAULT 'Pendent',
   `prioritat` enum('Baixa','Mitjana','Alta') DEFAULT 'Baixa',
-  `imatges` text DEFAULT NULL
+  `imatges` text DEFAULT NULL,
+  `id_usuari` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -122,6 +123,42 @@ CREATE TABLE `sales` (
   `sala` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `sales`
+--
+
+INSERT INTO `sales` (`id`, `planta`, `sala`) VALUES
+(1, 'Planta -1', 'Sala 001'),
+(2, 'Planta -1', 'Sala 002'),
+(3, 'Planta -1', 'Sala 003'),
+(4, 'Planta -1', 'Sala 004'),
+(5, 'Planta -1', 'Sala 005'),
+(6, 'Planta 0', 'Sala 006'),
+(7, 'Planta 0', 'Sala 007'),
+(8, 'Planta 0', 'Sala 008'),
+(9, 'Planta 0', 'Sala 009'),
+(10, 'Planta 0', 'Sala 010'),
+(11, 'Planta 1', 'Sala 011'),
+(12, 'Planta 1', 'Sala 012'),
+(13, 'Planta 1', 'Sala 013'),
+(14, 'Planta 1', 'Sala 014'),
+(15, 'Planta 1', 'Sala 015'),
+(16, 'Planta 2', 'Sala 016'),
+(17, 'Planta 2', 'Sala 017'),
+(18, 'Planta 2', 'Sala 018'),
+(19, 'Planta 2', 'Sala 019'),
+(20, 'Planta 2', 'Sala 020'),
+(21, 'Planta 3', 'Sala 021'),
+(22, 'Planta 3', 'Sala 022'),
+(23, 'Planta 3', 'Sala 023'),
+(24, 'Planta 3', 'Sala 024'),
+(25, 'Planta 3', 'Sala 025'),
+(26, 'Planta 4', 'Sala 026'),
+(27, 'Planta 4', 'Sala 027'),
+(28, 'Planta 4', 'Sala 028'),
+(29, 'Planta 4', 'Sala 029'),
+(30, 'Planta 4', 'Sala 030');
+
 -- --------------------------------------------------------
 
 --
@@ -145,9 +182,9 @@ CREATE TABLE `usuaris` (
 --
 
 INSERT INTO `usuaris` (`id`, `nom_cognoms`, `correu`, `contrasenya`, `telefon`, `rol`, `habilitat`, `data_registre`, `foto`) VALUES
-(1, 'Aleix Prat', 'aleix@gmail.com', '123456', '987654321', 'Professor', 1, '2024-11-11 10:35:38', NULL),
-(2, 'Maria López', 'maria@gmail.com', '654321', '987654322', 'Professor', 1, '2024-11-11 10:40:00', NULL),
-(3, 'Jordi González', 'jordi@gmail.com', '111222', '987654323', 'Admin', 1, '2024-11-11 10:45:00', NULL);
+(1, 'Leandro Clavijo ', 'leandro@gmail.com', '$2y$10$tLFg6JKV3an/8GWhQma/9.8Cfs1JVmWEokEMjATt9HCZrirK47w8e', '65487958', 'Admin', 1, '2024-11-11 22:31:32', ' Images/Foto_Perfiles/WhatsApp Image 2024-10-24 at 12.38.40 PM.jpeg'),
+(2, 'Steve Portella', 'steve@gmail.com', '$2y$10$.wwXvhIjjn1wkXUGBIJxo.GsWBkvz50W/dtbEIQzy61irvrVrO2B2', '684985274', 'Professor', 1, '2024-11-11 22:34:42', ' Images/Foto_Perfiles/'),
+(3, 'Aleix Prat', 'aleix@gmail.com', '$2y$10$7Oa.ByYazLbG0j3SaFQMFus/ygZjQPqE5AkGHO5Aa69plku8sYDxi', '65751818', 'Tecnic', 1, '2024-11-12 20:23:09', ' Images/Foto_Perfiles/arriba1.png');
 
 -- --------------------------------------------------------
 

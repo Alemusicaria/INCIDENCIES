@@ -4,8 +4,10 @@
             <i class="lni lni-grid-alt"></i>
         </button>
         <div class="sidebar-logo">
-            <a href="#">Nom usuari</a>
+            <a href="#"><?php echo $_SESSION['usuario']; ?></a>
+            <a href="#"><?php echo $_SESSION['rol']; ?></a>
         </div>
+
     </div>
     <ul class="sidebar-nav">
         <li class="sidebar-item">
@@ -26,6 +28,7 @@
                 <span>Les meves incidències</span>
             </a>
         </li>
+        
         <li class="sidebar-item">
             <a href="gestionar_professors.php" class="sidebar-link">
                 <i class="lni lni-cog"></i>
