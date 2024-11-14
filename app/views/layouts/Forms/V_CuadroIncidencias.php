@@ -32,9 +32,9 @@
 
                 // Verificar que la incidencia pertenezca al usuario en sesión
                 if ($reg['id_usuario'] == $id_usuario_sesion) {
-                    echo '<td><button class="btn btn-primary btn-sm actualizar-incidencia" data-id="' . $reg['id'] . '">Informacion</button></td>';
-                    echo '<td><button class="btn btn-primary btn-sm actualizar-incidencia" data-id="' . $reg['id'] . '">Actualizar</button></td>';
-                    echo '<td><a href="index.php?controller=eliminar_incidencia&method=eliminar_incidencia&codigo=' . $reg['id'] . '" class="btn btn-danger btn-sm">Eliminar</a></td>';
+                    echo '<td><a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=' . $reg['id'] . '" class="btn btn-danger btn-sm">Informacion</a></td>';
+                    echo '<td><a href="index.php?controller=...&method=...&codigo=' . $reg['id'] . '" class="btn btn-danger btn-sm">Actualizar</a></td>';
+                    echo '<td><a href="index.php?controller=...&method=...&codigo=' . $reg['id'] . '" class="btn btn-danger btn-sm">Eliminar</a></td>';
                 }
                 echo "</tr>";
             }
