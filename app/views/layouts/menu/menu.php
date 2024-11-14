@@ -9,10 +9,6 @@
         </div>
     </div>
 
-    <div class="fotoperfil">
-        <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="Foto de perfil">
-    </div>
-
     <ul class="sidebar-nav">
         <li class="sidebar-item">
             <a href="perfil.php" class="sidebar-link">
