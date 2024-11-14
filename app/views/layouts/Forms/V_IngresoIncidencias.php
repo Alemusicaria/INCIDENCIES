@@ -64,21 +64,7 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="Estado">Estado</label>
-                    <div class="form-group">
-
-                        <input type="radio" class="btn-check" name="Estado" id="Pendent" value="Pendent" required>
-                        <label class="btn btn-outline-success" for="Pendent">Pendent</label>
-
-                        <input type="radio" class="btn-check" name="Estado" id="En Progrés" value="En Progrés" required>
-                        <label class="btn btn-outline-danger" for="En Progrés">En Progrés</label>
-
-                        <input type="radio" class="btn-check" name="Estado" id="Resolta" value="Resolta" required>
-                        <label class="btn btn-outline-warning" for="Resolta">Resolta</label>
-
-                    </div>
-                </div>
+             
 
                 <div class="form-group">
                     <label for="Prioridad">Prioridad</label>
