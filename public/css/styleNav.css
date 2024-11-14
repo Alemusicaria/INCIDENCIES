@@ -126,7 +126,7 @@ a.sidebar-link:hover {
 }
 
 #calendar {
-    max-width: 900px;
+    max-width: 100%;
     margin: 10px auto;
     overflow: hidden;
 }
