@@ -131,4 +131,4 @@ error_reporting(E_ALL);
 
 -->
 
-<script src="app/views/layouts/js/cargarSalas.js"></script>
+<script src="assets/js/cargarSalas.js"></script>
