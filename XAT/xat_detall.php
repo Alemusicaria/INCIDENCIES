@@ -79,46 +79,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conversació amb <?php echo $conversant['usuari_conversant']; ?></title>
+    <title>Xat - Detall</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Importem jQuery -->
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>Conversació amb: <?php echo $conversant['usuari_conversant']; ?></h1>
+            <h1>Xat amb <?php echo $conversant['usuari_conversant']; ?></h1>
             <form action="tancar_sessio.php" method="post">
                 <button class="logout-btn" type="submit">Tancar sessió</button>
             </form>
         </header>
 
         <!-- Missatges del xat -->
-        <section class="missatges">
-            <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
-                <ul>
-                    <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
-                        <li>
-                            <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
-                            <p><?php echo $missatge['missatge']; ?></p>
-                            <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php else: ?>
-                <p>No hi ha missatges en aquesta conversa.</p>
-            <?php endif; ?>
+        <section class="missatges" id="missatges">
+            <!-- Els missatges es carregaran dinàmicament -->
         </section>
 
         <!-- Formulari per enviar un missatge -->
         <section class="enviar-missatge">
-            <form method="POST">
+            <form id="formulari_missatge">
                 <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
                 <button type="submit">Enviar missatge</button>
             </form>
         </section>
-
-        <a href="xat.php">Tornar a les converses</a>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Carregar els missatges inicials
+            loadMessages();
+
+            // Enviar un missatge
+            $('#formulari_missatge').submit(function(event) {
+                event.preventDefault();
+                var missatge = $('textarea[name="missatge"]').val();
+
+                $.ajax({
+                    url: 'enviar_missatge.php',
+                    method: 'POST',
+                    data: {
+                        missatge: missatge,
+                        xat_id: <?php echo $xat_id; ?>
+                    },
+                    success: function(response) {
+                        // Un cop enviat, actualitzar la llista de missatges
+                        loadMessages();
+                        $('textarea[name="missatge"]').val(''); // Netejar el text input
+                    }
+                });
+            });
+
+            // Funció per carregar els missatges
+            function loadMessages() {
+                $.ajax({
+                    url: 'carregar_missatges.php',
+                    method: 'GET',
+                    data: {
+                        xat_id: <?php echo $xat_id; ?>
+                    },
+                    success: function(response) {
+                        $('#missatges').html(response); // Afegir els missatges al contingut de la pàgina
+                    }
+                });
+            }
+
+            // Opcional: refrescar cada cert temps per actualitzar els missatges (per exemple, cada 3 segons)
+            setInterval(loadMessages, 3000); // Actualitza cada 3 segons
+        });
+    </script>
 </body>
 
 </html>
