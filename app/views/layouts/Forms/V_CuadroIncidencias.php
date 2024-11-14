@@ -28,11 +28,11 @@
                 echo "<tr>";
                 echo "<td>" . $reg['id'] . "</td>";
                 echo "<td>" . $reg['titol_fallo'] . "</td>";
-                "<td>" . $reg['id_usuario'] . "</td>"; // Asegúrate de que 'id_usuario' existe en la tabla
+                "<td>" . $reg['id_usuari'] . "</td>"; // Asegúrate de que 'id_usuario' existe en la tabla
 
                 // Verificar que la incidencia pertenezca al usuario en sesión
-                if ($reg['id_usuario'] == $id_usuario_sesion) {
-                    echo '<td><a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=' . $reg['id'] . '" class="btn btn-danger btn-sm">Informacion</a></td>';
+                if ($reg['id_usuari'] == $id_usuario_sesion) {
+                    echo '<td><a href="index.php?controller=Editar_Incidencias&method=mostrar_incidencia&id=' . $reg['id'] . '" class="btn btn-danger btn-sm">Informacion</a></td>';
                     echo '<td><a href="index.php?controller=...&method=...&codigo=' . $reg['id'] . '" class="btn btn-danger btn-sm">Actualizar</a></td>';
                     echo '<td><a href="index.php?controller=...&method=...&codigo=' . $reg['id'] . '" class="btn btn-danger btn-sm">Eliminar</a></td>';
                 }

@@ -21,14 +21,22 @@
         <?php if ($_SESSION['rol'] == 'Admin'): ?>
             <li class="sidebar-item">
                 <a href="index.php?controller=Registro&method=registro" class="sidebar-link">
-                    <i class="lni lni-agenda"></i>
+                    <i class="lni lni-cog"></i>
                     <span>NOU profesor</span>
                 </a>
             </li>
+            
             <li class="sidebar-item">
-                <a href="gestionar_professors.php" class="sidebar-link">
-                    <i class="lni lni-cog"></i>
-                    <span>Gestionar professors</span>
+                <a href="index.php?controller=Info_Incidencias&method=mostrar_tabla_incidencias" class="sidebar-link">
+                    <i class="lni lni-agenda"></i>
+                    <span>Gestionar Incidència</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
+                    <i class="lni lni-agenda"></i>
+                    <span>Gestionar Incidència</span>
                 </a>
             </li>
         <?php endif; ?>
@@ -37,19 +45,6 @@
 
         <!-- MENU DEL TECNICO-->
 
-        <li class="sidebar-item">
-            <a href="perfil.php" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Perfil</span>
-            </a>
-        </li>
-
-        <li class="sidebar-item">
-            <a href="perfil.php" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Perfil</span>
-            </a>
-        </li>
     </ul>
     <div class="sidebar-footer">
         <a href="#" class="sidebar-link">

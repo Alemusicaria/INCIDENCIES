@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-session_start();
+
 
 // Agafem l'ID de la URL
 $id_incidencia = isset($_GET['id']) ? (int) $_GET['id'] : 0;

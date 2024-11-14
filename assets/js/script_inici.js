@@ -41,10 +41,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
               // Crear un enllaç que redirigeixi a la pàgina de detall de la incidència
               div.innerHTML = `
-                          <a href="app/views/layouts/mostrar_info.php?id=${incidencia.id}" class="incidencia-link">
-                              <strong>${incidencia.titol_fallo}</strong>
-                              <br><span><em>Ubicació: ${incidencia.ubicacio}</em></span>
-                          </a>`;
+                <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-danger btn-sm">
+                    Informació
+                </a>
+                <br><strong>${incidencia.titol_fallo}</strong>
+                <br><span><em>Ubicació: ${incidencia.ubicacio}</em></span>
+              `;
+
               incidenciesContainer.appendChild(div);
             });
 
