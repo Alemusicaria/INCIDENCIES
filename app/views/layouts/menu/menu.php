@@ -58,4 +58,4 @@
         </a>
     </div>
 </aside>
-<script src="/Insti/INCIDENCIES/assets/js/script_default.js"></script>
+<script src="assets/js/script_default.js"></script>
