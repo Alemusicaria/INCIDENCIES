@@ -16,7 +16,7 @@ class incidencias
         $Categoria = $_POST['Categoria'];
         $Planta = $_POST['Planta'];
         $Salon = $_POST['Salon'];
-        $Estado = $_POST['Estado'];
+        
         $Prioridad = $_POST['Prioridad'];
         
         $Foto = $_FILES['Foto']['name'];
@@ -44,8 +44,8 @@ class incidencias
                 $row_usuario = $result_usuario->fetch_assoc();
                 $id_usuario = $row_usuario['id'];
                 
-                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges, id_usuario)
-                VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Estado', '$Prioridad', '$destino', '$id_usuario')";
+                $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, prioritat, imatges, id_usuario)
+                VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Prioridad', '$destino', '$id_usuario')";
                 if ($mysql->query($query_incidencias) === TRUE) {
                     $_SESSION['exito'] = "Incidencia ingresada con éxito.";
                     return true;

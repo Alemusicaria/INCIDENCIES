@@ -23,7 +23,8 @@ class Login
             $usuario = $result->fetch_assoc();
             if (password_verify($contraseña, $usuario['contrasenya'])) {
                 // Login exitoso
-                $_SESSION['usuario'] = $usuario['nom_cognoms']; 
+                $_SESSION['usuario'] = $usuario['nom_cognoms'];
+                $_SESSION['rol'] = $usuario['rol']; 
                 return true;
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
