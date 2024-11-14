@@ -1,8 +1,8 @@
 <?php
 
-class cuadro_incidencias
+class info_incidencias
 {
-    public function mostrarar_incidencias()
+    public function tabla_incidencias()
     {
         $mysql = new mysqli("localhost", "root", "", "incidencies");
         if ($mysql->connect_error) {
