@@ -110,4 +110,4 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
 
 -->
 
-<script src="app/views/layouts/js/cargarSalas.js"></script>
+<script src="assets/js/cargarSalas.js"></script>
