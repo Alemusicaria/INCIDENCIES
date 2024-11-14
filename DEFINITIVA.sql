@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2024 a las 12:32:57
+-- Tiempo de generación: 14-11-2024 a las 09:06:20
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -97,6 +97,19 @@ CREATE TABLE `missatges` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `missatges`
+--
+
+INSERT INTO `missatges` (`id`, `grup_id`, `xat_id`, `usuari_id`, `missatge`, `data`) VALUES
+(22, 1, NULL, 1, 'sdfsdfsdf', '2024-11-14 07:43:45'),
+(23, NULL, 1, 1, 'fsdfds', '2024-11-14 07:48:59'),
+(24, NULL, 3, 2, 'Hola\\r\\n', '2024-11-14 07:59:04'),
+(25, NULL, 1, 2, 'sdfsdfsdf', '2024-11-14 07:59:26'),
+(26, NULL, 1, 2, 'sdfsdfsd', '2024-11-14 07:59:52'),
+(27, NULL, 1, 2, 'sdfsdf', '2024-11-14 08:04:09'),
+(28, NULL, 1, 1, 'sdfsdf', '2024-11-14 08:04:15'),
+(29, NULL, 1, 2, 'reertwertwertwertwert', '2024-11-14 08:05:21');
+
 -- --------------------------------------------------------
 
 --
@@ -153,7 +166,8 @@ CREATE TABLE `xats` (
 --
 
 INSERT INTO `xats` (`id`, `usuari1_id`, `usuari2_id`) VALUES
-(1, 2, 1);
+(1, 2, 1),
+(3, 2, 3);
 
 --
 -- Índices para tablas volcadas
@@ -236,7 +250,7 @@ ALTER TABLE `membres_grup`
 -- AUTO_INCREMENT de la tabla `missatges`
 --
 ALTER TABLE `missatges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `sales`
@@ -254,7 +268,7 @@ ALTER TABLE `usuaris`
 -- AUTO_INCREMENT de la tabla `xats`
 --
 ALTER TABLE `xats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
