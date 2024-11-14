@@ -14,5 +14,6 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <link rel="stylesheet" href="public/css/styleNav.css">
 </head>
