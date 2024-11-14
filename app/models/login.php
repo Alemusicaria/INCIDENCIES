@@ -24,7 +24,8 @@ class Login
             if (password_verify($contraseña, $usuario['contrasenya'])) {
                 // Login exitoso
                 $_SESSION['usuario'] = $usuario['nom_cognoms'];
-                $_SESSION['rol'] = $usuario['rol']; 
+                $_SESSION['rol'] = $usuario['rol'];
+                $_SESSION['foto_perfil'] = $usuario['imatges']; 
                 return true;
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
@@ -32,5 +33,7 @@ class Login
             }    
         }
     }
+
+   
 
 }
