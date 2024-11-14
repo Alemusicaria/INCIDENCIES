@@ -10,7 +10,7 @@
     </div>
 
     <div class="fotoperfil">
-        <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="Foto de perfil">
+        <!-- <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="Foto de perfil"> -->
     </div>
 
     <ul class="sidebar-nav">
@@ -62,4 +62,4 @@
         </a>
     </div>
 </aside>
-<script src="/Insti/INCIDENCIES/assets/js/script_default.js"></script>
+<script src="assets/js/script_default.js"></script>

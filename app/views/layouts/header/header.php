@@ -24,5 +24,5 @@
     </script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="public/css/styleNav.css">
+    <link rel="stylesheet" href="../../public/css/styleNav.css">
 </head>
