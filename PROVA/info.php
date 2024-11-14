@@ -143,6 +143,12 @@ error_reporting(E_ALL);
                     <label class="btn btn-outline-warning" for="Alta">Alta</label>
                 </div>
 
+                categoria option
+                n sala iotuon
+                estado prioridad
+                boton acrtualizar
+
+
                                     -->
                 <i class="fas fa-camera"></i>
                 <label>Foto</label>
