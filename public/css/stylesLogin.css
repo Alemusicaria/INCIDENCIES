@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --salle_dark: #000000;
+    --salle: #141414;
+    --salle_light: #3e3e3e;
+    --salle_extralight: #c8c8c8;
+}
+
+* {
+    font-family: "Roboto", serif;
+    text-decoration: none;
+    outline: none;
+    
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+} 
+
+body {
+    height: auto;
+
+    background: linear-gradient(
+        rgba(20, 20, 20, 0.85),
+        rgba(20, 20, 20, 0.85)
+    ), url('../../Images/Login/Sallenet_Fondo1.png') no-repeat;   
+    background-size: cover;
+    background-position: center;
+    flex: 1; /* Asegura que el body ocupe todo el espacio disponible */
+}
+
+.container {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    font-weight: 600;  
+    font-size: 20px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.mleft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center images horizontally */
+
+    height: 100%;
+    width: 50%;
+
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+
+    padding: 100px;
+}
+
+.mright {
+    background-color: white;
+    height: 100%;
+    width: 50%;
+
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange images vertically */
+    align-items: center; /* Center images horizontally */
+    justify-content: center; /* Center images vertically */ 
+
+    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+}
+
+.logo1 {
+    width: 100%; /* Full width minus left and right margins */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: flex-end; /* Aligns the logo at the bottom */
+}
+
+.logo1 img {
+    width: 20%; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.logo2 {
+    width: 100%; /* Full width minus left and right margins */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: flex-start; /* Aligns the logo at the top */
+}
+
+.logo2 img {
+    width: 70%; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.home {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 0px; /* Bordes redondeados */
+
+    width: calc(100% - 120px);
+    margin-left: 60px; /* Espacio entre el usuario y el formulario */
+    margin-right: 60px; /* Espacio entre el usuario y el formulario */
+
+
+    display: flex; /* Usar flexbox para centrar el contenido */
+    flex-direction: column; /* Colocar los elementos en una columna */
+    align-items: center; /* Centrar horizontalmente */
+
+    gap: 1rem; /* Espacio entre los elementos del formulario */
+}
+
+/* Oculta la vista móvil por defecto */
+.mobile-view {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+    .desktop-view {
+        display: none; /* Oculta la vista de escritorio */
+    }
+    .mobile-view {
+        display: block; /* Muestra la vista móvil */
+    }
+
+    .mobile-view .container {
+        grid-template-rows: 190px auto 50px; /* Alturas fijas para header y footer */
+        grid-template-columns: 1fr; /* Solo una columna */
+        grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+
+    .main {
+        grid-area: main;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 40px;
+    
+        width: 100%;
+        margin-left: 30px; /* Espacio entre el usuario y el formulario */
+        margin-right: 30px; /* Espacio entre el usuario y el formulario */
+    
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    
+        display: flex; /* Usar flexbox para centrar el contenido */
+        flex-direction: column; /* Colocar los elementos en una columna */
+        align-items: center; /* Centrar horizontalmente */
+    
+        gap: 1rem; /* Espacio entre los elementos del formulario */
+    }
+}
+
+.header {
+    grid-area: header;
+    padding: 0px;
+    text-align: center;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--salle_dark); /* 4285f4; */
+    padding: 0px;
+    text-align: center;
+}
+
+.header img {
+    width: auto;
+    height: 100%;
+}
+
+.footer img {
+    width: auto;
+    height: 100%;
+}
+
+/* Títulos y texto */
+.home h1 {
+    font-size: 2rem;
+    color: var(--salle_darkblue);
+    font-weight: 500; /* O usa 100 para un texto más delgado */
+}
+
+.home p {
+    font-size: 0.7rem;
+    color: var(--salle_blue);
+}
+
+/* Imagen Usuario */
+.home .user {
+    width: auto;
+    height: auto;
+
+    background-color: lightgray;
+    padding: 30px;
+
+    border-radius: 50%;
+    margin-bottom: 15px;
+
+    display: flex; /* Usar flexbox para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.home .user img {
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.home form {
+    width: 100%; /* Asegúrate de que el formulario use todo el ancho disponible */
+    display: flex; /* Usar flexbox para el layout del formulario */
+    flex-direction: column; /* Colocar los elementos del formulario en columna */
+    align-items: flex-start; /* Alinear los elementos a la izquierda */
+
+    gap: 8px;
+}
+
+/* Botón de envío */
+.form-btn {
+    padding: 10px; /* Espacio interno en los inputs */
+    margin: 10px 0; /* Espacio vertical entre inputs y botón */
+    border: 1px solid #ccc; /* Color del borde */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #969696; /* Color de fondo del botón #7FA1C3 */
+    color: white; /* Color del texto del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    width: 100%; /* Para que el botón ocupe el ancho completo */
+}
+
+.form-btn:hover {
+    background-color: var(--salle_dark); /* Color de fondo al pasar el mouse #6482AD*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+}
+
+.form-btn:focus {
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+    border-color: var(--salle_dark); /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(141, 141, 141, 0.8); /* Sombra al enfocar */
+}
+
+/* Inputs */
+.input-container {
+    position: relative; /* Necesario para el posicionamiento del ícono */
+    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
+}
+
+.input-container i {
+    position: absolute; /* Posiciona el ícono */
+    left: 10px; /* Ajusta la posición horizontal */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta la posición del ícono */
+    color: var(--salle); /* Color del ícono #7FA1C3 */
+}
+
+.form-control {
+    padding: 10px 10px 10px 40px; /* Espacio interno para acomodar el ícono */
+    border: 1px solid #ccc; /* Color del borde */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; /* Agregado para color de fondo */
+}
+
+.form-control:focus {
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+    border-color: #555555; /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(96, 96, 96, 0.5); /* Sombra al enfocar */
+
+    background-color: var(--salle_extralight);
+}
+
+/* Olvidaste Contraseña */
+.text-center {
+    width: 100%; /* Ocupar todo el ancho del contenedor */
+    text-align: center; /* Centrar el texto horizontalmente */
+    margin-top: 10px;
+}
+
+.forgot-password {
+    font-size: 0.7rem;
+
+    text-decoration: none; /* Elimina el subrayado al pasar el mouse */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el enlace */
+
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave para color y subrayado */
+
+    color: lightgray;
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Subrayar el texto */
+    color: var(--salle_dark);
+}
