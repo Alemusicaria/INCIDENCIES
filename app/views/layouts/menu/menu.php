@@ -41,3 +41,4 @@
     </div>
 </aside>
 <script src="assets/js/script_default.js"></script>
+<script src="assets/js/script_inici.js"></script>

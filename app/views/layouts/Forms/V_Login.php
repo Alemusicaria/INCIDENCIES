@@ -25,12 +25,12 @@
                         <img src="Images/Login/user.png" alt="">
                     </div>
 
-                    <form action="#" method="POST" class="form">
+                    <form action="index.php?controller=Login&method=verificar_login" method="POST" class="form">
                         <h1>Inicia Sessió</h1>
 
                         <div class="input-container">
                             <i class="fas fa-user"></i>
-                            <input type="text" name="username" id="username" class="form-control" placeholder="Nom d' Usuari" required>
+                            <input type="email" name="username" id="username" class="form-control" placeholder="Nom d' Usuari" required>
                         </div>
 
                         <div class="input-container">
@@ -71,12 +71,12 @@
                             <img src="Images/Login/user.png" alt="">
                         </div>
 
-                        <form action="#" method="POST" class="form">
+                        <form action="index.php?controller=Login&method=verificar_login" method="POST" class="form">
                             <h1>Inicia Sessió</h1>
 
                             <div class="input-container">
                                 <i class="fas fa-user"></i>
-                                <input type="text" name="username" id="username" class="form-control" placeholder="Nom d' Usuari" required>
+                                <input type="email" name="username" id="username" class="form-control" placeholder="Nom d' Usuari" required>
                             </div>
 
                             <div class="input-container">

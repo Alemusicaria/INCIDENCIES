@@ -60,7 +60,6 @@ error_reporting(E_ALL);
         .input-container select:hover {
         }
     </style>
-
 </head>
 
 <body>
@@ -165,6 +164,8 @@ error_reporting(E_ALL);
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
-    <script src="script_default.js"></script>
-    <script src="script_inici.js"></script>
+        <!--
+
+    <script src="script_default.js"></script>-->
+    <script src="script_inici.js"></script> 
 </body>
