@@ -12,7 +12,7 @@ include("../../layouts/header/header.php");
 <body>
     <div class="wrapper">
         <?php
-        include("../../layouts/menu/menu.php"); // Aquí se incluye la barra lateral
+        include("../../layouts/menu/menu.php"); 
         ?>
 
         <div class="content m-3">
