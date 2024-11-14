@@ -24,5 +24,5 @@
     </script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/Insti/INCIDENCIES/public/css/styleNav.css">
+    <link rel="stylesheet" href="/INCIDENCIES/public/css/styleNav.css">
 </head>
