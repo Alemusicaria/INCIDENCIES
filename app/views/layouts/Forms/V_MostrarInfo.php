@@ -1,20 +1,20 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+session_start();
+
 ?>
 
 <?php
-include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lateral
+include("../../layouts/header/header.php");
 ?>
 
 <body>
-    <h1> Hola </h1>
-    <!--
     <div class="wrapper">
         <?php
-        include("app/views/layouts/menu/menu.php"); // Aquí se incluye la barra lateral
+        include("../../layouts/menu/menu.php"); // Aquí se incluye la barra lateral
         ?>
-        
+
         <div class="content m-3">
             <h1> Detalles de la incidencia </h1>
             <form method="post" action="#">
@@ -24,7 +24,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <div class="input-container">
                     <input type="text" name="TituloFallo" id="TituloFallo" required>
                 </div>
-                
+
                 <i class="fas fa-th-list"></i>
                 <label>Tipo de Incidencia</label>
                 <div class="input-container">
@@ -55,14 +55,13 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         <option value="Planta 4">Planta 4</option>
                     </select>
                 </div>
-                
+
                 <i class="fas fa-door-closed"></i>
                 <label>Numero Sala</label>
                 <div class="input-container">
                     <input type="text" name="Salon" id="Salon" required>
                 </div>
 
-                                <!--
 
                 <label>Estado</label>
                 <div class="input-container">
@@ -89,13 +88,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     <label class="btn btn-outline-warning" for="Alta">Alta</label>
                 </div>
 
-                categoria option
-                n sala iotuon
-                estado prioridad
-                boton acrtualizar
-
-
-                                    -
                 <i class="fas fa-camera"></i>
                 <label>Foto</label>
                 <input type="file" class="form-control" name="Foto" id="Foto">
@@ -108,7 +100,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
             </form>
         </div>
     </div>
-    -->
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 </body>

@@ -40,7 +40,7 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
     </div>
     
     <?php
-    include("layouts/footer/footer.php"); // Aquí se incluye la barra lateral
+    include("layouts/footer/footer.php");
     ?>
 </body>
 
