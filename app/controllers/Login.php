@@ -25,6 +25,6 @@ class LoginController
 
     public function bienvenido()
     {
-        require "app/views/V_Inicio.php";
+        require "app/views/layouts/Forms/V_Inicio.php";
     }
 }
