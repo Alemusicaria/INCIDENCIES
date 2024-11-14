@@ -106,7 +106,8 @@ a.sidebar-link:hover {
 
 .view-buttons {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .view-buttons button {
@@ -169,4 +170,3 @@ a.sidebar-link:hover {
     background-color: #f8f9fa;
     border-radius: 5px;
 }
-

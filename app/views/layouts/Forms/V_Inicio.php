@@ -15,8 +15,9 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
     
         <div class="main p-3">
             <div class="text-center">
-                <h1>Incidències</h1>
+                <h2>INICI</h2>
             </div>
+
             <div class="view-buttons">
                 <button class="btn btn-primary" data-view="dayGridDay">Dia</button>
                 <button class="btn btn-primary" data-view="timeGridWeek">Setmana</button>

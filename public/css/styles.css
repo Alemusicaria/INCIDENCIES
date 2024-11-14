@@ -14,23 +14,9 @@
     box-sizing: border-box;
 } 
 
-html, body {
-    height: 100%;
-
-    overflow-x: hidden;
-
-    margin: 0; /* Elimina el margen por defecto */
-
-    display: flex; /* Asegura que el body se comporte como un contenedor flex */
-    flex-direction: column; /* Asegura que los elementos hijos se apilen verticalmente */
-}
-
-body {
-    background: linear-gradient(
-        rgba(27,44,100,0.85),
-        rgba(27,44,100,0.85)
-    ), url('../../Images/Login/Sallenet_Fondo1.png') no-repeat;   
-    background-size: cover;
-    background-position: center;
-    flex: 1; /* Asegura que el body ocupe todo el espacio disponible */
+.text-center h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: blue;
 }
