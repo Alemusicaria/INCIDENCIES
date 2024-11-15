@@ -50,12 +50,12 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
 <body>
     <div class="wrapper">
         <?php
-        include("views/layouts/menu/menu.php"); // Aquí se incluye la barra lateral
+        include("layouts/menu/menu.php"); // Aquí se incluye la barra lateral
         ?>
         <div class="content m-3">
             <h1> Detalls de la incidència </h1>
             <?php
-            include("views/layouts/Forms/V_MostrarInfo.php"); // Aquí se incluye la barra lateral
+            include("layouts/Forms/V_MostrarInfo.php"); // Aquí se incluye la barra lateral
             ?>
         </div>
     </div>
