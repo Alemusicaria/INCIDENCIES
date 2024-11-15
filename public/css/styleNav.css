@@ -121,7 +121,7 @@ body {
     
     flex-direction: column;
     
-    background-color: rgba(30, 30, 30, 0.7);/* #4b4b4b;*/
+    background-color: rgba(5, 5, 5, 0.7);/* #4b4b4b;*/
 
     backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo */
     -webkit-backdrop-filter: blur(2px); /* Compatibilidad con navegadores basados en WebKit */
@@ -169,16 +169,57 @@ body {
     font-weight: 600;
 }
 
+/* Contenido del sidebar */
+/* Contenedor de cada item del sidebar */
 .sidebar-item {
-    padding: 5px 0 5px 0;
-    height: 43.5px;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    padding: 5px 0; /* Espacio superior e inferior */
 }
 
-/*
-#sidebar:not(.expand) .sidebar-logo,
-#sidebar:not(.expand) a.sidebar-link span {
-    display: none;
-}*/
+.sidebar-footer {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+}
+
+/* Enlace que contiene el ícono y el texto */
+.sidebar-link {
+    color: #fff; /* Cambia el color si es necesario */
+    text-decoration: none; /* Quita el subrayado */
+}
+
+/* Icono */
+.sidebar-link i {
+    font-size: 1.3rem;
+}
+
+.sidebar-link span {
+    margin-left: 10px;
+
+    font-size: 1rem;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilo cuando el enlace es hover */
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #ffffff;
+    width: 100%;
+}
 
 .sidebar-perfil {
     width: 100%;
@@ -220,36 +261,9 @@ h3, h4 {
     transform: translateY(0); /* Se mueve a su posición original */
 }
 
-/*
-#sidebar:not(.expand) .sidebar-perfil,
-#sidebar:not(.expand) .sidebar-perfil-img img {
-    opacity: 0; 
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; 
-}
-*/
-
 .sidebar-nav {
     padding: 10px 0px 10px 0px;
     flex: 1 1 auto;
-}
-
-a.sidebar-link {
-    padding: .625rem 1.625rem;
-    color: #FFF;
-    display: block;
-    font-size: 0.9rem;
-    white-space: nowrap;
-    border-left: 3px solid transparent;
-}
-
-.sidebar-link i {
-    font-size: 1.1rem;
-    margin-right: .75rem;
-}
-
-a.sidebar-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-left: 3px solid #ffffff;
 }
 
 .view-buttons {
@@ -320,12 +334,7 @@ a.sidebar-link:hover {
     border-radius: 5px;
 }
 
-.sidebar-footer {
-    padding: 5px 0 5px 0;
-    height: 43.5px;
-}
-
-/* Otros */
+/* Mes-Semana-Dia */
 .btn-group {
     width: 100%;
     max-width: 1000px;
