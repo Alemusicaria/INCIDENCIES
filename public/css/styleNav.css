@@ -121,18 +121,15 @@ body {
     
     flex-direction: column;
     
-    background-color: rgba(30, 30, 30, 0.8);/* #4b4b4b;*/
+    background-color: rgba(30, 30, 30, 0.7);/* #4b4b4b;*/
+
+    backdrop-filter: blur(2px); /* Aplica un desenfoque al fondo */
+    -webkit-backdrop-filter: blur(2px); /* Compatibilidad con navegadores basados en WebKit */
     
-    /*
-    background: linear-gradient(
-        rgba(30, 30, 30, 0.8),
-        rgba(30, 30, 30, 0.8)
-    ), url('../../Images/Login/Sallenet_Fondo1.png') no-repeat;
-    /*
-    background-size: auto; /* Para que la imagen cubra todo el área del sidebar */
-    transform: translateX(0); /* Mueve el sidebar fuera de la vista */
-    opacity: 1; /* Lo hace invisible */
+    transform: translateX(-100%); /* Mueve el sidebar fuera de la vista */
     transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Añade una animación suave */
+
+    opacity: 1; /* Lo hace invisible */
 }
 
 #sidebar.expand {
@@ -326,6 +323,12 @@ a.sidebar-link:hover {
 .sidebar-footer {
     padding: 5px 0 5px 0;
     height: 43.5px;
+}
+
+/* Otros */
+.btn-group {
+    width: 100%;
+    max-width: 1000px;
 }
 
 /*

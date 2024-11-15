@@ -91,8 +91,9 @@
 
 <!-- Barra lateral -->
 <aside id="sidebar">
-    <div class="sidebar-space">
-    </div>
+
+    <!--<div class="sidebar-space"></div>-->
+
     <ul class="sidebar-nav">
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
