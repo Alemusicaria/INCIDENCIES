@@ -83,7 +83,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <div class="form-group">
                     <label for="Foto">Foto</label>
                     <input type="file" class="form-control form-control-lg" name="Foto[]" id="Foto" multiple>
-                    <input type="file" class="form-control" name="Foto" id="Foto">
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Insertar</button>
