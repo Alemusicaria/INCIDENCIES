@@ -25,7 +25,13 @@ class info_incidencias
     
             // Limpiar y estandarizar las claves
             $incidencia = array_change_key_case(array_map('trim', $incidencia), CASE_LOWER);
-    
+            
+            if (!empty($incidencia['imatges'])) {
+                $incidencia['imatges'] = explode(',', $incidencia['imatges']);  // Convertir la cadena en array
+            } else {
+                $incidencia['imatges'] = [];  // Si no hay imágenes, asignar un array vacío
+            }
+
             return $incidencia;
         }
     }
