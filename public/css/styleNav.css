@@ -190,7 +190,7 @@ body {
 
 /* Icono */
 .sidebar-link i {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .sidebar-link span {
@@ -257,12 +257,11 @@ h3, h4 {
 }
 
 .sidebar-separator {
-    padding: 1.75rem 1rem 0.75rem;
+    padding: 0.8rem 1.8rem 0.2rem;
     font-size: 0.75rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: primary;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar-perfil, .sidebar-perfil-img img {

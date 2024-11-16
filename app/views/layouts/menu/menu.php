@@ -100,14 +100,52 @@
         <div class="sidebar-separator">Home</div>
 
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Perfil</span>
+            <a href="index.php?controller=Login&method=bienvenido" class="sidebar-link">
+                <i class="lni lni-home"></i>
+                <span>Inici</span>
+            </a>
+        </li>
+
+        <div class="sidebar-separator">Intefaces</div>
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-menu"></i>
+                <span>Tots Incidencias</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-folder"></i>
+                <span>Mis Incidencias</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
+                <i class="lni lni-plus"></i>
+                <span>Agregar Incidencia</span>
             </a>
         </li>
 
         <!-- MENU DEL ADMIN-->
+        <div class="sidebar-separator">Admin</div>
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-user"></i>
+                <span>Agregar Usuario</span>
+            </a>
+        </li>
+
+        <!-- MENU DEL PROFESOR-->
+        <div class="sidebar-separator">Profesor</div>
+
+        <!-- MENU DEL TECNICO-->
+        <div class="sidebar-separator">Tecnico</div>
+        
+
             
+        <!-- 
                 <li class="sidebar-item">
                     <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
@@ -122,9 +160,7 @@
                 </li>
            
 
-            <!-- MENU DEL PROFESOR-->
-
-            <!-- MENU DEL TECNICO-->
+            
 
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link">
@@ -139,10 +175,11 @@
                     <span>Perfil</span>
                 </a>
             </li>
+            -->
     </ul>
 
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
+        <a href="index.php?controller=Login&method=cerrar_sesion" class="sidebar-link">
             <i class="lni lni-exit"></i>
             <span>Sortir</span>
         </a>
