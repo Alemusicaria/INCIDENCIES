@@ -236,24 +236,35 @@ body {
 .form-btn {
     padding: 10px; /* Espacio interno en los inputs */
     margin: 10px 0; /* Espacio vertical entre inputs y botón */
-    border: 1px solid #ccc; /* Color del borde */
+    border: 1px solid #969696; /* Color del borde */
     border-radius: 5px; /* Bordes redondeados */
     background-color: #969696; /* Color de fondo del botón #7FA1C3 */
     color: white; /* Color del texto del botón */
     cursor: pointer; /* Cambiar el cursor al pasar el mouse sobre el botón */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Efecto suave en el hover */
     width: 100%; /* Para que el botón ocupe el ancho completo */
 }
 
 .form-btn:hover {
     background-color: var(--salle_dark); /* Color de fondo al pasar el mouse #6482AD*/
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+    border-color: var(--salle_dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra al pasar el mouse */
+
+    transform: scale(1.05); /* Escalar el botón al pasar el mouse */
 }
 
 .form-btn:focus {
     outline: none; /* Eliminar el contorno predeterminado del navegador */
     border-color: var(--salle_dark); /* Color del borde al enfocar */
     box-shadow: 0 0 5px rgba(141, 141, 141, 0.8); /* Sombra al enfocar */
+    transform: scale(1); /* Suavizar el efecto de enfoque con una ligera escala */
+}
+
+.form-btn:active {
+    background-color: var(--salle_dark); /* Mantener el color oscuro */
+    border-color: var(--salle_dark);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra más ligera al presionar */
+    transform: scale(0.95); /* Suavizar el efecto de enfoque con una ligera escala */
 }
 
 /* Inputs */
