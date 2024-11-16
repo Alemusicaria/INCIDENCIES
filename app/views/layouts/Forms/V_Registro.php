@@ -60,8 +60,6 @@ include("app/views/layouts/header/header.php");
             <label for="Foto">Foto Usuario</label>
             <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
     </div>
-                </div>
-            </div>
 
             <!--
             <div>
