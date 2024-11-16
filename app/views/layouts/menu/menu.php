@@ -97,6 +97,8 @@
             </div>
         </div>
 
+        <div class="sidebar-separator">Home</div>
+
         <li class="sidebar-item">
             <a href="#" class="sidebar-link">
                 <i class="lni lni-user"></i>
