@@ -16,7 +16,10 @@ class Info_IncidenciasController
             $incidencia = $info_incidencias_model->get_incidencia_by_id($id);
 
             if ($incidencia) {
-                // Si la incidencia existe, pasamos los datos a la vista
+                // Obtener la ubicación relacionada con la incidencia
+                $ubicacion = $info_incidencias_model->ubicacion($id);
+
+                // Pasar los datos a la vista
                 require 'app/views/mostrar_info.php';
             } else {
                 // Si no se encuentra la incidencia, mostrar un mensaje de error
@@ -27,5 +30,6 @@ class Info_IncidenciasController
             echo "<div class='alert alert-warning'>No se ha especificado un ID de incidencia.</div>";
         }    
     }
+
 }
 
