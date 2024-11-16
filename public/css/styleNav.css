@@ -397,7 +397,45 @@ button[type="submit"]:hover {
     background-color: #0056b3; /* Color al pasar el mouse */
 }
 
+.perfil-label {
+    font-size: 1.2rem;
+    font-style: italic; /* Para hacer el texto cursivo */
+}
 
+.perfil-img {
+    width: 40%;
+    height: auto;
+
+    max-width: 250px;
+}
+
+.perfil-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #000;
+}
+
+.perfil-center {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column; /* Cambia la dirección del flujo a columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    gap: 1.5rem; /* Espaciado entre los elementos (opcional) */
+}
+
+.perfil-group {
+    padding: 7px 0px 7px 0px;
+    width: 100%;
+}
+
+.fondo-perfil {
+    background: radial-gradient(circle at 50% 50%, #0f2027, #203a43, #2c5364);
+    height: 250px;
+    width: 100%;
+}
 
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');

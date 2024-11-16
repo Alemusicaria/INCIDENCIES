@@ -29,8 +29,11 @@
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
                 <img src="Images/Login/perfil.png" alt="Perfil">
+                <h3>Nom Usuari</h3>
+                <h4>Rol Usuari</h4>
+                <!--
                 <h3><?php echo $_SESSION['usuario']; ?></h3>
-                <h4><?php echo $_SESSION['rol']; ?></h4>
+                <h4><?php echo $_SESSION['rol']; ?></h4> -->
             </div>
         </div>
 
