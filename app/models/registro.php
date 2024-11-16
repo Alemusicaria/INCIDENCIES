@@ -9,7 +9,6 @@ class registro
         $Contraseña = $_POST['Contraseña'];
         $Telefono = $_POST['Ntelefono'];
         $Rol = $_POST['Rol'];
-        $Estado = $_POST['Estado'];
 
         $Foto = $_FILES['Foto']['name'];
         $ruta = $_FILES['Foto']['tmp_name'];
@@ -23,8 +22,8 @@ class registro
             die('Problemas con la conexión a la base de datos');
         }
 
-        $query_usuario = "INSERT INTO usuaris(nom_cognoms, correu, contrasenya, telefon, rol, habilitat, data_registre, foto) 
-        VALUES ('$Nombre','$Correo','$Contraseñahash','$Telefono','$Rol','$Estado', NOW(),' $destino')";
+        $query_usuario = "INSERT INTO usuaris(nom_cognoms, correu, contrasenya, telefon, rol, data_registre, foto) 
+        VALUES ('$Nombre','$Correo','$Contraseñahash','$Telefono','$Rol', NOW(),' $destino')";
         
         if ($mysql->query($query_usuario) === TRUE) {
             $_SESSION['exito'] = "Usuario registrado con éxito.";

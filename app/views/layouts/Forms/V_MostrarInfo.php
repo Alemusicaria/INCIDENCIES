@@ -54,7 +54,7 @@ if (isset($incidencia)) {
                 <?php
                 $images = explode(',', $incidencia['imatges']);
                 foreach ($images as $image) {
-                    echo '<img src="ruta/a/las/imagenes/' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
+                    echo '<img src="Images/Evidencia/' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
                 }
                 ?>
             </div>

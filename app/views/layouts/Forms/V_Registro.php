@@ -53,6 +53,13 @@ include("app/views/layouts/header/header.php");
                     <input type="radio" class="btn-check" name="Rol" id="Admin" value="Admin" required>
                     <label class="btn btn-outline-warning" for="Admin">Admin</label>
 
+        </div>
+    </div>
+
+    <div class="form-group">
+            <label for="Foto">Foto Usuario</label>
+            <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
+    </div>
                 </div>
             </div>
 
