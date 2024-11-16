@@ -14,7 +14,7 @@ include("app/views/layouts/header/header.php");
         ?>
     
         <div class="main p-3">
-            <div class="text-center">
+            <div class="tittle-page">
                 <h2>INICI</h2>
             </div>
 
