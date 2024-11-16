@@ -44,7 +44,7 @@
 
         <div class="sidebar-separator">Intefaces</div>
         <li class="sidebar-item">
-            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+            <a href="#" class="sidebar-link">
                 <i class="lni lni-menu"></i>
                 <span>Totes les Incidències</span>
             </a>
@@ -67,7 +67,7 @@
         <!-- MENU DEL ADMIN-->
         <div class="sidebar-separator">Admin</div>
         <li class="sidebar-item">
-            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+            <a href="index.php?controller=Registro&method=registro" class="sidebar-link">
                 <i class="lni lni-user"></i>
                 <span>Afegeix Usuari</span>
             </a>

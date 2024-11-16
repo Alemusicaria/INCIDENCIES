@@ -4,13 +4,13 @@ error_reporting(E_ALL);
 ?>
 
 <?php
-include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lateral
+include("app/views/layouts/header/header.php");
 ?>
 
 <body>
     <div class="wrapper">
         <?php
-        include("app/views/layouts/menu/menu.php"); // Aquí se incluye la barra lateral
+        include("app/views/layouts/menu/menu.php");
         ?>
     
         <div class="main p-3">
