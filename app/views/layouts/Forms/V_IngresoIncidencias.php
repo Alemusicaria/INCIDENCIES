@@ -13,8 +13,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
         include("app/views/layouts/menu/menu.php"); // Aquí se incluye la barra lateral
         ?>
 
-        <div class="container mt-3">
-            <h1>Ingreso de la incidencia</h1>
+        <div class="main p-3">
+            <div class="tittle-page">
+                <h2>Afegeix Incidencia</h2>
+            </div>
         
             <form action="index.php?controller=Incidencias&method=Ingresar_Incidencias" method="post" enctype="multipart/form-data">
                 <div class="form-group">
@@ -64,12 +66,9 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     </select>
                 </div>
 
-             
-
                 <div class="form-group">
                     <label for="Prioridad">Prioridad</label>
-                    <div class="form-group">
-
+                    <div class="radio-group">
                         <input type="radio" class="btn-check" name="Prioridad" id="Baixa" value="Baixa" required>
                         <label class="btn btn-outline-success" for="Baixa">Baixa</label>
 
@@ -78,13 +77,12 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         <input type="radio" class="btn-check" name="Prioridad" id="Alta" value="Alta" required>
                         <label class="btn btn-outline-warning" for="Alta">Alta</label>
-
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="Foto">Foto</label>
-                    <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
+                    <input type="file" class="form-control" name="Foto" id="Foto">
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Insertar</button>

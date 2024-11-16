@@ -43,10 +43,6 @@ body {
     background-color: #fafbfe;
 }
 
-@media screen {
-    
-}
-
 /* Barra superior */
 #header {
     width: 100%;
@@ -375,7 +371,6 @@ h3, h4 {
 .radio-group {
     display: flex;
     justify-content: space-between; /* Para distribuir espacio entre los elementos */
-    padding: 7px 0px 7px 0px;
 }
 
 .radio-group .btn {
