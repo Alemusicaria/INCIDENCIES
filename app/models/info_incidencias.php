@@ -28,8 +28,7 @@ class info_incidencias
             return null; // Si no se encuentra la incidencia, devolver null
         } else {
             $incidencia = $result->fetch_assoc();
-            var_dump($incidencia); 
-            // Puedes agregar aquí un var_dump($incidencia) si deseas ver la información.
+            var_dump($incidencia);            // Puedes agregar aquí un var_dump($incidencia) si deseas ver la información.
             return $incidencia; // Retornar la incidencia encontrada
             
         }
