@@ -2,7 +2,7 @@
 if (isset($incidencia)) {
     // Mostrar los datos de la incidencia
 ?>
-    <form method="post" action="#">
+    <form method="post" action="#" enctype="multipart/form-data">
 
         <!-- Nombre del Usuario -->
         <label>Usuario</label>
@@ -49,21 +49,28 @@ if (isset($incidencia)) {
 
         <!-- Imágenes -->
         <?php if (!empty($incidencia['imatges'])): ?>
-            <label>Imágenes</label>
-            <div class="input-container">
-                <?php
-                $images = explode(',', $incidencia['imatges']);
-                foreach ($images as $image) {
-                    echo '<img src="Images/Evidencia/' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
-                }
-                ?>
-            </div>
-        <?php endif; ?>
+    <label>Imágenes</label>
+    <div class="input-container">
+        <?php
+        $images = explode(',', $incidencia['imatges']);
+        foreach ($images as $image) {
+            // Mostrar las imágenes si existen
+            echo '<img src="../Images/Evidencia/' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
+        }
+        ?>
+    </div>
+<?php else: ?>
+    <!-- Si no hay imágenes, mostrar una imagen predeterminada -->
+    <label>Imágenes</label>
+    <div class="input-container">
+        <img src="../Images/Evidencia/Play.png" alt="Imagen no disponible" class="img-thumbnail" style="max-width: 200px; margin: 5px;">
+    </div>
+<?php endif; ?>
     </form>
 
     <!-- Formulario de Ubicación -->
     <?php if (isset($ubicacion)): ?>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <label>Planta</label>
             <div class="input-container">
                 <input type="text" id="planta" name="planta" value="<?= htmlspecialchars($ubicacion['planta']) ?>" readonly>
