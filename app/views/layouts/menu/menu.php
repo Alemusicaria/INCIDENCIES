@@ -110,21 +110,21 @@
         <li class="sidebar-item">
             <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
                 <i class="lni lni-menu"></i>
-                <span>Tots Incidencias</span>
+                <span>Totes les Incidències</span>
             </a>
         </li>
 
         <li class="sidebar-item">
             <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
                 <i class="lni lni-folder"></i>
-                <span>Mis Incidencias</span>
+                <span>Les meves incidències</span>
             </a>
         </li>
 
         <li class="sidebar-item">
             <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
                 <i class="lni lni-plus"></i>
-                <span>Agregar Incidencia</span>
+                <span>Afegeix Incidència</span>
             </a>
         </li>
 
@@ -133,7 +133,7 @@
         <li class="sidebar-item">
             <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
                 <i class="lni lni-user"></i>
-                <span>Agregar Usuario</span>
+                <span>Afegeix Usuari</span>
             </a>
         </li>
 

@@ -107,14 +107,14 @@ body {
 
 /* Barra lateral */
 #sidebar {
-    width: 240px;
+    width: 260px;
     height: calc(100vh - 65px); /* Ajusta la altura para que se mantenga dentro de la ventana */
     margin-top: 65px; /* Asegura que el sidebar no se superponga a la barra superior */
     
     display: flex;
     position: fixed;
 
-    left: -240px; 
+    left: -260px; 
     top: 0;
 
     z-index: 1000;
@@ -133,7 +133,7 @@ body {
 }
 
 #sidebar.expand {
-    transform: translateX(240px); /* Hace que el sidebar se deslice hacia adentro */
+    transform: translateX(260px); /* Hace que el sidebar se deslice hacia adentro */
     opacity: 1; /* Lo hace visible */
 }
 
