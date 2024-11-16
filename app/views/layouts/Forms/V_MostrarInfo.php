@@ -1,96 +1,67 @@
 <?php
-// Verificar que les dades de la incidència han estat passades correctament
 if (isset($incidencia)) {
-    ?>
-
-    <!-- Formulari per mostrar la informació de la incidència -->
+    // Mostrar los datos de la incidencia para depuración
+    var_dump($incidencia);  // Esto debería mostrar todos los datos de la incidencia, incluyendo planta y sala
+?>
     <form method="post" action="#">
         <i class="fa-solid fa-pencil-alt"></i>
-        <label>Títol de la Incidència</label>
+        <label>Título de la Incidencia</label>
         <div class="input-container">
             <input type="text" name="TituloFallo" id="TituloFallo"
-                value="<?php echo htmlspecialchars($incidencia['titol_fallo']); ?>" readonly required>
+                value="<?php echo isset($incidencia['titol_fallo']) ? htmlspecialchars($incidencia['titol_fallo'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly required>
         </div>
 
         <i class="fas fa-th-list"></i>
-        <label>Tipus d'Incidència</label>
+        <label>Tipo de Incidencia</label>
         <div class="input-container">
-            <input type="text" value="<?php echo htmlspecialchars($incidencia['tipus_incidencia']); ?>" readonly>
+            <input type="text" value="<?php echo isset($incidencia['tipus_incidencia']) ? htmlspecialchars($incidencia['tipus_incidencia'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
-        <i class="fas fa-building"></i>
         <label>Planta</label>
         <div class="input-container">
-            <input type="text" value="<?php echo htmlspecialchars($incidencia['id_ubicacio']); ?>" readonly>
+            <input type="text" 
+                value="<?php echo isset($incidencia['planta']) ? htmlspecialchars($incidencia['planta'], ENT_QUOTES, 'UTF-8') : 'Sin información de planta'; ?>" 
+                readonly>
         </div>
 
-        <i class="fas fa-door-closed"></i>
-        <label>Número Sala</label>
+        <label>Número de Sala</label>
         <div class="input-container">
-            <input type="text" value="<?php echo htmlspecialchars($incidencia['id_ubicacio']); ?>" readonly>
+            <input type="text" 
+                value="<?php echo isset($incidencia['sala']) ? htmlspecialchars($incidencia['sala'], ENT_QUOTES, 'UTF-8') : 'Sin información de sala'; ?>" 
+                readonly>
         </div>
 
         <i class="fas fa-pencil-alt"></i>
-        <label>Descripció</label>
+        <label>Descripción</label>
         <div class="input-container">
-            <textarea name="Descripcio" id="Descripcio" rows="6"
-                readonly><?php echo htmlspecialchars($incidencia['descripcio']); ?></textarea>
+            <textarea name="Descripcio" id="Descripcio" rows="6" readonly><?php echo isset($incidencia['descripcio']) ? htmlspecialchars($incidencia['descripcio'], ENT_QUOTES, 'UTF-8') : ''; ?></textarea>
         </div>
 
-        <label>Estat</label>
+        <label>Estado</label>
         <div class="input-container">
-            <input type="text" value="<?php echo htmlspecialchars($incidencia['estat']); ?>" readonly>
+            <input type="text" value="<?php echo isset($incidencia['estat']) ? htmlspecialchars($incidencia['estat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
-        <label>Prioritat</label>
+        <label>Prioridad</label>
         <div class="input-container">
-            <input type="text" value="<?php echo htmlspecialchars($incidencia['prioritat']); ?>" readonly>
+            <input type="text" value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
         <?php if (!empty($incidencia['imatges'])): ?>
-            <label>Imatges</label>
+            <label>Imágenes</label>
             <div class="input-container">
                 <?php
-                // Comprova si hi ha imatges i mostra-les
-                $images = explode(',', $incidencia['imatges']); // Assumim que les imatges estan separades per comes
+                $images = explode(',', $incidencia['imatges']);
                 foreach ($images as $image) {
-                    echo '<img src="ruta/a/les/imatges/' . htmlspecialchars($image) . '" alt="Imatge de la incidència" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
+                    echo '<img src="ruta/a/las/imagenes/' . htmlspecialchars($image, ENT_QUOTES, 'UTF-8') . '" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 200px; margin: 5px;">';
                 }
                 ?>
             </div>
         <?php endif; ?>
     </form>
 
-    <!-- Botons d'acció -->
-    <div class="action-buttons">
-        <button type="button" class="btn btn-primary"
-            onclick="window.location.href='index.php?controller=Info_IncidenciasController&method=mostrar_incidencia&id=<?php echo $incidencia['id']; ?>'">
-            <i class="fa fa-pencil-alt"></i> Editar
-        </button>
-        <button type="button" class="btn btn-danger" onclick="confirmDelete(<?php echo $incidencia['id']; ?>)">
-            <i class="fa fa-trash"></i> Eliminar
-        </button>
-        <button type="button" class="btn btn-info" onclick="shareIncidencia(<?php echo $incidencia['id']; ?>)">
-            <i class="fa fa-share"></i> Compartir
-        </button>
-    </div>
-
-    <script>
-        // Funció per eliminar la incidència
-        function confirmDelete(id) {
-            if (confirm('Estàs segur que vols eliminar aquesta incidència?')) {
-                window.location.href = 'index.php?controller=Info_IncidenciasController&method=eliminar_incidencia&id=' + id;
-            }
-        }
-
-        // Funció per compartir la incidència
-        function shareIncidencia(id) {
-            alert('Compartint incidència ' + id);
-        }
-    </script>
-
-    <?php
+<?php
 } else {
-    echo "No s'han trobat les dades de la incidència.";
+    echo "<div class='alert alert-danger'>No se encontraron datos de la incidencia.</div>";
 }
 ?>

@@ -27,4 +27,11 @@ class LoginController
     {
         require "app/views/layouts/Forms/V_Inicio.php";
     }
+
+    public function cerrar_sesion()
+    {
+        session_destroy();
+        header("Location: index.php?controller=Login&method=login");
+        exit;
+    }
 }

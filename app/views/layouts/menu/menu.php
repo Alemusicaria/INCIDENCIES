@@ -51,7 +51,7 @@
 
     </ul>
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
+        <a href="index.php?controller=Login&method=cerrar_sesion" class="sidebar-link">
             <i class="lni lni-exit"></i>
             <span>Sortir</span>
         </a>
