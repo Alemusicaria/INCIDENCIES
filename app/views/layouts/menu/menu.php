@@ -59,7 +59,7 @@
     </div>
 </aside>
 <script src="assets/js/script_default.js"></script>
-        -->
+-->
 
 <!-- Barra superior -->
 <header id="header">
@@ -86,7 +86,6 @@
 
 <!-- Barra lateral -->
 <aside id="sidebar">
-
     <!--<div class="sidebar-space"></div>-->
 
     <ul class="sidebar-nav">
@@ -104,8 +103,8 @@
                 <span>Perfil</span>
             </a>
         </li>
-            <!-- MENU DEL ADMIN-->
 
+        <!-- MENU DEL ADMIN-->
             <?php if ($_SESSION['rol'] == 'Admin'): ?>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
@@ -138,7 +137,7 @@
                     <span>Perfil</span>
                 </a>
             </li>
-        </ul>
+    </ul>
 
     <div class="sidebar-footer">
         <a href="#" class="sidebar-link">
