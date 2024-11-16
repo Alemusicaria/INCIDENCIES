@@ -106,9 +106,9 @@
         </li>
             <!-- MENU DEL ADMIN-->
 
-            <?php if ($_SESSION['rol'] == 'Admin'): ?>
+            
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
                         <i class="lni lni-agenda"></i>
                         <span>NOU profesor</span>
                     </a>
@@ -119,7 +119,7 @@
                         <span>Gestionar professors</span>
                     </a>
                 </li>
-            <?php endif; ?>
+           
 
             <!-- MENU DEL PROFESOR-->
 
