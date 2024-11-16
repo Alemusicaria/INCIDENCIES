@@ -36,17 +36,6 @@
         </div>
     </div>
 
-    <div>
-        <label for="Estado">Estado</label>
-        <div class="form-group">
-            <input type="radio" class="btn-check" name="Estado" id="Actiu" value="1" required>
-            <label class="btn btn-outline-success" for="Actiu">Actiu</label>
-
-            <input type="radio" class="btn-check" name="Estado" id="Inactiu" value="0" required>
-            <label class="btn btn-outline-danger" for="Inactiu">Inactiu</label>
-        </div>
-    </div>
-
     <div class="form-group">
             <label for="Foto">Foto Usuario</label>
             <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
