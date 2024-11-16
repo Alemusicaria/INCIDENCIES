@@ -42,7 +42,8 @@ include("app/views/layouts/header/header.php");
 
             <div class="form-group">
                 <label for="Rol">Cargo</label>
-                <div class="radio-group">
+                <div class="form-group">
+
                     <input type="radio" class="btn-check" name="Rol" id="Professor" value="Professor" required>
                     <label class="btn btn-outline-success" for="Professor">Professor</label>
 
