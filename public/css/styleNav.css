@@ -107,14 +107,14 @@ body {
 
 /* Barra lateral */
 #sidebar {
-    width: 240px;
+    width: 260px;
     height: calc(100vh - 65px); /* Ajusta la altura para que se mantenga dentro de la ventana */
     margin-top: 65px; /* Asegura que el sidebar no se superponga a la barra superior */
     
     display: flex;
     position: fixed;
 
-    left: -240px; 
+    left: -260px; 
     top: 0;
 
     z-index: 1000;
@@ -127,13 +127,13 @@ body {
     -webkit-backdrop-filter: blur(2px); /* Compatibilidad con navegadores basados en WebKit */
     
     transform: translateX(-100%); /* Mueve el sidebar fuera de la vista */
-    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Añade una animación suave */
+    transition: transform 0.5s ease-in-out, opacity 0.4s ease-in-out; /* Añade una animación suave */
 
     opacity: 1; /* Lo hace invisible */
 }
 
 #sidebar.expand {
-    transform: translateX(240px); /* Hace que el sidebar se deslice hacia adentro */
+    transform: translateX(260px); /* Hace que el sidebar se deslice hacia adentro */
     opacity: 1; /* Lo hace visible */
 }
 
@@ -190,7 +190,7 @@ body {
 
 /* Icono */
 .sidebar-link i {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
 }
 
 .sidebar-link span {
@@ -254,6 +254,14 @@ a.sidebar-link:hover {
 h3, h4 {
     margin: 5px 0; /* Espacio entre los textos */
     color: white;  /* Color del texto */
+}
+
+.sidebar-separator {
+    padding: 0.8rem 1.8rem 0.2rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .sidebar-perfil, .sidebar-perfil-img img {

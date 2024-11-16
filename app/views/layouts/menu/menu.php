@@ -1,66 +1,3 @@
-<!--
-<aside id="sidebar">
-    <div class="d-flex">
-        <button class="toggle-btn" type="button">
-            <i class="lni lni-grid-alt"></i>
-        </button>
-        <div class="sidebar-logo">
-            <a href="#"><?php echo $_SESSION['usuario']; ?></a>
-            <a href="#"><?php echo $_SESSION['rol']; ?></a>
-        </div>
-    </div>
-
-    <div class="fotoperfil">
-        <-- <img src="<?php echo $_SESSION['foto_perfil']; ?>" alt="Foto de perfil"> --
-    </div>
-
-    <ul class="sidebar-nav">
-        <li class="sidebar-item">
-            <a href="perfil.php" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Perfil</span>
-            </a>
-        </li>
-        <-- MENU DEL ADMIN--
-
-        <?php if ($_SESSION['rol'] == 'Admin'): ?>
-            <li class="sidebar-item">
-                <a href="index.php?controller=Registro&method=registro" class="sidebar-link">
-                    <i class="lni lni-cog"></i>
-                    <span>NOU profesor</span>
-                </a>
-            </li>
-            
-            <li class="sidebar-item">
-                <a href="index.php?controller=Info_Incidencias&method=mostrar_tabla_incidencias" class="sidebar-link">
-                    <i class="lni lni-agenda"></i>
-                    <span>Gestionar Incidència</span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
-                    <i class="lni lni-agenda"></i>
-                    <span>Gestionar Incidència</span>
-                </a>
-            </li>
-        <?php endif; ?>
-
-        <-- MENU DEL PROFESOR--
-
-        <-- MENU DEL TECNICO--
-
-    </ul>
-    <div class="sidebar-footer">
-        <a href="index.php?controller=Login&method=cerrar_sesion" class="sidebar-link">
-            <i class="lni lni-exit"></i>
-            <span>Sortir</span>
-        </a>
-    </div>
-</aside>
-<script src="assets/js/script_default.js"></script>
-        -->
-
 <!-- Barra superior -->
 <header id="header">
     <div class="header-content">
@@ -86,7 +23,6 @@
 
 <!-- Barra lateral -->
 <aside id="sidebar">
-
     <!--<div class="sidebar-space"></div>-->
 
     <ul class="sidebar-nav">
@@ -98,50 +34,55 @@
             </div>
         </div>
 
+        <div class="sidebar-separator">Home</div>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
-                <i class="lni lni-user"></i>
-                <span>Perfil</span>
+            <a href="index.php?controller=Login&method=bienvenido" class="sidebar-link">
+                <i class="lni lni-home"></i>
+                <span>Inici</span>
             </a>
         </li>
-            <!-- MENU DEL ADMIN-->
 
-            
-                <li class="sidebar-item">
-                    <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
-                        <i class="lni lni-agenda"></i>
-                        <span>NOU profesor</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class="lni lni-cog"></i>
-                        <span>Gestionar professors</span>
-                    </a>
-                </li>
-           
+        <div class="sidebar-separator">Intefaces</div>
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-menu"></i>
+                <span>Totes les Incidències</span>
+            </a>
+        </li>
 
-            <!-- MENU DEL PROFESOR-->
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-folder"></i>
+                <span>Les meves incidències</span>
+            </a>
+        </li>
 
-            <!-- MENU DEL TECNICO-->
+        <li class="sidebar-item">
+            <a href="index.php?controller=Incidencias&method=vista_ingreso_incidencias" class="sidebar-link">
+                <i class="lni lni-plus"></i>
+                <span>Afegeix Incidència</span>
+            </a>
+        </li>
 
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-user"></i>
-                    <span>Perfil</span>
-                </a>
-            </li>
+        <!-- MENU DEL ADMIN-->
+        <div class="sidebar-separator">Admin</div>
+        <li class="sidebar-item">
+            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+                <i class="lni lni-user"></i>
+                <span>Afegeix Usuari</span>
+            </a>
+        </li>
 
-            <li class="sidebar-item">
-                <a href="#" class="sidebar-link">
-                    <i class="lni lni-user"></i>
-                    <span>Perfil</span>
-                </a>
-            </li>
-        </ul>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-cog"></i>
+                <span>Gestionar Professores</span>
+            </a>
+        </li>
+    </ul>
 
     <div class="sidebar-footer">
-        <a href="#" class="sidebar-link">
+        <a href="index.php?controller=Login&method=cerrar_sesion" class="sidebar-link">
             <i class="lni lni-exit"></i>
             <span>Sortir</span>
         </a>
