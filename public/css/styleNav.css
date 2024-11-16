@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googlepis.com/css2?family=Poppins:wght@400;600&display=swap');
 
 ::after,
 ::before {
@@ -398,8 +398,7 @@ button[type="submit"]:hover {
 }
 
 .perfil-label {
-    font-size: 1.2rem;
-    font-style: italic; /* Para hacer el texto cursivo */
+    font-size: 0.8rem;
 }
 
 .perfil-img {
@@ -413,7 +412,9 @@ button[type="submit"]:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 3px solid #000;
+    border: 3px solid #fff;
+
+    animation: pulse 2s infinite;
 }
 
 .perfil-center {
@@ -432,9 +433,156 @@ button[type="submit"]:hover {
 }
 
 .fondo-perfil {
-    background: radial-gradient(circle at 50% 50%, #0f2027, #203a43, #2c5364);
-    height: 250px;
+    background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);/*
+    background: radial-gradient(circle at 50% 50%, #0f2027, #203a43, #2c5364);*/
     width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    padding: 20px;
+
+    margin-bottom: 30px;
+}
+
+.fondo-perfil a {
+    color: #FFF;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: underline;
+
+    transition: color 0.3s; /* Efecto suave al pasar el mouse */
+}
+
+.fondo-perfil a:hover {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.card-header {
+    display: flex;
+    align-items: center; /* Alinea verticalmente el ícono y el texto */
+    justify-content: flex-start; /* Alinea el contenido a la izquierda (puedes cambiarlo a 'center' o 'space-between') */
+}
+
+.card-header i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    font-size: 1.2rem;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+    50%{
+        box-shadow: 0 0 90px rgba(255, 255, 255, 1.3);
+    }
+    100%{
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    }
+}
+
+#rescorreo {
+    background-color: #12c2e9;
+    border: 2px solid #12c2e9; /* Borde del color de fondo */
+    color: white;
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Efecto suave en el hover */
+}
+
+/* Efecto cuando pasa el ratón (hover) */
+#rescorreo:hover {
+    background-color: #0a8d9b; /* Color más oscuro para el hover */
+    border-color: #0a8d9b; /* Cambiar el borde al color oscuro en hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto cuando el ratón está encima y el botón está activo (clickeado) */
+#rescorreo:active {
+    background-color: #098c96; /* Cambio al hacer clic */
+    border-color: #098c96; /* Alineado con el fondo */
+    transform: translateY(1px); /* Movimiento hacia abajo cuando se hace clic */
+}
+
+#rescontra {
+    background-color: #c471ed;
+    border: 2px solid #c471ed; /* Borde del color de fondo */
+    color: white;
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Efecto suave en el hover */
+}
+
+/* Efecto cuando pasa el ratón (hover) */
+#rescontra:hover {
+    background-color: #9b57d1; /* Color más oscuro para el hover */
+    border-color: #9b57d1; /* Cambiar el borde al color oscuro en hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto cuando el ratón está encima y el botón está activo (clickeado) */
+#rescontra:active {
+    background-color: #7f48ad; /* Cambio al hacer clic */
+    border-color: #7f48ad; /* Alineado con el fondo */
+    transform: translateY(1px); /* Movimiento hacia abajo cuando se hace clic */
+}
+
+#descuenta {
+    background-color: #f64f59;
+    border: 2px solid #f64f59; /* Borde del color de fondo */
+    color: white;
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Efecto suave en el hover */
+}
+
+/* Efecto cuando pasa el ratón (hover) */
+#descuenta:hover {
+    background-color: #ec2d53; /* Color más oscuro para el hover */
+    border-color: #ec2d53; /* Cambiar el borde al color oscuro en hover */
+    transform: translateY(-2px); /* Efecto de elevación */
+}
+
+/* Efecto cuando el ratón está encima y el botón está activo (clickeado) */
+#descuenta:active {
+    background-color: #e12a4c; /* Cambio al hacer clic */
+    border-color: #e12a4c; /* Alineado con el fondo */
+    transform: translateY(1px); /* Movimiento hacia abajo cuando se hace clic */
+}
+
+/* Añadir un efecto de sombra para dar un toque más elegante */
+#rescorreo, #rescontra, #descuenta, #volver {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#rescorreo:hover, #rescontra:hover, #descuenta:hover, #volver:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más intensa al hacer hover */
+}
+
+#volver {
+    background-color: #007bff; /* Color primario */
+    border: 2px solid #007bff; /* Borde del color de fondo */
+    color: white;
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Efecto suave en el hover */
+    touch-action: manipulation; /* Ayuda con la manipulación táctil */
+}
+
+#volver:hover, #volver:focus {
+    background-color: #0056b3; /* Color más oscuro para el hover */
+    border-color: #0056b3; /* Borde más oscuro */
+    transform: scale(1.1); /* Aumenta el tamaño del botón */
+}
+
+#volver:active {
+    background-color: #004085; /* Cambio al hacer clic (más oscuro) */
+    border-color: #004085; /* Alineado con el fondo */
+    transform: scale(1); /* Vuelve al tamaño original cuando se hace clic */
 }
 
 /*
