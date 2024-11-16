@@ -43,6 +43,10 @@ body {
     background-color: #fafbfe;
 }
 
+@media screen {
+    
+}
+
 /* Barra superior */
 #header {
     width: 100%;
@@ -362,6 +366,40 @@ h3, h4 {
 /* Inputs de los formularios */
 .form-group {
     padding: 7px 0px 7px 0px;
+}
+
+#Foto {
+    margin: 7px 0px 7px 0px; /* Ajusta el margen que desees */
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between; /* Para distribuir espacio entre los elementos */
+    padding: 7px 0px 7px 0px;
+}
+
+.radio-group .btn {
+    flex: 1; /* Cada botón ocupa la misma proporción */
+    text-align: center; /* Centra el texto dentro del botón */
+    margin: 5px; /* Espaciado entre los botones */
+    max-width: 33.33%; /* Limita cada botón al 33.33% */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+button[type="submit"] {
+    width: 100%; /* Botón ocupa todo el ancho del contenedor */
+    padding: 10px 15px; /* Ajustar espacio interno para un diseño equilibrado */
+    font-size: 16px; /* Aumentar tamaño de fuente si es necesario */
+    border: none; /* Quitar bordes nativos */
+    border-radius: 5px; /* Bordes redondeados (opcional) */
+    background-color: #007bff; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    transition: background-color 0.3s; /* Efecto suave al cambiar de color */
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
 }
 
 

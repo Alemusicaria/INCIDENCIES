@@ -42,8 +42,7 @@ include("app/views/layouts/header/header.php");
 
             <div class="form-group">
                 <label for="Rol">Cargo</label>
-                <div class="form-group">
-
+                <div class="radio-group">
                     <input type="radio" class="btn-check" name="Rol" id="Professor" value="Professor" required>
                     <label class="btn btn-outline-success" for="Professor">Professor</label>
 
@@ -56,8 +55,8 @@ include("app/views/layouts/header/header.php");
             </div>
 
             <div class="form-group">
-                    <label for="Foto">Foto Usuario</label>
-                    <input type="file" class="form-control" name="Foto" id="Foto">
+                <label for="Foto">Foto Usuario</label>
+                <input type="file" class="form-control" name="Foto" id="Foto">
             </div>
 
             <button type="submit" class="btn btn-primary">Registrar</button>
