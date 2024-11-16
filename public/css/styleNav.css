@@ -353,7 +353,18 @@ h3, h4 {
     justify-content: center; /* Centra el logo horizontalmente */
     font-size: 1.8rem;
     text-decoration: underline;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    margin-bottom: 20px;
 }
+
+/* Inputs de los formularios */
+.form-group {
+    padding: 7px 0px 7px 0px;
+}
+
+
 
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
