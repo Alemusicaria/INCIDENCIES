@@ -35,7 +35,6 @@
         </div>
 
         <div class="sidebar-separator">Home</div>
-
         <li class="sidebar-item">
             <a href="index.php?controller=Login&method=bienvenido" class="sidebar-link">
                 <i class="lni lni-home"></i>
@@ -74,11 +73,12 @@
             </a>
         </li>
 
-        <!-- MENU DEL PROFESOR-->
-        <div class="sidebar-separator">Profesor</div>
-
-        <!-- MENU DEL TECNICO-->
-        <div class="sidebar-separator">Tecnico</div>
+        <li class="sidebar-item">
+            <a href="#" class="sidebar-link">
+                <i class="lni lni-cog"></i>
+                <span>Gestionar Professores</span>
+            </a>
+        </li>
     </ul>
 
     <div class="sidebar-footer">

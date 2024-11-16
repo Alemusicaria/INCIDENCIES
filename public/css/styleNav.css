@@ -127,7 +127,7 @@ body {
     -webkit-backdrop-filter: blur(2px); /* Compatibilidad con navegadores basados en WebKit */
     
     transform: translateX(-100%); /* Mueve el sidebar fuera de la vista */
-    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out; /* Añade una animación suave */
+    transition: transform 0.5s ease-in-out, opacity 0.4s ease-in-out; /* Añade una animación suave */
 
     opacity: 1; /* Lo hace invisible */
 }
