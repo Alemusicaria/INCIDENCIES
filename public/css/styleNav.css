@@ -585,6 +585,65 @@ button[type="submit"]:hover {
     transform: scale(0.9); /* Vuelve al tamaño original cuando se hace clic */
 }
 
+.btn-chat {
+    width: 80px;
+    height: 80px;
+    background-color: #007bff; /* Color primario */
+    border: 2px solid #007bff; /* Borde del color de fondo */
+    color: white;
+    border-radius: 50%; /* Bordes redondeados */
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Efecto suave en el hover */
+    touch-action: manipulation; /* Ayuda con la manipulación táctil */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: fixed; /* Fijar el botón en la pantalla */
+    right: 20px; /* A 20px del borde derecho */
+    bottom: 20px; /* A 20px del borde inferior */
+
+    animation: subirBajar 1s ease-in-out infinite; /* Llamamos a la animación */
+}
+
+@keyframes subirBajar {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Subir el botón */
+    }
+    100% {
+        transform: translateY(0); /* Volver a la posición inicial */
+    }
+}
+
+.btn-chat img {
+    width: 50px;
+    height: 50px;
+}
+
+.form-group.d-flex {
+    display: flex;
+    justify-content: space-between; /* O usa 'space-evenly' para espacio igual entre todos */
+    gap: 10px; /* Esto agregará un pequeño espacio entre los botones */
+}
+
+.form-group.d-flex .btn-check {
+    display: none; /* Oculta los botones de radio */
+}
+
+.form-group.d-flex label {
+    flex: 1; /* Hace que cada etiqueta ocupe el mismo espacio */
+    text-align: center; /* Centra el texto dentro de cada botón */
+}
+
+.table-responsive {
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+}
+
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 

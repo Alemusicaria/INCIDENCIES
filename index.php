@@ -34,6 +34,7 @@ require_once "autoload.php"; // Asegúrate de que este archivo exista y esté co
     } else {
         // Carga el formulario de registro si no se especifica un controlador
         //require("app/views/perfil.php");
-        require("app/views/layouts/Forms/V_Login.php");  
+        //require("app/views/layouts/Forms/V_Login.php");  
+        require("app/views/layouts/Forms/V_Todasincidencias.php");  
     }
     ?>

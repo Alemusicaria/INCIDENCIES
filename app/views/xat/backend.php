@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "incidencies";
+$dbname = "apratc_Incidencies";
 
 // Crear la connexió
 $conn = new mysqli($servername, $username, $password, $dbname);
