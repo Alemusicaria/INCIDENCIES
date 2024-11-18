@@ -9,7 +9,9 @@
 
         <div class="text-center">
             <div class="logo">
-                <img src="Images/Login/Salleguard.png" alt="Logo">
+                <a href="index.php?controller=Login&method=bienvenido">
+                    <img src="Images/Login/Salleguard.png" alt="Logo">
+                </a>
             </div>
         </div>
 
@@ -31,9 +33,9 @@
                 <img src="Images/Login/perfil.png" alt="Perfil">
                 <!--<h3>Nom Usuari</h3>
                 <h4>Rol Usuari</h4>-->
-                
+
                 <h3><?php echo $_SESSION['usuario']; ?></h3>
-                <h4><?php echo $_SESSION['rol']; ?></h4> 
+                <h4><?php echo $_SESSION['rol']; ?></h4>
             </div>
         </div>
 
