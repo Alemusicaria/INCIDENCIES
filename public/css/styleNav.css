@@ -639,6 +639,11 @@ button[type="submit"]:hover {
     text-align: center; /* Centra el texto dentro de cada botón */
 }
 
+.table-responsive {
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en dispositivos táctiles */
+}
+
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 

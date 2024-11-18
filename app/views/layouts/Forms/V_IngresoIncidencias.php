@@ -99,8 +99,5 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
         </div>
     </div>
 </body>
-<!--
-
--->
 
 <script src="assets/js/cargarSalas.js"></script>
