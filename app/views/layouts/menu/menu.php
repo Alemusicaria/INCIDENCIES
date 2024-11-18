@@ -17,7 +17,9 @@
 
         <div class="d-flex">
             <button class="toggle-btn" type="button">
+                <a href="index.php?controller=Perfil&method=info">
                 <img src="Images/Login/perfil.png" alt="Perfil">
+                </a>
             </button>
         </div>
     </div>
@@ -85,12 +87,6 @@
             </a>
         </li>
 
-        <li class="sidebar-item">
-            <a href="index.php?controller=Perfil&method=info" class="sidebar-link">
-                <i class="lni lni-cog"></i>
-                <span>Perfil</span>
-            </a>
-        </li>
     </ul>
 
     <div class="sidebar-footer">
