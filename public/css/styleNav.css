@@ -586,8 +586,8 @@ button[type="submit"]:hover {
 }
 
 .btn-chat {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #007bff; /* Color primario */
     border: 2px solid #007bff; /* Borde del color de fondo */
     color: white;
@@ -599,6 +599,24 @@ button[type="submit"]:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: fixed; /* Fijar el botón en la pantalla */
+    right: 20px; /* A 20px del borde derecho */
+    bottom: 20px; /* A 20px del borde inferior */
+
+    animation: subirBajar 1s ease-in-out infinite; /* Llamamos a la animación */
+}
+
+@keyframes subirBajar {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Subir el botón */
+    }
+    100% {
+        transform: translateY(0); /* Volver a la posición inicial */
+    }
 }
 
 .btn-chat img {
