@@ -17,6 +17,15 @@ include("app/views/layouts/header/header.php");
             <div class="tittle-page">
                 <h2>INICI</h2>
             </div>
+            
+            <div class="text-center">
+                <div class="btn-group mt-1 mb-3" role="group" aria-label="Basic radio toggle button group">
+                    <label class="btn btn-outline-primary w-100" data-view="dayGridDay">Dia</label>
+                    <label class="btn btn-outline-primary w-100" data-view="timeGridWeek">Setmana</label>
+                    <label class="btn btn-outline-primary w-100 active" data-view="dayGridMonth">Mes</label>
+                </div>
+            </div>
+
             <div class="w-100" id='calendar'></div>
             <!-- Espai per mostrar la data seleccionada -->
             <div id="selected-date" style="display:none;">
