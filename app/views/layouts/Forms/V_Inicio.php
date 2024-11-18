@@ -37,6 +37,10 @@ include("app/views/layouts/header/header.php");
             <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
 
+
+            <div class="btn-chat"> 
+                <img src="Images/Comment1Text.png" alt="chat" class="img-chat">
+            <div>
             <!-- Script personalitzat -->
             <script src="assets/js/script_inici.js"></script>
         </div>
