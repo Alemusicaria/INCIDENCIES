@@ -33,7 +33,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         <div class="form-group">
                             <label class="perfil-label" for="Descripcion">Descripcion</label>
-                            <input type="text" class="form-control" id="Descripcion" name="Descripcion"required>
+                            <input type="text" class="form-control" id="Descripcion" name="Descripcion" required>
                         </div>
 
                         <div class="form-group">
