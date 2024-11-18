@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root"; // Canvia-ho pel teu nom d'usuari
 $password = ""; // Canvia-ho per la teva contrasenya
-$dbname = "incidencies"; // Canvia-ho pel teu nom de base de dades
+$dbname = "apratc_Incidencies"; // Canvia-ho pel teu nom de base de dades
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

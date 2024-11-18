@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "incidencies";
+$dbname = "apratc_Incidencies";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
