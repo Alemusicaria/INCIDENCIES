@@ -576,13 +576,13 @@ button[type="submit"]:hover {
 #volver:hover, #volver:focus {
     background-color: #0056b3; /* Color más oscuro para el hover */
     border-color: #0056b3; /* Borde más oscuro */
-    transform: scale(1.1); /* Aumenta el tamaño del botón */
+    transform: scale(1.15); /* Aumenta el tamaño del botón */
 }
 
 #volver:active {
     background-color: #004085; /* Cambio al hacer clic (más oscuro) */
     border-color: #004085; /* Alineado con el fondo */
-    transform: scale(1); /* Vuelve al tamaño original cuando se hace clic */
+    transform: scale(0.9); /* Vuelve al tamaño original cuando se hace clic */
 }
 
 /*

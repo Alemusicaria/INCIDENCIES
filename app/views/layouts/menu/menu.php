@@ -9,7 +9,9 @@
 
         <div class="text-center">
             <div class="logo">
-                <img src="Images/Login/Salleguard.png" alt="Logo">
+                <a href="index.php?controller=Login&method=bienvenido">
+                    <img src="Images/Login/Salleguard.png" alt="Logo">
+                </a>
             </div>
         </div>
 
@@ -29,11 +31,11 @@
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
                 <img src="Images/Login/perfil.png" alt="Perfil">
-                <h3>Nom Usuari</h3>
-                <h4>Rol Usuari</h4>
-                <!--
+                <!--<h3>Nom Usuari</h3>
+                <h4>Rol Usuari</h4>-->
+
                 <h3><?php echo $_SESSION['usuario']; ?></h3>
-                <h4><?php echo $_SESSION['rol']; ?></h4> -->
+                <h4><?php echo $_SESSION['rol']; ?></h4>
             </div>
         </div>
 
@@ -80,6 +82,13 @@
             <a href="#" class="sidebar-link">
                 <i class="lni lni-cog"></i>
                 <span>Gestionar Professores</span>
+            </a>
+        </li>
+
+        <li class="sidebar-item">
+            <a href="index.php?controller=Perfil&method=info" class="sidebar-link">
+                <i class="lni lni-cog"></i>
+                <span>Perfil</span>
             </a>
         </li>
     </ul>
