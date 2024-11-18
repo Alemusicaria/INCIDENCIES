@@ -14,7 +14,7 @@ if ($id_incidencia <= 0) {
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "incidencies";
+$dbname = "apratc_Incidencies";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -165,8 +165,27 @@ if (isset($incidencia)) {
         <div class="alert alert-danger">No se encontraron datos de la ubicación.</div>
     <?php endif; ?>
 
+
+    <!-- Verificación y botones -->
+    <?php
+    // Verifica si la incidencia tiene un 'creador_id' y si el usuario logueado es el mismo
+    if (isset($incidencia['id_usuari']) && $incidencia['id_usuari'] == $_SESSION['id']) {
+        // Si el usuario logueado es el creador de la incidencia, mostrar "Editar" y "Eliminar"
+        echo "<a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-primary'>Editar</a>";
+        echo "<a href='index.php?controller=...&method=...&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
+    } elseif (isset($incidencia['id'])) {
+        // Si no es el creador, solo mostrar "Eliminar"
+        echo "<a href='index.php?controller=...&method=...&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
+    } else {
+        // Si la incidencia no tiene un ID válido
+        echo "<div class='alert alert-danger'>La incidencia no tiene un ID válido.</div>";
+    }
+?>
+
 <?php
 } else {
     echo "<div class='alert alert-danger'>No se encontraron datos de la incidencia.</div>";
 }
+
+
 ?>

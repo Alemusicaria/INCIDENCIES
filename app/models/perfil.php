@@ -1,6 +1,6 @@
 <?php
 
-class perfil() 
+class perfil
 {
     public function info()
     {

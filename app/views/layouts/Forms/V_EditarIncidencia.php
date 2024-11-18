@@ -1,90 +1,140 @@
-<form action="index.php?controller=...&method=..." method="post" enctype="multipart/form-data">
-   
+<?php
+if (isset($datos_incidencia)) {
+    // Mostrar los datos de la incidencia
+?>
     <div class="form-group">
-        <label for="TituloFallo">Titulo de la Incidencia </label>
-        <input type="text" class="form-control" id="TituloFallo" name="TituloFallo"required>
-    </div>
+    <label for="TituloFallo">Título de la Incidencia</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        id="TituloFallo" 
+        name="TituloFallo" 
+        value="<?= htmlspecialchars($datos_incidencia['titol_fallo'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" 
+        required
+    >
+</div>
 
-    <div class="form-group">
-        <label for="Descripcion">Descripcion</label>
-        <input type="text" class="form-control" id="Descripcion" name="Descripcion"required>
-    </div>
+<div class="form-group">
+    <label for="Descripcion">Descripción</label>
+    <input 
+        type="text" 
+        class="form-control" 
+        id="Descripcion" 
+        name="Descripcion" 
+        value="<?= htmlspecialchars($datos_incidencia['descripcio'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" 
+        required
+    >
+</div>
 
-    <div class="form-group">
+<div class="form-group">
     <label for="Tipo">Tipo de Incidencia</label>
-        <select id="Categoria" name="Categoria" class="form-control"required>        
-            <option value="Calefaccio"> Calefacció<br>
-            <option value="Electricitat"> Electricitat<br>
-            <option value="Fontaner"> Fontaner<br>
-            <option value="Informatica"> Informàtica<br> 
-            <option value="Fusteria"> Fusteria<br>
-            <option value="Ferrer"> Ferrer<br>
-            <option value="Obres"> Obres<br>
-            <option value="Audiovisual"> Audiovisual<br>
-            <option value="Equips de seguretat"> Equips de seguretat<br>
-            <option value="Neteja de clavegueram"> Neteja de clavegueram<br>
-            <option value="Otros"> Otros<br>
-        </select>
+    <select id="Categoria" name="Categoria" class="form-control" required>        
+        <option value="Calefaccio" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Calefaccio') ? 'selected' : ''; ?>>Calefacció</option>
+        <option value="Electricitat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
+        <option value="Fontaner" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
+        <option value="Informatica" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Informatica') ? 'selected' : ''; ?>>Informàtica</option>
+        <option value="Fusteria" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fusteria') ? 'selected' : ''; ?>>Fusteria</option>
+        <option value="Ferrer" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Ferrer') ? 'selected' : ''; ?>>Ferrer</option>
+        <option value="Obres" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Obres') ? 'selected' : ''; ?>>Obres</option>
+        <option value="Audiovisual" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Audiovisual') ? 'selected' : ''; ?>>Audiovisual</option>
+        <option value="Equips de seguretat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Equips de seguretat') ? 'selected' : ''; ?>>Equips de seguretat</option>
+        <option value="Neteja de clavegueram" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Neteja de clavegueram') ? 'selected' : ''; ?>>Neteja de clavegueram</option>
+        <option value="Otros" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Otros') ? 'selected' : ''; ?>>Otros</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="Planta">Planta</label>
+    <select 
+        id="Planta" 
+        name="Planta" 
+        class="form-control" 
+        required 
+        onchange="cargarSalas()"
+    >
+        <option value="">Selecciona una planta</option>
+        <option value="Planta -1" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta -1') ? 'selected' : ''; ?>>Planta -1</option>
+        <option value="Planta 0" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 0') ? 'selected' : ''; ?>>Planta 0</option>
+        <option value="Planta 1" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 1') ? 'selected' : ''; ?>>Planta 1</option>
+        <option value="Planta 2" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 2') ? 'selected' : ''; ?>>Planta 2</option>
+        <option value="Planta 3" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 3') ? 'selected' : ''; ?>>Planta 3</option>
+        <option value="Planta 4" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 4') ? 'selected' : ''; ?>>Planta 4</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="Salon">Número de Sala</label>
+    <select 
+        id="Salon" 
+        name="Salon" 
+        class="form-control" 
+        required
+    >
+        <option value="">Selecciona una planta primero</option>
+        <!-- Aquí deberías cargar las opciones dinámicamente con JavaScript según la planta seleccionada -->
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="Prioridad">Prioridad</label>
+    <div class="radio-group">
+        <input 
+            type="radio" 
+            class="btn-check" 
+            name="Prioridad" 
+            id="Baixa" 
+            value="Baixa" 
+            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Baixa') ? 'checked' : ''; ?> 
+            required
+        >
+        <label class="btn btn-outline-success" for="Baixa">Baixa</label>
+
+        <input 
+            type="radio" 
+            class="btn-check" 
+            name="Prioridad" 
+            id="Mitjana" 
+            value="Mitjana" 
+            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Mitjana') ? 'checked' : ''; ?> 
+            required
+        >
+        <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
+
+        <input 
+            type="radio" 
+            class="btn-check" 
+            name="Prioridad" 
+            id="Alta" 
+            value="Alta" 
+            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Alta') ? 'checked' : ''; ?> 
+            required
+        >
+        <label class="btn btn-outline-warning" for="Alta">Alta</label>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="Planta">Planta</label>
-        <select id="Planta" name="Planta" class="form-control" required onchange="cargarSalas()">
-            <option value="">Selecciona una planta</option>
-            <option value="Planta -1">Planta -1</option>
-            <option value="Planta 0">Planta 0</option>
-            <option value="Planta 1">Planta 1</option>
-            <option value="Planta 2">Planta 2</option>
-            <option value="Planta 3">Planta 3</option>
-            <option value="Planta 4">Planta 4</option>
-        </select>
-    </div>
+<div class="form-group">
+    <label for="Imatges">Imatges</label>
+    <input 
+        type="file" 
+        class="form-control" 
+        name="Imatges[]" 
+        id="Imatges" 
+        multiple
+    >
+</div>
 
-    <div class="form-group">
-        <label for="Salon">Número de Sala</label>
-        <select id="Salon" name="Salon" class="form-control" required>
-            <option value="">Selecciona una planta primero</option>
-        </select>
-    </div>
 
-    <div class="form-group">
-        <label for="Estado">Estado</label>
-        <div class="form-group">
 
-            <input type="radio" class="btn-check" name="Estado" id="Pendent" value="Pendent" required>
-            <label class="btn btn-outline-success" for="Pendent">Pendent</label>
 
-            <input type="radio" class="btn-check" name="Estado" id="En Progrés" value="En Progrés" required>
-            <label class="btn btn-outline-danger" for="En Progrés">En Progrés</label>
 
-            <input type="radio" class="btn-check" name="Estado" id="Resolta" value="Resolta" required>
-            <label class="btn btn-outline-warning" for="Resolta">Resolta</label>
+<?php
+} else {
+    echo "<div class='alert alert-danger'>No se encontraron datos de la incidencia.</div>";
+}
 
-        </div>
-    </div>
 
-    <div class="form-group">
-        <label for="Prioridad">Prioridad</label>
-        <div class="form-group">
+?>
 
-            <input type="radio" class="btn-check" name="Prioridad" id="Baixa" value="Baixa" required>
-            <label class="btn btn-outline-success" for="Baixa">Baixa</label>
+<script src="assets/js/cargarSalas.js"></script>
 
-            <input type="radio" class="btn-check" name="Prioridad" id="Mitjana" value="Mitjana" required>
-            <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
-
-            <input type="radio" class="btn-check" name="Prioridad" id="Alta" value="Alta" required>
-            <label class="btn btn-outline-warning" for="Alta">Alta</label>
-
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="Foto">Foto</label>
-        <input type="file" class="form-control form-control-lg" name="Foto" id="Foto">
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Insertar</button>
-</form>
-
-<script src="app/views/layouts/js/cargarSalas.js"></script>

@@ -6,6 +6,6 @@ class PerfilController
 {
     public function info()
     {
-        require "app/views/layouts/Forms/V_Perfil.php";
+        require "app/views/perfil.php";
     }
 }

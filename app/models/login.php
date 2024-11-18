@@ -8,7 +8,7 @@ class Login
         $email = $_POST['username'];
         $contraseña = $_POST['password'];
 
-        $mysql = new mysqli("localhost", "root", "", "incidencies");
+        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
 
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
@@ -24,8 +24,9 @@ class Login
             if (password_verify($contraseña, $usuario['contrasenya'])) {
                 // Login exitoso
                 $_SESSION['usuario'] = $usuario['nom_cognoms'];
+                $_SESSION['id'] = $usuario['id'];
                 $_SESSION['rol'] = $usuario['rol'];
-                $_SESSION['foto_perfil'] = $usuario['imatges']; 
+
                 return true;
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
