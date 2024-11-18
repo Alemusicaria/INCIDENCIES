@@ -624,6 +624,21 @@ button[type="submit"]:hover {
     height: 50px;
 }
 
+.form-group.d-flex {
+    display: flex;
+    justify-content: space-between; /* O usa 'space-evenly' para espacio igual entre todos */
+    gap: 10px; /* Esto agregará un pequeño espacio entre los botones */
+}
+
+.form-group.d-flex .btn-check {
+    display: none; /* Oculta los botones de radio */
+}
+
+.form-group.d-flex label {
+    flex: 1; /* Hace que cada etiqueta ocupe el mismo espacio */
+    text-align: center; /* Centra el texto dentro de cada botón */
+}
+
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
