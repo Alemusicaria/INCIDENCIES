@@ -5,30 +5,19 @@ if (isset($datos_incidencia)) {
     <div class="form-group">
     <label for="TituloFallo">Título de la Incidencia</label>
     <input 
-        type="text" 
-        class="form-control" 
-        id="TituloFallo" 
-        name="TituloFallo" 
-        value="<?= htmlspecialchars($datos_incidencia['titol_fallo'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" 
-        required
-    >
+        type="text" class="form-control" id="TituloFallo" name="TituloFallo" 
+        value="<?= htmlspecialchars($datos_incidencia['titol_fallo'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" >
 </div>
 
 <div class="form-group">
     <label for="Descripcion">Descripción</label>
-    <input 
-        type="text" 
-        class="form-control" 
-        id="Descripcion" 
-        name="Descripcion" 
-        value="<?= htmlspecialchars($datos_incidencia['descripcio'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" 
-        required
-    >
+    <input type="text" class="form-control" id="Descripcion" name="Descripcion" 
+        value="<?= htmlspecialchars($datos_incidencia['descripcio'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
 </div>
 
 <div class="form-group">
     <label for="Tipo">Tipo de Incidencia</label>
-    <select id="Categoria" name="Categoria" class="form-control" required>        
+    <select id="Categoria" name="Categoria" class="form-control" >        
         <option value="Calefaccio" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Calefaccio') ? 'selected' : ''; ?>>Calefacció</option>
         <option value="Electricitat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
         <option value="Fontaner" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
@@ -46,12 +35,7 @@ if (isset($datos_incidencia)) {
 <div class="form-group">
     <label for="Planta">Planta</label>
     <select 
-        id="Planta" 
-        name="Planta" 
-        class="form-control" 
-        required 
-        onchange="cargarSalas()"
-    >
+        id="Planta" name="Planta" class="form-control" required onchange="cargarSalas()">
         <option value="">Selecciona una planta</option>
         <option value="Planta -1" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta -1') ? 'selected' : ''; ?>>Planta -1</option>
         <option value="Planta 0" <?= (isset($datos_incidencia['planta']) && $datos_incidencia['planta'] === 'Planta 0') ? 'selected' : ''; ?>>Planta 0</option>
@@ -65,63 +49,57 @@ if (isset($datos_incidencia)) {
 <div class="form-group">
     <label for="Salon">Número de Sala</label>
     <select 
-        id="Salon" 
-        name="Salon" 
-        class="form-control" 
-        required
-    >
+        id="Salon" name="Salon" class="form-control">
         <option value="">Selecciona una planta primero</option>
         <!-- Aquí deberías cargar las opciones dinámicamente con JavaScript según la planta seleccionada -->
     </select>
 </div>
 
-<div class="form-group">
-    <label for="Prioridad">Prioridad</label>
+<div>
+    <label for="Estat">Estat</label>
     <div class="radio-group">
-        <input 
-            type="radio" 
-            class="btn-check" 
-            name="Prioridad" 
-            id="Baixa" 
-            value="Baixa" 
-            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Baixa') ? 'checked' : ''; ?> 
-            required
-        >
-        <label class="btn btn-outline-success" for="Baixa">Baixa</label>
+        <input type="radio" class="btn-check" name="Estat" id="Pendent" value="Pendent" 
+            <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'Pendent') ? 'checked' : ''; ?> >
+        <label class="btn btn-outline-success" for="Pendent">Pendent</label>
 
-        <input 
-            type="radio" 
-            class="btn-check" 
-            name="Prioridad" 
-            id="Mitjana" 
-            value="Mitjana" 
-            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Mitjana') ? 'checked' : ''; ?> 
-            required
-        >
-        <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
+        <input type="radio" class="btn-check" name="Estat" id="En Progrés" value="En Progrés" 
+            <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'En Progrés') ? 'checked' : ''; ?> >
+        <label class="btn btn-outline-danger" for="En Progrés">En Progrés</label>
 
-        <input 
-            type="radio" 
-            class="btn-check" 
-            name="Prioridad" 
-            id="Alta" 
-            value="Alta" 
-            <?= (isset($datos_incidencia['prioridad']) && $datos_incidencia['prioridad'] === 'Alta') ? 'checked' : ''; ?> 
-            required
-        >
-        <label class="btn btn-outline-warning" for="Alta">Alta</label>
+        <input type="radio" class="btn-check" name="Estat" id="Resolta" value="Resolta" 
+            <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'Resolta') ? 'checked' : ''; ?> >
+        <label class="btn btn-outline-warning" for="Resolta">Resolta</label>
     </div>
 </div>
 
 <div class="form-group">
+    <label for="Prioridad">Prioridad</label>
+    <div class="radio-group">
+        <input type="radio" class="btn-check" name="Prioridad" id="Baixa" value="Baixa" 
+            <?= (isset($datos_incidencia['prioritat']) && $datos_incidencia['prioritat'] === 'Baixa') ? 'checked' : ''; ?>>
+        <label class="btn btn-outline-success" for="Baixa">Baixa</label>
+
+        <input type="radio" class="btn-check" name="Prioridad" id="Mitjana" value="Mitjana" 
+            <?= (isset($datos_incidencia['prioritat']) && $datos_incidencia['prioritat'] === 'Mitjana') ? 'checked' : ''; ?> >
+        <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
+
+        <input type="radio" class="btn-check" name="Prioridad" id="Alta" value="Alta" 
+            <?= (isset($datos_incidencia['prioritat']) && $datos_incidencia['prioritat'] === 'Alta') ? 'checked' : ''; ?> >
+        <label class="btn btn-outline-warning" for="Alta">Alta</label>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
     <label for="Imatges">Imatges</label>
-    <input 
-        type="file" 
-        class="form-control" 
-        name="Imatges[]" 
-        id="Imatges" 
-        multiple
-    >
+    <input  type="file" class="form-control" name="Imatges[]" id="Imatges" multiple>
+</div>
+
+
+<div class="form-group">
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </div>
 
 
@@ -137,4 +115,5 @@ if (isset($datos_incidencia)) {
 ?>
 
 <script src="assets/js/cargarSalas.js"></script>
+
 
