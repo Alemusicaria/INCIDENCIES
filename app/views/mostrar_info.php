@@ -12,7 +12,7 @@ if ($id_incidencia <= 0) {
 
 // Conexión a la base de datos (modifica los datos de conexión según tu configuración)
 $servername = "localhost";
-$username = "root";
+$username = "apratc_aprat";
 $password = "";
 $dbname = "apratc_Incidencies";
 

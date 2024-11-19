@@ -17,7 +17,7 @@ class registro
         move_uploaded_file($ruta, $destino);
         $Contraseñahash = password_hash($Contraseña, PASSWORD_DEFAULT);
 
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "apratc_aprat", "", "apratc_Incidencies");
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
         }

@@ -44,7 +44,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <tbody>
                                 <?php
                                 // Connexió a la base de dades
-                                $conn = new mysqli("localhost", "root", "", "apratc_incidencies");
+                                $conn = new mysqli("localhost", "apratc_aprat", "", "apratc_incidencies");
                                 if ($conn->connect_error) {
                                     die("Error de connexió: " . $conn->connect_error);
                                 }

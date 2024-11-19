@@ -8,7 +8,7 @@ class Database
     {
         if (self::$dbConnection == null) {
             try {
-                self::$dbConnection = new PDO('mysql:host=localhost;dbname=apratc_Incidencies', 'root', '');
+                self::$dbConnection = new PDO('mysql:host=localhost;dbname=apratc_Incidencies', 'apratc_aprat', '');
                 self::$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die("Error en la connexió: " . $e->getMessage());

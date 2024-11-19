@@ -5,7 +5,7 @@ class editar_incidencia
     public function verificar_id_incidencia()
     {
 
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "apratc_aprat", "", "apratc_Incidencies");
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
         }

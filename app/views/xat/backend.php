@@ -1,7 +1,7 @@
 <?php
 // Configuració de la base de dades
 $servername = "localhost";
-$username = "root";
+$username = "apratc_aprat";
 $password = "";
 $dbname = "apratc_Incidencies";
 
