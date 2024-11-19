@@ -43,7 +43,7 @@ class incidencias
     }
 
     // Conexión a la base de datos
-    $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
+    $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
     if ($mysql->connect_error) {
         die('Problemas con la conexión a la base de datos');
     }
@@ -81,7 +81,7 @@ class incidencias
 
     public function obtenerSalasPorPlanta($planta)
     {
-        $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
         }
