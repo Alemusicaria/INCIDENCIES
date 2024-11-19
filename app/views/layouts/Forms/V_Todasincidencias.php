@@ -31,40 +31,64 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Nom i Cognom</th>
-                                    <th>Correu</th>
-                                    <th>Telefon</th>
-                                    <th>Rol</th>
-                                    <th>Data Registre</th>
-                                    <th>Foto</th>
+                                    <th>Creador</th>
+                                    <th>Titol</th>
+                                    <th>Descripcio</th>
+                                    <th>Tipus Incidència</th>
+                                    <th>Id Ubicacion</th>
+                                    <th>Data Incidencia</th>
+                                    <th>Estat</th>
+                                    <th>Prioritat</th>
+                                    <th>Imatges</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>1</td>
                                     <td>Juan Perez</td>
-                                    <td>juan@example.com</td>
-                                    <td>123456789</td>
-                                    <td>Professor</td>
+                                    <td>Problema amb el projector</td>
+                                    <td>El projector no funciona</td>
+                                    <td>Problema de Hardware</td>
+                                    <td>1</td>
                                     <td>2021-10-01</td>
+                                    <td>Oberta</td>
+                                    <td>Alta</td>
                                     <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td>Ana García</td>
-                                    <td>ana@example.com</td>
-                                    <td>987654321</td>
-                                    <td>Tecnic</td>
+                                    <td>Problema amb el projector</td>
+                                    <td>El projector no funciona</td>
+                                    <td>Problema de Hardware</td>
+                                    <td>1</td>
                                     <td>2021-10-02</td>
+                                    <td>Oberta</td>
+                                    <td>Alta</td>
                                     <td>No hay foto</td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td>Carlos Ruiz</td>
-                                    <td>carlos@example.com</td>
-                                    <td>456789123</td>
-                                    <td>Admin</td>
+                                    <td>Josep Lluis</td>
+                                    <td>Problema amb el projector</td>
+                                    <td>El projector no funciona</td>
+                                    <td>Problema de Hardware</td>
+                                    <td>1</td>
                                     <td>2021-10-03</td>
+                                    <td>Oberta</td>
+                                    <td>Alta</td>
+                                    <td>No hay foto</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Carlos Ruiz</td>
+                                    <td>Problema amb el projector</td>
+                                    <td>El projector no funciona</td>
+                                    <td>Problema de Hardware</td>
+                                    <td>1</td>
+                                    <td>2021-10-04</td>
+                                    <td>Oberta</td>
+                                    <td>Alta</td>
                                     <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
                                 </tr>
                             </tbody>

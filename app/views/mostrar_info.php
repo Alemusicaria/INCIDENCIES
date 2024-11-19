@@ -12,8 +12,8 @@ if ($id_incidencia <= 0) {
 
 // Conexión a la base de datos (modifica los datos de conexión según tu configuración)
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "apratc_aprat";
+$password = "AleixSteveLeandro123";
 $dbname = "apratc_Incidencies";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

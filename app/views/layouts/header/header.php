@@ -30,3 +30,6 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="public/css/styleNav.css?v=1">
 </head>
+<?php
+include("app/views/layouts/btn/xat.php");
+?>

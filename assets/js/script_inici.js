@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
               // Crear un enllaç que redirigeixi a la pàgina de detall de la incidència
               div.innerHTML = `
-                <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-danger btn-sm">
+                <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-primary btn-sm">
                     Informació
                 </a>
                 <br><strong>${incidencia.titol_fallo}</strong>
@@ -59,16 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   calendar.render();
-
-  // Afegir event listener als botons de canvi de vista
-  /*
-  var viewButtons = document.querySelectorAll('.view-buttons button');
-  viewButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var view = this.getAttribute('data-view');
-      calendar.changeView(view);
-    });
-  });*/
   // Agregar event listener a los labels en btn-group para cambiar la vista del calendario
   var viewLabels = document.querySelectorAll('.btn-group label');
   viewLabels.forEach(function (label) {

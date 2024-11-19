@@ -8,7 +8,7 @@ class Login
         $email = $_POST['username'];
         $contraseña = $_POST['password'];
 
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
 
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');

@@ -6,7 +6,7 @@ class info_incidencias
     public function get_incidencia_by_id($id)
     {
         // Conexión a la base de datos
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
     
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
@@ -39,7 +39,7 @@ class info_incidencias
     public function ubicacion($id)
     {
         // Conexión a la base de datos
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
     
         if ($mysql->connect_error) {
             die('Problemas con la conexión a la base de datos');
