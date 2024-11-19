@@ -2,9 +2,19 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'app\models\connexio.php';
-if (!$conn) {
-    die(json_encode(['error' => 'No s\'ha pogut establir la connexió amb la base de dades.']));
+
+// Connexió a la base de dades
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "apratc_incidencies";
+
+// Crear connexió
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Comprovar connexió
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Comprovem si s'ha passat la data com a paràmetre GET
