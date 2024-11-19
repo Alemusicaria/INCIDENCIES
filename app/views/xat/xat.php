@@ -1,12 +1,6 @@
 <?php
 include('connexio.php');
 
-// Comprovem si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html');
-    exit();
-}
-
 $usuari_id = $_SESSION['id'];
 $resultat_converses = false;
 $resultat_grups = false;
