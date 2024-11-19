@@ -43,6 +43,7 @@ class incidencias
         }
 
         require_once 'connexio.php';
+        global $mysql;
         // Consultas para obtener el id de la ubicación y el id del usuario
         $query_ubicacion = "SELECT id FROM sales WHERE planta = '$Planta' AND sala = '$Salon'";
         $result_ubicacion = $mysql->query($query_ubicacion);
@@ -77,7 +78,7 @@ class incidencias
     public function obtenerSalasPorPlanta($planta)
     {
         require_once 'connexio.php';
-        
+
         $query = "SELECT sala FROM sales WHERE planta = '$planta'";
         $result = $mysql->query($query);
 
