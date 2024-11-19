@@ -4,15 +4,11 @@ class Login
 {
     public function Verificar_Login()
     {
-        
+
         $email = $_POST['username'];
         $contraseña = $_POST['password'];
-
-        $mysql = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_Incidencies");
-
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        
+        require_once 'connexio.php';
 
         $result = $mysql->query("SELECT * FROM usuaris WHERE correu = '$email'");
 
@@ -31,10 +27,7 @@ class Login
             } else {
                 $_SESSION['error'] = "Contraseña incorrecta.";
                 return false;
-            }    
+            }
         }
     }
-
-   
-
 }

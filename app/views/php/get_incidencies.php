@@ -2,18 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Connectar amb la base de dades
-$servername = "localhost";
-$username = "apratc_aprat"; // Canvia-ho pel teu nom d'usuari
-$password = "AleixSteveLeandro123"; // Canvia-ho per la teva contrasenya
-$dbname = "apratc_Incidencies"; // Canvia-ho pel teu nom de base de dades
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Comprovar connexió
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
+require_once 'connexio.php';
 
 // Comprovem si s'ha passat la data com a paràmetre GET
 if (!isset($_GET['data']) || empty($_GET['data'])) {

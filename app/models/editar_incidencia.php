@@ -5,10 +5,7 @@ class editar_incidencia
     public function verificar_id_incidencia()
     {
 
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        require_once 'connexio.php';
 
         $id_incidencia = $_GET['id'];
         $query = "SELECT * FROM incidencies WHERE id = '$id_incidencia'";
@@ -24,10 +21,7 @@ class editar_incidencia
 
     public function editar_incidencia()
     {
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        require_once 'connexio.php';
 
         $id_incidencia = $_GET['id'];
         $titulo = $_POST['TituloFallo'];
@@ -37,10 +31,5 @@ class editar_incidencia
         $sala = $_POST['Salon'];
         $estat = $_POST['Estat'];
         $prioridad = $_POST['Prioridad'];
-
-
-
     }
-
-    
 }

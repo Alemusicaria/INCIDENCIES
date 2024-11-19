@@ -17,10 +17,8 @@ class registro
         move_uploaded_file($ruta, $destino);
         $Contraseñahash = password_hash($Contraseña, PASSWORD_DEFAULT);
 
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        require_once 'connexio.php';
+
 
         $query_usuario = "INSERT INTO usuaris(nom_cognoms, correu, contrasenya, telefon, rol, data_registre, foto) 
         VALUES ('$Nombre','$Correo','$Contraseñahash','$Telefono','$Rol', NOW(),' $destino')";

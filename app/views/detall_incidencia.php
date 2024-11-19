@@ -2,18 +2,8 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Connectar amb la base de dades
-$servername = "localhost";
-$username = "apratc_aprat";
-$password = "AleixSteveLeandro123";
-$dbname = "apratc_Incidencies";
+require_once 'connexio.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Comprovar connexió
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
 
 // Obtenim l'ID de la incidència
 $id = $_GET['id'];

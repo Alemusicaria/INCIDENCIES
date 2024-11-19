@@ -5,12 +5,8 @@ class info_incidencias
     // Función para obtener la incidencia por su ID
     public function get_incidencia_by_id($id)
     {
-        // Conexión a la base de datos
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
-    
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        require_once 'connexio.php';
+
     
         // Consulta para obtener la incidencia
         $query = "SELECT * FROM incidencies WHERE incidencies.id = '$id'"; 
@@ -38,12 +34,8 @@ class info_incidencias
     
     public function ubicacion($id)
     {
-        // Conexión a la base de datos
-        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
-    
-        if ($mysql->connect_error) {
-            die('Problemas con la conexión a la base de datos');
-        }
+        require_once 'connexio.php';
+
     
         // Consulta para obtener la planta y la sala usando el id de la incidencia
         $query = "SELECT sales.planta, sales.sala 

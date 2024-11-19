@@ -43,11 +43,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             </thead>
                             <tbody>
                                 <?php
-                                // Connexió a la base de dades
-                                $conn = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_incidencies");
-                                if ($conn->connect_error) {
-                                    die("Error de connexió: " . $conn->connect_error);
-                                }
+                                require_once 'connexio.php';
+
 
                                 // ID de l'usuari autenticat
                                 $idUsuari = $_SESSION['id']; // Assegura't que tens aquesta variable definida

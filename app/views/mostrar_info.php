@@ -10,18 +10,8 @@ if ($id_incidencia <= 0) {
     exit;
 }
 
-// Conexión a la base de datos (modifica los datos de conexión según tu configuración)
-$servername = "localhost";
-$username = "apratc_aprat";
-$password = "AleixSteveLeandro123";
-$dbname = "apratc_Incidencies";
+require_once 'connexio.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Comprovem si la connexió és correcta
-if ($conn->connect_error) {
-    die("Connexió fallida: " . $conn->connect_error);
-}
 
 // Preparem la consulta per obtenir la incidència
 $sql = "SELECT * FROM incidencies WHERE id = ?";
