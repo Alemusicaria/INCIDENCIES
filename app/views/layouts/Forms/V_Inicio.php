@@ -29,12 +29,8 @@ include("app/views/layouts/header/header.php");
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
             <!-- Script personalitzat -->
             <script src="assets/js/script_inici.js"></script>
-
-            <div class="btn-chat">
-                <a href="index.php?controller=Login&method=xat">
-                    <img src="Images/Comment1Text.png" alt="chat" class="img-chat">
-                </a>
-            </div>
+            
+            
 
 
         </div>

@@ -1,12 +1,5 @@
 <?php
-session_start();
 include('connexio.php');
-
-// Comprovem si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html');
-    exit();
-}
 
 $usuari_id = $_SESSION['id'];
 
@@ -45,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
     ";
 
     if (mysqli_query($conn, $query_inserir)) {
-        header("Location: grup_detall.php?grup_id=$grup_id");
+        header("Location: index.php?controller=Login&method=grup_detall&grup_id=$grup_id");
         exit();
     } else {
         echo "Error al enviar el missatge: " . mysqli_error($conn);
@@ -53,51 +46,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="ca">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grup - Detall</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+
+<?php include("app/views/layouts/header/header.php"); ?>
+<link rel="stylesheet" href="public/css/styleXat.css">
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Grup: <?php echo $grup['nom']; ?></h1>
-            <form action="tancar_sessio.php" method="post">
-                <button class="logout-btn" type="submit">Tancar sessió</button>
-            </form>
-        </header>
+    <div class="wrapper">
+        <?php include("app/views/layouts/menu/menu.php"); ?>
+        <main class="main p-3">
+            <header>
+                <h1>Grup: <?php echo $grup['nom']; ?></h1>
+            </header>
 
-        <!-- Missatges del grup -->
-        <section class="missatges">
-            <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
-                <ul>
-                    <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
-                        <li>
-                            <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
-                            <p><?php echo $missatge['missatge']; ?></p>
-                            <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php else: ?>
-                <p>No hi ha missatges en aquest grup.</p>
-            <?php endif; ?>
-        </section>
+            <!-- Missatges del grup -->
+            <section class="missatges">
+                <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
+                    <ul>
+                        <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
+                            <li>
+                                <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
+                                <p><?php echo $missatge['missatge']; ?></p>
+                                <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
+                <?php else: ?>
+                    <p>No hi ha missatges en aquest grup.</p>
+                <?php endif; ?>
+            </section>
 
-        <!-- Formulari per enviar un missatge -->
-        <section class="enviar-missatge">
-            <form method="POST">
-                <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
-                <button type="submit">Enviar missatge</button>
-            </form>
-        </section>
+            <!-- Formulari per enviar un missatge -->
+            <section class="enviar-missatge">
+                <form method="POST">
+                    <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
+                    <button type="submit">Enviar missatge</button>
+                </form>
+            </section>
 
-        <a href="xat.php">Tornar a les converses</a>
+            <a href="index.php?controller=Login&method=xat" class="btn btn-primary">Tornar a les converses</a>
+        </main>
     </div>
 </body>
 
