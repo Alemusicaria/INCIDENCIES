@@ -51,8 +51,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                                 // Consulta per obtenir les incidències de l'usuari
                                 $sql = "SELECT id, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
-        FROM incidencies 
-        WHERE id_usuari = ?";
+                                FROM incidencies 
+                            WHERE id_usuari = ?";
                                 $stmt = $conn->prepare($sql);
                                 $stmt->bind_param("i", $idUsuari);
                                 $stmt->execute();
@@ -70,10 +70,15 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         echo "<td>" . htmlspecialchars($row['data_incidencia']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['estat']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['prioritat']) . "</td>";
+                                        // Imatges
+                                        echo "<td>";
                                         if (!empty($row['imatges'])) {
-                                            echo "<td><img src='" . htmlspecialchars($row['imatges']) . "' alt='Imatge Incidència' class='perfil-img'></td>";
+                                            $imatges = explode(',', $row['imatges']);
+                                            foreach ($imatges as $imatge) {
+                                                echo "<img src='$imatge' class='img-thumbnail' width='100' height='100'>";
+                                            }
                                         } else {
-                                            echo "<td>No hi ha imatge</td>";
+                                            echo "No hi ha imatges";
                                         }
                                         echo "</tr>";
                                     }
