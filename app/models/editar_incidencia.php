@@ -22,5 +22,25 @@ class editar_incidencia
         }
     }
 
+    public function editar_incidencia()
+    {
+        $mysql = new mysqli("localhost", "root", "", "apratc_Incidencies");
+        if ($mysql->connect_error) {
+            die('Problemas con la conexión a la base de datos');
+        }
+
+        $id_incidencia = $_GET['id'];
+        $titulo = $_POST['TituloFallo'];
+        $descripcion = $_POST['Descripcion'];
+        $categoria = $_POST['Categoria'];
+        $planta = $_POST['Planta'];
+        $sala = $_POST['Salon'];
+        $estat = $_POST['Estat'];
+        $prioridad = $_POST['Prioridad'];
+
+        
+
+    }
+
     
 }
