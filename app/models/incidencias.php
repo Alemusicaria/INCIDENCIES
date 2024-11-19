@@ -65,7 +65,7 @@ class incidencias
                 $_SESSION['exito'] = "Incidencia ingresada con éxito.";
                 return true;
             } else {
-                $_SESSION['error'] = "Error al insertar la incidencia: " . $conn->error;
+                $_SESSION['error'] = "Error al insertar la incidencia";
                 return false;
             }
         } else {
