@@ -3,6 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 require_once 'app\models\connexio.php';
+if (!$conn) {
+    die(json_encode(['error' => 'No s\'ha pogut establir la connexió amb la base de dades.']));
+}
 
 // Comprovem si s'ha passat la data com a paràmetre GET
 if (!isset($_GET['data']) || empty($_GET['data'])) {
