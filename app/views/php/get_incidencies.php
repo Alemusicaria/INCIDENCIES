@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 
 // Connectar amb la base de dades
 $servername = "localhost";
-$username = "root"; // Canvia-ho pel teu nom d'usuari
-$password = ""; // Canvia-ho per la teva contrasenya
+$username = "apratc_aprat"; // Canvia-ho pel teu nom d'usuari
+$password = "AleixSteveLeandro123"; // Canvia-ho per la teva contrasenya
 $dbname = "apratc_Incidencies"; // Canvia-ho pel teu nom de base de dades
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -40,8 +40,23 @@ $result = $stmt->get_result();
 
 $incidencies = [];
 while ($row = $result->fetch_assoc()) {
-    $incidencies[] = $row;
+    $ubicacio = (!empty($row['planta']) && !empty($row['sala']))
+        ? "{$row['planta']}:{$row['sala']}"
+        : "Ubicació no disponible";
+
+    $incidencies[] = [
+        'id' => $row['id'],
+        'titol_fallo' => $row['titol_fallo'],
+        'descripcio' => $row['descripcio'],
+        'tipus_incidencia' => $row['tipus_incidencia'],
+        'ubicacio' => $ubicacio,
+        'data_incidencia' => $row['data_incidencia'],
+        'estat' => $row['estat'],
+        'prioritat' => $row['prioritat'],
+        'imatges' => $row['imatges']
+    ];
 }
+
 
 // Retornar les incidències en format JSON
 header('Content-Type: application/json');

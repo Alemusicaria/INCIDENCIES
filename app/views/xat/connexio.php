@@ -1,8 +1,8 @@
 <?php
 // Connexió a la base de dades
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "apratc_aprat";
+$password = "AleixSteveLeandro123";
 $dbname = "apratc_Incidencies";
 
 // Crear connexió

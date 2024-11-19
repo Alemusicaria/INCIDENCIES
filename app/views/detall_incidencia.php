@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 
 // Connectar amb la base de dades
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "apratc_aprat";
+$password = "AleixSteveLeandro123";
 $dbname = "apratc_Incidencies";
 
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -21,7 +21,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
             <div class="card">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Table
+                    Taula d'incidencies
                 </div>
 
                 <div class="card-body">
@@ -42,50 +42,51 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-01</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-02</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td>No hay foto</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-03</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td>No hay foto</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-04</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
-                                </tr>
+                                <?php
+                                // Connexió a la base de dades
+                                $conn = new mysqli("localhost", "apratc_aprat", "AleixSteveLeandro123", "apratc_incidencies");
+                                if ($conn->connect_error) {
+                                    die("Error de connexió: " . $conn->connect_error);
+                                }
+
+                                // ID de l'usuari autenticat
+                                $idUsuari = $_SESSION['id']; // Assegura't que tens aquesta variable definida
+
+                                // Consulta per obtenir les incidències de l'usuari
+                                $sql = "SELECT id, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
+        FROM incidencies 
+        WHERE id_usuari = ?";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->bind_param("i", $idUsuari);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+
+                                // Comprovar si hi ha resultats
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['titol_fallo']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['descripcio']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['tipus_incidencia']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['id_ubicacio']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['data_incidencia']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['estat']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['prioritat']) . "</td>";
+                                        if (!empty($row['imatges'])) {
+                                            echo "<td><img src='" . htmlspecialchars($row['imatges']) . "' alt='Imatge Incidència' class='perfil-img'></td>";
+                                        } else {
+                                            echo "<td>No hi ha imatge</td>";
+                                        }
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='9'>No hi ha incidències creades per aquest usuari.</td></tr>";
+                                }
+
+                                $stmt->close();
+                                $conn->close();
+                                ?>
                             </tbody>
                         </table>
                     </div>
