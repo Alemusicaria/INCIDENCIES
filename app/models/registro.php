@@ -17,13 +17,13 @@ class registro
         move_uploaded_file($ruta, $destino);
         $Contraseñahash = password_hash($Contraseña, PASSWORD_DEFAULT);
 
-        require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
 
         $query_usuario = "INSERT INTO usuaris(nom_cognoms, correu, contrasenya, telefon, rol, data_registre, foto) 
         VALUES ('$Nombre','$Correo','$Contraseñahash','$Telefono','$Rol', NOW(),' $destino')";
         
-        if ($mysql->query($query_usuario) === TRUE) {
+        if ($conn->query($query_usuario) === TRUE) {
             $_SESSION['exito'] = "Usuario registrado con éxito.";
             return true;
         } else {

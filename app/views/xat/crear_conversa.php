@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('connexio.php');
+require_once 'app\models\connexio.php';
 
 // Comprovem si l'usuari està logejat
 if (!isset($_SESSION['id'])) {

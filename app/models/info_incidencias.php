@@ -5,13 +5,13 @@ class info_incidencias
     // Función para obtener la incidencia por su ID
     public function get_incidencia_by_id($id)
     {
-        require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
     
         // Consulta para obtener la incidencia
         $query = "SELECT * FROM incidencies WHERE incidencies.id = '$id'"; 
     
-        $result = $mysql->query($query);
+        $result = $conn->query($query);
     
         // Verificar si se encontró la incidencia
         if ($result->num_rows === 0) {
@@ -34,7 +34,7 @@ class info_incidencias
     
     public function ubicacion($id)
     {
-        require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
     
         // Consulta para obtener la planta y la sala usando el id de la incidencia
@@ -43,7 +43,7 @@ class info_incidencias
                   INNER JOIN sales ON incidencies.id_ubicacio = sales.id 
                   WHERE incidencies.id = '$id'";
     
-        $result = $mysql->query($query);
+        $result = $conn->query($query);
     
         // Verificar si se encontró la ubicación
         if ($result->num_rows > 0) {

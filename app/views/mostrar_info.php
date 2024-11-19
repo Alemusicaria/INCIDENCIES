@@ -10,7 +10,7 @@ if ($id_incidencia <= 0) {
     exit;
 }
 
-require_once 'connexio.php';
+require_once 'app\models\connexio.php';
 
 
 // Preparem la consulta per obtenir la incidència

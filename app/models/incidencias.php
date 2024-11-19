@@ -42,14 +42,13 @@ class incidencias
             $imagenes = ''; // Si no se suben imágenes, dejamos vacío el campo
         }
 
-        require_once 'connexio.php';
-        global $mysql;
+        require_once 'app\models\connexio.php';
         // Consultas para obtener el id de la ubicación y el id del usuario
         $query_ubicacion = "SELECT id FROM sales WHERE planta = '$Planta' AND sala = '$Salon'";
-        $result_ubicacion = $mysql->query($query_ubicacion);
+        $result_ubicacion = $conn->query($query_ubicacion);
 
         $query_usuario = "SELECT id FROM usuaris WHERE nom_cognoms = '$Nombre'";
-        $result_usuario = $mysql->query($query_usuario);
+        $result_usuario = $conn->query($query_usuario);
 
         if ($result_ubicacion->num_rows > 0 && $result_usuario->num_rows > 0) {
             $row_ubicacion = $result_ubicacion->fetch_assoc();
@@ -62,11 +61,11 @@ class incidencias
             $query_incidencias = "INSERT INTO incidencies (creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, prioritat, imatges, id_usuari)
         VALUES ('$Nombre', '$TituloFallo', '$Descripcion', '$Categoria', '$id_ubicacion', NOW(), '$Prioridad', '$imagenes', '$id_usuario')";
 
-            if ($mysql->query($query_incidencias) === TRUE) {
+            if ($conn->query($query_incidencias) === TRUE) {
                 $_SESSION['exito'] = "Incidencia ingresada con éxito.";
                 return true;
             } else {
-                $_SESSION['error'] = "Error al insertar la incidencia: " . $mysql->error;
+                $_SESSION['error'] = "Error al insertar la incidencia: " . $conn->error;
                 return false;
             }
         } else {
@@ -77,10 +76,10 @@ class incidencias
 
     public function obtenerSalasPorPlanta($planta)
     {
-        require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
         $query = "SELECT sala FROM sales WHERE planta = '$planta'";
-        $result = $mysql->query($query);
+        $result = $conn->query($query);
 
         $salas = [];
         while ($row = $result->fetch_assoc()) {

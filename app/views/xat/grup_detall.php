@@ -1,5 +1,5 @@
 <?php
-include('connexio.php');
+        require_once 'app\models\connexio.php';
 
 $usuari_id = $_SESSION['id'];
 

@@ -7,10 +7,10 @@ class Login
 
         $email = $_POST['username'];
         $contraseña = $_POST['password'];
-        
-        require_once 'connexio.php';
 
-        $result = $mysql->query("SELECT * FROM usuaris WHERE correu = '$email'");
+        require_once 'app\models\connexio.php';
+
+        $result = $conn->query("SELECT * FROM usuaris WHERE correu = '$email'");
 
         if ($result->num_rows === 0) {
             $_SESSION['error'] = "Usuario no encontrado.";

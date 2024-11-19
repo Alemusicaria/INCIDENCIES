@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'connexio.php';
+require_once 'app\models\connexio.php';
 
 // Comprovem si s'ha passat la data com a paràmetre GET
 if (!isset($_GET['data']) || empty($_GET['data'])) {

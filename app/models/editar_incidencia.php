@@ -5,11 +5,11 @@ class editar_incidencia
     public function verificar_id_incidencia()
     {
 
-        require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
         $id_incidencia = $_GET['id'];
         $query = "SELECT * FROM incidencies WHERE id = '$id_incidencia'";
-        $result = $mysql->query($query);
+        $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
             $incidencia = $result->fetch_assoc();

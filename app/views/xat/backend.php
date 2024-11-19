@@ -1,5 +1,5 @@
 <?php
-require_once 'connexio.php';
+        require_once 'app\models\connexio.php';
 
 
 // Funció per crear una conversa
