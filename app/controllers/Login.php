@@ -28,6 +28,11 @@ class LoginController
         require "app/views/layouts/Forms/V_Inicio.php";
     }
 
+    public function incidencies()
+    {
+        require "app/views/layouts/Forms/V_Misincidencias.php";
+    }
+
     public function cerrar_sesion()
     {
         session_destroy();

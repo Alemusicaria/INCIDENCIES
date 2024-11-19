@@ -59,16 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   calendar.render();
-
-  // Afegir event listener als botons de canvi de vista
-  /*
-  var viewButtons = document.querySelectorAll('.view-buttons button');
-  viewButtons.forEach(function (button) {
-    button.addEventListener('click', function () {
-      var view = this.getAttribute('data-view');
-      calendar.changeView(view);
-    });
-  });*/
   // Agregar event listener a los labels en btn-group para cambiar la vista del calendario
   var viewLabels = document.querySelectorAll('.btn-group label');
   viewLabels.forEach(function (label) {

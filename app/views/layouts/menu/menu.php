@@ -58,7 +58,7 @@
         </li>
 
         <li class="sidebar-item">
-            <a href="index.php?controller=Registro&method=ingresar_usuario" class="sidebar-link">
+            <a href="index.php?controller=Login&method=incidencies" class="sidebar-link">
                 <i class="lni lni-folder"></i>
                 <span>Les meves incidències</span>
             </a>
