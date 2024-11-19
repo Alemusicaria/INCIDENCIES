@@ -44,8 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
         echo "Error al enviar el missatge: " . mysqli_error($conn);
     }
 }
-?>
-
 
 ini_set('display_errors', 1);
 error_reporting(E_ALL);

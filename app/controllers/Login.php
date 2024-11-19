@@ -57,14 +57,13 @@ class LoginController
     // Mètode per mostrar els detalls d'un xat específic
     public function xat_detall()
     {
-        // Comprovar si s'ha passat un id de xat per l'URL i si és numèric
-        if (isset($_GET['xat_id']) && is_numeric($_GET['xat_id'])) {
-            $xat_id = $_GET['xat_id'];
+        $xat_id = isset($_GET['xat_id']) ? $_GET['xat_id'] : null;
 
-            // Passar l'ID del xat a la vista
+        if ($xat_id) {
+            // Carregar la vista del grup detall
             require "app/views/xat/xat_detall.php";
         } else {
-            // Si no es passa un id de xat vàlid, redirigir a la pàgina principal de xats
+            // Si no hi ha xat_id, redirigeix a la pàgina principal de xats
             header("Location: index.php?controller=Login&method=xat");
             exit;
         }
