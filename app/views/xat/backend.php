@@ -2,7 +2,7 @@
 // Configuració de la base de dades
 $servername = "localhost";
 $username = "apratc_aprat";
-$password = "";
+$password = "AleixSteveLeandro123";
 $dbname = "apratc_Incidencies";
 
 // Crear la connexió

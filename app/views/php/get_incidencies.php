@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 // Connectar amb la base de dades
 $servername = "localhost";
 $username = "apratc_aprat"; // Canvia-ho pel teu nom d'usuari
-$password = ""; // Canvia-ho per la teva contrasenya
+$password = "AleixSteveLeandro123"; // Canvia-ho per la teva contrasenya
 $dbname = "apratc_Incidencies"; // Canvia-ho pel teu nom de base de dades
 
 $conn = new mysqli($servername, $username, $password, $dbname);
