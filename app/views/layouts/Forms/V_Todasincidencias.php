@@ -15,13 +15,13 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
         <div class="main p-3">
             <div class="tittle-page">
-                <h2>Totes les Incidències</h2>
+                <h2>Les Meves Incidències</h2>
             </div>
 
             <div class="card">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
-                    Table
+                    Taula d'incidencies
                 </div>
 
                 <div class="card-body">
@@ -31,7 +31,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Creador</th>
                                     <th>Titol</th>
                                     <th>Descripcio</th>
                                     <th>Tipus Incidència</th>
@@ -43,54 +42,52 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Juan Perez</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-01</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Ana García</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-02</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td>No hay foto</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Josep Lluis</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-03</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td>No hay foto</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Carlos Ruiz</td>
-                                    <td>Problema amb el projector</td>
-                                    <td>El projector no funciona</td>
-                                    <td>Problema de Hardware</td>
-                                    <td>1</td>
-                                    <td>2021-10-04</td>
-                                    <td>Oberta</td>
-                                    <td>Alta</td>
-                                    <td><img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img"></td>
-                                </tr>
+                                <?php
+                                require_once 'app\models\connexio.php';
+
+
+                                // ID de l'usuari autenticat
+                                $idUsuari = $_SESSION['id']; // Assegura't que tens aquesta variable definida
+
+                                // Consulta per obtenir les incidències de l'usuari
+                                $sql = "SELECT id, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
+                                FROM incidencies";
+                                $stmt = $conn->prepare($sql);
+                                $stmt->bind_param("i", $idUsuari);
+                                $stmt->execute();
+                                $result = $stmt->get_result();
+
+                                // Comprovar si hi ha resultats
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['id'] . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['titol_fallo']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['descripcio']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['tipus_incidencia']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['id_ubicacio']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['data_incidencia']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['estat']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['prioritat']) . "</td>";
+                                        // Imatges
+                                        echo "<td>";
+                                        if (!empty($row['imatges'])) {
+                                            $imatges = explode(',', $row['imatges']);
+                                            foreach ($imatges as $imatge) {
+                                                echo "<img src='$imatge' class='img-thumbnail' width='100' height='100'>";
+                                            }
+                                        } else {
+                                            echo "No hi ha imatges";
+                                        }
+                                        echo "</tr>";
+                                    }
+                                } else {
+                                    echo "<tr><td colspan='9'>No hi ha incidències creades per aquest usuari.</td></tr>";
+                                }
+
+                                $stmt->close();
+                                $conn->close();
+                                ?>
                             </tbody>
                         </table>
                     </div>

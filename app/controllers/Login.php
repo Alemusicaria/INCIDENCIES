@@ -37,6 +37,11 @@ class LoginController
         require "app/views/layouts/Forms/V_Misincidencias.php";
     }
 
+    public function totes_incidencies()
+    {
+        require "app/views/layouts/Forms/V_Todasincidencias.php";
+    }
+
     /*************************  XAT  *************************/
 
     // Mètode per mostrar la llista de xats

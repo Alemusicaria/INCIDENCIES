@@ -51,7 +51,7 @@
 
         <div class="sidebar-separator">Intefaces</div>
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="index.php?controller=Login&method=totes_incidencies" class="sidebar-link">
                 <i class="lni lni-menu"></i>
                 <span>Totes les Incidències</span>
             </a>
