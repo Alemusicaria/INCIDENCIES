@@ -3,15 +3,6 @@ require "app/models/login.php";
 
 class LoginController
 {
-    // Constructor per validar si l'usuari està logejat
-    public function __construct()
-    {
-        // Comprovar si l'usuari està logejat
-        if (!isset($_SESSION['id'])) {
-            header("Location: index.php?controller=Login&method=login");
-            exit;
-        }
-    }
 
     // Mètode per verificar el login
     public function verificar_login()
