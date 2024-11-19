@@ -12,7 +12,7 @@ include("app/views/layouts/header/header.php");
         <?php
         include("app/views/layouts/menu/menu.php");
         ?>
-    
+
         <div class="main p-3">
             <div class="tittle-page">
                 <h2>INICI</h2>
@@ -30,11 +30,12 @@ include("app/views/layouts/header/header.php");
             <!-- Script personalitzat -->
             <script src="assets/js/script_inici.js"></script>
 
-            <div class="btn-chat"> 
-                <img src="Images/Comment1Text.png" alt="chat" class="img-chat">
-            <div>
-        </div>
+            <div class="btn-chat">
+                <a href="index.php?controller=Login&method=xat">
+                    <img src="Images/Comment1Text.png" alt="chat" class="img-chat">
+                </a>
+            </div>
 
-        
-    </div>
+
+        </div>
 </body>

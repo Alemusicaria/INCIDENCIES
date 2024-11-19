@@ -1,13 +1,5 @@
 <?php
-session_start();
 include('connexio.php');
-
-// Comprovem si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html');
-    exit();
-}
-
 $usuari_id = $_SESSION['id'];
 
 // Obtenim l'ID del xat des de la URL
@@ -65,46 +57,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['missatge'])) {
     mysqli_stmt_bind_param($stmt_inserir, 'iis', $xat_id, $usuari_id, $missatge);
 
     if (mysqli_stmt_execute($stmt_inserir)) {
-        header("Location: xat_detall.php?xat_id=$xat_id");
+        header("Location: index.php?controller=Login&method=xat_detall&xat_id=$xat_id");
         exit();
     } else {
         echo "Error al enviar el missatge: " . mysqli_error($conn);
     }
 }
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
-<!DOCTYPE html>
-<html lang="ca">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xat - Detall</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Importem jQuery -->
-</head>
+<?php include("app/views/layouts/header/header.php"); ?>
+<link rel="stylesheet" href="public/css/styleXat.css">
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Xat amb <?php echo $conversant['usuari_conversant']; ?></h1>
-            <form action="tancar_sessio.php" method="post">
-                <button class="logout-btn" type="submit">Tancar sessió</button>
-            </form>
-        </header>
+    <div class="wrapper">
+        <?php include("app/views/layouts/menu/menu.php"); ?>
+        <main class="main p-3">
+            <header>
+                <h1>Xat amb <?php echo $conversant['usuari_conversant']; ?></h1>
+            </header>
 
-        <!-- Missatges del xat -->
-        <section class="missatges" id="missatges">
-            <!-- Els missatges es carregaran dinàmicament -->
-        </section>
+            <!-- Missatges del xat -->
+            <section class="missatges" id="missatges">
+                <!-- Els missatges es carregaran dinàmicament -->
+            </section>
 
-        <!-- Formulari per enviar un missatge -->
-        <section class="enviar-missatge">
-            <form id="formulari_missatge">
-                <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
-                <button type="submit">Enviar missatge</button>
-            </form>
-        </section>
+            <!-- Formulari per enviar un missatge -->
+            <section class="enviar-missatge">
+                <form id="formulari_missatge">
+                    <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
+                    <button type="submit">Enviar missatge</button>
+                </form>
+            </section>
+        </main>
     </div>
 
     <script>
