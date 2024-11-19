@@ -70,10 +70,14 @@ if (isset($_GET['cerca'])) {
     ";
     $resultat_grups = mysqli_query($conn, $query_grups);
 }
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 ?>
 
-<!DOCTYPE html>
-<html lang="ca">
+<?php
+include("app/views/layouts/header/header.php");
+?>
 
 <head>
     <meta charset="UTF-8">

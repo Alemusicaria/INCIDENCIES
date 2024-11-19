@@ -9,7 +9,7 @@ class LoginController
         $login = new login();
         if ($login->Verificar_Login()) {
             // Si el login es exitoso, redirige a la página de inicio
-            header( "Location: index.php?controller=Login&method=bienvenido" );
+            header("Location: index.php?controller=Login&method=bienvenido");
             exit;
         } else {
             // Si hubo un error, redirige al formulario de login
@@ -31,6 +31,11 @@ class LoginController
     public function incidencies()
     {
         require "app/views/layouts/Forms/V_Misincidencias.php";
+    }
+
+    public function xat()
+    {
+        require "app/views/xat/xat.php";
     }
 
     public function cerrar_sesion()
