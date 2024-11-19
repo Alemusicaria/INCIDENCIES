@@ -40,8 +40,23 @@ $result = $stmt->get_result();
 
 $incidencies = [];
 while ($row = $result->fetch_assoc()) {
-    $incidencies[] = $row;
+    $ubicacio = (!empty($row['planta']) && !empty($row['sala']))
+        ? "{$row['planta']}:{$row['sala']}"
+        : "Ubicació no disponible";
+
+    $incidencies[] = [
+        'id' => $row['id'],
+        'titol_fallo' => $row['titol_fallo'],
+        'descripcio' => $row['descripcio'],
+        'tipus_incidencia' => $row['tipus_incidencia'],
+        'ubicacio' => $ubicacio,
+        'data_incidencia' => $row['data_incidencia'],
+        'estat' => $row['estat'],
+        'prioritat' => $row['prioritat'],
+        'imatges' => $row['imatges']
+    ];
 }
+
 
 // Retornar les incidències en format JSON
 header('Content-Type: application/json');
