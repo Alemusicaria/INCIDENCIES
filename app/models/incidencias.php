@@ -42,7 +42,7 @@ class incidencias
             $imagenes = ''; // Si no se suben imágenes, dejamos vacío el campo
         }
 
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
         // Consultas para obtener el id de la ubicación y el id del usuario
         $query_ubicacion = "SELECT id FROM sales WHERE planta = '$Planta' AND sala = '$Salon'";
         $result_ubicacion = $conn->query($query_ubicacion);
@@ -76,7 +76,7 @@ class incidencias
 
     public function obtenerSalasPorPlanta($planta)
     {
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
         $query = "SELECT sala FROM sales WHERE planta = '$planta'";
         $result = $conn->query($query);

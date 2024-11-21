@@ -5,9 +5,11 @@ ini_set('display_errors', 1);
 
 // Connexió a la base de dades
 $servername = "localhost";
+// $username = "apratc_aprat";
+// $password = "AleixSteveLeandro123";
 $username = "root";
 $password = "";
-$dbname = "apratc_incidencies";
+$dbname = "apratc_Incidencies";
 
 // Crear connexió
 $conn = new mysqli($servername, $username, $password, $dbname);

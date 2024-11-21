@@ -17,7 +17,7 @@ class registro
         move_uploaded_file($ruta, $destino);
         $Contraseñahash = password_hash($Contraseña, PASSWORD_DEFAULT);
 
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
 
         $query_usuario = "INSERT INTO usuaris(nom_cognoms, correu, contrasenya, telefon, rol, data_registre, foto) 

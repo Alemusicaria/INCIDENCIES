@@ -1,8 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require "app/models/login.php";
 
 class LoginController
 {
+
 
     // Mètode per verificar el login
     public function verificar_login()
@@ -35,11 +40,6 @@ class LoginController
     public function incidencies()
     {
         require "app/views/layouts/Forms/V_Misincidencias.php";
-    }
-
-    public function totes_incidencies()
-    {
-        require "app/views/layouts/Forms/V_Todasincidencias.php";
     }
 
     /*************************  XAT  *************************/

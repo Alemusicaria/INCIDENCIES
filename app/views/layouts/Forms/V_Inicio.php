@@ -1,9 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-?>
-
-<?php
 include("app/views/layouts/header/header.php");
 ?>
 
@@ -29,9 +24,5 @@ include("app/views/layouts/header/header.php");
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
             <!-- Script personalitzat -->
             <script src="assets/js/script_inici.js"></script>
-            
-            
-
-
         </div>
 </body>

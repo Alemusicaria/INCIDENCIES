@@ -1,4 +1,3 @@
-
 <?php
 session_start(); // Inicia la sesión para poder acceder a las variables de sesión
 require_once "autoload.php"; // Asegúrate de que este archivo exista y esté configurado correctamente
@@ -23,7 +22,7 @@ if (isset($_GET["controller"])) {
                     echo "No existe el método " . htmlspecialchars($method); // Escapa la salida para evitar inyección de HTML
                 }
             } else {
-                echo "No existe el método en el controlador " . htmlspecialchars($controller);
+                echo "No existe el método en el controlador " . htmlspecialchars(get_class($controller));
             }
         } else {
             echo "No existe la clase del controlador " . htmlspecialchars($controller);

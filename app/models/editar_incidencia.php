@@ -5,7 +5,7 @@ class editar_incidencia
     public function verificar_id_incidencia()
     {
 
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
         $id_incidencia = $_GET['id'];
         $query = "SELECT * FROM incidencies WHERE id = '$id_incidencia'";
