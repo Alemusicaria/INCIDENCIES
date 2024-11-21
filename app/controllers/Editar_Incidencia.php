@@ -25,15 +25,7 @@ class Editar_IncidenciaController
         }
     }
 
-    public function eliminar_imagenes_incidencia()
-    {
-        $editar_incidencia = new editar_incidencia();
-        if ($editar_incidencia->eliminar_imagenes_incidencia()) {
-            header("Location: index.php?controller=Editar_Incidencia&method=vista_editar");
-        } else {
-            echo "Error eliminando imágenes.";
-        }
-    }
+    
 
 
     public function vista_editar()

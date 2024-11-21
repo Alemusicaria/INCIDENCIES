@@ -20,89 +20,75 @@ class editar_incidencia
     }
 
     public function actualizar_datos_incidencia()
-    {
-        require_once 'app\models\connexio.php';
+{
+    require_once 'app\models\connexio.php';
 
-        $id_incidencia = $_POST['id'];
-        $titulo = $_POST['TituloFallo'];
-        $descripcion = $_POST['Descripcion'];
-        $categoria = $_POST['Categoria'];
-        $planta = $_POST['Planta'];
-        $sala = $_POST['Salon'];
-        $estat = $_POST['Estat'];
-        $prioridad = $_POST['Prioridad'];
-        $descripcion_cierre = $_POST['Descripcio_resolta'];
+    // Obtener los datos del formulario
+    $id_incidencia = $_POST['id'];
+    $titulo = $_POST['TituloFallo'];
+    $descripcion = $_POST['Descripcion'];
+    $categoria = $_POST['Categoria'];
+    $planta = $_POST['Planta'];
+    $sala = $_POST['Salon'];
+    $estat = $_POST['Estat'];
+    $prioridad = $_POST['Prioridad'];
+    $descripcion_cierre = $_POST['Descripcio_resolta'];
 
-        // Procesar nuevas imágenes subidas
-        $imagenes_actuales = [];
-        if (!empty($_FILES['Foto']['tmp_name'][0])) {
-            $ruta_imagenes = 'Images/Evidencia/'; // Ruta donde guardarás las imágenes
-            foreach ($_FILES['Foto']['tmp_name'] as $index => $tmp_name) {
-                if ($_FILES['Foto']['error'][$index] === UPLOAD_ERR_OK) {
-                    $nombre_imagen = uniqid() . "_" . basename($_FILES['Foto']['name'][$index]);
-                    $ruta_completa = $ruta_imagenes . $nombre_imagen;
-                    move_uploaded_file($tmp_name, $ruta_completa);
-                    $imagenes_actuales[] = $ruta_completa; // Añadir la nueva imagen al array
-                }
+    // Procesar nuevas imágenes subidas
+    $imagenes_actuales = [];
+    if (!empty($_FILES['Foto']['tmp_name'][0])) {
+        $ruta_imagenes = 'Images/Evidencia/'; // Ruta donde guardarás las imágenes
+        foreach ($_FILES['Foto']['tmp_name'] as $index => $tmp_name) {
+            if ($_FILES['Foto']['error'][$index] === UPLOAD_ERR_OK) {
+                $nombre_imagen = uniqid() . "_" . basename($_FILES['Foto']['name'][$index]);
+                $ruta_completa = $ruta_imagenes . $nombre_imagen;
+                move_uploaded_file($tmp_name, $ruta_completa);
+                $imagenes_actuales[] = $ruta_completa; // Añadir la nueva imagen al array
             }
-        }
-
-        // Actualizar la incidencia en la base de datos
-        $consulta_actualizacion = "UPDATE incidencies SET 
-            titol_fallo = '$titulo', 
-            descripcio = '$descripcion', 
-            tipus_incidencia = '$categoria', 
-            estat = '$estat', 
-            prioritat = '$prioridad', 
-            descripcio_resolta = '$descripcion_cierre' 
-            WHERE id = '$id_incidencia'";
-
-        $resultado_actualizacion = $conn->query($consulta_actualizacion);
-
-        if ($resultado_actualizacion) {
-            return true;
-        } else {
-            return false;
         }
     }
 
-    public function eliminar_imagenes_incidencia()
-    {
-        require_once 'app\models\connexio.php';
+    // Traer las imágenes existentes de la base de datos
+    $consulta_imagenes_existentes = "SELECT imatges FROM incidencies WHERE id = '$id_incidencia'";
+    $resultado_imagenes_existentes = $conn->query($consulta_imagenes_existentes);
+    $imagenes_existentes = $resultado_imagenes_existentes->fetch_assoc()['imatges'];
 
-        $id_incidencia = $_POST['id'];
-        $imagenes_eliminadas = isset($_POST['imagenes_eliminadas']) ? explode(',', $_POST['imagenes_eliminadas']) : [];
+    $query_ubicacion = "SELECT id FROM sales WHERE planta = '$planta' AND sala = '$sala'";
+    $result_ubicacion = $conn->query($query_ubicacion);
 
-        // Recuperar imágenes actuales de la base de datos
-        $consulta_actual = "SELECT imatges FROM incidencies WHERE id = '$id_incidencia'";
-        $resultado_actual = $conn->query($consulta_actual);
-
-        if ($resultado_actual && $resultado_actual->num_rows > 0) {
-            $incidencia_actual = $resultado_actual->fetch_assoc();
-            $imagenes_actuales = !empty($incidencia_actual['imatges']) ? explode(',', $incidencia_actual['imatges']) : [];
-        } else {
-            return false;
-        }
-
-        // Eliminar imágenes seleccionadas
-        foreach ($imagenes_eliminadas as $imagen) {
-            if (($key = array_search($imagen, $imagenes_actuales)) !== false) {
-                unset($imagenes_actuales[$key]);
-                if (file_exists($imagen)) {
-                    unlink($imagen); // Eliminar el archivo físico
-                }
-            }
-        }
-
-        // Convertir el array de imágenes actualizado a cadena
-        $imagenes_actualizadas = implode(',', $imagenes_actuales);
-
-        // Actualizar la base de datos con las imágenes restantes
-        $consulta_actualizacion = "UPDATE incidencies SET imatges = '$imagenes_actualizadas' WHERE id = '$id_incidencia'";
-
-        $resultado_actualizacion = $conn->query($consulta_actualizacion);
-
-        return $resultado_actualizacion ? true : false;
+    if ($result_ubicacion->num_rows > 0) {
+        $row_ubicacion = $result_ubicacion->fetch_assoc();
+        $id_ubicacion = $row_ubicacion['id'];
+    } else {
+        return false;
     }
+
+    // Si ya existen imágenes, agregar las nuevas imágenes
+    if (!empty($imagenes_existentes)) {
+        $imagenes_completas = $imagenes_existentes . "," . implode(",", $imagenes_actuales);
+    } else {
+        $imagenes_completas = implode(",", $imagenes_actuales);
+    }
+
+    // Actualizar la incidencia en la base de datos
+    $consulta_actualizacion = "UPDATE incidencies SET 
+        titol_fallo = '$titulo', 
+        descripcio = '$descripcion', 
+        tipus_incidencia = '$categoria', 
+        id_ubicacio = '$id_ubicacion',
+        estat = '$estat', 
+        prioritat = '$prioridad', 
+        descripcio_resolta = '$descripcion_cierre',
+        imatges = '$imagenes_completas' 
+        WHERE id = '$id_incidencia'";
+
+    $resultado_actualizacion = $conn->query($consulta_actualizacion);
+
+    if ($resultado_actualizacion) {
+        return true;
+    } else {
+        return false;
+    }
+}
 }
 
