@@ -15,7 +15,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
         <div class="main p-3">
             <div class="tittle-page">
-                <h2>Les Meves Incidències</h2>
+                <h2>Totes les Incidències</h2>
             </div>
 
             <div class="card">
@@ -32,6 +32,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 <tr>
                                     <th>#</th>
                                     <th>Titol</th>
+                                    <th>Creador</th>
                                     <th>Descripcio</th>
                                     <th>Tipus Incidència</th>
                                     <th>Id Ubicacion</th>
@@ -50,10 +51,9 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 $idUsuari = $_SESSION['id']; // Assegura't que tens aquesta variable definida
 
                                 // Consulta per obtenir les incidències de l'usuari
-                                $sql = "SELECT id, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
+                                $sql = "SELECT id, creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
                                 FROM incidencies";
                                 $stmt = $conn->prepare($sql);
-                                $stmt->bind_param("i", $idUsuari);
                                 $stmt->execute();
                                 $result = $stmt->get_result();
 
@@ -63,6 +63,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . htmlspecialchars($row['titol_fallo']) . "</td>";
+                                        echo "<td>" . htmlspecialchars($row['creador_nom_cognoms']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['descripcio']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['tipus_incidencia']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['id_ubicacio']) . "</td>";
