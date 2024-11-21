@@ -15,4 +15,30 @@ class Editar_IncidenciaController
         }
     }
 
+    public function actualizar_datos_incidencia()
+    {
+        $editar_incidencia = new editar_incidencia();
+        if ($editar_incidencia->actualizar_datos_incidencia()) {
+            header("Location: index.php?controller=Login&method=bienvenido");
+        } else {
+            header("Location: index.php?controller=Editar_Incidencia&method=vista_editar");
+        }
+    }
+
+    public function eliminar_imagenes_incidencia()
+    {
+        $editar_incidencia = new editar_incidencia();
+        if ($editar_incidencia->eliminar_imagenes_incidencia()) {
+            header("Location: index.php?controller=Editar_Incidencia&method=vista_editar");
+        } else {
+            echo "Error eliminando imágenes.";
+        }
+    }
+
+
+    public function vista_editar()
+    {
+        require 'app/views/layouts/Forms/V_EditarIncidencia.php';
+    }
+
 }
