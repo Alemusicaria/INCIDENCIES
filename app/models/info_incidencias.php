@@ -49,7 +49,7 @@ class info_incidencias
 
     public function ubicacion($id)
     {
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
         global $conn; // Declarar la variable global per utilitzar-la aquí
 
