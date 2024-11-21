@@ -1,5 +1,5 @@
 <?php
-        require_once 'app\models\connexio.php';
+        require_once 'app/models/connexio.php';
 
 if (isset($_GET['xat_id'])) {
     $xat_id = $_GET['xat_id'];
