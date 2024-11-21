@@ -49,6 +49,17 @@ if (isset($incidencia)) {
             value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
+        <label>Descripción Cierre</label>
+        <div class="input-container">
+            <?php
+            if(isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])) {
+                echo "<textarea name='descripcio_resolta' id='descripcio_resolta' rows='6' readonly>" . htmlspecialchars($incidencia['descripcio_resolta'], ENT_QUOTES, 'UTF-8') . "</textarea>";
+            } else {
+                echo "<p>No hay descripción de cierre.</p>";
+            }
+            ?>
+        </div>
+
         <div class="mb-2">
             <label class="perfil-label">Fecha de la Incidencia</label>
             <input type="text" class="form-control" 
@@ -102,6 +113,9 @@ if (isset($incidencia)) {
             <input type="text" 
             value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
+
+
+        
 
         -- Fecha de la Incidencia --
         <label>Fecha de la Incidencia</label>
