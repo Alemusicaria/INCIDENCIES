@@ -90,43 +90,4 @@ class editar_incidencia
         // Retorna true si l'actualització ha estat exitosa, false en cas contrari
         return $resultado_actualizacion ? true : false;
     }
-
-    // Mètode per eliminar imatges associades a una incidència
-    public function eliminar_imagenes_incidencia()
-    {
-        require_once 'app\models\connexio.php';
-
-        $id_incidencia = $_POST['id'];
-        $imagenes_eliminadas = isset($_POST['imagenes_eliminadas']) ? explode(',', $_POST['imagenes_eliminadas']) : [];
-
-        // Recupera les imatges actuals de la base de dades
-        $consulta_actual = "SELECT imatges FROM incidencies WHERE id = '$id_incidencia'";
-        $resultado_actual = $conn->query($consulta_actual);
-
-        if ($resultado_actual && $resultado_actual->num_rows > 0) {
-            $incidencia_actual = $resultado_actual->fetch_assoc();
-            $imagenes_actuales = !empty($incidencia_actual['imatges']) ? explode(',', $incidencia_actual['imatges']) : [];
-        } else {
-            // Retorna false si no es troben les dades
-            return false;
-        }
-
-        // Elimina les imatges seleccionades tant del servidor com de l'array
-        foreach ($imagenes_eliminadas as $imagen) {
-            if (($key = array_search($imagen, $imagenes_actuales)) !== false) {
-                unset($imagenes_actuales[$key]);
-                if (file_exists($imagen)) {
-                    unlink($imagen); // Esborra l'arxiu físic
-                }
-            }
-        }
-
-        // Actualitza l'array d'imatges a la base de dades
-        $imagenes_actualizadas = implode(',', $imagenes_actuales);
-
-        $consulta_actualizacion = "UPDATE incidencies SET imatges = '$imagenes_actualizadas' WHERE id = '$id_incidencia'";
-
-        // Retorna true si l'actualització és exitosa, false en cas contrari
-        return $conn->query($consulta_actualizacion) ? true : false;
-    }
 }
