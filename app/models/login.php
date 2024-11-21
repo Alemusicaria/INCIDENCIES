@@ -8,7 +8,7 @@ class Login
         $email = $_POST['username'];
         $contraseña = $_POST['password'];
 
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
         $result = $conn->query("SELECT * FROM usuaris WHERE correu = '$email'");
 
