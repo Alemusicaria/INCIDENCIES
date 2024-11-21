@@ -101,33 +101,6 @@ if (isset($datos_incidencia)) {
     </div>
 
 
-    <form action="index.php?controller=Editar_Incidencia&method=eliminar_imagenes_incidencia" method="post">
-        <input type="hidden" name="id" value="<?= htmlspecialchars($datos_incidencia['id'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
-
-        <div class="input-container">
-            <?php
-            if (isset($datos_incidencia['imatges']) && !empty($datos_incidencia['imatges'])) {
-                $imagenes = is_array($datos_incidencia['imatges']) ? $datos_incidencia['imatges'] : explode(',', $datos_incidencia['imatges']);
-                foreach ($imagenes as $imagen) {
-                    if (!empty($imagen)) {
-                        echo "<div class='imagen-container' style='display: inline-block; text-align: center; margin: 10px;'>";
-                        echo "<img src='$imagen' alt='Imagen de la incidencia' class='img-thumbnail' style='max-width: 200px; display: block; margin-bottom: 5px;'>";
-                        echo "<input type='checkbox' name='imagenes_eliminadas[]' value='$imagen'> Eliminar";
-                        echo "</div>";
-                    }
-                }
-            } else {
-                echo "<p>No hay imágenes disponibles.</p>";
-            }
-            ?>
-        </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-danger">Eliminar Imágenes Seleccionadas</button>
-        </div>
-    </form>
-
-
     <div class="form-group">
         <label for="Foto">Afegir Imatges</label>
         <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
@@ -137,6 +110,7 @@ if (isset($datos_incidencia)) {
         <button type="submit" class="btn btn-primary">Guardar Cambios</button>
     </div>
 
+    
 </form>
 
 
