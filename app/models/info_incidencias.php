@@ -2,58 +2,47 @@
 
 class info_incidencias
 {
-    // Función para obtener la incidencia por su ID
+    // Funció per obtenir una incidència per la seva ID
     public function get_incidencia_by_id($id)
     {
-        global $conn; // Assegura que $conn es defineix de manera global
+        global $conn; // Assegura que $conn és accessible a tot el codi
 
-        // Connexió a la base de dades
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "apratc_incidencies";
+        require_once('app/models/connexio.php');
 
-        // Crear connexió
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Comprovar connexió
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-
-
-        // Consulta para obtener la incidencia
+        // Consulta per obtenir les dades de la incidència segons la seva ID
         $query = "SELECT * FROM incidencies WHERE incidencies.id = '$id'";
 
         $result = $conn->query($query);
 
-        // Verificar si se encontró la incidencia
+        // Comprovem si la incidència existeix
         if ($result->num_rows === 0) {
-            return null; // Si no se encuentra la incidencia, devolver null
+            return null; // Si no es troba la incidència, retornem null
         } else {
+            // Obtenim les dades de la incidència
             $incidencia = $result->fetch_assoc();
 
-            // Limpiar y estandarizar las claves
+            // Netegem i estandarditzem les claus de l'array
             $incidencia = array_change_key_case(array_map('trim', $incidencia), CASE_LOWER);
 
+            // Si la incidència té imatges, les dividim en un array
             if (!empty($incidencia['imatges'])) {
-                $incidencia['imatges'] = explode(',', $incidencia['imatges']);  // Convertir la cadena en array
+                $incidencia['imatges'] = explode(',', $incidencia['imatges']);  // Convertim la cadena de rutes en un array
             } else {
-                $incidencia['imatges'] = [];  // Si no hay imágenes, asignar un array vacío
+                $incidencia['imatges'] = [];  // Si no té imatges, assignem un array buit
             }
 
-            return $incidencia;
+            return $incidencia;  // Retornem les dades de la incidència
         }
     }
 
+    // Funció per obtenir la ubicació (planta i sala) d'una incidència per la seva ID
     public function ubicacion($id)
     {
-        require_once 'app\models\connexio.php';
+        require_once('app/models/connexio.php');
 
         global $conn; // Declarar la variable global per utilitzar-la aquí
 
-        // Consulta para obtener la planta y la sala usando el id de la incidencia
+        // Consulta per obtenir la planta i sala de la ubicació de la incidència
         $query = "SELECT sales.planta, sales.sala 
                   FROM incidencies 
                   INNER JOIN sales ON incidencies.id_ubicacio = sales.id 
@@ -61,16 +50,17 @@ class info_incidencias
 
         $result = $conn->query($query);
 
-        // Verificar si se encontró la ubicación
+        // Comprovem si es troba la ubicació
         if ($result->num_rows > 0) {
+            // Obtenim les dades de la ubicació
             $ubicacion = $result->fetch_assoc();
 
-            // Limpiar y estandarizar las claves
+            // Netegem i estandarditzem les claus de l'array
             $ubicacion = array_change_key_case(array_map('trim', $ubicacion), CASE_LOWER);
 
-            return $ubicacion; // Devuelve un array con 'planta' y 'sala'
+            return $ubicacion; // Retornem un array amb 'planta' i 'sala'
         } else {
-            return null; // Si no se encuentran datos de la ubicación
+            return null; // Si no es troben dades de la ubicació, retornem null
         }
     }
 }

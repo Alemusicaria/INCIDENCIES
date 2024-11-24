@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once 'app\models\connexio.php';
+require_once('app/models/connexio.php');
 
 
 // Obtenim l'ID de la incidència

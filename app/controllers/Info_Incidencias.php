@@ -1,35 +1,36 @@
 <?php
-require "app/models/info_incidencias.php";  // Incluir el modelo
+require "app/models/info_incidencias.php"; // Inclou el model per gestionar la informació de les incidències.
 
 class Info_IncidenciasController
 {
+    /**
+     * Mostra la informació d'una incidència específica.
+     */
     public function mostrar_incidencia()
     {
-        // Verificar si el parámetro 'id' está presente en la URL
+        // Verifica si el paràmetre 'id' està present a la URL.
         if (isset($_GET['id'])) {
-            $id = intval($_GET['id']); // Sanitizamos el ID recibido de la URL
-            
-            // Crear una instancia del modelo
+            $id = intval($_GET['id']); // Converteix el valor de l'ID a un enter per evitar vulnerabilitats.
+
+            // Crea una instància del model.
             $info_incidencias_model = new info_incidencias();
-            
-            // Obtener la incidencia utilizando el método get_incidencia_by_id
+
+            // Obté la informació de la incidència pel seu ID.
             $incidencia = $info_incidencias_model->get_incidencia_by_id($id);
 
             if ($incidencia) {
-                // Obtener la ubicación relacionada con la incidencia
+                // Si es troba la incidència, obté la ubicació relacionada.
                 $ubicacion = $info_incidencias_model->ubicacion($id);
 
-                // Pasar los datos a la vista
+                // Carrega la vista amb les dades de la incidència i la ubicació.
                 require 'app/views/mostrar_info.php';
             } else {
-                // Si no se encuentra la incidencia, mostrar un mensaje de error
-                echo "<div class='alert alert-danger'>La incidencia no se encuentra o ha sido eliminada.</div>";
+                // Si no es troba la incidència, mostra un missatge d'error.
+                echo "<div class='alert alert-danger'>La incidència no es troba o ha estat eliminada.</div>";
             }
         } else {
-            // Si no se pasa un 'id', mostramos un mensaje de error
-            echo "<div class='alert alert-warning'>No se ha especificado un ID de incidencia.</div>";
-        }    
+            // Si no es passa un 'id', mostra un missatge d'avís.
+            echo "<div class='alert alert-warning'>No s'ha especificat un ID d'incidència.</div>";
+        }
     }
-
 }
-

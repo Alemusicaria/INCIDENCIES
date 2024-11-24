@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'app\models\connexio.php';
+require_once 'app/models/connexio.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $missatge = mysqli_real_escape_string($conn, $_POST['missatge']);

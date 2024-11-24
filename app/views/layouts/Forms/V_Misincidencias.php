@@ -43,7 +43,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             </thead>
                             <tbody>
                                 <?php
-                                require_once 'app\models\connexio.php';
+                                require_once('app/models/connexio.php');
 
 
                                 // ID de l'usuari autenticat
