@@ -720,6 +720,8 @@ button[type="submit"]:hover {
 
     animation: subirBajar 1s ease-in-out infinite;
     /* Llamamos a la animación */
+
+    z-index: 9999;
 }
 
 @keyframes subirBajar {

@@ -63,7 +63,7 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
                         <a href="restaurar_correu.php" class="btn btn-warning-custom btn-professional">Restaurar Correu</a>
                         <a href="restaurar_contrasenya.php" class="btn btn-secondary-custom btn-professional">Restaurar Contrasenya</a>
                         <a href="deshabilitar_compte.php" class="btn btn-danger-custom btn-professional">Deshabilitar Compte</a>
--->
+                        -->
                     </div>
                 </div>
             </div>
