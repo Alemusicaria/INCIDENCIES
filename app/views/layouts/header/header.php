@@ -1,6 +1,14 @@
+<?php
+if (!isset($_SESSION['usuario'])) {
+    header("Location: index.php?controller=Login&method=login");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="ca">
+
 <head>
+    <link rel="shortcut icon" href="https://lasallemollerussa.sallenet.org/theme/image.php/sallenetboost/theme/1732323702/favicon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

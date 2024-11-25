@@ -1,10 +1,51 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-?>
 
-<?php
-include("layouts/header/header.php"); // Aquí se incluye la barra lateral
+require_once 'app/models/connexio.php'; // Connexió a la base de dades
+
+// Inicialitzar valors per defecte
+$id_usuari = $_SESSION['id'] ?? null;
+$nom = $_SESSION['usuario'] ?? 'Usuari desconegut';
+$correu = "Desconegut";
+$nombre_incidencies = 0;
+
+if ($id_usuari) {
+    // Consulta SQL per obtenir el correu i el nombre d'incidències
+    $sql = "
+        SELECT 
+            u.correu AS correu,
+            COUNT(i.id) AS nombre_incidencies
+        FROM 
+            usuaris u
+        LEFT JOIN 
+            incidencies i 
+        ON 
+            u.id = i.id_usuari
+        WHERE 
+            u.id = ?
+        GROUP BY 
+            u.id, u.correu
+    ";
+
+    if ($stmt = $conn->prepare($sql)) {
+        // Enllaçar paràmetre
+        $stmt->bind_param('i', $id_usuari);
+        $stmt->execute();
+        $result = $stmt->get_result(); // Obtenir resultats
+
+        if ($row = $result->fetch_assoc()) {
+            $correu = $row['correu'];
+            $nombre_incidencies = $row['nombre_incidencies'];
+        }
+
+        $stmt->close(); // Tancar la consulta preparada
+    } else {
+        die("Error en preparar la consulta: " . $conn->error);
+    }
+}
+
+include("layouts/header/header.php"); // Aquí se incluye el header
 ?>
 
 <body>
@@ -34,44 +75,26 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
 
                 <div class="card-body">
                     <div class="mb-2">
-                        <label for="nom" class="perfil-label">Nom i Cognoms</label>
-                        <input id="nom" type="text" class="form-control" value="Pepe Perez" readonly>
+                        <label for="nom" class="perfil-label">Nom i cognoms</label>
+                        <input id="nom" type="text" class="form-control" value="<?php echo htmlspecialchars($nom); ?>" readonly>
                     </div>
 
                     <div class="mb-2">
                         <label for="correu" class="perfil-label">Correu Electrònic</label>
-                        <input id="correu" type="text" class="form-control" value="pepe.perez@example.com" readonly>
+                        <input id="correu" type="text" class="form-control" value="<?php echo htmlspecialchars($correu); ?>" readonly>
                     </div>
 
                     <div class="mb-2">
                         <label for="incidencies" class="perfil-label">Nombre d'Incidències Creades</label>
-                        <input id="incidencies" type="text" class="form-control" value="10" readonly>
-                    </div>
-
-                    <!-- Botons per a accions del perfil -->
-                    <div class="d-grid gap-2 mt-3">
-                        <div class="text-center">
-                            <a href="#" class="btn" id="rescorreo">Restaurar Correu</a>
-                        </div> 
-                        <div class="text-center">
-                            <a href="#" class="btn" id="rescontra">Restaurar Contrasenya</a>
-                        </div> 
-                        <div class="text-center">
-                            <a href="#" class="btn" id="descuenta">Deshabilitar Compte</a>
-                        </div> 
-                        <!--
-                        <a href="restaurar_correu.php" class="btn btn-warning-custom btn-professional">Restaurar Correu</a>
-                        <a href="restaurar_contrasenya.php" class="btn btn-secondary-custom btn-professional">Restaurar Contrasenya</a>
-                        <a href="deshabilitar_compte.php" class="btn btn-danger-custom btn-professional">Deshabilitar Compte</a>
-                        -->
+                        <input id="incidencies" type="text" class="form-control" value="<?php echo htmlspecialchars($nombre_incidencies); ?>" readonly>
                     </div>
                 </div>
             </div>
 
             <!-- Botó per tornar a l'inici -->
             <div class="text-center mt-4 mb-4">
-                <a href="index.php" class="btn" id="volver">Torna a l'inici</a>
-            </div> 
+                <a href="index.php?controller=Login&method=bienvenido" class="btn" id="volver">Torna a l'inici</a>
+            </div>
         </div>
     </div>
 </body>

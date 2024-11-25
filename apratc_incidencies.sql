@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-11-2024 a las 09:06:20
+-- Tiempo de generación: 25-11-2024 a las 12:42:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `incidencies`
+-- Base de datos: `apratc_incidencies`
 --
 
 -- --------------------------------------------------------
@@ -61,6 +61,24 @@ CREATE TABLE `incidencies` (
   `id_usuari` int(11) NOT NULL,
   `habilitado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `incidencies`
+--
+
+INSERT INTO `incidencies` (`id`, `creador_nom_cognoms`, `titol_fallo`, `descripcio`, `tipus_incidencia`, `id_ubicacio`, `data_incidencia`, `estat`, `prioritat`, `descripcio_resolta`, `imatges`, `id_usuari`, `habilitado`) VALUES
+(1, 'Maria Puig', 'Error projector', 'El projector no funciona correctament.', 'Audiovisual', 6, '2024-11-12 08:15:00', 'Pendent', 'Alta', NULL, NULL, 2, 1),
+(2, 'Joan Riera', 'Aire condicionat', 'La calefacció de l\'aula no funciona.', 'Calefacció', 11, '2024-11-13 10:30:00', 'En Progrés', 'Mitjana', NULL, NULL, 3, 1),
+(3, 'Joan Martínez', 'Calefacció no funciona', 'La calefacció de la sala no s’encén des d’ahir.', 'Calefacció', 1, '2024-11-10 09:00:00', 'Pendent', 'Mitjana', NULL, 'calefaccio_error1.jpg', 2, 1),
+(4, 'Maria Pérez', 'Problema amb projector', 'El projector de la sala no mostra la imatge.', 'Audiovisual', 5, '2024-11-12 07:30:00', 'En Progrés', 'Alta', NULL, 'projector_error.jpg', 1, 1),
+(5, 'Pere Llull', 'Llums foses', 'La meitat dels fluorescents de la classe no funcionen.', 'Electricitat', 12, '2024-11-14 08:00:00', 'Pendent', 'Baixa', NULL, NULL, 3, 1),
+(6, 'Anna Roca', 'Tuberia amb fuites', 'Hi ha una fuga d’aigua al lavabo de la planta baixa.', 'Fontaner', 8, '2024-11-13 10:15:00', 'Resolta', 'Alta', 'S’ha substituït la canonada danyada.', 'canonada.jpg', 3, 1),
+(7, 'Miquel Serra', 'Pintura de parets deteriorada', 'Les parets de la sala tenen escrostonats que s’han d’arreglar.', 'Obres', 17, '2024-11-11 14:45:00', 'Pendent', 'Mitjana', NULL, NULL, 2, 1),
+(8, 'Laura Vidal', 'Porta trencada', 'La porta de la sala 011 no es pot tancar correctament.', 'Fusteria', 11, '2024-11-14 11:00:00', 'En Progrés', 'Alta', NULL, 'porta_trencada.jpg', 2, 1),
+(9, 'Jordi Pons', 'Falta de seguretat al passadís', 'Els detectors de fum no estan operatius.', 'Equips de seguretat', 6, '2024-11-13 12:30:00', 'Pendent', 'Alta', NULL, 'detectors_fum.jpg', 1, 1),
+(10, 'Sara Font', 'Problemes amb el router', 'No hi ha connexió a Internet a la sala 002.', 'Informàtica', 2, '2024-11-14 13:20:00', 'En Progrés', 'Mitjana', NULL, 'router_error.jpg', 3, 1),
+(11, 'Carles Gómez', 'Canalització obstruïda', 'L’aigua del clavegueram no drena correctament.', 'Neteja de clavegueram', 4, '2024-11-14 15:00:00', 'Resolta', 'Alta', 'S’ha eliminat l’obstrucció.', 'clavegueram.jpg', 2, 1),
+(12, 'Clara Puig', 'Caiguda de sostre', 'Part del sostre s’ha desprès al passadís.', 'Altres', 21, '2024-11-13 17:45:00', 'Pendent', 'Alta', NULL, 'sostre_caigut.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +295,7 @@ ALTER TABLE `grups`
 -- AUTO_INCREMENT de la tabla `incidencies`
 --
 ALTER TABLE `incidencies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `membres_grup`
@@ -295,7 +313,7 @@ ALTER TABLE `missatges`
 -- AUTO_INCREMENT de la tabla `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuaris`
@@ -341,8 +359,6 @@ ALTER TABLE `xats`
   ADD CONSTRAINT `xats_ibfk_1` FOREIGN KEY (`usuari1_id`) REFERENCES `usuaris` (`id`),
   ADD CONSTRAINT `xats_ibfk_2` FOREIGN KEY (`usuari2_id`) REFERENCES `usuaris` (`id`);
 COMMIT;
-
-
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
