@@ -9,13 +9,15 @@ $id_usuari = $_SESSION['id'] ?? null;
 $nom = $_SESSION['usuario'] ?? 'Usuari desconegut';
 $correu = "Desconegut";
 $nombre_incidencies = 0;
+$perfil_imatge = "perfil.png"; // Imatge per defecte
 
 if ($id_usuari) {
-    // Consulta SQL per obtenir el correu i el nombre d'incidències
+    // Consulta SQL per obtenir el correu, nombre d'incidències i la imatge de perfil
     $sql = "
         SELECT 
             u.correu AS correu,
-            COUNT(i.id) AS nombre_incidencies
+            COUNT(i.id) AS nombre_incidencies,
+            u.foto AS foto
         FROM 
             usuaris u
         LEFT JOIN 
@@ -25,7 +27,7 @@ if ($id_usuari) {
         WHERE 
             u.id = ?
         GROUP BY 
-            u.id, u.correu
+            u.id, u.correu, u.foto
     ";
 
     if ($stmt = $conn->prepare($sql)) {
@@ -37,6 +39,7 @@ if ($id_usuari) {
         if ($row = $result->fetch_assoc()) {
             $correu = $row['correu'];
             $nombre_incidencies = $row['nombre_incidencies'];
+            $perfil_imatge = $row['foto'] ?? 'perfil.png'; // Si no hi ha foto, utilitzar la per defecte
         }
 
         $stmt->close(); // Tancar la consulta preparada
@@ -45,22 +48,22 @@ if ($id_usuari) {
     }
 }
 
-include("layouts/header/header.php"); // Aquí se incluye el header
+include("layouts/header/header.php"); // Incloure el header
 ?>
 
 <body>
     <div class="wrapper">
         <?php
-        include("layouts/menu/menu.php"); // Aquí se incluye la barra lateral
+        include("layouts/menu/menu.php"); // Incloure la barra lateral
         ?>
 
         <!-- Contingut principal del perfil -->
         <div class="main">
-            <!-- Fondo de la Imagen -->
+            <!-- Fondo de la Imatge -->
             <div class="fondo-perfil">
-                <!-- Imagen de Perfil -->
+                <!-- Imatge de Perfil -->
                 <div class="perfil-img mb-3">
-                    <img src="Images/Login/perfil.png" alt="Perfil" class="perfil-img">
+                    <img src="<?php echo $perfil_imatge_ruta; ?>" alt="Perfil" class="perfil-img">
                 </div>
 
                 <a href="#">Cambiar foto de perfil</a>

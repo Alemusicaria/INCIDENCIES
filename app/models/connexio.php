@@ -1,13 +1,13 @@
 <?php
 // Connexió a la base de dades
-$servername = "localhost";
-$username = "root"; 
-$password = "";
+ $servername = "localhost";
+ $username = "root"; 
+ $password = "";
 
 // Credencials d'accés a la base de dades desde la web
-// $servername = "apratc-Incidencies.db.tb-hosting.com";
-// $username = "apratc_aprat"; 
-// $password = "AleixSteveLeandro123";
+//$servername = "apratc-Incidencies.db.tb-hosting.com";
+//$username = "apratc_aprat"; 
+//$password = "AleixSteveLeandro123";
 $dbname = "apratc_Incidencies"; // Nom de la base de dades a la qual es vol connectar
 
 // Crear la connexió

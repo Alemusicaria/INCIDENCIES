@@ -92,23 +92,34 @@ if (isset($incidencia)) {
                 value="<?php echo isset($incidencia['data_incidencia']) ? htmlspecialchars($incidencia['data_incidencia'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
-        <!-- Mostra les imatges associades a la incidència -->
-        <label class="perfil-label">Imatges</label>
-        <div class="input-container">
-            <?php
-            if (isset($incidencia['imatges']) && !empty($incidencia['imatges'])) {
-                $imagenes = is_array($incidencia['imatges']) ? $incidencia['imatges'] : explode(',', $incidencia['imatges']);
 
-                foreach ($imagenes as $imagen) {
-                    if (!empty($imagen)) {
-                        echo "<img src='$imagen' alt='Imatge de la incidència' class='img-thumbnail' style='max-width: 200px; margin-right: 10px;'>";
+        <div class="mb-2">
+            <label class="perfil-label">Imatges</label>
+            <div class="input-container">
+                <?php
+                if (isset($incidencia['imatges']) && !empty($incidencia['imatges'])) {
+                    $imagenes = is_array($incidencia['imatges']) ? $incidencia['imatges'] : explode(',', $incidencia['imatges']);
+                    $hasImages = false;  // Variable para controlar si hay imágenes
+
+                    foreach ($imagenes as $imagen) {
+                        if (!empty($imagen)) {
+                            $hasImages = true; // Si hay una imagen, cambia la variable
+                            echo "<img src='$imagen' alt='Imatge de la incidència' class='img-thumbnail' style='max-width: 200px; margin-right: 10px;'>";
+                        }
                     }
+
+                    // Si no hay imágenes, mostrar el input
+                    if (!$hasImages) {
+                        echo "<input type='text' class='form-control readonly-input' value='No hi ha imatges disponibles' readonly>";
+                    }
+                } else {
+                    // Si no hay imágenes, muestra el input
+                    echo "<input type='text' class='form-control readonly-input' value='No hi ha imatges disponibles' readonly>";
                 }
-            } else {
-                echo "<p>No hi ha imatges disponibles.</p>";
-            }
-            ?>
+                ?>
+            </div>
         </div>
+        
     </form>
 
     <!-- Formulari per mostrar la ubicació si existeix -->

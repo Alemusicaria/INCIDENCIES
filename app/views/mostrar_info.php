@@ -47,6 +47,7 @@ include("layouts/header/header.php"); // Aquí se incluye la barra lateral
             <div class="tittle-page">
                 <h1>Detalls de la incidència</h1>
             </div>
+
             <?php
             include("layouts/Forms/V_MostrarInfo.php"); // Aquí se incluye la barra lateral
             ?>
