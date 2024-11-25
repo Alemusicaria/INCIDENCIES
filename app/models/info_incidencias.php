@@ -7,19 +7,7 @@ class info_incidencias
     {
         global $conn; // Assegura que $conn és accessible a tot el codi
 
-        // Connexió a la base de dades
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "apratc_incidencies";
-
-        // Crear connexió
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        // Comprovem si la connexió ha estat exitosa
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        require_once('app/models/connexio.php');
 
         // Consulta per obtenir les dades de la incidència segons la seva ID
         $query = "SELECT * FROM incidencies WHERE incidencies.id = '$id'";

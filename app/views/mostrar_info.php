@@ -7,19 +7,9 @@ $id_incidencia = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if ($id_incidencia <= 0) {
     die("ID d'incidència no vàlid.");
 }
+global $conn; // Assegura que $conn es defineix de manera global
 
-// Connexió a la base de dades
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "apratc_incidencies";
-
-// Crear connexió
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if (!$conn) {
-    die("Error de connexió a la base de dades.");
-}
+require_once('app/models/connexio.php');
 
 // Preparem la consulta per obtenir la incidència
 $sql = "SELECT * FROM incidencies WHERE id = ?";

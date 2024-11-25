@@ -720,6 +720,8 @@ button[type="submit"]:hover {
 
     animation: subirBajar 1s ease-in-out infinite;
     /* Llamamos a la animación */
+
+    z-index: 9999;
 }
 
 @keyframes subirBajar {
@@ -769,6 +771,45 @@ button[type="submit"]:hover {
     /* Permite el desplazamiento horizontal */
     -webkit-overflow-scrolling: touch;
     /* Suaviza el desplazamiento en dispositivos táctiles */
+}
+
+.btn-outline-azul {
+    color: #5A9BD5;
+    border-color: #5A9BD5;
+}
+
+.btn-outline-azul:hover, 
+.btn-outline-cyazulan:focus, 
+.btn-check:checked + .btn-outline-azul {
+    background-color: #5A9BD5;
+    color: white;
+    border-color: #5A9BD5;
+}
+
+.btn-outline-amber {
+    color: #A9A9A9; /* Gris neutro */
+    border-color: #A9A9A9;
+}
+
+.btn-outline-amber:hover, 
+.btn-outline-amber:focus, 
+.btn-check:checked + .btn-outline-amber {
+    background-color: #A9A9A9;
+    color: white;
+    border-color: #A9A9A9;
+}
+
+.btn-outline-olive {
+    color: #FFA500; /* Naranja */
+    border-color: #FFA500;
+}
+
+.btn-outline-olive:hover, 
+.btn-outline-olive:focus, 
+.btn-check:checked + .btn-outline-olive {
+    background-color: #FFA500;
+    color: white;
+    border-color: #FFA500;
 }
 
 /*
