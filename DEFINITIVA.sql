@@ -56,8 +56,10 @@ CREATE TABLE `incidencies` (
   `data_incidencia` timestamp NOT NULL DEFAULT current_timestamp(),
   `estat` enum('Pendent','En Progrés','Resolta') DEFAULT 'Pendent',
   `prioritat` enum('Baixa','Mitjana','Alta') DEFAULT 'Baixa',
+  `descripcio_resolta` text DEFAULT NULL,
   `imatges` text DEFAULT NULL,
-  `id_usuari` int(11) NOT NULL
+  `id_usuari` int(11) NOT NULL,
+  `habilitado` tinyint(1) DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -339,6 +341,8 @@ ALTER TABLE `xats`
   ADD CONSTRAINT `xats_ibfk_1` FOREIGN KEY (`usuari1_id`) REFERENCES `usuaris` (`id`),
   ADD CONSTRAINT `xats_ibfk_2` FOREIGN KEY (`usuari2_id`) REFERENCES `usuaris` (`id`);
 COMMIT;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
