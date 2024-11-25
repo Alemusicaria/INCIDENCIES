@@ -50,7 +50,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     <div class="form-group">
                         <label class="perfil-label" for="Tipo">Tipo de Incidencia</label>
                         <select id="Categoria" name="Categoria" class="form-control" required>  
-            <option value="">Selecciona una categoría</option>
+                            <option value="">Selecciona una categoría</option>
                             <option value="Calefaccio" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Calefaccio') ? 'selected' : ''; ?>>Calefacció</option>
                             <option value="Electricitat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
                             <option value="Fontaner" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
@@ -140,15 +140,46 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             value="<?= htmlspecialchars($datos_incidencia['descripcio_resolta'] ?? '', ENT_QUOTES, 'UTF-8'); ?>">
                     </div>
 
+        <!-- Mostrar las imágenes actuales con checkbox para eliminarlas -->
+        <div class="form-group">
+            <label for="Imagenes">Imágenes actuales</label>
+            <div class="imagenes">
+                <?php
+                // Verifica si hay imágenes asociadas a la incidencia
+                if (!empty($datos_incidencia['imatges'])) {
+                    $imagenes = explode(",", $datos_incidencia['imatges']);
+                    foreach ($imagenes as $index => $imagen) {
+                        // Sanitizar la URL de la imagen para evitar problemas de seguridad
+                        $imagen_sanitizada = htmlspecialchars($imagen, ENT_QUOTES, 'UTF-8');
+                        ?>
+                        <div class="imagen-item mb-3">
+                            <!-- Mostrar la imagen pequeña -->
+                            <img src="<?= $imagen_sanitizada; ?>" alt="Imagen de la incidencia" class="img-thumbnail" style="max-width: 150px; height: auto;">
+                            
+                            <!-- Checkbox para eliminar esta imagen -->
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" name="eliminar_imagenes[]" value="<?= $imagen_sanitizada; ?>" id="eliminar_<?= $index; ?>">
+                                <label class="form-check-label" for="eliminar_<?= $index; ?>">Eliminar esta imagen</label>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    echo "<p>No hay imágenes actuales disponibles.</p>";
+                }
+                ?>
+            </div>
+        </div>
 
-    <div class="form-group">
-        <label for="Foto">Afegir Imatges</label>
-        <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
-    </div>
+        <div class="form-group">
+            <label for="Foto">Afegir Imatges</label>
+            <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
+        </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-                    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        </div>
+        
                 </form>
             </div>
         </div>   
