@@ -50,7 +50,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     <div class="form-group">
                         <label class="perfil-label" for="Tipo">Tipo de Incidencia</label>
                         <select id="Categoria" name="Categoria" class="form-control" required>  
-            <option value="">Selecciona una categoría</option>
+                            <option value="">Selecciona una categoría</option>
                             <option value="Calefaccio" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Calefaccio') ? 'selected' : ''; ?>>Calefacció</option>
                             <option value="Electricitat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
                             <option value="Fontaner" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
