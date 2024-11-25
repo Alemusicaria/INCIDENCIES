@@ -38,7 +38,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         <div class="form-group">
                         <label class="perfil-label" for="Tipo">Tipo de Incidencia</label>
-                            <select id="Categoria" name="Categoria" class="form-control"required>        
+                            <select id="Categoria" name="Categoria" class="form-control"required>   
+                                <option value="">Selecciona una categoría</option>     
                                 <option value="Calefaccio"> Calefacció<br>
                                 <option value="Electricitat"> Electricitat<br>
                                 <option value="Fontaner"> Fontaner<br>
