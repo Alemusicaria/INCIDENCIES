@@ -135,13 +135,10 @@ if (isset($incidencia)) {
     if (isset($incidencia['id_usuari']) && $incidencia['id_usuari'] == $_SESSION['id']) {
         // Mostra botons d'editar i eliminar si és el creador
         echo "<a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-primary'>Editar</a>";
-        echo "<a href='index.php?controller=...&method=...&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
-    } elseif (isset($incidencia['id'])) {
-        // Mostra només el botó d'eliminar si no és el creador
-        echo "<a href='index.php?controller=...&method=...&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
+        echo "<a href='index.php?controller=Eliminar&method=eliminar_incidencia&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
     } else {
         // Missatge d'error si no hi ha un ID vàlid
-        echo "<div class='alert alert-danger'>La incidència no té un ID vàlid.</div>";
+        echo "<div class='alert alert-danger'>No puedes modificar esta Incidencia</div>";
     }
     ?>
 

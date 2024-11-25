@@ -102,18 +102,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <input type="radio" class="btn-check" name="Estat" id="Resolta" value="Resolta" 
                                 <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'Resolta') ? 'checked' : ''; ?>>
                             <label class="btn btn-outline-olive" for="Resolta">Resolta</label>
-                            <!--
-                            <input type="radio" class="btn-check" name="Estat" id="Pendent" value="Pendent" 
-                                <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'Pendent') ? 'checked' : ''; ?> >
-                            <label class="btn btn-outline-success" for="Pendent">Pendent</label>
-
-                            <input type="radio" class="btn-check" name="Estat" id="En Progrés" value="En Progrés" 
-                                <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'En Progrés') ? 'checked' : ''; ?> >
-                            <label class="btn btn-outline-warning" for="En Progrés">En Progrés</label>
-
-                            <input type="radio" class="btn-check" name="Estat" id="Resolta" value="Resolta" 
-                                <?= (isset($datos_incidencia['estat']) && $datos_incidencia['estat'] === 'Resolta') ? 'checked' : ''; ?> >
-                            <label class="btn btn-outline-danger" for="Resolta">Resolta</label> -->
                         </div>
                     </div>
 

@@ -24,7 +24,7 @@ class editar_incidencia
     // Mètode per actualitzar les dades d'una incidència existent
     public function actualizar_datos_incidencia()
     {
-        require_once 'app\models\connexio.php';
+        require_once 'app/models/connexio.php';
 
         // Recogida de datos del formulario
         $id_incidencia = $_POST['id'];
