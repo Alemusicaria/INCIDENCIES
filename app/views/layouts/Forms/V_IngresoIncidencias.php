@@ -80,10 +80,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 <label class="btn btn-outline-success" for="Baixa">Baixa</label>
 
                                 <input type="radio" class="btn-check" name="Prioridad" id="Mitjana" value="Mitjana" required>
-                                <label class="btn btn-outline-danger" for="Mitjana">Mitjana</label>
+                                <label class="btn btn-outline-warning" for="Mitjana">Mitjana</label>
 
                                 <input type="radio" class="btn-check" name="Prioridad" id="Alta" value="Alta" required>
-                                <label class="btn btn-outline-warning" for="Alta">Alta</label>
+                                <label class="btn btn-outline-danger" for="Alta">Alta</label>
                             </div>
                         </div>
 

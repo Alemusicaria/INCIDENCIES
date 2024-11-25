@@ -35,8 +35,8 @@ if (isset($incidencia)) {
         <!-- Descripció de la incidència -->
         <div class="mb-2">
             <label class="perfil-label">Descripció</label>
-            <textarea class="form-control readonly-input" name="Descripcio" id="Descripcio" rows="4" readonly>
-                <?php echo isset($incidencia['descripcio']) ? htmlspecialchars($incidencia['descripcio'], ENT_QUOTES, 'UTF-8') : ''; ?></textarea>
+            <textarea class="form-control readonly-input" name="Descripcio" id="Descripcio" rows="3" readonly>
+            <?php echo isset($incidencia['descripcio']) ? htmlspecialchars($incidencia['descripcio'], ENT_QUOTES, 'UTF-8') : ''; ?></textarea>
         </div>
 
         <!-- Tipus de la incidència -->
@@ -60,15 +60,30 @@ if (isset($incidencia)) {
                 value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
         </div>
 
-        <!-- Descripció de tancament si existeix -->
-        <label>Descripció Tancament</label>
+        <?php if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])): ?>
+            <label>Descripció Tancament</label>
+            <div class="input-container">
+                <textarea class="form-control readonly-input" 
+                        name="DescripcioResolta" 
+                        id="DescripcioResolta" 
+                        rows="4" 
+                        readonly><?php echo htmlspecialchars($incidencia['descripcio_resolta'], ENT_QUOTES, 'UTF-8'); ?></textarea>
+            </div>
+        <?php endif; ?>
+
+        <!-- Descripció de tancament si existeix 
+            if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])) {
+                <label>Descripció Tancament</label>
+            }
+
+            
         <div class="input-container">
-            <?php
+            
             if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])) {
                 echo '<textarea class="form-control readonly-input" name="DescripcioResolta" id="DescripcioResolta" rows="4" readonly>' . htmlspecialchars($incidencia['descripcio_resolta'], ENT_QUOTES, 'UTF-8') . '</textarea>';
             }
-            ?>
-        </div>
+            
+        </div>-->
 
         <!-- Data de creació de la incidència -->
         <div class="mb-2">
@@ -78,7 +93,7 @@ if (isset($incidencia)) {
         </div>
 
         <!-- Mostra les imatges associades a la incidència -->
-        <label>Imatges</label>
+        <label class="perfil-label">Imatges</label>
         <div class="input-container">
             <?php
             if (isset($incidencia['imatges']) && !empty($incidencia['imatges'])) {
