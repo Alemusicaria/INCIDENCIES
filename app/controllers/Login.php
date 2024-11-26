@@ -55,6 +55,11 @@ class LoginController
     {
         require "app/views/layouts/Forms/V_Todasincidencias.php";
     }
+
+    public function gestionar_usuaris()
+    {
+        require "app/views/layouts/Forms/V_Todosusuarios.php";
+    }
     /*************************  XAT  *************************/
 
     /**

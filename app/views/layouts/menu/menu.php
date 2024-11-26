@@ -20,7 +20,7 @@
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <a href="index.php?controller=Perfil&method=info">
-                <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
+                    <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
                 </a>
             </button>
         </div>
@@ -78,7 +78,7 @@
         </li>
 
         <li class="sidebar-item">
-            <a href="#" class="sidebar-link">
+            <a href="index.php?controller=Login&method=gestionar_usuaris" class="sidebar-link">
                 <i class="lni lni-cog"></i>
                 <span>Gestionar Professores</span>
             </a>
