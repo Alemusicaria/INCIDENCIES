@@ -6,11 +6,11 @@ class perfil
     public function info()
     {
         // Comprovem si l'usuari està autenticat
-        if (isset($_SESSION['usuario'])) {
+        if (isset($_SESSION['usuari'])) {
             // Recollim la informació de la sessió (nom, ID, rol, etc.)
-            $nombre = $_SESSION['usuario'];
-            $id = $_SESSION['id'];
-            $rol = $_SESSION['rol'];
+            $nombre = $_SESSION['usuari'][1];
+            $id = $_SESSION['usuari'][0];
+            $rol = $_SESSION['usuari'][4];
 
             // Mostrar la informació del perfil
             echo "Nom: " . $nombre . "<br>";

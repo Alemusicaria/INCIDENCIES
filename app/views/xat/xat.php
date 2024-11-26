@@ -1,7 +1,7 @@
 <?php
         require_once 'app/models/connexio.php';
 
-$usuari_id = $_SESSION['id'];
+$usuari_id = $_SESSION['usuari'][0];
 $resultat_converses = false;
 $resultat_grups = false;
 

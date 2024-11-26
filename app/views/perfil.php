@@ -6,8 +6,8 @@ session_start();
 require_once 'app/models/connexio.php'; // Connexió a la base de dades
 
 // Inicialitzar valors per defecte
-$id_usuari = $_SESSION['id'] ?? null;
-$nom = $_SESSION['usuario'] ?? 'Usuari desconegut';
+$id_usuari = $_SESSION['usuari'][0] ?? null;
+$nom = $_SESSION['usuari'][1] ?? 'Usuari desconegut';
 $correu = "Desconegut";
 $nombre_incidencies = 0;
 $perfil_imatge = "perfil.png"; // Imatge per defecte

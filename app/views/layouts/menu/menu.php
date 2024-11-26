@@ -33,8 +33,8 @@
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
                 <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
-                <h3><?php echo $_SESSION['usuario']; ?></h3>
-                <h4><?php echo $_SESSION['rol']; ?></h4>
+                <h3><?php echo $_SESSION['usuari'][1]; ?></h3>
+                <h4><?php echo $_SESSION['usuari'][4]; ?></h4>
             </div>
         </div>
 

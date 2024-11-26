@@ -2,13 +2,7 @@
 session_start();
 require_once 'app/models/connexio.php';
 
-// Comprovar si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html');
-    exit();
-}
-
-$usuari_id = $_SESSION['id'];
+$usuari_id = $_SESSION['usuari'][0];
 $altre_usuari_id = $_GET['usuari_id'] ?? null;
 
 if ($altre_usuari_id) {

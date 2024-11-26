@@ -47,7 +47,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
 
                                 // ID de l'usuari autenticat
-                                $idUsuari = $_SESSION['id']; // Assegura't que tens aquesta variable definida
+                                $idUsuari = $_SESSION['usuari'][0]; // Assegura't que tens aquesta variable definida
 
                                 // Consulta per obtenir les incidències de l'usuari
                                 $sql = "SELECT id, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 

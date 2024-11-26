@@ -5,14 +5,10 @@ class incidencias
     // Mètode per ingressar una nova incidència
     public function ingresar_incidencias()
     {
-        // Comprovem si l'usuari està registrat en la sessió
-        if (isset($_SESSION['usuario'])) {
-            $Nombre = $_SESSION['usuario'];
-        } else {
-            die("Error: No se ha encontrado el usuario en la sesión.");
-        }
+        
 
         // Recollim les dades de la incidència del formulari
+        $Nombre = $_SESSION['usuari'][1];
         $TituloFallo = $_POST['TituloFallo'];
         $Descripcion = $_POST['Descripcion'];
         $Categoria = $_POST['Categoria'];

@@ -1,7 +1,7 @@
 <?php
         require_once 'app/models/connexio.php';
 
-$usuari_id = $_SESSION['id'];
+$usuari_id = $_SESSION['usuari'][0];
 
 // Obtenim l'ID del grup des de la URL
 if (isset($_GET['grup_id'])) {

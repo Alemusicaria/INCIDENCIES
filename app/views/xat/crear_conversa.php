@@ -2,13 +2,7 @@
 session_start();
 require_once 'app/models/connexio.php';
 
-// Comprovem si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    header('Location: login.html');
-    exit();
-}
-
-$usuari_id = $_SESSION['id'];
+$usuari_id = $_SESSION['usuari'][0];
 
 // Buscar usuaris per mostrar-los en la llista
 $query_usuaris = "SELECT id, nom_cognoms FROM usuaris WHERE id != $usuari_id";

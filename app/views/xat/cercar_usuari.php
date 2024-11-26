@@ -1,12 +1,6 @@
 <?php
 session_start();
 
-// Comprovem si l'usuari està logejat
-if (!isset($_SESSION['id'])) {
-    echo "No estàs logejat.";
-    exit();
-}
-
 $cerca = isset($_GET['q']) ? $_GET['q'] : '';
 if (empty($cerca)) {
     echo "No s'ha introduït cap cerca.";
@@ -16,7 +10,7 @@ if (empty($cerca)) {
 // Connexió a la base de dades
 require_once 'app/models/connexio.php';
 
-$usuari_id = $_SESSION['id'];
+$usuari_id = $_SESSION['usuari'][0];
 
 // Consulta per cercar usuaris per nom
 $query = "

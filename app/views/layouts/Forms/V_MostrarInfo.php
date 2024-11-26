@@ -143,7 +143,7 @@ if (isset($incidencia)) {
 
     <?php
     // Comprova si l'usuari loguejat és el creador de la incidència
-    if (isset($incidencia['id_usuari']) && $incidencia['id_usuari'] == $_SESSION['id']) {
+    if (isset($incidencia['id_usuari']) && $incidencia['id_usuari'] == $_SESSION['usuari'][0]) {
         // Mostra botons d'editar i eliminar si és el creador
         echo "<a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-primary'>Editar</a>";
         echo "<a href='index.php?controller=Eliminar&method=eliminar_incidencia&id=" . htmlspecialchars($incidencia['id'], ENT_QUOTES, 'UTF-8') . "' class='btn btn-danger'>Eliminar</a>";
