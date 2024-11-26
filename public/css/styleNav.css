@@ -34,7 +34,7 @@ body {
 }
 
 .main {
-    margin-top: 22px;
+    margin-top: 70px;
     /* Respeta la altura del header */
     min-height: calc(100vh - 70px);
     /* Resta el header para que se ajuste en altura */
