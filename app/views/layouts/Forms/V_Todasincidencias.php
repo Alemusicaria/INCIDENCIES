@@ -52,7 +52,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                                 // Consulta per obtenir les incidències de l'usuari
                                 $sql = "SELECT id, creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
-                                FROM incidencies";
+                                FROM incidencies
+                                WHERE habilitado = 1";
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 $result = $stmt->get_result();

@@ -92,6 +92,36 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <label class="perfil-label" for="Foto">Foto</label>
                             <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
                         </div>
+
+                        <div class ="form-group">
+                        <label class="perfil-label" for="Tecnico">Necesitas Tecnico</label>
+                            <select id="Tecnico" name="Tecnico" class="form-control" required>
+                                <option value="">Selecciona una opción</option>
+                                <option value="Si">Si</option>
+                                <option value="No">No</option>
+
+                                
+                            </select>
+                        </div>
+
+                        <div id="formulario-tecnico">
+                            <h3>Formulario para técnico</h3>
+                            <div class="form-group">
+                                <label for="descripcion-problema">Descripción del problema:</label>
+                                <textarea id="descripcion-problema" name="descripcion-problema" class="form-control" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="prioridad">Prioridad:</label>
+                                <select id="prioridad" name="prioridad" class="form-control" required>
+                                    <option value="">Selecciona una prioridad</option>
+                                    <option value="Alta">Alta</option>
+                                    <option value="Media">Media</option>
+                                    <option value="Baja">Baja</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        
                         
                         <button type="submit" class="btn btn-primary">Insertar</button>
                     </form>
@@ -102,3 +132,16 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 </body>
 
 <script src="assets/js/cargarSalas.js"></script>
+<script>
+        // Escuchar cambios en el selector
+        document.getElementById('Tecnico').addEventListener('change', function () {
+            const formularioTecnico = document.getElementById('formulario-tecnico');
+            if (this.value === 'Si') {
+                // Mostrar el formulario adicional
+                formularioTecnico.style.display = 'block';
+            } else {
+                // Ocultar el formulario adicional
+                formularioTecnico.style.display = 'none';
+            }
+        });
+    </script>
