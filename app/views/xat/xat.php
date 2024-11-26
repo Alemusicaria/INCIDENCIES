@@ -1,5 +1,5 @@
 <?php
-        require_once 'app/models/connexio.php';
+require_once 'app/models/connexio.php';
 
 $usuari_id = $_SESSION['usuari'][0];
 $resultat_converses = false;
@@ -75,9 +75,12 @@ error_reporting(E_ALL);
 <body>
     <div class="wrapper">
 
-        <?php include("app/views/layouts/menu/menu.php"); ?>
+        <?php
+        include("app/views/layouts/menu/menu.php");
+        ?>
 
         <main class="main">
+
             <!-- Fondo de la Imatge -->
             <div class="fondo-xat">
                 <div class="text-center-chat">
