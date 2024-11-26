@@ -39,11 +39,13 @@ if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $data)) {
 $sql = "SELECT i.*, s.planta, s.sala 
         FROM incidencies i 
         LEFT JOIN sales s ON i.id_ubicacio = s.id 
-        WHERE DATE(i.data_incidencia) = ?";
+        WHERE DATE(i.data_incidencia) = ? AND i.habilitado = 1";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $data);
 $stmt->execute();
 $result = $stmt->get_result();
+
+
 
 $incidencies = [];
 while ($row = $result->fetch_assoc()) {

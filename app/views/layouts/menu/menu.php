@@ -4,7 +4,7 @@
 require_once('app/models/connexio.php');
 
 // Consulta SQL per obtenir la ruta de la imatge de perfil de l'usuari
-$usuari_id = $_SESSION['id']; // Suponem que tens l'ID de l'usuari en la sessió
+/*$usuari_id = $_SESSION['id']; // Suponem que tens l'ID de l'usuari en la sessió
 $query = "SELECT foto FROM usuaris WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $usuari_id);
@@ -17,7 +17,7 @@ $stmt->close();
 if (!$perfil_imatge) {
     $perfil_imatge = 'perfil.png'; // Imatge per defecte
 }
-
+*/
 ?>
 
 <header id="header">

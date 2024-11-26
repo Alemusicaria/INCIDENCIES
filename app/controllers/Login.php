@@ -26,6 +26,7 @@ class LoginController
         }
     }
 
+
     /**
      * Mètode per mostrar el formulari de login.
      */
