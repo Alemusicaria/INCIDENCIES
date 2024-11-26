@@ -74,8 +74,20 @@ error_reporting(E_ALL);
 
 <body>
     <div class="wrapper">
-        <?php include("app/views/layouts/menu/menu.php"); ?>
-        <main class="main p-3">
+
+        <?php 
+        include("app/views/layouts/menu/menu.php"); 
+        ?>
+
+        <main class="main">
+            
+            <!-- Fondo de la Imatge -->
+            <div class="fondo-xat">
+                <div class="text-center">
+                    Chat
+                </div>
+            </div>
+
             <header class="header">
                 <h1>Les meves converses i grups</h1>
             </header>
