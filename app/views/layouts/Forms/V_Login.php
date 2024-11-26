@@ -35,7 +35,7 @@ if (isset($_SESSION['usuari'])) {
                 
                 <h1>Inicia Sessió</h1>
 
-                <form action="#" method="POST" class="form">
+                <form action="index.php?controller=Login&method=verificar_login" method="POST" class="form">
 
                     <div class="input-container">
                         <i class="fas fa-user"></i>
