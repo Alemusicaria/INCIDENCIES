@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+session_start();
 
 require_once 'app/models/connexio.php'; // Connexió a la base de dades
 
@@ -63,7 +64,7 @@ include("layouts/header/header.php"); // Incloure el header
             <div class="fondo-perfil">
                 <!-- Imatge de Perfil -->
                 <div class="perfil-img mb-3">
-                    <img src="<?php echo $perfil_imatge_ruta; ?>" alt="Perfil" class="perfil-img">
+                    <img src="<?php echo $perfil_imatge; ?>" alt="Perfil" class="perfil-img">
                 </div>
 
                 <a href="#">Cambiar foto de perfil</a>
