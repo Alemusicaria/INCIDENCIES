@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION['usuario'])) {
+if (!isset($_SESSION['usuari'])) {
     header("Location: index.php?controller=Login&method=login");
     exit();
 }

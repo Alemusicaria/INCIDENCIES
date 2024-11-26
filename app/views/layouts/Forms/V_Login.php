@@ -1,3 +1,8 @@
+<?php
+if (isset($_SESSION['usuari'])) {
+    header("Location: index.php?controller=Login&method=bienvenido");
+    exit();
+}?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
