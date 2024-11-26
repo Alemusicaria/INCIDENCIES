@@ -42,7 +42,7 @@ if ($id_usuari) {
             $perfil_imatge = $row['foto'] ?? 'perfil.png'; // Si no hi ha foto, utilitzar la per defecte
         }
 
-        $stmt->close(); // Tancar la consulta preparada
+         $stmt->close(); // Tancar la consulta preparada
     } else {
         die("Error en preparar la consulta: " . $conn->error);
     }
