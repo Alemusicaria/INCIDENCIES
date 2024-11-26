@@ -49,7 +49,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>Nom i Cognoms</th>
                                     <th>Correu Electrònic</th>
                                     <th>Telèfon</th>
@@ -69,8 +68,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                                 // Consulta per obtenir les incidències de l'usuari
                                 $sql = "SELECT id, nom_cognoms, correu, telefon, rol, habilitat, data_registre, foto  
-                                FROM usuaris 
-                                WHERE id != $idUsuari";
+                                FROM usuaris";
                                 $stmt = $conn->prepare($sql);
                                 $stmt->execute();
                                 $result = $stmt->get_result();
@@ -79,7 +77,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . $row['nom_cognoms'] . "</td>";
                                         echo "<td>" . $row['correu'] . "</td>";
                                         echo "<td>" . $row['telefon'] . "</td>";

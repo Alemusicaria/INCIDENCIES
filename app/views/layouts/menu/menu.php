@@ -20,7 +20,8 @@
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <a href="index.php?controller=Perfil&method=info">
-                    <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
+                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Login/user.png'; ?>
+                    <img src="<?php echo $foto; ?>" alt="Perfil">
                 </a>
             </button>
         </div>
@@ -32,7 +33,7 @@
     <ul class="sidebar-nav">
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
-                <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
+                <img src="<?php echo $foto; ?>" alt="Perfil">
                 <h3><?php echo $_SESSION['usuari'][1]; ?></h3>
                 <h4><?php echo $_SESSION['usuari'][4]; ?></h4>
             </div>
