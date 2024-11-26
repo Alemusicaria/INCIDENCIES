@@ -6,6 +6,25 @@ error_reporting(E_ALL);
 <?php
 include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lateral
 ?>
+<style>
+    .btn-success {
+        background-color: #28a745;
+        /* Verd */
+        border-color: #28a745;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        /* Vermell */
+        border-color: #dc3545;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        /* Blau */
+        border-color: #007bff;
+    }
+</style>
 
 <body>
     <div class="wrapper">
@@ -73,12 +92,12 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         if ($row['habilitat'] == 0) {
                                             echo "<td><form method='POST' action='index.php?controller=Perfil&method=habilitar'>
                                                         <input type='hidden' name='id' value='" . $row['id'] . "'>
-                                                        <button type='submit' class='btn btn-success'>Habilitar</button>
+                                                        <button type='submit' class='btn btn-success' style='background-color: #28a745'>Habilitar</button>
                                                     </form><hr>";
                                         } else if ($row['habilitat'] == 1) {
                                             echo "<td><form method='POST' action='index.php?controller=Perfil&method=deshabilitar'>
                                                         <input type='hidden' name='id' value='" . $row['id'] . "'>
-                                                        <button type='submit' class='btn btn-danger'>Deshabilitar</button>
+                                                        <button type='submit' class='btn btn-danger'style='background-color: #dc3545'>Deshabilitar</button>
                                                     </form><hr>";
                                         }
 
@@ -87,7 +106,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                                         <button type='submit' class='btn btn-primary'>Editar</button>
                                                     </form>
                                             </td>";
-                                        echo "</tr>";
+                                        echo "</tr>";                                        
                                     }
                                 } else {
                                     echo "<tr><td colspan='9'>No hi ha incidències creades per aquest usuari.</td></tr>";
