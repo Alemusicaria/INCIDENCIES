@@ -23,14 +23,15 @@ class Login
             return false;  // Retorna false perquè el login ha fallat
         } else {
             // Si l'usuari existeix, comprovem la contrasenya
-            $usuario = $result->fetch_assoc();
+            $usuari = $result->fetch_assoc();
 
             // Comprovem si la contrasenya introduïda coincideix amb la de la base de dades
-            if (password_verify($contraseña, $usuario['contrasenya'])) {
+            if (password_verify($contraseña, $usuari['contrasenya'])) {
                 // Si la contrasenya és correcta, s'inicia sessió
-                $_SESSION['usuario'] = $usuario['nom_cognoms'];  // Guardem el nom de l'usuari a la sessió
-                $_SESSION['id'] = $usuario['id'];  // Guardem l'ID de l'usuari a la sessió
-                $_SESSION['rol'] = $usuario['rol'];  // Guardem el rol de l'usuari a la sessió
+                $_SESSION['usuari'] = [$usuari['id'], $usuari['nom_cognoms'], $usuari['correu'], $usuari['telefon'], $usuari['rol'], $usuari['foto']];  // Guardem les dades de l'usuari a la sessió
+                $_SESSION['usuario'] = $usuari['nom_cognoms'];  // Guardem el nom de l'usuari a la sessió
+                $_SESSION['id'] = $usuari['id'];  // Guardem l'ID de l'usuari a la sessió
+                $_SESSION['rol'] = $usuari['rol'];  // Guardem el rol de l'usuari a la sessió
 
                 return true;  // Retorna true perquè el login ha estat exitós
             } else {

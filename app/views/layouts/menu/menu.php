@@ -1,24 +1,5 @@
 <!-- Barra superior -->
-<?php
-// Conexió a la base de dades
-require_once('app/models/connexio.php');
 
-// Consulta SQL per obtenir la ruta de la imatge de perfil de l'usuari
-/*$usuari_id = $_SESSION['id']; // Suponem que tens l'ID de l'usuari en la sessió
-$query = "SELECT foto FROM usuaris WHERE id = ?";
-$stmt = $conn->prepare($query);
-$stmt->bind_param("i", $usuari_id);
-$stmt->execute();
-$stmt->bind_result($perfil_imatge);
-$stmt->fetch();
-$stmt->close();
-
-// Si no hi ha imatge, assignem una imatge per defecte
-if (!$perfil_imatge) {
-    $perfil_imatge = 'perfil.png'; // Imatge per defecte
-}
-*/
-?>
 
 <header id="header">
     <div class="header-content">
@@ -39,7 +20,7 @@ if (!$perfil_imatge) {
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <a href="index.php?controller=Perfil&method=info">
-                    <img src="<?php echo $perfil_imatge; ?>" alt="Perfil">
+                <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
                 </a>
             </button>
         </div>
@@ -51,7 +32,7 @@ if (!$perfil_imatge) {
     <ul class="sidebar-nav">
         <div class="sidebar-perfil">
             <div class="sidebar-perfil-img">
-                <img src="<?php echo $perfil_imatge; ?>" alt="Perfil">
+                <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil">
                 <h3><?php echo $_SESSION['usuario']; ?></h3>
                 <h4><?php echo $_SESSION['rol']; ?></h4>
             </div>
