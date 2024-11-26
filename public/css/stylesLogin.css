@@ -5,6 +5,10 @@
     --salle: #141414;
     --salle_light: #3e3e3e;
     --salle_extralight: #c8c8c8;
+
+    --salle_darkblue: #1B2C64;
+    --salle_blue: #334273;
+    --salle_lightblue: #F0F8FF;
 }
 
 * {
@@ -18,7 +22,8 @@
 } 
 
 body {
-    height: auto;
+    height: 100vh;
+    margin: 0;
 
     background: linear-gradient(
         rgba(20, 20, 20, 0.85),
@@ -26,184 +31,181 @@ body {
     ), url('../../Images/Login/Sallenet_Fondo1.png') no-repeat;   
     background-size: cover;
     background-position: center;
-    flex: 1; /* Asegura que el body ocupe todo el espacio disponible */
-}
 
-.container {
-    display: grid;
-    height: 100%;
-    width: 100%;
-    padding: 0px;
-    font-weight: 600;  
-    font-size: 20px;
-}
-
-.main {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+
+    flex-direction: column;
+
+    opacity: 0; /* Comienza invisible */
+    animation: fadeIn 1s ease-in-out forwards; /* Aparecer con fade-in */
 }
 
-.mleft {
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Inicialmente invisible */
+    }
+    100% {
+        opacity: 1; /* Al final de la animación, completamente visible */
+    }
+}
+
+.contenedor-login-principal {
+    width: 55%;
+    height: 50%; 
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;   
+
+    backdrop-filter: blur(3px);
+
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 95px;
+    
+    overflow: hidden;
+
+    box-shadow: 0 0px 30px 10px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.contenedor-login-detalles {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center; /* Center images horizontally */
-
-    height: 100%;
-    width: 50%;
-
-    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
-
-    padding: 100px;
-}
-
-.mright {
-    background-color: white;
-    height: 100%;
-    width: 50%;
-
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange images vertically */
-    align-items: center; /* Center images horizontally */
-    justify-content: center; /* Center images vertically */ 
-
-    overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
-}
-
-.logo1 {
-    width: 100%; /* Full width minus left and right margins */
-    display: flex;
     justify-content: center;
     align-items: center;
 
-    align-self: flex-end; /* Aligns the logo at the bottom */
-}
-
-.logo1 img {
-    width: 20%; /* Adjust image width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.logo2 {
-    width: 100%; /* Full width minus left and right margins */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    align-self: flex-start; /* Aligns the logo at the top */
-}
-
-.logo2 img {
-    width: 70%; /* Adjust image width */
-    height: auto; /* Maintain aspect ratio */
-}
-
-.home {
-    background-color: transparent;
     padding: 20px;
-    border-radius: 0px; /* Bordes redondeados */
 
-    width: calc(100% - 120px);
-    margin-left: 60px; /* Espacio entre el usuario y el formulario */
-    margin-right: 60px; /* Espacio entre el usuario y el formulario */
+    width: 50%;
+    height: 100%;
 
-
-    display: flex; /* Usar flexbox para centrar el contenido */
-    flex-direction: column; /* Colocar los elementos en una columna */
-    align-items: center; /* Centrar horizontalmente */
-
-    gap: 1rem; /* Espacio entre los elementos del formulario */
+    color: rgb(0, 0, 0);
+    background: rgb(255, 255, 255, 0.3);
 }
 
-/* Oculta la vista móvil por defecto */
-.mobile-view {
-    display: none;
-}
+.contenedor-login-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centrar el texto */
+    align-content: space-between;
 
-/* Mobile */
-@media (max-width: 700px) {
-    .desktop-view {
-        display: none; /* Oculta la vista de escritorio */
-    }
-    .mobile-view {
-        display: block; /* Muestra la vista móvil */
-    }
+    color: #333;
+    padding: 20px;
+    flex-wrap: wrap;
 
-    .mobile-view .container {
-        grid-template-rows: 190px auto 50px; /* Alturas fijas para header y footer */
-        grid-template-columns: 1fr; /* Solo una columna */
-        grid-template-areas:
-        "header"
-        "main"
-        "footer";
-    }
-
-    .main {
-        grid-area: main;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .home {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 40px;
-    
-        width: 100%;
-        margin-left: 30px; /* Espacio entre el usuario y el formulario */
-        margin-right: 30px; /* Espacio entre el usuario y el formulario */
-    
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
-    
-        display: flex; /* Usar flexbox para centrar el contenido */
-        flex-direction: column; /* Colocar los elementos en una columna */
-        align-items: center; /* Centrar horizontalmente */
-    
-        gap: 1rem; /* Espacio entre los elementos del formulario */
-    }
+    width: 50%;
+    height: 100%;
 }
 
 .header {
-    grid-area: header;
-    padding: 0px;
-    text-align: center;
-}
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
-.footer {
-    grid-area: footer;
-    background-color: var(--salle_dark); /* 4285f4; */
-    padding: 0px;
-    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: calc(100% - 60px); /*100%;*/
+    height: 20%;
+
+    margin: 0 30px 0 30px;
 }
 
 .header img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
+
+    max-height: 220px;
+
+    object-fit: contain;
+}
+
+.footer {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+
+    width: 100%;
+    height: 70px;
+
+    padding: 5px 0 5px 0;
 }
 
 .footer img {
     width: auto;
     height: 100%;
+
+    object-fit: contain;
 }
 
-/* Títulos y texto */
-.home h1 {
-    font-size: 2rem;
-    color: var(--salle_darkblue);
-    font-weight: 500; /* O usa 100 para un texto más delgado */
+@media (max-width: 1000px) {
+    .header {
+        display: flex;
+    }
+
+    .footer {
+        display: flex;
+    }
+
+    .contenedor-login-principal {
+        width: 80%;
+        flex-direction: column;
+
+        border-radius: 45px;
+
+        margin-top: 15%; 
+        margin-bottom: 10px;
+    }
+
+    .contenedor-login-detalles {
+        width: 100%;
+    }
+
+    .contenedor-login-imagen {
+        display: none;
+        width: 0%;
+        height: 0%;
+    }
+
+    .user {
+        margin-bottom: 10px;
+    }
+
+    .home h1 {
+        color: white;
+        text-decoration: underline;
+        font-size: 1.8rem;
+    }
 }
 
-.home p {
-    font-size: 0.7rem;
-    color: var(--salle_blue);
+.logo1 img {
+    width: 58%;
+    height: auto;
 }
 
-/* Imagen Usuario */
-.home .user {
+.logo2 img {
+    width: 22%;
+    height: auto;
+}
+
+.user {
     width: auto;
     height: auto;
 
@@ -218,9 +220,23 @@ body {
     align-items: center; /* Centrar verticalmente */
 }
 
-.home .user img {
+.user img {
     max-width: 80px;
     max-height: 80px;
+}
+
+.home {
+    padding: 20px;
+    border-radius: 40px;
+
+    width: 100%;
+    height: auto;
+
+    display: flex; /* Usar flexbox para centrar el contenido */
+    flex-direction: column; /* Colocar los elementos en una columna */
+    align-items: center; /* Centrar horizontalmente */
+
+    gap: 1rem; /* Espacio entre los elementos del formulario */
 }
 
 .home form {
@@ -230,6 +246,42 @@ body {
     align-items: flex-start; /* Alinear los elementos a la izquierda */
 
     gap: 8px;
+}
+
+.home h1 {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Inputs */
+.input-container {
+    position: relative; /* Necesario para el posicionamiento del ícono */
+    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
+}
+
+.input-container i {
+    position: absolute; /* Posiciona el ícono */
+    left: 10px; /* Ajusta la posición horizontal */
+    top: 50%; /* Centra verticalmente */
+    transform: translateY(-50%); /* Ajusta la posición del ícono */
+    color: var(--salle); /* Color del ícono #7FA1C3 */
+}
+
+.form-control {
+    padding: 10px 10px 10px 40px; /* Espacio interno para acomodar el ícono */
+    border: 1px solid #ccc; /* Color del borde */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; /* Agregado para color de fondo */
+}
+
+.form-control:focus {
+    outline: none; /* Eliminar el contorno predeterminado del navegador */
+    border-color: #000000; /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra al enfocar */
+
+    background-color: var(--salle_lightblue);
 }
 
 /* Botón de envío */
@@ -267,36 +319,6 @@ body {
     transform: scale(0.95); /* Suavizar el efecto de enfoque con una ligera escala */
 }
 
-/* Inputs */
-.input-container {
-    position: relative; /* Necesario para el posicionamiento del ícono */
-    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
-}
-
-.input-container i {
-    position: absolute; /* Posiciona el ícono */
-    left: 10px; /* Ajusta la posición horizontal */
-    top: 50%; /* Centra verticalmente */
-    transform: translateY(-50%); /* Ajusta la posición del ícono */
-    color: var(--salle); /* Color del ícono #7FA1C3 */
-}
-
-.form-control {
-    padding: 10px 10px 10px 40px; /* Espacio interno para acomodar el ícono */
-    border: 1px solid #ccc; /* Color del borde */
-    border-radius: 5px; /* Bordes redondeados */
-    width: 100%; /* Para que todos los inputs ocupen el ancho completo */
-    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
-    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s; /* Agregado para color de fondo */
-}
-
-.form-control:focus {
-    outline: none; /* Eliminar el contorno predeterminado del navegador */
-    border-color: #555555; /* Color del borde al enfocar */
-    box-shadow: 0 0 5px rgba(96, 96, 96, 0.5); /* Sombra al enfocar */
-
-    background-color: var(--salle_extralight);
-}
 
 /* Olvidaste Contraseña */
 .text-center {
@@ -306,17 +328,106 @@ body {
 }
 
 .forgot-password {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 
     text-decoration: none; /* Elimina el subrayado al pasar el mouse */
     cursor: pointer; /* Cambia el cursor al pasar sobre el enlace */
 
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Transición suave para color y subrayado */
+    /*transition: color 0.3s ease, text-decoration 0.3s ease;  Transición suave para color y subrayado */
 
-    color: lightgray;
+    color: white;
+
+    line-height: 1.2; /* Ajusta el espacio interno del texto */
+    height: 1.5rem; /* Mantiene una altura fija */
+    display: inline-block; /* Permite que se comporte como un elemento ajustable */
+    transition: font-size 0.3s ease, color 0.3s ease; /* Transición suave */
 }
 
 .forgot-password:hover {
     text-decoration: underline; /* Subrayar el texto */
     color: var(--salle_dark);
+    font-size: 1rem;
+}
+
+.anm-levantar {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    
+    width: 100%;
+
+    padding: 0.8rem 0;
+    margin: 0.5rem 0;
+
+    border-radius: 10px;
+
+    font-size: 1.1rem;
+
+    transition: 
+        box-shadow 0.3s ease, 
+        transform 0.3s ease, 
+        border-color 0.3s ease, 
+        background-color 0.3s ease, 
+        color 0.3s ease;
+}
+
+.anm-levantar:hover,
+.anm-levantar:focus {
+    box-shadow: 0 0.5rem 0.5rem -0.4rem rgba(0, 0, 0, 0.8);
+    color: black;
+    background-color: transparent;
+    
+    transform: translateY(-0.4rem);
+
+    border: 2px solid black;
+}
+
+.anm-levantar:focus-visible {
+    outline: 2px dashed rgba(255, 255, 255, 0.5);
+    outline-offset: 4px;
+}
+
+.anm-chicle{
+    width: 100%;
+
+    font-size: 1.1rem;
+
+    padding: 0.8rem 0;
+    margin: 0.5rem 0;
+
+    border-radius: 10px;
+
+    background-color: transparent;
+
+    transition: transform 0.2s ease, background-color 0.3s ease;
+
+    border: 2px solid black;
+}
+
+.anm-chicle:active {
+    transform: scale(0.9);
+
+    transition: transform 0.6s ease-in-out ease;
+}
+
+.anm-chicle:hover {
+    animation: chicle 0.9s both;
+}
+
+@keyframes chicle {
+    0% {
+        transform: scale(1);
+    }
+    30% {
+        transform: scale(1.1, 0.9); /* Más sutil y realista */
+    }
+    50% {
+        transform: scale(0.9, 1.1);
+    }
+    70% {
+        transform: scale(1.05, 0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
