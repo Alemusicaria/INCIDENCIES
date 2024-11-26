@@ -34,7 +34,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
         <div class="main p-3">
             <div class="tittle-page">
-                <h2>Totes les Incidències</h2>
+                <h2>Taula de Usuaris</h2>
             </div>
 
             <div class="card">
