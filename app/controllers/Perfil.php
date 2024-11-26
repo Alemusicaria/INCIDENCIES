@@ -52,10 +52,8 @@ class PerfilController
     public function actualitzar()
     {
         if (isset($_POST['id'])) {
-            var_dump($_POST); // Això et mostrarà els valors de la petició POST
-            exit();
             $id = $_POST['id'];
-            $nom = $_POST['nom'];
+            $nom = $_POST['nom_cognoms'];
             $correu = $_POST['correu'];
             $telefon = $_POST['telefon'];
             $rol = $_POST['rol'];

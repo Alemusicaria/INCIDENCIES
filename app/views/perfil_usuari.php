@@ -33,30 +33,37 @@ if (isset($dades_perfil)) {
                         <i class="lni lni-user"></i>
                         Dades de l'Usuari
                     </div>
-
                     <div class="card-body">
-                        <div class="mb-2">
-                            <label for="nom" class="perfil-label">Nom i cognoms</label>
-                            <input id="nom" type="text" class="form-control" value="<?= htmlspecialchars($dades_perfil['nom_cognoms']) ?>">
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="correu" class="perfil-label">Correu Electrònic</label>
-                            <input id="correu" type="text" class="form-control" value="<?= htmlspecialchars($dades_perfil['correu']) ?>">
-                        </div>
-
-                        <div class="mb-2">
-                            <label for="incidencies" class="perfil-label">Telefon</label>
-                            <input id="incidencies" type="text" class="form-control" value="<?= htmlspecialchars($dades_perfil['telefon']) ?>">
-                        </div>
-                        <div class="mb-2">
-                            <label for="incidencies" class="perfil-label">Rol</label>
-                            <input id="incidencies" type="text" class="form-control" value="<?= htmlspecialchars($dades_perfil['rol']) ?>">
-                        </div>
-                    </div>
-                    <div class="card-footer">
                         <form action="index.php?controller=Perfil&method=actualitzar" method="POST">
-                            <input type="hidden" name="id" value="<?= htmlspecialchars($dades_perfil['id']) ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($dades_perfil['id']); ?>">
+
+                            <div class="mb-2">
+                                <label for="nom_cognoms" class="perfil-label">Nom i cognoms</label>
+                                <input id="nom_cognoms" type="text" name="nom_cognoms" class="form-control"
+                                    value="<?= htmlspecialchars($dades_perfil['nom_cognoms']); ?>" required>
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="correu" class="perfil-label">Correu Electrònic</label>
+                                <input id="correu" type="email" name="correu" class="form-control"
+                                    value="<?= htmlspecialchars($dades_perfil['correu']); ?>" required>
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="telefon" class="perfil-label">Telèfon</label>
+                                <input id="telefon" type="text" name="telefon" class="form-control"
+                                    value="<?= htmlspecialchars($dades_perfil['telefon']); ?>" required>
+                            </div>
+
+                            <div class="mb-2">
+                                <label for="rol" class="perfil-label">Rol</label>
+                                <select id="rol" name="rol" class="form-control" required>
+                                    <option value="Admin" <?= $dades_perfil['rol'] === 'Admin' ? 'selected' : ''; ?>>Administrador</option>
+                                    <option value="Tecnic" <?= $dades_perfil['rol'] === 'Tecnic' ? 'selected' : ''; ?>>Tecnic</option>
+                                    <option value="Professor" <?= $dades_perfil['rol'] === 'Professor' ? 'selected' : ''; ?>>Professor</option>
+                                </select>
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Guardar canvis</button>
                         </form>
                     </div>
