@@ -826,11 +826,20 @@ button[type="submit"]:hover {
     flex-direction: column;
 
     position: relative;
-    padding: 20px;
+    padding: 15px;
 
     margin-bottom: 30px;
+}
 
-    margin-top: 0;
+.text-center-chat {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.text-center-chat label {
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 /*
