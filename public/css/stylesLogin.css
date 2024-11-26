@@ -61,7 +61,7 @@ body {
     display: flex;
     flex-direction: row;   
 
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(5px);
 
     background-size: cover;
     background-position: center;
@@ -431,3 +431,4 @@ body {
         transform: scale(1);
     }
 }
+
