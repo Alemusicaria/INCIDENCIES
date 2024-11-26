@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
               // Crear un enllaç que redirigeixi a la pàgina de detall de la incidència
               div.innerHTML = `
 
-                <strong class="incidencia-titol">${incidencia.titol_fallo}</strong>
+                <strong>${incidencia.titol_fallo}</strong>
 
                 <br><span><em>Ubicació: ${incidencia.ubicacio}</em></span><br>
 
