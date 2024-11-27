@@ -17,7 +17,7 @@ include("layouts/header/header.php"); // Incloure el header
             <div class="fondo-perfil">
                 <!-- Imatge de Perfil -->
                 <div class="perfil-img mb-3">
-                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Login/user.png'; ?>
+                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Foto_Perfiles/user-icon.png'; ?>
                     <img src="<?php echo $foto; ?>" alt="Perfil">
                 </div>
             </div>

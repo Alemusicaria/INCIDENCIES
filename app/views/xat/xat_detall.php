@@ -66,13 +66,45 @@ error_reporting(E_ALL);
 
 <body>
     <div class="wrapper">
-        <?php include("app/views/layouts/menu/menu.php"); ?>
+
+        <?php 
+        include("app/views/layouts/menu/menu.php"); 
+        ?>
+
+        <main class="main">
+            <div class="fondo-xatamb">
+                <h1><?php echo $conversant['usuari_conversant']; ?></h1>
+            </div>
+
+            <div class="p-3">
+                <!-- Missatges del xat -->
+                <section class="missatges">
+                    <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
+                        <ul>
+                            <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
+                                <li>
+                                    <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
+                                    <p><?php echo $missatge['missatge']; ?></p>
+                                    <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php else: ?>
+                        <p>No hi ha missatges en aquest grup.</p>
+                    <?php endif; ?>
+                </section>
+            </div>
+            
+
+        </main>
+
+        <!--
         <main class="main p-3">
             <header>
-                <h1>Xat amb <?php echo $conversant['usuari_conversant']; ?></h1>
+                <h1><?php echo $conversant['usuari_conversant']; ?></h1>
             </header>
 
-            <!-- Missatges del xat -->
+            <-- Missatges del xat --
             <section class="missatges">
                 <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
                     <ul>
@@ -89,7 +121,7 @@ error_reporting(E_ALL);
                 <?php endif; ?>
             </section>
 
-            <!-- Formulari per enviar un missatge -->
+            <-- Formulari per enviar un missatge --
             <section class="enviar-missatge">
                 <form method="POST">
                     <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
@@ -98,7 +130,7 @@ error_reporting(E_ALL);
             </section>
 
             <a href="index.php?controller=Login&method=xat" class="btn btn-primary">Tornar a les converses</a>
-        </main>
+        </main> -->
     </div>
 </body>
 

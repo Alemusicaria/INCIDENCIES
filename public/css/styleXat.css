@@ -1,4 +1,16 @@
 /* Fonts i colors generals */
+
+:root {
+    --salle_dark: #000000;
+    --salle: #141414;
+    --salle_light: #3e3e3e;
+    --salle_extralight: #c8c8c8;
+
+    --salle_darkblue: #1B2C64;
+    --salle_blue: #334273;
+    --salle_lightblue: #F0F8FF;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background: #f2f2f2;
@@ -17,8 +29,6 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
 }
-
-
 
 header h1 {
     font-size: 2rem;
@@ -197,4 +207,179 @@ header h1 {
 
 .llista-usuari li:hover {
     background-color: #ddd;
+}
+
+.fondo-xat {
+    background: linear-gradient(135deg, #007bff, #71bfed, #007bff);
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    padding: 5px 0px 5px 15px;
+
+    margin-bottom: 10px;
+}
+
+.text-chat {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    color: white;
+
+    overflow: hidden;
+}
+
+.text-chat label {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+
+    animation: slideCycle 4.5s ease-in-out infinite;
+}
+
+@keyframes slideCycle {
+    0%, 10% {
+        transform: translateX(0); /* Comienza fuera de la pantalla */
+    }
+    20% {
+        transform: translateX(-100%); /* Se desliza hacia el centro */
+    }
+    50% {
+        transform: translateX(-100%); /* Pausa en el centro */
+    }
+    70%, 80% {
+        transform: translateX(0); /* Se desliza hacia fuera nuevamente */
+    }
+    90%, 100% {
+        transform: translateX(0); /* Pausa fuera de la pantalla */
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-decoration: underline;
+
+    color: #007bff;
+}
+
+.cercador {
+    display: flex;
+
+    padding: 10px;
+}
+
+.cercador input {
+    width: 80%;
+    height: auto;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+    padding: 5px;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.cercador input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px #007bff;
+}
+
+.cercador button {
+    width: 20%;
+    height: auto;
+
+    font-size: 0.9rem;
+
+    min-width: 100px;
+
+    color: white;
+    background-color: #007bff;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+
+    position: relative;
+}
+
+.cercador button:hover {
+    color: white;
+    background-color: #51a5ff;
+    transform: translateY(-3px); /* Efecto de elevar el botón */
+    box-shadow: 0 3px 15px rgba(0, 123, 255, 0.6); /* Sombra sutil para el efecto de elevación */
+}
+
+.cercador button:active {
+    color: #007bff !important;
+    border: 1px solid #007bff !important;
+    transform: translateY(0); /* El botón vuelve a su posición original */
+    box-shadow: 0 3px 15px rgba(0, 123, 255, 0.6);
+}
+
+.converses li {
+    background-color: white;
+    padding: 10px; /* Espaciado interno */
+    margin: 10px 0; /* Margen externo */
+    border-radius: 10px; /* Bordes redondeados */
+
+    border: 1px solid #ddd; /* Bordes */
+    list-style: none; /* Quitar el estilo predeterminado del bullet */
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.chat-contenido i {
+    font-size: 1.3rem; /* Tamaño del icono */
+    vertical-align: middle; /* Alinear con el texto */
+    color: #007bff; /* Color del ícono */
+}
+
+.group-contenido i {
+    font-size: 1.5rem; /* Tamaño del icono */
+    vertical-align: middle; /* Alinear con el texto */
+    color: #ff0000; /* Color del ícono */
+}
+
+.fondo-xatamb {
+    background-color: #007bff;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    padding: 15px;
+
+    margin-bottom: 10px;
+}
+
+.fondo-xatamb h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: white;
+
+    margin: 0;
+}
+
+ul {
+    padding: 0;
 }
