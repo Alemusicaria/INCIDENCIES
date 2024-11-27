@@ -227,23 +227,23 @@ header h1 {
     font-weight: 700;
     text-align: left;
 
-    animation: slideIn 1.2s ease-out forwards;
+    animation: slideCycle 4.5s ease-in-out infinite;
 }
 
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%); /* Comienza fuera de la pantalla, a la derecha */
+@keyframes slideCycle {
+    0%, 10% {
+        transform: translateX(0); /* Comienza fuera de la pantalla */
     }
     20% {
-        transform: translateX(0); /* Termina en su posición original */
+        transform: translateX(-100%); /* Se desliza hacia el centro */
     }
     50% {
-        transform: translateX(0);
+        transform: translateX(-100%); /* Pausa en el centro */
     }
-    80% {
-        transform: translateX(0);
+    70%, 80% {
+        transform: translateX(0); /* Se desliza hacia fuera nuevamente */
     }
-    100% {
-        transform: translateX(-100%); 
+    90%, 100% {
+        transform: translateX(0); /* Pausa fuera de la pantalla */
     }
 }

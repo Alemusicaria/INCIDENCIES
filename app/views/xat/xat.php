@@ -70,7 +70,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php include("app/views/layouts/header/header.php"); ?>
-<link rel="stylesheet" href="public/css/styleXat.css?v=1">
+<link rel="stylesheet" href="public/css/styleXat.css">
 
 <body>
     <div class="wrapper">
