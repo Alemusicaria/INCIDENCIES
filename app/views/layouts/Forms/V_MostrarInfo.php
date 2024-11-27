@@ -141,6 +141,18 @@ if (isset($incidencia)) {
         <div class="alert alert-danger">No s'han trobat dades de la ubicació.</div>
     <?php endif; ?>
 
+    <?php if (isset($tecnicos)): ?>
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="mb-2">
+                <label class="perfil-label">Tècnic Encarregat</label>
+                <input type="text" id="tecnicos" name="tecnicos" class="form-control readonly-input"
+                    value="<?= htmlspecialchars($tecnicos['nombre']) ?>" readonly>
+            </div>
+        </form>
+    <?php else: ?>
+        <div class="alert alert-danger">No s'han trobat dades dels tècnics.</div>
+    <?php endif; ?>
+
     <?php
     // Comprova si l'usuari loguejat és el creador de la incidència
     if (isset($incidencia['id_usuari']) && $incidencia['id_usuari'] == $_SESSION['usuari'][0]) {

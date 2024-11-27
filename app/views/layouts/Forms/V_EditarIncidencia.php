@@ -49,19 +49,18 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                     <div class="form-group">
                         <label class="perfil-label" for="Tipo">Tipo de Incidencia</label>
-                        <select id="Categoria" name="Categoria" class="form-control" required>  
-                            <option value="">Selecciona una categoría</option>
-                            <option value="Calefaccio" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Calefaccio') ? 'selected' : ''; ?>>Calefacció</option>
-                            <option value="Electricitat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
-                            <option value="Fontaner" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
-                            <option value="Informatica" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Informatica') ? 'selected' : ''; ?>>Informàtica</option>
-                            <option value="Fusteria" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Fusteria') ? 'selected' : ''; ?>>Fusteria</option>
-                            <option value="Ferrer" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Ferrer') ? 'selected' : ''; ?>>Ferrer</option>
-                            <option value="Obres" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Obres') ? 'selected' : ''; ?>>Obres</option>
-                            <option value="Audiovisual" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Audiovisual') ? 'selected' : ''; ?>>Audiovisual</option>
-                            <option value="Equips de seguretat" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Equips de seguretat') ? 'selected' : ''; ?>>Equips de seguretat</option>
-                            <option value="Neteja de clavegueram" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Neteja de clavegueram') ? 'selected' : ''; ?>>Neteja de clavegueram</option>
-                            <option value="Otros" <?= (isset($datos_incidencia['categoria']) && $datos_incidencia['categoria'] === 'Otros') ? 'selected' : ''; ?>>Otros</option>
+                        <select id="Categoria" name="tipus_incidencia" class="form-control" required>  
+                            <option value="Calefaccio" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Calefacció') ? 'selected' : ''; ?>>Calefacció</option>
+                            <option value="Electricitat" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Electricitat') ? 'selected' : ''; ?>>Electricitat</option>
+                            <option value="Fontaner" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Fontaner') ? 'selected' : ''; ?>>Fontaner</option>
+                            <option value="Informatica" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Informàtica') ? 'selected' : ''; ?>>Informàtica</option>
+                            <option value="Fusteria" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Fusteria') ? 'selected' : ''; ?>>Fusteria</option>
+                            <option value="Ferrer" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Ferrer') ? 'selected' : ''; ?>>Ferrer</option>
+                            <option value="Obres" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Obres') ? 'selected' : ''; ?>>Obres</option>
+                            <option value="Audiovisual" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Audiovisual') ? 'selected' : ''; ?>>Audiovisual</option>
+                            <option value="Equips de seguretat" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Equips de seguretat') ? 'selected' : ''; ?>>Equips de seguretat</option>
+                            <option value="Neteja de clavegueram" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Neteja de clavegueram') ? 'selected' : ''; ?>>Neteja de clavegueram</option>
+                            <option value="Altres" <?= (isset($datos_incidencia['tipus_incidencia']) && $datos_incidencia['tipus_incidencia'] === 'Altres') ? 'selected' : ''; ?>>Altres</option>
                         </select>
                     </div>
 

@@ -30,7 +30,7 @@ class editar_incidencia
         $id_incidencia = $_POST['id'];
         $titulo = $_POST['TituloFallo'];
         $descripcion = $_POST['Descripcion'];
-        $categoria = $_POST['Categoria'];
+        $categoria = $_POST['tipus_incidencia'];
         $planta = $_POST['Planta'];
         $sala = $_POST['Salon'];
         $estat = $_POST['Estat'];
