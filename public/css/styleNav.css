@@ -280,8 +280,9 @@ h3,
 h4 {
     margin: 5px 0;
     /* Espacio entre los textos */
-    color: white;
+    color: white !important;
     /* Color del texto */
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .sidebar-separator {
@@ -815,6 +816,8 @@ button[type="submit"]:hover {
 .incidencia-titol {
     text-decoration: underline;
 }
+
+
 
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
