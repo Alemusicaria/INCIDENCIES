@@ -196,3 +196,54 @@ header h1 {
 .llista-usuari li:hover {
     background-color: #ddd;
 }
+
+.fondo-xat {
+    background: linear-gradient(135deg, #007bff, #71bfed, #007bff);
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+    padding: 5px 0px 5px 15px;
+
+    margin-bottom: 30px;
+}
+
+.text-chat {
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    color: white;
+
+    overflow: hidden;
+
+    
+}
+
+.text-chat label {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+
+    animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%); /* Comienza fuera de la pantalla, a la derecha */
+    }
+    20% {
+        transform: translateX(0); /* Termina en su posición original */
+    }
+    50% {
+        transform: translateX(0);
+    }
+    80% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}

@@ -70,7 +70,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php include("app/views/layouts/header/header.php"); ?>
-<link rel="stylesheet" href="public/css/styleXat.css">
+<link rel="stylesheet" href="public/css/styleXat.css?v=1">
 
 <body>
     <div class="wrapper">
@@ -83,7 +83,7 @@ error_reporting(E_ALL);
 
             <!-- Fondo de la Imatge -->
             <div class="fondo-xat">
-                <div class="text-center-chat">
+                <div class="text-chat">
                     <label>Chat</label>
                 </div>
             </div>

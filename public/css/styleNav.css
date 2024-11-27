@@ -816,32 +816,6 @@ button[type="submit"]:hover {
     text-decoration: underline;
 }
 
-.fondo-xat {
-    background: linear-gradient(135deg, #007bff, #71bfed, #007bff);
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    position: relative;
-    padding: 15px;
-
-    margin-bottom: 30px;
-}
-
-.text-center-chat {
-    display: flex;
-    justify-content: center;
-    color: white;
-}
-
-.text-center-chat label {
-    font-size: 2rem;
-    font-weight: 700;
-}
-
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
