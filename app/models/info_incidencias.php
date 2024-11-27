@@ -54,13 +54,33 @@ class info_incidencias
         if ($result->num_rows > 0) {
             // Obtenim les dades de la ubicació
             $ubicacion = $result->fetch_assoc();
-
             // Netegem i estandarditzem les claus de l'array
             $ubicacion = array_change_key_case(array_map('trim', $ubicacion), CASE_LOWER);
-
             return $ubicacion; // Retornem un array amb 'planta' i 'sala'
         } else {
             return null; // Si no es troben dades de la ubicació, retornem null
+        }
+    }
+
+    public function tecnicos($id)
+    {
+        require_once('app/models/connexio.php');
+        
+        global $conn; // Declarar la variable global per utilitzar-la aquí
+
+        $query = "SELECT tecnicos.nombre
+            FROM incidencies
+            INNER JOIN tecnicos ON incidencies.id_tecnico = tecnicos.id
+            WHERE incidencies.id = '$id'";
+
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            $tecnico = $result->fetch_assoc();
+            $tecnico = array_change_key_case(array_map('trim', $tecnico), CASE_LOWER);
+            return $tecnico;
+        } else {
+            return null;
         }
     }
 }

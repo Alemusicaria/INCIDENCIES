@@ -25,6 +25,12 @@ class Login
             // Si l'usuari existeix, comprovem la contrasenya
             $usuari = $result->fetch_assoc();
 
+            if ($usuari['habilitat'] == 0) {
+                // Si l'usuari no està habilitat, assigna un missatge d'error
+                $_SESSION['error'] = "Cuenta deshabilitada. Contacte con el administrador.";
+                return false;  // Retorna false perquè el login ha fallat
+            }
+            
             // Comprovem si la contrasenya introduïda coincideix amb la de la base de dades
             if (password_verify($contraseña, $usuari['contrasenya'])) {
                 // Si la contrasenya és correcta, s'inicia sessió

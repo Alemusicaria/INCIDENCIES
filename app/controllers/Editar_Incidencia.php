@@ -19,7 +19,6 @@ class Editar_IncidenciaController
         }
     }
 
-
     public function actualizar_datos_incidencia()
     {
         $editar_incidencia = new editar_incidencia();
@@ -29,9 +28,6 @@ class Editar_IncidenciaController
             header("Location: index.php?controller=Editar_Incidencia&method=vista_editar");
         }
     }
-
-    
-
 
     public function vista_editar()
     {

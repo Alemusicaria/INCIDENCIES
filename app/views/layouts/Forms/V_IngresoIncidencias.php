@@ -50,7 +50,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 <option value="Audiovisual"> Audiovisual</option>
                                 <option value="Equips de seguretat"> Equips de seguretat</option>
                                 <option value="Neteja de clavegueram"> Neteja de clavegueram</option>
-                                <option value="Otros"> Otros</option>
+                                <option value="Altres"> Altres</option>
                             </select>
                         </div>
 

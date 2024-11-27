@@ -21,6 +21,7 @@ class Info_IncidenciasController
             if ($incidencia) {
                 // Si es troba la incidència, obté la ubicació relacionada.
                 $ubicacion = $info_incidencias_model->ubicacion($id);
+                $tecnicos = $info_incidencias_model->tecnicos($id);
 
                 // Carrega la vista amb les dades de la incidència i la ubicació.
                 require 'app/views/mostrar_info.php';
