@@ -5,77 +5,91 @@ document.addEventListener('DOMContentLoaded', function () {
     initialView: 'dayGridMonth',
     firstDay: 1,
     locale: 'ca',
-    buttonText: { // Aquí és on canviem "today" per "avui"
+    buttonText: {
       today: 'Avui'
     },
-    dateClick: function (info) {
-      var dateText = info.dateStr; // Obtenim la data clicada
-      document.getElementById('date-text').innerText = dateText; // Actualitzem el text
-      document.getElementById('selected-date').style.display = 'block'; // Mostrem la secció
+    events: function (fetchInfo, successCallback, failureCallback) {
+      // Obtenir les incidències d'un endpoint PHP
+      fetch('app/views/php/get_incidencies.php')
+        .then(response => response.json())
+        .then(data => {
+          // Transformar les incidències en esdeveniments del calendari
+          const events = data.map(incidencia => ({
+            id: incidencia.id,
+            title: incidencia.titol_fallo,
+            start: incidencia.data,
+            extendedProps: {
+              count: incidencia.count // Número d'incidències per aquell dia
+            }
+          }));
+          successCallback(events);
+        })
+        .catch(error => {
+          console.error('Error carregant incidències:', error);
+          failureCallback(error);
+        });
+    },
+    dayCellDidMount: function (info) {
+      // Comprovar si el dia té esdeveniments (incidències)
+      const eventsForDay = calendar.getEvents().filter(event =>
+        FullCalendar.formatDate(event.start, { year: 'numeric', month: '2-digit', day: '2-digit' }) ===
+        FullCalendar.formatDate(info.date, { year: 'numeric', month: '2-digit', day: '2-digit' })
+      );
 
-      // Remove class from previously selected day
-      var previouslySelected = document.querySelector('.selected-day');
+      if (eventsForDay.length > 0) {
+        let indicator;
+        if (eventsForDay.length <= 2) {
+          // Mostra un punt per cada incidència
+          indicator = '<span style="color: red;">' + '• '.repeat(eventsForDay.length) + '</span>';
+        } else {
+          // Mostra un punt amb un comptador
+          indicator = `<span style="color: red;">•</span><span style="font-size: 12px;">(${eventsForDay.length})</span>`;
+        }
+
+        // Afegir l'indicador al dia
+        info.el.innerHTML += `<div style="text-align: center;">${indicator}</div>`;
+      }
+    },
+    dateClick: function (info) {
+      const dateText = info.dateStr; // Data clicada
+      document.getElementById('date-text').innerText = dateText;
+      document.getElementById('selected-date').style.display = 'block';
+
+      const previouslySelected = document.querySelector('.selected-day');
       if (previouslySelected) {
         previouslySelected.classList.remove('selected-day');
       }
 
-      // Get the clicked date's element and add the class
-      var dayEl = info.dayEl; // Element del dia clicat
-      dayEl.classList.add('selected-day'); // Afegim la classe per canviar el color
+      const dayEl = info.dayEl;
+      dayEl.classList.add('selected-day');
 
-      // Aquí es fa la sol·licitud per obtenir les incidències d'aquell dia
+      // Obtenir incidències del dia
       fetch('app/views/php/get_incidencies.php?data=' + dateText)
         .then(response => response.json())
         .then(data => {
           const incidenciesContainer = document.getElementById('incidencies-container');
-          incidenciesContainer.innerHTML = ''; // Netejar el contenidor anterior
+          incidenciesContainer.innerHTML = '';
 
-          // Comprovar si hi ha incidències
           if (data.length === 0) {
             incidenciesContainer.innerHTML = '<div>No hi ha incidències per aquest dia.</div>';
           } else {
-            // Afegir incidències al contenidor
             data.forEach(incidencia => {
               const div = document.createElement('div');
-              div.classList.add('incidencia'); // Afegir una classe per a l'estil
-
-              // Crear un enllaç que redirigeixi a la pàgina de detall de la incidència
+              div.classList.add('incidencia');
               div.innerHTML = `
-
-                <strong class="incidencia-titol">${incidencia.titol_fallo}</strong>
-
-                <br><span><em>Ubicació: ${incidencia.ubicacio}</em></span><br>
-
+                <strong>${incidencia.titol_fallo}</strong><br>
+                <span><em>Ubicació: ${incidencia.ubicacio}</em></span><br>
                 <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-primary btn-sm">
                     Informació
                 </a>
               `;
-
               incidenciesContainer.appendChild(div);
             });
-
           }
         })
         .catch(error => console.error('Error:', error));
-
     }
   });
 
   calendar.render();
-  // Agregar event listener a los labels en btn-group para cambiar la vista del calendario
-  var viewLabels = document.querySelectorAll('.btn-group label');
-  viewLabels.forEach(function (label) {
-    label.addEventListener('click', function () {
-      var view = this.getAttribute('data-view');
-      calendar.changeView(view);
-
-      // Remover la clase 'active' de todos los labels
-      viewLabels.forEach(function (lbl) {
-        lbl.classList.remove('active');
-      });
-
-      // Añadir la clase 'active' al label seleccionado
-      this.classList.add('active');
-    });
-  });
 });
