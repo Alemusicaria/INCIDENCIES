@@ -40,17 +40,17 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         <label class="perfil-label" for="Tipo">Tipo de Incidencia</label>
                             <select id="Categoria" name="Categoria" class="form-control"required>   
                                 <option value="">Selecciona una categoría</option>     
-                                <option value="Calefaccio"> Calefacció<br>
-                                <option value="Electricitat"> Electricitat<br>
-                                <option value="Fontaner"> Fontaner<br>
-                                <option value="Informatica"> Informàtica<br> 
-                                <option value="Fusteria"> Fusteria<br>
-                                <option value="Ferrer"> Ferrer<br>
-                                <option value="Obres"> Obres<br>
-                                <option value="Audiovisual"> Audiovisual<br>
-                                <option value="Equips de seguretat"> Equips de seguretat<br>
-                                <option value="Neteja de clavegueram"> Neteja de clavegueram<br>
-                                <option value="Otros"> Otros<br>
+                                <option value="Calefaccio"> Calefacció</option>
+                                <option value="Electricitat"> Electricitat</option>
+                                <option value="Fontaner"> Fontaner</option>
+                                <option value="Informatica"> Informàtica</option>
+                                <option value="Fusteria"> Fusteria</option>
+                                <option value="Ferrer"> Ferrer</option>
+                                <option value="Obres"> Obres</option>
+                                <option value="Audiovisual"> Audiovisual</option>
+                                <option value="Equips de seguretat"> Equips de seguretat</option>
+                                <option value="Neteja de clavegueram"> Neteja de clavegueram</option>
+                                <option value="Otros"> Otros</option>
                             </select>
                         </div>
 
@@ -92,17 +92,33 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             <label class="perfil-label" for="Foto">Foto</label>
                             <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
                         </div>
+
+
                         
                         <div class="form-group">
-                            <label class="perfil-label" for="Tecnico">Necesitas un Tecnico?</label>
-                            <div class="radio-group">
-                                <input type="radio" class="btn-check" name="Tecnico" id="Si" value="Si" required>
-                                <label class="btn btn-outline-success" for="Si">Si</label>
-
-                                <input type="radio" class="btn-check" name="Tecnico" id="No" value="No" required>
-                                <label class="btn btn-outline-danger" for="No">No</label>
+                            <label class="perfil-label" for="Tecnico">Necesitas un Técnico?</label>
+                            <select id="Tecnico" name="Tecnico" class="form-control" required onchange="mostrarFormularioTecnicos()">
+                                <option value="">Selecciona una opción</option>
+                                <option value="Si">Sí</option>
+                                <option value="No">No</option>
+                            </select>
                         </div>
-                        
+
+                        <div id="formularioTecnicos" style="display: none;">
+                            <label for="SeleccionarTecnico">Seleccionar Técnico:</label>
+                            <select id="SeleccionarTecnico" name="id_tecnico">
+                                <option value="">Selecciona un técnico</option>
+                        </select>
+
+                            <label for="NumeroTecnico">Número del Técnico:</label>
+                            <input type="text" id="NumeroTecnico" name="NumeroTecnico" readonly>
+
+                            <label for="Mensaje">Mensaje para el técnico:</label>
+                            <textarea id="Mensaje" name="Mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
+
+                            <button type="button" id="EnviarWhatsApp">Enviar a WhatsApp</button>
+                        </div>
+
                         <button type="submit" class="btn btn-primary">Insertar</button>
                     </form>
                 </div>
@@ -112,3 +128,5 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 </body>
 
 <script src="assets/js/cargarSalas.js"></script>
+<script src="assets/js/cargarTecnico.js"></script>
+
