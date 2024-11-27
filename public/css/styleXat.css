@@ -1,4 +1,5 @@
 /* Fonts i colors generals */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root {
     --salle_dark: #000000;
@@ -12,7 +13,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: #f2f2f2;
     color: #333;
     margin: 0;
@@ -367,8 +368,6 @@ header h1 {
 
     position: relative;
     padding: 15px;
-
-    margin-bottom: 10px;
 }
 
 .fondo-xatamb h1 {
@@ -380,6 +379,108 @@ header h1 {
     margin: 0;
 }
 
+.fondo-xatamb .volver-icono:hover {
+    color: #000000;
+}
+
+.fondo-xatamb .volver-icono {
+    position: absolute;
+    top: 15px; /* Ajusta según el diseño */
+    left: 15px; /* Ajusta según el diseño */
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
 ul {
     padding: 0;
+}
+
+.missatges li {
+    background-color: var(--salle_extralight);
+    backdrop-filter: blur(5px);
+
+    border-radius: 20px;
+
+    padding: 10px;
+    margin: 10px 0;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.missatges li strong {
+    color: var(--salle_darkblue);
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.missatges li p {
+    margin: 0;
+    padding: 10px;
+
+    border-bottom: 0px solid var(--salle);
+}
+
+.missatges li small {
+    font-size: 0.8rem;
+    font-weight: 400;
+
+    align-self: flex-end;
+}
+
+.enviar-missatge {
+    background-color: rgb(210, 210, 210);
+    width: 100%;
+    height: auto;
+
+    padding: 10px 5px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.enviar-missatge form {
+    display: flex; /* Cambia a Flexbox para alinear textarea y botón */
+    gap: 10px; /* Espaciado entre textarea y otros elementos */
+}
+
+.enviar-missatge form textarea {
+    width: calc(100% - 40px);
+    height: 40px;
+
+    padding: 5px 15px;
+    border-radius: 100px;
+    border: 1px solid #ccc;
+
+    margin: 0;
+
+    resize: none;
+    font-size: 1rem;
+
+    line-height: 30px; 
+}
+
+.enviar-missatge form button {
+    width: 40px;
+    height: 40px;
+
+    background-color: #007bff;
+    color: white;
+
+    border: none;
+    border-radius: 50%;
+
+    cursor: pointer;
+    font-size: 1rem;
+
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.enviar-missatge form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Eleva el botón ligeramente */
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Suaviza la animación */
 }
