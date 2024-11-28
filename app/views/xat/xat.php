@@ -74,7 +74,11 @@ error_reporting(E_ALL);
 
 <body>
     <div class="wrapper">
-
+        <style>
+            .btn-chat {
+                display: none;
+            }
+        </style>
         <?php
         include("app/views/layouts/menu/menu.php");
         ?>
@@ -95,7 +99,7 @@ error_reporting(E_ALL);
                     <!-- <h1>Les meves converses i grups</h1> -->
                 </header>
 
-                 <!-- Cercador dinàmic -->
+                <!-- Cercador dinàmic -->
                 <section class="cercador">
                     <input type="text" id="cercador" class="cercador-input" placeholder="Cerca una conversa o grup" oninput="cercar()">
                     <button id="cercador" class="cercador-button btn">Crear XAT</button>
@@ -156,20 +160,20 @@ error_reporting(E_ALL);
                     </div>
                 </div>
             </div>
-            
-
-            
-            
-
-           
 
 
-            
-
-            
 
 
-            
+
+
+
+
+
+
+
+
+
+
         </main>
     </div>
 
