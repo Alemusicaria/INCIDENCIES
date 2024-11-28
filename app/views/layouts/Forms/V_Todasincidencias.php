@@ -106,11 +106,13 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                             <i class='bi bi-eye'></i>
                                         </button>
                                     </a>
+
                                     <a href='edit.php?id=$id' class='card-link'>
                                         <button type='button' class='btn btn-outline-warning'>
                                             <i class='bi bi-pencil'></i>
                                         </button>
                                     </a>
+                                    
                                     <a href='delete.php?id=$id' class='card-link' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta incidencia?\")'>
                                         <button type='button' class='btn btn-outline-danger'>
                                             <i class='bi bi-trash'></i>
