@@ -49,7 +49,17 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             $data = $row['data_incidencia'];
                             $estat = $row['estat'];
                             $prioritat = $row['prioritat'];
-                            $imatge = $row['imatges'] ?: 'Images/imgpreg.png'; // Imagen predeterminada si no hay
+                            $imatge = !empty($row['imatges']) && file_exists($row['imatges']) ? $row['imatges'] : 'Images/imgpreg.png';
+
+                            // Asignar color basado en la prioridad
+                            $color = 'black'; // Color predeterminado
+                            if ($prioritat === 'Alta') {
+                                $color = 'red';
+                            } elseif ($prioritat === 'Mitjana') {
+                                $color = 'orange';
+                            } elseif ($prioritat === 'Baixa') {
+                                $color = 'green';
+                            }
 
                             // Renderizar la tarjeta
                             echo "
@@ -68,8 +78,14 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                     <li class='list-group-item'><strong>Tipus: </strong>$tipus</li>
                                     <li class='list-group-item'><strong>Ubicació: </strong>$ubicacio</li>
                                     <li class='list-group-item'><strong>Data: </strong>$data</li>
-                                    <li class='list-group-item'><strong>Estat: </strong>$estat</li>
-                                    <li class='list-group-item'><strong>Prioritat: </strong>$prioritat</li>
+                                    <li class='list-group-item'>
+                                        <strong>Estat: </strong>$estat
+                                    </li>
+
+                                    <li class='list-group-item'>
+                                        <strong>Prioritat: </strong>
+                                        <strong style='color: $color;'>$prioritat</strong>
+                                    </li>
                                 </ul>
 
                                 <!-- Botones -->
