@@ -2,6 +2,28 @@
 
 // Comprova si existeix la variable $incidencia
 if (isset($incidencia)) {
+    // Inicializa la variable $estat
+    $estat = isset($incidencia['estat']) ? $incidencia['estat'] : '';
+    $prioritat = isset($incidencia['prioritat']) ? $incidencia['prioritat'] : '';
+
+    // Lógica para cambiar el color según el estado
+    $colorFondo = '#e9ecef'; // Color de fondo predeterminado (gris claro)
+    if ($estat === 'Pendent') {
+        $colorFondo = '#5A9BD5'; // Azul
+    } elseif ($estat === 'En Progrés') {
+        $colorFondo = '#A9A9A9'; // Gris
+    } elseif ($estat === 'Resolta') {
+        $colorFondo = '#FFA500'; // Naranja
+    }
+
+    $colorprioFondo = '#e9ecef'; // Color de fondo predeterminado (gris claro)
+    if ($prioritat === 'Alta') {
+        $colorprioFondo = '#dc3545'; // Rojo
+    } elseif ($prioritat === 'Mitjana') {
+        $colorprioFondo = '#ffc107'; // Ambar
+    } elseif ($prioritat === 'Baixa') {
+        $colorprioFondo = '#28a745'; // Verde
+    }
 ?>
 
     <style>
@@ -35,8 +57,7 @@ if (isset($incidencia)) {
         <!-- Descripció de la incidència -->
         <div class="mb-2">
             <label class="perfil-label">Descripció</label>
-            <textarea class="form-control readonly-input" name="Descripcio" id="Descripcio" rows="3" readonly>
-            <?php echo isset($incidencia['descripcio']) ? htmlspecialchars($incidencia['descripcio'], ENT_QUOTES, 'UTF-8') : ''; ?></textarea>
+            <textarea class="form-control readonly-input" name="Descripcio" id="Descripcio" rows="3" readonly><?php echo isset($incidencia['descripcio']) ? htmlspecialchars($incidencia['descripcio'], ENT_QUOTES, 'UTF-8') : ''; ?></textarea>
         </div>
 
         <!-- Tipus de la incidència -->
@@ -50,15 +71,33 @@ if (isset($incidencia)) {
         <div class="mb-2">
             <label class="perfil-label">Estat</label>
             <input type="text" class="form-control readonly-input"
+                value="<?php echo isset($incidencia['estat']) ? htmlspecialchars($incidencia['estat'], ENT_QUOTES, 'UTF-8') : ''; ?>"
+                readonly style="background-color: <?php echo $colorFondo; ?>; font-weight: bold;">
+            <!--
+            <label class="perfil-label">Estat</label>
+            <input type="text" class="form-control readonly-input"
+                value="<?php echo isset($incidencia['estat']) ? htmlspecialchars($incidencia['estat'], ENT_QUOTES, 'UTF-8') : ''; ?>"
+                readonly style="color: <?php echo $colorestat; ?>;">
+    -->
+            <!--
+            <label class="perfil-label">Estat</label>
+            <input type="text" class="form-control readonly-input"
                 value="<?php echo isset($incidencia['estat']) ? htmlspecialchars($incidencia['estat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
+    -->
         </div>
 
         <!-- Prioritat de la incidència -->
         <div class="mb-2">
             <label class="perfil-label">Prioritat</label>
             <input type="text" class="form-control readonly-input"
+                value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>"
+                readonly style="background-color: <?php echo $colorprioFondo; ?>; font-weight: bold;">
+            <!--
+            <label class="perfil-label">Prioritat</label>
+            <input type="text" class="form-control readonly-input"
                 value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>" readonly>
-        </div>
+            -->
+    </div>
 
         <?php if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])): ?>
             <label>Descripció Tancament</label>
@@ -70,20 +109,6 @@ if (isset($incidencia)) {
                         readonly><?php echo htmlspecialchars($incidencia['descripcio_resolta'], ENT_QUOTES, 'UTF-8'); ?></textarea>
             </div>
         <?php endif; ?>
-
-        <!-- Descripció de tancament si existeix 
-            if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])) {
-                <label>Descripció Tancament</label>
-            }
-
-            
-        <div class="input-container">
-            
-            if (isset($incidencia['descripcio_resolta']) && !empty($incidencia['descripcio_resolta'])) {
-                echo '<textarea class="form-control readonly-input" name="DescripcioResolta" id="DescripcioResolta" rows="4" readonly>' . htmlspecialchars($incidencia['descripcio_resolta'], ENT_QUOTES, 'UTF-8') . '</textarea>';
-            }
-            
-        </div>-->
 
         <!-- Data de creació de la incidència -->
         <div class="mb-2">

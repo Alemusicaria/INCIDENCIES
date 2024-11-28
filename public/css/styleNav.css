@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+:root {
+    --salle_dark: #000000;
+    --salle: #141414;
+    --salle_light: #3e3e3e;
+    --salle_extralight: #c8c8c8;
+
+    --salle_darkblue: #1B2C64;
+    --salle_blue: #334273;
+    --salle_lightblue: #F0F8FF;
+
+    --salle_azul: #007bff;
+    --salle_rojo: #dc3545;
+    --salle_verde: #28a745;
+    --salle_amarillo: #ffc107;
+    --salle_naranja: #FFA500;
+    --salle_gris: #A9A9A9;
+    --salle_celeste: #5A9BD5;
+}
+
 ::after,
 ::before {
     box-sizing: border-box;
@@ -775,42 +794,42 @@ button[type="submit"]:hover {
 }
 
 .btn-outline-azul {
-    color: #5A9BD5;
-    border-color: #5A9BD5;
+    color: #5A9BD5 !important;
+    border-color: #5A9BD5 !important;
 }
 
 .btn-outline-azul:hover, 
 .btn-outline-cyazulan:focus, 
 .btn-check:checked + .btn-outline-azul {
-    background-color: #5A9BD5;
-    color: white;
-    border-color: #5A9BD5;
+    background-color: #5A9BD5 !important;
+    color: white !important;
+    border-color: #5A9BD5 !important;
 }
 
 .btn-outline-amber {
-    color: #A9A9A9; /* Gris neutro */
-    border-color: #A9A9A9;
+    color: #A9A9A9 !important; /* Gris neutro */
+    border-color: #A9A9A9 !important;
 }
 
 .btn-outline-amber:hover, 
 .btn-outline-amber:focus, 
 .btn-check:checked + .btn-outline-amber {
-    background-color: #A9A9A9;
-    color: white;
-    border-color: #A9A9A9;
+    background-color: #A9A9A9 !important;
+    color: white !important;
+    border-color: #A9A9A9 !important;
 }
 
 .btn-outline-olive {
-    color: #FFA500; /* Naranja */
-    border-color: #FFA500;
+    color: #FFA500 !important; /* Naranja */
+    border-color: #FFA500 !important;
 }
 
 .btn-outline-olive:hover, 
 .btn-outline-olive:focus, 
 .btn-check:checked + .btn-outline-olive {
-    background-color: #FFA500;
-    color: white;
-    border-color: #FFA500;
+    background-color: #FFA500 !important;
+    color: white !important;
+    border-color: #FFA500 !important;
 }
 
 .incidencia-titol {
@@ -956,6 +975,14 @@ button[class="guardar"]:hover {
 .cont-botones {
     width: 100%;
     background-color: red;
+}
+
+.btn-masinfo:hover {
+    background-color: white !important;
+    color: #0d6efd !important;
+    border: 1px solid #0d6efd !important;
+
+    box-shadow: 0 3px 15px rgba(0, 123, 255, 0.5);
 }
 
 /*
