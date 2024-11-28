@@ -146,7 +146,7 @@ if (isset($incidencia)) {
             <div class="mb-2">
                 <label class="perfil-label">Tècnic Encarregat</label>
                 <input type="text" id="tecnicos" name="tecnicos" class="form-control readonly-input"
-                    value="<?= htmlspecialchars($tecnicos['nombre']) ?>" readonly>
+                    value="<?= htmlspecialchars($tecnicos['nom_cognoms']) ?>" readonly>
             </div>
         </form>
     <?php else: ?>
