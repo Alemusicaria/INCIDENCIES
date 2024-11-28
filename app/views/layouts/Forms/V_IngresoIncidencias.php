@@ -125,7 +125,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         </div>
 
-                        <button type="submit" class="whatsapp mt-2" id="EnviarWhatsApp" name="EnviarWhatsApp">
+                        <button type="submit" class="whatsapp" id="EnviarWhatsApp" name="EnviarWhatsApp">
+                            <i class="fab fa-whatsapp"></i> 
                             Guardar i Enviar a WhatsApp
                         </button>
 
