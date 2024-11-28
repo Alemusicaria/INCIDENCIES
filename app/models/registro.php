@@ -56,7 +56,7 @@ class registro
         // Creem una consulta preparada per evitar injeccions SQL
         $stmt = $conn->prepare("INSERT INTO usuaris (nom_cognoms, correu, contrasenya, telefon, rol, data_registre, foto) 
                                 VALUES (?, ?, ?, ?, ?, NOW(), ?)");
-        $stmt->bind_param('ssssss', $Nombre, $Correo, $Contraseñahash, $Telefono, $Rol, $destino);
+        $stmt->bind_param('ssssss', $Nombre, $Correo, $Contraseñahash, "+34".$Telefono, $Rol, $destino);
 
         // Executem la consulta i verifiquem si s'ha inserit correctament
         if ($stmt->execute()) {
