@@ -17,7 +17,12 @@ include("layouts/header/header.php"); // Incloure el header
             <div class="fondo-perfil">
                 <!-- Imatge de Perfil -->
                 <div class="perfil-img mb-3">
-                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Foto_Perfiles/user-icon.png'; ?>
+                    <?php
+                    // Verifica si la imagen proporcionada existe en la ruta
+                    $foto = isset($_SESSION['usuari'][5]) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/Prueba1/Incidencias/' . $_SESSION['usuari'][5])
+                            ? $_SESSION['usuari'][5] 
+                            : 'Images/Foto_Perfiles/user.png'; // Si no existe, usa la predeterminada
+                    ?>
                     <img src="<?php echo $foto; ?>" alt="Perfil">
                 </div>
             </div>

@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <strong>${incidencia.titol_fallo}</strong>
                 <span>Ubicació: <em>${incidencia.ubicacio.replace(':', '   •   ')}</em></span>
                 <span>Usuari: ${incidencia.nom_cognoms}</span>
-                <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-primary btn-sm">
+                <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn-masinfo btn btn-primary btn-sm">
                     Mas Informació
                 </a>
               `;

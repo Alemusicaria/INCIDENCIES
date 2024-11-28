@@ -20,7 +20,16 @@
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <a href="index.php?controller=Perfil&method=info">
+                    <!--
                     <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Foto_Perfiles/user.png';  ?>
+                    <img src="<?php echo $foto; ?>" alt="Perfil"> -->
+
+                    <?php
+                    // Verifica si la imagen proporcionada existe en la ruta
+                    $foto = isset($_SESSION['usuari'][5]) && file_exists($_SERVER['DOCUMENT_ROOT'] . '/php/Prueba1/Incidencias/' . $_SESSION['usuari'][5])
+                            ? $_SESSION['usuari'][5] 
+                            : 'Images/Foto_Perfiles/user.png'; // Si no existe, usa la predeterminada
+                    ?>
                     <img src="<?php echo $foto; ?>" alt="Perfil">
                 </a>
             </button>
