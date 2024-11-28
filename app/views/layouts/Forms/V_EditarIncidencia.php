@@ -79,7 +79,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     </div>
 
                     <div class="form-group">
-                    <label class="perfil-label" for="Salon">Número de Sala</label>
+                        <label class="perfil-label" for="Salon">Número de Sala</label>
                         <select 
                             id="Salon" name="Salon" class="form-control" required>
                             <option value="">Selecciona una planta primero</option>
@@ -183,6 +183,59 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
 ?>
 
-<script src="assets/js/cargarSalas.js"></script>
+<!--<script src="assets/js/cargarSalas.js"></script>-->
 
+<script>
+    // Llama a la función para cargar las salas al cargar la página si ya hay una planta seleccionada
+    document.addEventListener('DOMContentLoaded', function() {
+        const plantaSeleccionada = document.getElementById('Planta').value;
+        const salaSeleccionada = <?= json_encode($datos_incidencia['sala'] ?? ''); ?>;
+
+        if (plantaSeleccionada) {
+            cargarSalas(plantaSeleccionada, salaSeleccionada);
+        }
+    });
+
+    function cargarSalas(planta = null, salaSeleccionada = null) {
+        const plantaActual = planta || document.getElementById('Planta').value;
+        const salaSelect = document.getElementById('Salon');
+
+        // Limpiar el campo de salas antes de llenarlo
+        salaSelect.innerHTML = '<option value="">Cargando...</option>';
+
+        // Hacer la solicitud AJAX
+        fetch('index.php?controller=Incidencias&method=obtenerSalas', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'planta=' + encodeURIComponent(plantaActual)
+        })
+        .then(response => response.json())
+        .then(data => {
+            salaSelect.innerHTML = '<option value="">Selecciona una sala</option>';
+            data.forEach(sala => {
+                const option = document.createElement('option');
+                option.value = sala;
+                option.textContent = sala;
+
+                // Preseleccionar la sala si coincide con la incidencia
+                if (salaSeleccionada && salaSeleccionada === sala) {
+                    option.selected = true;
+                }
+
+                salaSelect.appendChild(option);
+            });
+        })
+        .catch(error => {
+            console.error('Error al cargar las salas:', error);
+            salaSelect.innerHTML = '<option value="">Error al cargar salas</option>';
+        });
+    }
+
+    // Actualiza las salas cada vez que el usuario cambie de planta
+    document.getElementById('Planta').addEventListener('change', function() {
+        cargarSalas();
+    });
+</script>
 

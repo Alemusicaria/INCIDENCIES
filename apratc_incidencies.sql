@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2024 a las 12:42:32
+-- Tiempo de generación: 28-11-2024 a las 09:15:04
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -59,26 +59,38 @@ CREATE TABLE `incidencies` (
   `descripcio_resolta` text DEFAULT NULL,
   `imatges` text DEFAULT NULL,
   `id_usuari` int(11) NOT NULL,
-  `habilitado` tinyint(1) DEFAULT 1
+  `habilitado` tinyint(1) DEFAULT 1,
+  `id_tecnico` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `incidencies`
 --
 
-INSERT INTO `incidencies` (`id`, `creador_nom_cognoms`, `titol_fallo`, `descripcio`, `tipus_incidencia`, `id_ubicacio`, `data_incidencia`, `estat`, `prioritat`, `descripcio_resolta`, `imatges`, `id_usuari`, `habilitado`) VALUES
-(1, 'Maria Puig', 'Error projector', 'El projector no funciona correctament.', 'Audiovisual', 6, '2024-11-12 08:15:00', 'Pendent', 'Alta', NULL, NULL, 2, 1),
-(2, 'Joan Riera', 'Aire condicionat', 'La calefacció de l\'aula no funciona.', 'Calefacció', 11, '2024-11-13 10:30:00', 'En Progrés', 'Mitjana', NULL, NULL, 3, 1),
-(3, 'Joan Martínez', 'Calefacció no funciona', 'La calefacció de la sala no s’encén des d’ahir.', 'Calefacció', 1, '2024-11-10 09:00:00', 'Pendent', 'Mitjana', NULL, 'calefaccio_error1.jpg', 2, 1),
-(4, 'Maria Pérez', 'Problema amb projector', 'El projector de la sala no mostra la imatge.', 'Audiovisual', 5, '2024-11-12 07:30:00', 'En Progrés', 'Alta', NULL, 'projector_error.jpg', 1, 1),
-(5, 'Pere Llull', 'Llums foses', 'La meitat dels fluorescents de la classe no funcionen.', 'Electricitat', 12, '2024-11-14 08:00:00', 'Pendent', 'Baixa', NULL, NULL, 3, 1),
-(6, 'Anna Roca', 'Tuberia amb fuites', 'Hi ha una fuga d’aigua al lavabo de la planta baixa.', 'Fontaner', 8, '2024-11-13 10:15:00', 'Resolta', 'Alta', 'S’ha substituït la canonada danyada.', 'canonada.jpg', 3, 1),
-(7, 'Miquel Serra', 'Pintura de parets deteriorada', 'Les parets de la sala tenen escrostonats que s’han d’arreglar.', 'Obres', 17, '2024-11-11 14:45:00', 'Pendent', 'Mitjana', NULL, NULL, 2, 1),
-(8, 'Laura Vidal', 'Porta trencada', 'La porta de la sala 011 no es pot tancar correctament.', 'Fusteria', 11, '2024-11-14 11:00:00', 'En Progrés', 'Alta', NULL, 'porta_trencada.jpg', 2, 1),
-(9, 'Jordi Pons', 'Falta de seguretat al passadís', 'Els detectors de fum no estan operatius.', 'Equips de seguretat', 6, '2024-11-13 12:30:00', 'Pendent', 'Alta', NULL, 'detectors_fum.jpg', 1, 1),
-(10, 'Sara Font', 'Problemes amb el router', 'No hi ha connexió a Internet a la sala 002.', 'Informàtica', 2, '2024-11-14 13:20:00', 'En Progrés', 'Mitjana', NULL, 'router_error.jpg', 3, 1),
-(11, 'Carles Gómez', 'Canalització obstruïda', 'L’aigua del clavegueram no drena correctament.', 'Neteja de clavegueram', 4, '2024-11-14 15:00:00', 'Resolta', 'Alta', 'S’ha eliminat l’obstrucció.', 'clavegueram.jpg', 2, 1),
-(12, 'Clara Puig', 'Caiguda de sostre', 'Part del sostre s’ha desprès al passadís.', 'Altres', 21, '2024-11-13 17:45:00', 'Pendent', 'Alta', NULL, 'sostre_caigut.jpg', 1, 1);
+INSERT INTO `incidencies` (`id`, `creador_nom_cognoms`, `titol_fallo`, `descripcio`, `tipus_incidencia`, `id_ubicacio`, `data_incidencia`, `estat`, `prioritat`, `descripcio_resolta`, `imatges`, `id_usuari`, `habilitado`, `id_tecnico`) VALUES
+(1, 'Aleix Prat', 'dsfgfgdssdfgdfgs32443524352', 'dsfegrfdgsdfsgdfgsdfgsdfsgfdgsfdgsdfgs', 'Fontaner', 2, '2024-11-18 09:01:15', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Captura de pantalla 2024-10-17 225004.png', 3, 1, NULL),
+(2, 'Steve Portella', 'asdasdasd', 'fafsdgsdg', 'Ferrer', 6, '2024-11-19 11:14:10', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/moneda de 0.02.png,Images/Evidencia/moneda de 0.05.png,Images/Evidencia/moneda de 0.10.png,Images/Evidencia/moneda de 0.20.png', 2, 1, NULL),
+(3, 'Leandro Clavijo ', 'dsadasfas', 'fasfasf', 'Fontaner', 1, '2024-11-19 12:18:39', 'Pendent', 'Baixa', '', 'Images/Evidencia/billete de 50.jpeg,Images/Evidencia/673eff2ca555d_billete de 10.jpeg', 1, 1, NULL),
+(4, 'Leandro Clavijo ', 'dasdasd', '22222222222dasd', 'Informàtica', 12, '2024-11-19 12:22:25', 'En Progrés', 'Mitjana', 'ADIOS', 'Images/Evidencia/moneda de 2.png,Images/Evidencia/673efd2753bed_image-removebg-preview (64).png,Images/Evidencia/673efd275431f_images-removebg-preview (1).png,Images/Evidencia/673efdf31c775_image-removebg-preview (62).png,Images/Evidencia/673efec105c9e_image-removebg-preview (61).png', 1, 1, NULL),
+(5, 'Leandro Clavijo ', 'dsadasfas', 'fasfasf', 'Calefacció', 7, '2024-11-21 08:25:25', 'Pendent', 'Alta', 'SE ACOOOO TODOSOSS', '', 1, 1, NULL),
+(6, 'Leandro Clavijo ', 'HOLAAAAA MUNDOODDD', 'HOLAAAAA MUNDOODDD', 'Calefacció', 2, '2024-11-21 09:40:38', 'Pendent', 'Mitjana', 'SE ACABOOOO ESTOS BEBE', 'Images/Evidencia/image-removebg-preview (73).png,Images/Evidencia/image-removebg-preview (71).png,', 1, 1, NULL),
+(7, 'Leandro Clavijo ', 'ajkdhakjsdh', 'jkhskjadha', 'Calefacció', 3, '2024-11-21 09:43:22', 'Pendent', 'Mitjana', '', 'Images/Evidencia/image-removebg-preview (69).png,Images/Evidencia/image-removebg-preview (68).png,', 1, 1, NULL),
+(8, 'Leandro Clavijo ', 'holaaaaaaaaaaaaaaaaa', 'holaaaaaaaaaaaaa', 'Ferrer', 13, '2024-11-25 09:08:14', 'Pendent', 'Mitjana', 'ya se resolvio la incidencias', 'Images/Evidencia/67444797dab79_Texto del párrafo (1).png,Images/Evidencia/6744685821615_image-removebg-preview (75).png,Images/Evidencia/6744685822830_image-removebg-preview (74).png', 1, 1, NULL),
+(9, 'Steve Portella', 'dlasjhdkasjd54d685asd', 'dasdkjashdd5a1s586d', 'Informàtica', 2, '2024-11-25 12:18:59', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/WhatsApp Image 2024-11-21 at 8.57.09 PM.jpeg', 2, 1, NULL),
+(10, 'Steve Portella', '5d4as56d1as', 'dasd564as6d5as', 'Informàtica', 21, '2024-11-25 12:19:19', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (76).png,Images/Evidencia/image-removebg-preview (75).png,Images/Evidencia/image-removebg-preview (74).png', 2, 1, NULL),
+(11, 'Steve Portella', 'das56das25d', 'dasd1as54d', 'Informàtica', 2, '2024-11-25 12:19:45', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (71).png,Images/Evidencia/image-removebg-preview (70).png,Images/Evidencia/image-removebg-preview (69).png,Images/Evidencia/image-removebg-preview (68).png', 2, 1, NULL),
+(12, 'Leandro Clavijo ', 'Prueba_Eliminar', 'dad', 'Calefacció', 1, '2024-11-25 12:48:05', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Texto del párrafo (2).png,Images/Evidencia/Texto del párrafo (1).png', 1, 0, NULL),
+(13, 'Leandro Clavijo ', 'sadasdas', 'dasdasdas', 'Electricitat', 6, '2024-11-26 11:01:51', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Texto del párrafo (2).png', 1, 1, NULL),
+(14, 'Leandro Clavijo ', 'asdasdas', 'dasdasda', 'Obres', 11, '2024-11-26 11:02:37', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL),
+(15, 'Leandro Clavijo ', 'dasdas', 'dasdasda', 'Fontaner', 6, '2024-11-26 11:24:41', 'Pendent', 'Baixa', NULL, '', 1, 1, NULL),
+(18, 'Leandro Clavijo ', 'Holaaaaaaaaaaaaaa', 'KLDASLKDJASD', 'Informàtica', 2, '2024-11-26 11:55:54', 'Pendent', 'Baixa', '', 'Images/Evidencia/image-removebg-preview (75).png', 1, 1, NULL),
+(20, 'Leandro Clavijo ', 'xzczxc', 'zczxcz', 'Electricitat', 1, '2024-11-27 12:23:20', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, 2),
+(21, 'Leandro Clavijo ', 'zxczxc', 'vzvzxvz', 'Informàtica', 3, '2024-11-27 12:37:41', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png,Images/Evidencia/image-removebg-preview (75).png', 1, 1, NULL),
+(22, 'Leandro Clavijo ', 'dasdasdasd', 'dasdasda', 'Calefacció', 2, '2024-11-27 13:22:26', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL),
+(23, 'Leandro Clavijo ', 'aaaaaaaaaa', 'sasas', 'Calefacció', 19, '2024-11-27 13:54:42', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (74).png', 1, 1, 1),
+(24, 'Leandro Clavijo ', '43534', '6765', 'Calefacció', 8, '2024-11-27 14:25:10', 'Pendent', 'Baixa', NULL, '', 1, 1, 1),
+(25, 'Leandro Clavijo ', 'barceolonaaaaaa', 'Barcelonaaaaaa', 'Calefacció', 8, '2024-11-27 19:32:21', 'En Progrés', 'Alta', '', 'Images/Evidencia/67478568a2dc6_WhatsApp Image 2024-11-21 at 10.06.07 PM.jpeg,Images/Evidencia/67478568a365f_hotel.png', 1, 1, 11),
+(26, 'Leandro Clavijo ', 'dadasd', 'asdasdas', 'Altres', 11, '2024-11-27 22:17:01', 'Pendent', 'Baixa', '', 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -129,7 +141,13 @@ INSERT INTO `missatges` (`id`, `grup_id`, `xat_id`, `usuari_id`, `missatge`, `da
 (26, NULL, 1, 2, 'sdfsdfsd', '2024-11-14 07:59:52'),
 (27, NULL, 1, 2, 'sdfsdf', '2024-11-14 08:04:09'),
 (28, NULL, 1, 1, 'sdfsdf', '2024-11-14 08:04:15'),
-(29, NULL, 1, 2, 'reertwertwertwertwert', '2024-11-14 08:05:21');
+(29, NULL, 1, 2, 'reertwertwertwertwert', '2024-11-14 08:05:21'),
+(30, NULL, 4, 10, 'fsdfsdfsdf', '2024-11-18 09:20:46'),
+(31, NULL, 4, 10, 'cxvcxvxcv', '2024-11-18 09:20:48'),
+(32, NULL, 4, 10, 'xcvxcv', '2024-11-18 09:20:49'),
+(33, NULL, 1, 1, 'putin\r\n', '2024-11-19 11:02:52'),
+(34, NULL, 3, 3, 'hola bebe\r\n', '2024-11-19 11:12:35'),
+(35, NULL, 3, 2, 'ctmr :3\r\n', '2024-11-19 11:13:13');
 
 -- --------------------------------------------------------
 
@@ -182,6 +200,45 @@ INSERT INTO `sales` (`id`, `planta`, `sala`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tecnicos`
+--
+
+CREATE TABLE `tecnicos` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `categoria` enum('Calefacció','Electricitat','Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram','Altres') NOT NULL,
+  `telefono` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tecnicos`
+--
+
+INSERT INTO `tecnicos` (`id`, `nombre`, `categoria`, `telefono`) VALUES
+(1, 'Leandro Clavijo', 'Calefacció', '+34614147941'),
+(2, 'Ana Gómez', 'Electricitat', '987654321'),
+(3, 'Pedro Martínez', 'Fontaner', '543216789'),
+(4, 'Laura Fernández', 'Informàtica', '654321987'),
+(5, 'Javier López', 'Fusteria', '321654987'),
+(6, 'Miguel Ángel Ruiz', 'Ferrer', '876543210'),
+(7, 'Elena Martínez', 'Obres', '123987654'),
+(8, 'David Jiménez', 'Audiovisual', '456789321'),
+(9, 'Sergio García', 'Equips de seguretat', '789654123'),
+(10, 'María González', 'Neteja de clavegueram', '135792468'),
+(11, 'Ricardo Torres', 'Calefacció', '222333444'),
+(12, 'Sofía Ruiz', 'Electricitat', '555666777'),
+(13, 'Fernando López', 'Fontaner', '444555666'),
+(14, 'Carmen Pérez', 'Informàtica', '777888999'),
+(15, 'Antonio García', 'Fusteria', '111223355'),
+(16, 'Marta Sánchez', 'Ferrer', '998877665'),
+(17, 'Luis Rodríguez', 'Obres', '333444555'),
+(18, 'Isabel Moreno', 'Audiovisual', '666777888'),
+(19, 'Victor Martínez', 'Equips de seguretat', '222111444'),
+(20, 'Esther Álvarez', 'Neteja de clavegueram', '444555666');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuaris`
 --
 
@@ -204,7 +261,9 @@ CREATE TABLE `usuaris` (
 INSERT INTO `usuaris` (`id`, `nom_cognoms`, `correu`, `contrasenya`, `telefon`, `rol`, `habilitat`, `data_registre`, `foto`) VALUES
 (1, 'Leandro Clavijo ', 'leandro@gmail.com', '$2y$10$tLFg6JKV3an/8GWhQma/9.8Cfs1JVmWEokEMjATt9HCZrirK47w8e', '65487958', 'Admin', 1, '2024-11-11 22:31:32', ' Images/Foto_Perfiles/WhatsApp Image 2024-10-24 at 12.38.40 PM.jpeg'),
 (2, 'Steve Portella', 'steve@gmail.com', '$2y$10$.wwXvhIjjn1wkXUGBIJxo.GsWBkvz50W/dtbEIQzy61irvrVrO2B2', '684985274', 'Professor', 1, '2024-11-11 22:34:42', ' Images/Foto_Perfiles/'),
-(3, 'Aleix Prat', 'aleix@gmail.com', '$2y$10$7Oa.ByYazLbG0j3SaFQMFus/ygZjQPqE5AkGHO5Aa69plku8sYDxi', '65751818', 'Tecnic', 1, '2024-11-12 20:23:09', ' Images/Foto_Perfiles/arriba1.png');
+(3, 'Aleix Prat', 'aleix@gmail.com', '$2y$10$7Oa.ByYazLbG0j3SaFQMFus/ygZjQPqE5AkGHO5Aa69plku8sYDxi', '65751818', 'Tecnic', 1, '2024-11-12 20:23:09', ' Images/Foto_Perfiles/arriba1.png'),
+(4, '', '', '$2y$10$LUpmhMOcXmN2dz8x8Jv2o.QUNTIxeLRGIPT4XvCMBF4okLTOmXO86', '', '', 1, '2024-11-18 09:03:55', ' Images/Foto_Perfiles/'),
+(10, 'prova', 'hola@gmail.com', '123456', '987654321', 'Professor', 1, '2024-11-18 09:20:10', NULL);
 
 -- --------------------------------------------------------
 
@@ -224,7 +283,8 @@ CREATE TABLE `xats` (
 
 INSERT INTO `xats` (`id`, `usuari1_id`, `usuari2_id`) VALUES
 (1, 2, 1),
-(3, 2, 3);
+(3, 2, 3),
+(4, 10, 3);
 
 --
 -- Índices para tablas volcadas
@@ -241,7 +301,8 @@ ALTER TABLE `grups`
 --
 ALTER TABLE `incidencies`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_ubicacio` (`id_ubicacio`);
+  ADD KEY `id_ubicacio` (`id_ubicacio`),
+  ADD KEY `fk_tecnico` (`id_tecnico`);
 
 --
 -- Indices de la tabla `membres_grup`
@@ -264,6 +325,12 @@ ALTER TABLE `missatges`
 -- Indices de la tabla `sales`
 --
 ALTER TABLE `sales`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `tecnicos`
+--
+ALTER TABLE `tecnicos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -295,7 +362,7 @@ ALTER TABLE `grups`
 -- AUTO_INCREMENT de la tabla `incidencies`
 --
 ALTER TABLE `incidencies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `membres_grup`
@@ -307,7 +374,7 @@ ALTER TABLE `membres_grup`
 -- AUTO_INCREMENT de la tabla `missatges`
 --
 ALTER TABLE `missatges`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `sales`
@@ -316,16 +383,22 @@ ALTER TABLE `sales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
+-- AUTO_INCREMENT de la tabla `tecnicos`
+--
+ALTER TABLE `tecnicos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
 -- AUTO_INCREMENT de la tabla `usuaris`
 --
 ALTER TABLE `usuaris`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `xats`
 --
 ALTER TABLE `xats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -335,6 +408,7 @@ ALTER TABLE `xats`
 -- Filtros para la tabla `incidencies`
 --
 ALTER TABLE `incidencies`
+  ADD CONSTRAINT `fk_tecnico` FOREIGN KEY (`id_tecnico`) REFERENCES `tecnicos` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `incidencies_ibfk_1` FOREIGN KEY (`id_ubicacio`) REFERENCES `sales` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --

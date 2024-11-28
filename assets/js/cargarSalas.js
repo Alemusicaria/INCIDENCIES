@@ -29,3 +29,4 @@ function cargarSalas()
             salaSelect.innerHTML = '<option value="">Error al cargar salas</option>';
         });
 }
+
