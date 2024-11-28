@@ -63,21 +63,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                                 <input type="checkbox" class="toggle-input">
                                                 <span class="slider"></span>
                                             </label>
-                                            <!-- 
-                                            <form method='POST' action='index.php?controller=Perfil&method=habilitar'>
-                                                <input type='hidden' name='id' value=''>
-                                                <button type='submit' class='btn btn-success' style='background-color: #28a745'>Habilitar</button>
-                                            </form><hr>
-
-                                            <form method='POST' action='index.php?controller=Perfil&method=deshabilitar'>
-                                                <input type='hidden' name='id' value=''>
-                                                <button type='submit' class='btn btn-danger' style='background-color: #dc3545'>Deshabilitar</button>
-                                            </form><hr>
-
-                                            <form method='POST' action='index.php?controller=Perfil&method=editar'>
-                                                <input type='hidden' name='id' value=''>
-                                                <button type='submit' class='btn btn-primary'>Editar</button>
-                                            </form> -->
                                         </div>
                                     </div>
 
@@ -92,6 +77,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         </span><br>
                                         <span><strong>Habilitat: </strong>
                                         </span><br>
+
+                                        
                                     </div>
 
                                 </div>
