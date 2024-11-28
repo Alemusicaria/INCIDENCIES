@@ -98,17 +98,17 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                                 <!-- Botones -->
                                 <div class='card-body w-100 d-flex justify-content-center gap-2'>
-                                    <a href='view.php?id=$id' class='card-link'>
+                                    <a href='index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=$id' class='card-link'>
                                         <button type='button' class='btn btn-outline-primary'>
                                             <i class='bi bi-eye'></i>
                                         </button>
                                     </a>
-                                    <a href='edit.php?id=$id' class='card-link'>
+                                    <a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=$id' class='card-link'>
                                         <button type='button' class='btn btn-outline-warning'>
                                             <i class='bi bi-pencil'></i>
                                         </button>
                                     </a>
-                                    <a href='delete.php?id=$id' class='card-link' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta incidencia?\")'>
+                                    <a href='index.php?controller=Eliminar&method=eliminar_incidencia&id=$id' class='card-link' onclick='return confirm(\"¿Estás seguro de que deseas eliminar esta incidencia?\")'>
                                         <button type='button' class='btn btn-outline-danger'>
                                             <i class='bi bi-trash'></i>
                                         </button>
