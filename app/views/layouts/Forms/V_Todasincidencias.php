@@ -49,7 +49,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             $data = $row['data_incidencia'];
                             $estat = $row['estat'];
                             $prioritat = $row['prioritat'];
-                            $imatge = $row['imatges'] ?: 'Images/Foto_Perfiles/default.png'; // Imagen predeterminada si no hay
+                            $imatge = $row['imatges'] ?: 'Images/imgpreg.png'; // Imagen predeterminada si no hay
 
                             // Renderizar la tarjeta
                             echo "
