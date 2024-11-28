@@ -130,7 +130,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             Guardar i Enviar a WhatsApp
                         </button>
 
-                        <button type="submit" class="guardar mt-2" id="Guardar" name="Guardar">
+                        <button type="submit" class="guardar" id="Guardar" name="Guardar">
+                            <i class="fas fa-save"></i>
                             Guardar
                         </button>
                     </form>
