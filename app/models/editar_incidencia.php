@@ -123,26 +123,5 @@ class editar_incidencia
         return $resultado_actualizacion ? true : false;
     }
 
-    public function obtenerSalas()
-    {
-        require_once('app/models/connexio.php');
-
-        // Recibir la planta desde el POST
-        $planta = $_POST['planta'];
-
-        // Consulta para obtener las salas según la planta seleccionada
-        $query = "SELECT sala FROM sales WHERE planta = ?";
-        $stmt = $conn->prepare($query);
-        $stmt->bind_param('s', $planta);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $salas = [];
-        while ($row = $result->fetch_assoc()) {
-            $salas[] = $row['sala'];
-        }
-
-        // Devolver las salas como JSON
-        echo json_encode($salas);
-    }
+   
 }
