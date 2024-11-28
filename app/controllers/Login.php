@@ -137,6 +137,7 @@ class LoginController
             mail($email, "Recuperació de contrasenya", "Fes clic en aquest enllaç per recuperar la teva contrasenya: $resetLink");
 
             echo "S'ha enviat un correu electrònic amb les instruccions per recuperar la contrasenya.";
+            echo "<br><a href='index.php?controller=Login&method=login'>Tornar al formulari de login</a>";
         } else {
             echo "No s'ha trobat cap usuari amb aquest correu electrònic.";
         }
@@ -168,6 +169,7 @@ class LoginController
             $passwordReset->updatePassword($resetRequest['user_id'], $newPassword);
             $passwordReset->deleteToken($token);
             echo "La contrasenya s'ha actualitzat correctament.";
+            echo "<br><a href='index.php?controller=Login&method=login'>Tornar al formulari de login</a>";
         } else {
             echo "Token de recuperació invàlid.";
         }
