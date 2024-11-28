@@ -68,9 +68,9 @@ class info_incidencias
         
         global $conn; // Declarar la variable global per utilitzar-la aquí
 
-        $query = "SELECT tecnicos.nombre
+        $query = "SELECT tecnics.nom_cognoms
             FROM incidencies
-            INNER JOIN tecnicos ON incidencies.id_tecnico = tecnicos.id
+            INNER JOIN tecnics ON incidencies.id_tecnico = tecnics.id
             WHERE incidencies.id = '$id'";
 
         $result = $conn->query($query);

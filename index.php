@@ -34,6 +34,6 @@ if (isset($_GET["controller"])) {
     // Carga el formulario de registro si no se especifica un controlador
     //require("app/views/perfil.php");
     require("app/views/layouts/Forms/V_Login.php");
-    //require("app/views/layouts/Forms/V_Todasincidencias.php");  
+    //require("app/views/layouts/Forms/V_NewPassword.php");  
 }
 ?>

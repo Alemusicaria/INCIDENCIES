@@ -20,7 +20,7 @@
         <div class="d-flex">
             <button class="toggle-btn" type="button">
                 <a href="index.php?controller=Perfil&method=info">
-                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Foto_Perfiles/user-icon.png';  ?>
+                    <?php $foto = $_SESSION['usuari'][5] ? $_SESSION['usuari'][5] : 'Images/Foto_Perfiles/user.png';  ?>
                     <img src="<?php echo $foto; ?>" alt="Perfil">
                 </a>
             </button>
