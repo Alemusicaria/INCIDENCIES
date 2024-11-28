@@ -256,6 +256,8 @@ body {
 .input-container {
     position: relative; /* Necesario para el posicionamiento del ícono */
     width: 100%; /* Para que todos los inputs ocupen el ancho completo */
+
+    margin-bottom: 10px;
 }
 
 .input-container i {
@@ -267,7 +269,7 @@ body {
 }
 
 .form-control {
-    padding: 10px 10px 10px 40px; /* Espacio interno para acomodar el ícono */
+    padding: 10px 40px 10px 40px; /* Espacio interno para acomodar el ícono */
     border: 1px solid #ccc; /* Color del borde */
     border-radius: 5px; /* Bordes redondeados */
     width: 100%; /* Para que todos los inputs ocupen el ancho completo */
@@ -281,6 +283,34 @@ body {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra al enfocar */
 
     background-color: var(--salle_lightblue);
+}
+
+.eye-icon {
+    position: absolute;
+    right: 35px; /* Ajusta según sea necesario */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+
+    transition: transform 0.2s ease-in-out;
+}
+
+.eye-icon i {
+    font-size: 1rem;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.eye-icon i.fa-eye-slash {
+    opacity: 1;
+    transform: scale(1) translateY(-50%); /* Ajusta el tamaño sin cambiar su posición vertical */
+}
+
+.eye-icon:hover i {
+    transform: scale(1.2) translateY(-49%); /* Sube y aumenta ligeramente el tamaño */
 }
 
 /* Botón de envío */
@@ -360,7 +390,7 @@ body {
 
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 
     display: flex;
     align-items: center;
@@ -371,7 +401,7 @@ body {
 
 .anm-levantar:hover,
 .anm-levantar:focus {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+    background-color: rgba(169, 169, 169, 0.3); /* Gris claro con opacidad */
 
     border: 2px solid #000000;
 
@@ -483,6 +513,8 @@ body {
 
     margin: 10px 0;
 
+    margin-top: 20px;
+
     background-color: #007bff;
     color: white;
     font-size: 1.1rem;
@@ -515,3 +547,4 @@ body {
     color: white;
     padding: 5px;
 }
+

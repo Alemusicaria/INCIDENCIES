@@ -36,6 +36,13 @@ if (isset($_SESSION['usuari'])) {
                     <div class="input-container">
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Contrasenya" required minlength="3">
+
+                        <!-- Botón de mostrar contraseña -->
+                        <button type="button" class="eye-icon" onclick="togglePasswordVisibility('password')">
+                            <i class="fas fa-eye"></i> <!-- Ojo abierto -->
+                        </button>
+
+                        <script src="assets/js/visibilidad.js?v=1"></script>
                     </div>
                     
                     <button type="submit" class="anm-levantar">Iniciar Sessió</button>

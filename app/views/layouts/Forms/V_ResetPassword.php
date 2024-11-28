@@ -17,7 +17,7 @@
         
         <form action="index.php?controller=Login&method=send_reset_email" method="post">
 
-            <label class="label-enviar" for="email">Correu electrònic:</label>
+            <label class="label-enviar" for="email">Correu electrònic</label>
             <div class="input-container">
                 <i class="fas fa-envelope"></i>
                 <input type="email" name="email" id="email" class="form-control" placeholder="Ingresa tu correu" required>
