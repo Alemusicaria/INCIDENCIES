@@ -49,6 +49,19 @@ document.addEventListener('DOMContentLoaded', function () {
         // Afegir l'indicador al dia
         info.el.innerHTML += `<div style="text-align: center;">${indicator}</div>`;
       }
+      
+      // Seleccionar automàticament el dia d'avui
+      const today = new Date();
+      const todayStr = FullCalendar.formatDate(today, { year: 'numeric', month: '2-digit', day: '2-digit' });
+      const cellDateStr = FullCalendar.formatDate(info.date, { year: 'numeric', month: '2-digit', day: '2-digit' });
+
+      if (cellDateStr === todayStr) {
+        info.el.classList.add('selected-day');
+        document.getElementById('date-text').innerText = todayStr;
+        const selectedDateElement = document.getElementById('selected-date');
+        selectedDateElement.style.display = 'block';
+        selectedDateElement.style.width = '100%';
+      }
     },
 
     dateClick: function (info) {
