@@ -72,7 +72,7 @@ if (isset($incidencia)) {
             <label class="perfil-label">Estat</label>
             <input type="text" class="form-control readonly-input"
                 value="<?php echo isset($incidencia['estat']) ? htmlspecialchars($incidencia['estat'], ENT_QUOTES, 'UTF-8') : ''; ?>"
-                readonly style="background-color: <?php echo $colorFondo; ?>;">
+                readonly style="background-color: <?php echo $colorFondo; ?>; font-weight: bold;">
             <!--
             <label class="perfil-label">Estat</label>
             <input type="text" class="form-control readonly-input"
@@ -91,7 +91,7 @@ if (isset($incidencia)) {
             <label class="perfil-label">Prioritat</label>
             <input type="text" class="form-control readonly-input"
                 value="<?php echo isset($incidencia['prioritat']) ? htmlspecialchars($incidencia['prioritat'], ENT_QUOTES, 'UTF-8') : ''; ?>"
-                readonly style="background-color: <?php echo $colorprioFondo; ?>;">
+                readonly style="background-color: <?php echo $colorprioFondo; ?>; font-weight: bold;">
             <!--
             <label class="perfil-label">Prioritat</label>
             <input type="text" class="form-control readonly-input"
