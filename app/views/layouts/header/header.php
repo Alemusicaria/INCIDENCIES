@@ -30,8 +30,9 @@ if (!isset($_SESSION['usuari'])) {
     </script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="public/css/styleNav.css">
+    <link rel="stylesheet" href="public/css/styleNav.css?v=1">
     <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 <?php
