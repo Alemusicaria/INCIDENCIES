@@ -94,7 +94,6 @@ class incidencias
         while ($row = $result->fetch_assoc()) {
             $salas[] = $row['sala'];
         }
-
         // Retornem l'array de sales
         return $salas;
         
@@ -121,7 +120,7 @@ class incidencias
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
-            return $result->fetch_assoc()['telefono'];
+            return $result->fetch_assoc()['telefon'];
         } else {
             return null;
         }

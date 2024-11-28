@@ -22,7 +22,7 @@ function cargarTecnicos() {
             const tecnicoSelect = document.getElementById("SeleccionarTecnico");
             tecnicoSelect.innerHTML = '<option value="">Selecciona un técnico</option>';
             data.forEach(tecnico => {
-                tecnicoSelect.innerHTML += `<option value="${tecnico.id}" data-numero="${tecnico.numero}">${tecnico.nombre}</option>`;
+                tecnicoSelect.innerHTML += `<option value="${tecnico.id}" data-numero="${tecnico.telefon}">${tecnico.nom_cognoms}</option>`;
             });
         })
         .catch(err => console.error("Error al cargar los técnicos:", err));
