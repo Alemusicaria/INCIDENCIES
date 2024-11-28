@@ -213,18 +213,18 @@ INSERT INTO `sales` (`id`, `planta`, `sala`) VALUES
 -- Estructura de tabla para la tabla `tecnicos`
 --
 
-CREATE TABLE `tecnicos` (
+CREATE TABLE `tecnics` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nom_cognoms` varchar(100) NOT NULL,
   `categoria` enum('Calefacció','Electricitat','Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram','Altres') NOT NULL,
-  `telefono` varchar(15) NOT NULL
+  `telefon` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tecnicos`
 --
 
-INSERT INTO `tecnicos` (`id`, `nombre`, `categoria`, `telefono`) VALUES
+INSERT INTO `tecnicos` (`id`, `nom_cognoms`, `categoria`, `telefon`) VALUES
 (1, 'Leandro Clavijo', 'Calefacció', '+34614147941'),
 (2, 'Ana Gómez', 'Electricitat', '987654321'),
 (3, 'Pedro Martínez', 'Fontaner', '543216789'),
