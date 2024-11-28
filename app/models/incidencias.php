@@ -97,6 +97,7 @@ class incidencias
 
         // Retornem l'array de sales
         return $salas;
+        
     }
 
     public function obtenerTecnicosPorCategoria($categoria)
