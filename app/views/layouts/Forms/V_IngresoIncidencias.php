@@ -104,13 +104,11 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             </select>
                         </div>
 
-
-
                         <div id="formularioTecnicos" class="form-group" style="display: none;">
-
                             <label class="perfil-label" for="SeleccionarTecnico">Seleccionar Técnico:</label>
                             <select id="SeleccionarTecnico" name="id_tecnico" class="form-control">
                                 <option value="">Selecciona un técnico</option>
+                                <!-- Aquí se cargarán los técnicos disponibles -->
                             </select>
 
                             <div class="form-group">
@@ -122,18 +120,23 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 <label class="perfil-label" for="Mensaje">Mensaje para el técnico:</label>
                                 <textarea class="form-control" id="Mensaje" name="Mensaje" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
                             </div>
-
                         </div>
 
-                        <button type="submit" class="whatsapp" id="EnviarWhatsApp" name="EnviarWhatsApp">
+                        <!-- Botón para "Guardar i Enviar a WhatsApp" (solo se muestra si elige 'Sí') -->
+                        <button type="submit" class="whatsapp" id="EnviarWhatsApp" name="EnviarWhatsApp" style="display: none;">
                             <i class="fab fa-whatsapp"></i> 
                             Guardar i Enviar a WhatsApp
                         </button>
 
+                        <!-- Botón para "Guardar" (siempre visible, pero ocultado cuando se selecciona 'Sí') -->
                         <button type="submit" class="guardar" id="Guardar" name="Guardar">
                             <i class="fas fa-save"></i>
                             Guardar
                         </button>
+
+
+
+                        
                     </form>
                 </div>
             </div>
@@ -143,4 +146,5 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
 <script src="assets/js/cargarSalas.js"></script>
 <script src="assets/js/cargarTecnico.js"></script>
+
 

@@ -79,7 +79,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>Titol</th>
                                     <th>Creador</th>
                                     <th>Descripcio</th>
@@ -111,7 +110,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 if ($result->num_rows > 0) {
                                     while ($row = $result->fetch_assoc()) {
                                         echo "<tr>";
-                                        echo "<td>" . $row['id'] . "</td>";
                                         echo "<td>" . htmlspecialchars($row['titol_fallo']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['creador_nom_cognoms']) . "</td>";
                                         echo "<td>" . htmlspecialchars($row['descripcio']) . "</td>";

@@ -1,13 +1,28 @@
 document.getElementById("Categoria").addEventListener("change", cargarTecnicos);
 document.getElementById("SeleccionarTecnico").addEventListener("change", mostrarNumeroTecnico);
 document.getElementById("EnviarWhatsApp").addEventListener("click", enviarWhatsApp);
+document.getElementById("Tecnico").addEventListener("change", mostrarFormularioTecnicos); // Agregamos el evento para detectar el cambio en "Tecnico"
 
+// Función para mostrar u ocultar el formulario y los botones
 function mostrarFormularioTecnicos() {
     const tecnicoSeleccionado = document.getElementById("Tecnico").value;
     const formularioTecnicos = document.getElementById("formularioTecnicos");
-    formularioTecnicos.style.display = tecnicoSeleccionado === "Si" ? "block" : "none";
+    const botonWhatsApp = document.getElementById("EnviarWhatsApp");
+    const botonGuardar = document.getElementById("Guardar");
+
+    // Mostrar el formulario de técnicos y el botón adecuado dependiendo de la selección
+    if (tecnicoSeleccionado === "Si") {
+        formularioTecnicos.style.display = "block";  // Muestra el formulario de técnicos
+        botonWhatsApp.style.display = "inline-block";  // Muestra el botón "Guardar i Enviar a WhatsApp"
+        botonGuardar.style.display = "none";  // Oculta el botón "Guardar"
+    } else {
+        formularioTecnicos.style.display = "none";  // Oculta el formulario de técnicos
+        botonWhatsApp.style.display = "none";  // Oculta el botón "Guardar i Enviar a WhatsApp"
+        botonGuardar.style.display = "inline-block";  // Muestra el botón "Guardar"
+    }
 }
 
+// Función para cargar los técnicos disponibles según la categoría seleccionada
 function cargarTecnicos() {
     const categoria = document.getElementById("Categoria").value;
 
@@ -29,12 +44,12 @@ function cargarTecnicos() {
     }
 }
 
+// Función para mostrar el número de teléfono del técnico seleccionado
 function mostrarNumeroTecnico() {
     const tecnicoSelect = document.getElementById("SeleccionarTecnico");
     const tecnicoId = tecnicoSelect.value;
 
     if (tecnicoId) {
-        // Petición AJAX para obtener el número del técnico
         fetch(`index.php?controller=Incidencias&method=obtenerNumeroTecnico`, {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -43,22 +58,21 @@ function mostrarNumeroTecnico() {
         .then(response => response.json())
         .then(data => {
             if (data.numero) {
-                document.getElementById("NumeroTecnico").value = data.numero; // Actualizar el campo
+                document.getElementById("NumeroTecnico").value = data.numero;
             } else {
                 alert("No se encontró el número del técnico.");
             }
         })
         .catch(err => console.error("Error al obtener el número del técnico:", err));
     } else {
-        document.getElementById("NumeroTecnico").value = ""; // Vaciar si no hay técnico seleccionado
+        document.getElementById("NumeroTecnico").value = "";  // Vaciar si no hay técnico seleccionado
     }
 }
 
+// Función para enviar el mensaje por WhatsApp
 function enviarWhatsApp() {
-    const numeroTecnico = document.getElementById("NumeroTecnico").value; // Número del técnico
-    const mensaje = document.getElementById("Mensaje").value; // Mensaje del usuario
-
-    console.log("Número del técnico:", numeroTecnico); // Verificar el valor
+    const numeroTecnico = document.getElementById("NumeroTecnico").value;
+    const mensaje = document.getElementById("Mensaje").value;
 
     if (!numeroTecnico) {
         alert("Selecciona un técnico para enviarle el mensaje.");
@@ -70,21 +84,12 @@ function enviarWhatsApp() {
         return;
     }
 
-    // Asegurarse de que el número de teléfono esté limpio de caracteres no válidos
-    const numeroFormateado = numeroTecnico.replace(/[^0-9+]/g, '');
+    const numeroFormateado = numeroTecnico.replace(/[^0-9+]/g, '');  // Limpiar número
 
-    console.log("Número formateado:", numeroFormateado); // Verificar el formato
+    const mensajeCodificado = encodeURIComponent(mensaje);  // Codificar mensaje
 
-    // Codificar el mensaje para asegurar que se pase correctamente por la URL
-    const mensajeCodificado = encodeURIComponent(mensaje);
+    const urlWhatsApp = `https://wa.me/${numeroFormateado}?text=${mensajeCodificado}`;  // Crear URL
 
-    console.log("Mensaje codificado:", mensajeCodificado); // Verificar el mensaje codificado
-
-    // Construir la URL para WhatsApp
-    const urlWhatsApp = `https://wa.me/${numeroFormateado}?text=${mensajeCodificado}`;
-
-    console.log("URL de WhatsApp:", urlWhatsApp); // Verificar la URL generada
-
-    // Abrir la URL en una nueva ventana/pestaña
+    // Abrir WhatsApp con la URL generada
     window.open(urlWhatsApp, "_blank");
 }

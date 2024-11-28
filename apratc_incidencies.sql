@@ -67,31 +67,6 @@ CREATE TABLE `incidencies` (
 -- Volcado de datos para la tabla `incidencies`
 --
 
-INSERT INTO `incidencies` (`id`, `creador_nom_cognoms`, `titol_fallo`, `descripcio`, `tipus_incidencia`, `id_ubicacio`, `data_incidencia`, `estat`, `prioritat`, `descripcio_resolta`, `imatges`, `id_usuari`, `habilitado`, `id_tecnico`) VALUES
-(1, 'Aleix Prat', 'dsfgfgdssdfgdfgs32443524352', 'dsfegrfdgsdfsgdfgsdfgsdfsgfdgsfdgsdfgs', 'Fontaner', 2, '2024-11-18 09:01:15', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Captura de pantalla 2024-10-17 225004.png', 3, 1, NULL),
-(2, 'Steve Portella', 'asdasdasd', 'fafsdgsdg', 'Ferrer', 6, '2024-11-19 11:14:10', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/moneda de 0.02.png,Images/Evidencia/moneda de 0.05.png,Images/Evidencia/moneda de 0.10.png,Images/Evidencia/moneda de 0.20.png', 2, 1, NULL),
-(3, 'Leandro Clavijo ', 'dsadasfas', 'fasfasf', 'Fontaner', 1, '2024-11-19 12:18:39', 'Pendent', 'Baixa', '', 'Images/Evidencia/billete de 50.jpeg,Images/Evidencia/673eff2ca555d_billete de 10.jpeg', 1, 1, NULL),
-(4, 'Leandro Clavijo ', 'dasdasd', '22222222222dasd', 'Informàtica', 12, '2024-11-19 12:22:25', 'En Progrés', 'Mitjana', 'ADIOS', 'Images/Evidencia/moneda de 2.png,Images/Evidencia/673efd2753bed_image-removebg-preview (64).png,Images/Evidencia/673efd275431f_images-removebg-preview (1).png,Images/Evidencia/673efdf31c775_image-removebg-preview (62).png,Images/Evidencia/673efec105c9e_image-removebg-preview (61).png', 1, 1, NULL),
-(5, 'Leandro Clavijo ', 'dsadasfas', 'fasfasf', 'Calefacció', 7, '2024-11-21 08:25:25', 'Pendent', 'Alta', 'SE ACOOOO TODOSOSS', '', 1, 1, NULL),
-(6, 'Leandro Clavijo ', 'HOLAAAAA MUNDOODDD', 'HOLAAAAA MUNDOODDD', 'Calefacció', 2, '2024-11-21 09:40:38', 'Pendent', 'Mitjana', 'SE ACABOOOO ESTOS BEBE', 'Images/Evidencia/image-removebg-preview (73).png,Images/Evidencia/image-removebg-preview (71).png,', 1, 1, NULL),
-(7, 'Leandro Clavijo ', 'ajkdhakjsdh', 'jkhskjadha', 'Calefacció', 3, '2024-11-21 09:43:22', 'Pendent', 'Mitjana', '', 'Images/Evidencia/image-removebg-preview (69).png,Images/Evidencia/image-removebg-preview (68).png,', 1, 1, NULL),
-(8, 'Leandro Clavijo ', 'holaaaaaaaaaaaaaaaaa', 'holaaaaaaaaaaaaa', 'Ferrer', 13, '2024-11-25 09:08:14', 'Pendent', 'Mitjana', 'ya se resolvio la incidencias', 'Images/Evidencia/67444797dab79_Texto del párrafo (1).png,Images/Evidencia/6744685821615_image-removebg-preview (75).png,Images/Evidencia/6744685822830_image-removebg-preview (74).png', 1, 1, NULL),
-(9, 'Steve Portella', 'dlasjhdkasjd54d685asd', 'dasdkjashdd5a1s586d', 'Informàtica', 2, '2024-11-25 12:18:59', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/WhatsApp Image 2024-11-21 at 8.57.09 PM.jpeg', 2, 1, NULL),
-(10, 'Steve Portella', '5d4as56d1as', 'dasd564as6d5as', 'Informàtica', 21, '2024-11-25 12:19:19', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (76).png,Images/Evidencia/image-removebg-preview (75).png,Images/Evidencia/image-removebg-preview (74).png', 2, 1, NULL),
-(11, 'Steve Portella', 'das56das25d', 'dasd1as54d', 'Informàtica', 2, '2024-11-25 12:19:45', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (71).png,Images/Evidencia/image-removebg-preview (70).png,Images/Evidencia/image-removebg-preview (69).png,Images/Evidencia/image-removebg-preview (68).png', 2, 1, NULL),
-(12, 'Leandro Clavijo ', 'Prueba_Eliminar', 'dad', 'Calefacció', 1, '2024-11-25 12:48:05', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Texto del párrafo (2).png,Images/Evidencia/Texto del párrafo (1).png', 1, 0, NULL),
-(13, 'Leandro Clavijo ', 'sadasdas', 'dasdasdas', 'Electricitat', 6, '2024-11-26 11:01:51', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/Texto del párrafo (2).png', 1, 1, NULL),
-(14, 'Leandro Clavijo ', 'asdasdas', 'dasdasda', 'Obres', 11, '2024-11-26 11:02:37', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL),
-(15, 'Leandro Clavijo ', 'dasdas', 'dasdasda', 'Fontaner', 6, '2024-11-26 11:24:41', 'Pendent', 'Baixa', NULL, '', 1, 1, NULL),
-(18, 'Leandro Clavijo ', 'Holaaaaaaaaaaaaaa', 'KLDASLKDJASD', 'Informàtica', 2, '2024-11-26 11:55:54', 'Pendent', 'Baixa', '', 'Images/Evidencia/image-removebg-preview (75).png', 1, 1, NULL),
-(20, 'Leandro Clavijo ', 'xzczxc', 'zczxcz', 'Electricitat', 1, '2024-11-27 12:23:20', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, 2),
-(21, 'Leandro Clavijo ', 'zxczxc', 'vzvzxvz', 'Informàtica', 3, '2024-11-27 12:37:41', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png,Images/Evidencia/image-removebg-preview (75).png', 1, 1, NULL),
-(22, 'Leandro Clavijo ', 'dasdasdasd', 'dasdasda', 'Calefacció', 2, '2024-11-27 13:22:26', 'Pendent', 'Baixa', NULL, 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL),
-(23, 'Leandro Clavijo ', 'aaaaaaaaaa', 'sasas', 'Calefacció', 19, '2024-11-27 13:54:42', 'Pendent', 'Mitjana', NULL, 'Images/Evidencia/image-removebg-preview (74).png', 1, 1, 1),
-(24, 'Leandro Clavijo ', '43534', '6765', 'Calefacció', 8, '2024-11-27 14:25:10', 'Pendent', 'Baixa', NULL, '', 1, 1, 1),
-(25, 'Leandro Clavijo ', 'barceolonaaaaaa', 'Barcelonaaaaaa', 'Calefacció', 8, '2024-11-27 19:32:21', 'En Progrés', 'Alta', '', 'Images/Evidencia/67478568a2dc6_WhatsApp Image 2024-11-21 at 10.06.07 PM.jpeg,Images/Evidencia/67478568a365f_hotel.png', 1, 1, 11),
-(26, 'Leandro Clavijo ', 'dadasd', 'asdasdas', 'Altres', 11, '2024-11-27 22:17:01', 'Pendent', 'Baixa', '', 'Images/Evidencia/image-removebg-preview (76).png', 1, 1, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -132,20 +107,6 @@ CREATE TABLE `missatges` (
 --
 -- Volcado de datos para la tabla `missatges`
 --
-
-INSERT INTO `missatges` (`id`, `grup_id`, `xat_id`, `usuari_id`, `missatge`, `data`) VALUES
-(22, 1, NULL, 1, 'sdfsdfsdf', '2024-11-14 07:43:45'),
-(23, NULL, 1, 1, 'fsdfds', '2024-11-14 07:48:59'),
-(24, NULL, 3, 2, 'Hola\\r\\n', '2024-11-14 07:59:04'),
-(25, NULL, 1, 2, 'sdfsdfsdf', '2024-11-14 07:59:26'),
-(26, NULL, 1, 2, 'sdfsdfsd', '2024-11-14 07:59:52'),
-(27, NULL, 1, 2, 'sdfsdf', '2024-11-14 08:04:09'),
-(28, NULL, 1, 1, 'sdfsdf', '2024-11-14 08:04:15'),
-(29, NULL, 1, 2, 'reertwertwertwertwert', '2024-11-14 08:05:21'),
-(33, NULL, 1, 1, 'putin\r\n', '2024-11-19 11:02:52'),
-(34, NULL, 3, 3, 'hola bebe\r\n', '2024-11-19 11:12:35'),
-(35, NULL, 3, 2, 'ctmr :3\r\n', '2024-11-19 11:13:13');
-
 -- --------------------------------------------------------
 
 --
@@ -269,10 +230,8 @@ CREATE TABLE `usuaris` (
 --
 
 INSERT INTO `usuaris` (`id`, `nom_cognoms`, `correu`, `contrasenya`, `telefon`, `rol`, `habilitat`, `data_registre`, `foto`) VALUES
-(1, 'Leandro Clavijo ', 'leandro@gmail.com', '$2y$10$tLFg6JKV3an/8GWhQma/9.8Cfs1JVmWEokEMjATt9HCZrirK47w8e', '65487958', 'Admin', 1, '2024-11-11 22:31:32', ' Images/Foto_Perfiles/WhatsApp Image 2024-10-24 at 12.38.40 PM.jpeg'),
-(2, 'Steve Portella', 'steve@gmail.com', '$2y$10$.wwXvhIjjn1wkXUGBIJxo.GsWBkvz50W/dtbEIQzy61irvrVrO2B2', '684985274', 'Professor', 1, '2024-11-11 22:34:42', ' Images/Foto_Perfiles/'),
-(3, 'Aleix Prat', 'aleix@gmail.com', '$2y$10$7Oa.ByYazLbG0j3SaFQMFus/ygZjQPqE5AkGHO5Aa69plku8sYDxi', '65751818', 'Tecnic', 1, '2024-11-12 20:23:09', ' Images/Foto_Perfiles/arriba1.png'),
-(4, 'User', 'user@aprat.cat', '$2y$10$soyiSF/LJo2iS6lERp0XSOukVF4OQQBkcQo0ubYb3g3.esNWSkFX.', '987654321', 'Professor', 1, '2024-11-28 09:14:34', 'Images/Foto_Perfiles/6748347ad6f5a.png');
+(1, 'Admin', 'admin@aprat.cat', '$2y$10$.wwXvhIjjn1wkXUGBIJxo.GsWBkvz50W/dtbEIQzy61irvrVrO2B2', '684985274', 'Admin', 1, '2024-11-11 22:34:42', ' Images/Foto_Perfiles/user.png'),
+(2, 'User', 'user@aprat.cat', '$2y$10$soyiSF/LJo2iS6lERp0XSOukVF4OQQBkcQo0ubYb3g3.esNWSkFX.', '987654321', 'Professor', 1, '2024-11-28 09:14:34', 'Images/Foto_Perfiles/user.png');
 
 -- --------------------------------------------------------
 
