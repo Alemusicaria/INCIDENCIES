@@ -818,6 +818,29 @@ button[type="submit"]:hover {
 }
 
 .incidencia {
+    background-color: transparent;
+    border-radius: 10px;
+
+    border: 1px solid #007bff;
+    box-shadow: 0 5px 10px rgba(0, 123, 255, 0.4);
+
+    display: flex; 
+    flex-direction: column;
+
+    gap: 5px !important;
+}
+
+.incidencia strong {
+    text-decoration: underline;
+    font-size: 1.1rem;
+}
+
+.incidencia span {
+    color: #007bff;
+}
+
+.incidencia em {
+    color: black;
 }
 
 /*

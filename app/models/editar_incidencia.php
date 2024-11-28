@@ -8,7 +8,11 @@ class editar_incidencia
         require_once('app/models/connexio.php');
 
         $id_incidencia = $_GET['id'];
-        $query = "SELECT * FROM incidencies WHERE id = '$id_incidencia'";
+        $query = "SELECT incidencies.*, sales.planta, sales.sala 
+                    FROM incidencies 
+                    INNER JOIN sales ON incidencies.id_ubicacio = sales.id 
+                    WHERE incidencies.id = '$id_incidencia'";
+
         $result = $conn->query($query);
 
         if ($result->num_rows > 0) {
@@ -20,6 +24,8 @@ class editar_incidencia
             return false;
         }
     }
+
+    
 
     // Mètode per actualitzar les dades d'una incidència existent
     public function actualizar_datos_incidencia()
@@ -115,5 +121,28 @@ class editar_incidencia
 
         // Retorna true si la actualización fue exitosa, false en caso contrario
         return $resultado_actualizacion ? true : false;
+    }
+
+    public function obtenerSalas()
+    {
+        require_once('app/models/connexio.php');
+
+        // Recibir la planta desde el POST
+        $planta = $_POST['planta'];
+
+        // Consulta para obtener las salas según la planta seleccionada
+        $query = "SELECT sala FROM sales WHERE planta = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param('s', $planta);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $salas = [];
+        while ($row = $result->fetch_assoc()) {
+            $salas[] = $row['sala'];
+        }
+
+        // Devolver las salas como JSON
+        echo json_encode($salas);
     }
 }
