@@ -167,6 +167,13 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
             <input type="file" class="form-control" name="Foto[]" id="Foto" multiple>
         </div>
 
+        
+
+        
+
+       
+
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
         </div>
@@ -188,4 +195,5 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 ?>
 
 <script src = "assets/js/cargarSalasLlenas.js"></script>
+<script src = "assets/js/cargarTecnico.js"></script>
 
