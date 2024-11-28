@@ -47,31 +47,31 @@ class IncidenciasController
     }
 
     public function obtenerTecnicosPorCategoria()
-{
-    if (isset($_POST['categoria'])) {
-        $categoria = $_POST['categoria'];
-        $incidenciasModel = new incidencias();
-        $tecnicos = $incidenciasModel->obtenerTecnicosPorCategoria($categoria);
-        echo json_encode($tecnicos);
-    }
-}
-
-public function obtenerNumeroTecnico()
-{
-    if (isset($_POST['tecnico_id'])) {
-        $tecnico_id = $_POST['tecnico_id'];
-        $incidenciasModel = new incidencias();
-        $numero = $incidenciasModel->obtenerNumeroTecnico($tecnico_id);
-
-        if ($numero) {
-            echo json_encode(['numero' => $numero]);
-        } else {
-            echo json_encode(['error' => 'Número no encontrado.']);
+    {
+        if (isset($_POST['categoria'])) {
+            $categoria = $_POST['categoria'];
+            $incidenciasModel = new incidencias();
+            $tecnicos = $incidenciasModel->obtenerTecnicosPorCategoria($categoria);
+            echo json_encode($tecnicos);
         }
-    } else {
-        echo json_encode(['error' => 'ID de técnico no proporcionado.']);
     }
-}
+
+    public function obtenerNumeroTecnico()
+    {
+        if (isset($_POST['tecnico_id'])) {
+            $tecnico_id = $_POST['tecnico_id'];
+            $incidenciasModel = new incidencias();
+            $numero = $incidenciasModel->obtenerNumeroTecnico($tecnico_id);
+
+            if ($numero) {
+                echo json_encode(['numero' => $numero]);
+            } else {
+                echo json_encode(['error' => 'Número no encontrado.']);
+            }
+        } else {
+            echo json_encode(['error' => 'ID de técnico no proporcionado.']);
+        }
+    }
 
     
 }
