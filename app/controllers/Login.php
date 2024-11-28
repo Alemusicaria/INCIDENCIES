@@ -125,20 +125,44 @@ class LoginController
     // Mètode per enviar el correu de recuperació de contrasenya
     public function send_reset_email()
     {
+
         $email = $_POST['email'];
         $passwordReset = new PasswordReset();
         $user = $passwordReset->getUserByEmail($email);
+        $token = $passwordReset->createToken($user['id']);
 
         if ($user) {
-            $token = $passwordReset->createToken($user['id']);
+            $logoUrl = 'http://aprat.cat/Images/Login/Salleguard.png'; // Canvia aquesta URL per la URL del teu logo
             $resetLink = "http://aprat.cat/index.php?controller=Login&method=reset_password&token=$token";
 
-            // Enviar correu electrònic amb el link de recuperació
-            mail($email, "Recuperació de contrasenya", "Fes clic en aquest enllaç per recuperar la teva contrasenya: $resetLink");
+            $subject = "Recuperar contrasenya";
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= 'From: no-reply@aprat.cat' . "\r\n";
 
-            echo "S'ha enviat un correu electrònic amb les instruccions per recuperar la contrasenya.";
-            session_destroy(); // Elimina totes les dades de la sessió actual
-            echo "<br><a href='index.php?controller=Login&method=login'>Tornar al formulari de login</a>";
+            $message = "
+            <html>
+            <head>
+                <title>Recuperar contrasenya</title>
+            </head>
+            <body>
+                <div style='text-align: center;'>
+                    <img src='$logoUrl' alt='Logo' style='width: 200px; height: auto;'>
+                    <h1>Hola, {$user['nom_cognoms']}</h1>
+                    <p>Per restablir la teva contrasenya, fes clic al següent enllaç:</p>
+                    <a href='$resetLink' style='display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007bff; text-decoration: none; border-radius: 5px;'>Crear contrasenya</a>
+                </div>
+            </body>
+            </html>
+            ";
+
+            if (mail($email, $subject, $message, $headers)) {
+                echo "Correu enviat correctament.";
+                session_destroy(); // Elimina totes les dades de la sessió actual
+                echo "<br><a href='index.php?controller=Login&method=login'>Tornar al formulari de login</a>";
+            } else {
+                echo "Error en l'enviament del correu.";
+            }
         } else {
             echo "No s'ha trobat cap usuari amb aquest correu electrònic.";
         }
