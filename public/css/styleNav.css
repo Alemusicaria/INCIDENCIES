@@ -844,7 +844,37 @@ button[type="submit"]:hover {
 }
 
 button[class="whatsapp"] {
-    background-color: rgb(76, 255, 57);
+    margin-top: 5px;
+
+    background-color: #25D366;
+    color: white;
+    font-size: 1.1rem;
+
+    border: 1px solid transparent;
+    border-radius: 5px;
+
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button[class="whatsapp"] i {
+    font-size: 1.4rem;
+    margin-right: 5px;
+}
+
+button[class="whatsapp"]:hover {
+    background-color: white; /* Verde ligeramente más oscuro para hover */
+    border: 1px solid #25D366;
+
+    font-size: 1.1rem;
+    color: #25D366;
+
+    
 }
 
 /*
