@@ -59,6 +59,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         </div>
 
                                         <div class='botones'>
+                                            <label class="switch">
+                                                <input type="checkbox" class="toggle-input">
+                                                <span class="slider"></span>
+                                            </label>
                                             <!-- 
                                             <form method='POST' action='index.php?controller=Perfil&method=habilitar'>
                                                 <input type='hidden' name='id' value=''>
