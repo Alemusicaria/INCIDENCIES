@@ -37,11 +37,27 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <h2>Taula de Usuaris</h2>
             </div>
 
+
+            <div class="espacio-grande">
+                <div class="espacio-medio">
+                    <div class="cont-user">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-table"></i>
+                                Nombre usuaris
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
                     Taula d'incidències
                 </div>
+
+                
 
                 <div class="card-body">
                     <!-- Contenedor para permitir scroll horizontal -->
