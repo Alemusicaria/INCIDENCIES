@@ -1,6 +1,6 @@
 <?php
-        require_once 'app/models/connexio.php';
-        $usuari_id = $_SESSION['usuari'][0];
+require_once 'app/models/connexio.php';
+$usuari_id = $_SESSION['usuari'][0];
 
 // Obtenim l'ID del xat des de la URL
 if (isset($_GET['xat_id'])) {
@@ -63,16 +63,25 @@ error_reporting(E_ALL);
 
 <?php include("app/views/layouts/header/header.php"); ?>
 <link rel="stylesheet" href="public/css/styleXat.css">
+<style>
+    .btn-chat {
+        display: none;
+    }
+</style>
 
 <body>
     <div class="wrapper">
 
-        <?php 
-        include("app/views/layouts/menu/menu.php"); 
+        <?php
+        include("app/views/layouts/menu/menu.php");
         ?>
 
         <main class="main">
             <div class="fondo-xatamb">
+                <a href="index.php?controller=Login&method=xat" class="volver-icono">
+                    <i class="lni lni-chevron-left"></i>
+                </a>
+
                 <h1><?php echo $conversant['usuari_conversant']; ?></h1>
             </div>
 
@@ -83,7 +92,7 @@ error_reporting(E_ALL);
                         <ul>
                             <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
                                 <li>
-                                    <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
+                                    <strong><?php echo $missatge['nom_cognoms']; ?></strong>
                                     <p><?php echo $missatge['missatge']; ?></p>
                                     <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
                                 </li>
@@ -94,8 +103,16 @@ error_reporting(E_ALL);
                     <?php endif; ?>
                 </section>
             </div>
-            
 
+            <!-- Formulari per enviar un missatge -->
+            <section class="enviar-missatge">
+                <form method="POST">
+                    <textarea name="missatge" row="1" placeholder="Escriu el teu missatge aquí..." required></textarea>
+                    <button type="submit">
+                        <i class="lni lni-telegram-original"></i>
+                    </button>
+                </form>
+            </section>
         </main>
 
         <!--

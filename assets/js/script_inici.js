@@ -77,8 +77,9 @@ document.addEventListener('DOMContentLoaded', function () {
               const div = document.createElement('div');
               div.classList.add('incidencia');
               div.innerHTML = `
-                <strong>${incidencia.titol_fallo}</strong><br>
-                <span><em>Ubicació: ${incidencia.ubicacio}</em></span><br>
+                <strong>${incidencia.titol_fallo}</strong>
+                <h1>Ubicació:</h1>
+                <span><em>${incidencia.ubicacio}</em></span>
                 <a href="index.php?controller=Info_Incidencias&method=mostrar_incidencia&id=${incidencia.id}" class="btn btn-primary btn-sm">
                     Informació
                 </a>

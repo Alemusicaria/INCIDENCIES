@@ -30,7 +30,7 @@ if (!isset($_SESSION['usuari'])) {
     </script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="public/css/styleNav.css">
+    <link rel="stylesheet" href="public/css/styleNav.css?v=1">
     <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css">
 
 </head>

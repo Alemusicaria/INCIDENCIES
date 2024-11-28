@@ -15,7 +15,7 @@ include("app/views/layouts/header/header.php");
             <div class="w-100" id='calendar'></div>
             <!-- Espai per mostrar la data seleccionada -->
             <div id="selected-date" style="display:none;">
-                <h4 style="color:black">Data Seleccionada:</h4>
+                <h4 style="color:black !important">Data Seleccionada:</h4>
                 <p id="date-text"></p>
                 <h5>Incidències:</h5>
                 <div id="incidencies-container"></div> <!-- Contenidor per a les incidències -->
