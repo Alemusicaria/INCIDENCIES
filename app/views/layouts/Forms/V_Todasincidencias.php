@@ -18,14 +18,63 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <h2>Totes les Incidències</h2>
             </div>
 
+            <div class="espacio-grande">
+                <div class="espacio-medio">
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="Images/Foto_Perfiles/6745a5290e12b.png" alt="Card image cap">
+
+                        <!-- Contenido de la tarjeta -->
+                        <div class="card-body">
+                            <h5 class="card-title"><strong>Titulo</strong></h5>
+                            <p class="card-text">Descripcio label label label label label label label label label label label label label label label label label label label label label label label </p>
+                        </div>
+
+                        <!-- Información adicional -->
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Usuario: </strong>Pepe Perez</li>
+                            <li class="list-group-item"><strong>Tipus: </strong>Ferrer</li>
+                            <li class="list-group-item"><strong>Ubicacio: </strong>Piso 2 • Sala 003</li>
+                            <li class="list-group-item"><strong>Data: </strong>11/04/2024</li>
+                            <li class="list-group-item"><strong>Estat: </strong>Pendent</li>
+                            <li class="list-group-item"><strong>Prioritat: </strong>Baja</li>
+                        </ul>
+
+                        <!-- Botones -->
+                        <div class="card-body w-100 d-flex justify-content-center gap-2">
+
+                            <a href="#" class="card-link">
+                                <button type="button" class="btn btn-outline-primary">
+                                    <i class="bi bi-eye"></i> <!-- Ícono de Bootstrap para ver -->
+                                </button>
+                            </a>
+
+                            <a href="#" class="card-link">
+                                <button type="button" class="btn btn-outline-warning">
+                                    <i class="bi bi-pencil"></i> <!-- Ícono de Bootstrap para ver -->
+                                </button>
+                            </a>
+
+                            <a href="#" class="card-link">
+                                <button type="button" class="btn btn-outline-danger">
+                                    <i class="bi bi-trash"></i> <!-- Ícono de Bootstrap para ver -->
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="card">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
                     Taula d'incidencies
                 </div>
 
+                <!--
                 <div class="card-body">
-                    <!-- Contenedor para permitir scroll horizontal -->
+                    <-- Contenedor para permitir scroll horizontal --
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -73,6 +122,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         echo "<td>" . htmlspecialchars($row['prioritat']) . "</td>";
                                         // Imatges
                                         echo "<td>";
+                                        
                                         if (!empty($row['imatges'])) {
                                             $imatges = explode(',', $row['imatges']);
                                             foreach ($imatges as $imatge) {
@@ -93,7 +143,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
