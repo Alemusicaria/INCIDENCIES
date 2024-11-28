@@ -101,31 +101,31 @@ class incidencias
     }
 
     public function obtenerTecnicosPorCategoria($categoria)
-{
-    require_once('app/models/connexio.php');
-    $query = "SELECT id, nombre FROM tecnicos WHERE categoria = '$categoria'";
-    $result = $conn->query($query);
+    {
+        require_once('app/models/connexio.php');
+        $query = "SELECT id, nom_cognoms FROM tecnics WHERE categoria = '$categoria'";
+        $result = $conn->query($query);
 
-    $tecnicos = [];
-    while ($row = $result->fetch_assoc()) {
-        $tecnicos[] = $row;
+        $tecnicos = [];
+        while ($row = $result->fetch_assoc()) {
+            $tecnicos[] = $row;
+        }
+
+        return $tecnicos;
     }
 
-    return $tecnicos;
-}
+    public function obtenerNumeroTecnico($tecnico_id)
+    {
+        require_once('app/models/connexio.php');
+        $query = "SELECT telefon FROM tecnics WHERE id = '$tecnico_id'";
+        $result = $conn->query($query);
 
-public function obtenerNumeroTecnico($tecnico_id)
-{
-    require_once('app/models/connexio.php');
-    $query = "SELECT telefono FROM tecnicos WHERE id = '$tecnico_id'";
-    $result = $conn->query($query);
-
-    if ($result->num_rows > 0) {
-        return $result->fetch_assoc()['telefono'];
-    } else {
-        return null;
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc()['telefono'];
+        } else {
+            return null;
+        }
     }
-}
 
     
 }

@@ -41,6 +41,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         value="<?= htmlspecialchars($datos_incidencia['titol_fallo'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" >
                     </div>
 
+                    
+
                     <div class="form-group">
                     <label class="perfil-label" for="Descripcion">Descripción</label>
                         <input type="text" class="form-control" id="Descripcion" name="Descripcion" 
@@ -186,3 +188,4 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 ?>
 
 <script src = "assets/js/cargarSalasLlenas.js"></script>
+
