@@ -51,6 +51,16 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             $prioritat = $row['prioritat'];
                             $imatge = !empty($row['imatges']) && file_exists($row['imatges']) ? $row['imatges'] : 'Images/imgpreg.png';
 
+                            // Asignar color basado en el estado
+                            $colorestat = 'black'; // Color predeterminado
+                            if ($estat === 'Pendent') {
+                                $colorestat = 'grey';
+                            } elseif ($estat === 'En Progrés') {
+                                $colorestat = 'orange';
+                            } elseif ($estat === 'Resolta') {
+                                $colorestat = 'red';
+                            }
+
                             // Asignar color basado en la prioridad
                             $color = 'black'; // Color predeterminado
                             if ($prioritat === 'Alta') {
@@ -79,7 +89,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                     <li class='list-group-item'><strong>Ubicació: </strong>$ubicacio</li>
                                     <li class='list-group-item'><strong>Data: </strong>$data</li>
                                     <li class='list-group-item'>
-                                        <strong>Estat: </strong>$estat
+                                        <strong>Estat: </strong> 
+                                        <strong style='color: $colorestat;'>$estat</strong>                                        
                                     </li>
 
                                     <li class='list-group-item'>
