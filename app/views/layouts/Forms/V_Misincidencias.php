@@ -74,7 +74,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             // Renderizar la tarjeta
                             echo "
                             <div class='card mb-3' style='width: 18rem;'>
-                                <img class='card-img-top' src='$foto' alt='Imatge de la incidència'>
+                                <img class='card-img-top p-4' src='$imatge' alt='Imatge de la incidència'>
 
                                 <!-- Contenido de la tarjeta -->
                                 <div class='card-body'>
