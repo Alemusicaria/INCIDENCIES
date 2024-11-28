@@ -85,9 +85,7 @@ CREATE TABLE `membres_grup` (
 
 INSERT INTO `membres_grup` (`id`, `grup_id`, `usuari_id`) VALUES
 (1, 1, 1),
-(2, 1, 2),
-(3, 1, 3),
-(4, 2, 3);
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -250,8 +248,7 @@ CREATE TABLE `xats` (
 --
 
 INSERT INTO `xats` (`id`, `usuari1_id`, `usuari2_id`) VALUES
-(1, 2, 1),
-(3, 2, 3);
+(1, 2, 1);
 
 --
 -- Índices para tablas volcadas
