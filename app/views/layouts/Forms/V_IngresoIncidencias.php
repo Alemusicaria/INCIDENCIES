@@ -96,7 +96,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         
                         <div class="form-group">
-                            <label class="perfil-label" for="Tecnico">Necesitas un Técnico?</label>
+                            <label class="perfil-label" for="Tecnico">¿Necesitas un Técnico?</label>
                             <select id="Tecnico" name="Tecnico" class="form-control" required onchange="mostrarFormularioTecnicos()">
                                 <option value="">Selecciona una opción</option>
                                 <option value="Si">Sí</option>
@@ -104,22 +104,34 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             </select>
                         </div>
 
-                        <div id="formularioTecnicos" style="display: none;">
-                            <label for="SeleccionarTecnico">Seleccionar Técnico:</label>
-                            <select id="SeleccionarTecnico" name="id_tecnico">
+
+
+                        <div id="formularioTecnicos" class="form-group" style="display: none;">
+
+                            <label class="perfil-label" for="SeleccionarTecnico">Seleccionar Técnico:</label>
+                            <select id="SeleccionarTecnico" name="id_tecnico" class="form-control">
                                 <option value="">Selecciona un técnico</option>
-                        </select>
+                            </select>
 
-                            <label for="NumeroTecnico">Número del Técnico:</label>
-                            <input type="text" id="NumeroTecnico" name="NumeroTecnico" readonly>
+                            <div class="form-group">
+                                <label class="perfil-label" for="NumeroTecnico">Número del Técnico:</label>
+                                <input class="form-control" type="text" id="NumeroTecnico" name="NumeroTecnico" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="perfil-label" for="Mensaje">Mensaje para el técnico:</label>
+                                <textarea class="form-control" id="Mensaje" name="Mensaje" rows="3" placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
 
-                            <label for="Mensaje">Mensaje para el técnico:</label>
-                            <textarea id="Mensaje" name="Mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
-
-                            <button type="button" id="EnviarWhatsApp">Enviar a WhatsApp</button>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Insertar</button>
+                        <button type="submit" class="whatsapp mt-2" id="EnviarWhatsApp" name="EnviarWhatsApp">
+                            Guardar i Enviar a WhatsApp
+                        </button>
+
+                        <button type="submit" class="guardar mt-2" id="Guardar" name="Guardar">
+                            Guardar
+                        </button>
                     </form>
                 </div>
             </div>
