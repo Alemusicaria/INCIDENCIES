@@ -8,9 +8,10 @@ class editar_incidencia
         require_once('app/models/connexio.php');
 
         $id_incidencia = $_GET['id'];
-        $query = "SELECT incidencies.*, sales.planta, sales.sala 
-                    FROM incidencies 
-                    INNER JOIN sales ON incidencies.id_ubicacio = sales.id 
+        $query = "SELECT incidencies.*, sales.planta, sales.sala, tecnics.nom_cognoms
+                    FROM incidencies
+                    INNER JOIN sales ON incidencies.id_ubicacio = sales.id
+                    LEFT JOIN tecnics ON incidencies.id_tecnico = tecnics.id
                     WHERE incidencies.id = '$id_incidencia'";
 
         $result = $conn->query($query);

@@ -210,7 +210,7 @@ INSERT INTO `sales` (`id`, `planta`, `sala`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tecnicos`
+-- Estructura de tabla para la tabla `tecnics`
 --
 
 CREATE TABLE `tecnics` (
@@ -221,10 +221,10 @@ CREATE TABLE `tecnics` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `tecnicos`
+-- Volcado de datos para la tabla `tecnics`
 --
 
-INSERT INTO `tecnicos` (`id`, `nom_cognoms`, `categoria`, `telefon`) VALUES
+INSERT INTO `tecnics` (`id`, `nom_cognoms`, `categoria`, `telefon`) VALUES
 (1, 'Leandro Clavijo', 'Calefacció', '+34614147941'),
 (2, 'Ana Gómez', 'Electricitat', '987654321'),
 (3, 'Pedro Martínez', 'Fontaner', '543216789'),
@@ -342,9 +342,9 @@ ALTER TABLE `sales`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tecnicos`
+-- Indices de la tabla `tecnics`
 --
-ALTER TABLE `tecnicos`
+ALTER TABLE `tecnics`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -403,9 +403,9 @@ ALTER TABLE `sales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de la tabla `tecnicos`
+-- AUTO_INCREMENT de la tabla `tecnics`
 --
-ALTER TABLE `tecnicos`
+ALTER TABLE `tecnics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
@@ -428,7 +428,7 @@ ALTER TABLE `xats`
 -- Filtros para la tabla `incidencies`
 --
 ALTER TABLE `incidencies`
-  ADD CONSTRAINT `fk_tecnico` FOREIGN KEY (`id_tecnico`) REFERENCES `tecnicos` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_tecnico` FOREIGN KEY (`id_tecnico`) REFERENCES `tecnics` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `incidencies_ibfk_1` FOREIGN KEY (`id_ubicacio`) REFERENCES `sales` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
