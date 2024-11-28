@@ -37,11 +37,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <h2>Taula de Usuaris</h2>
             </div>
 
-
             <div class="espacio-grande">
                 <div class="espacio-medio">
                     <div class="w-100">
-
+                        <!--
                         <div class='card mt-2 mb-2'>
                             <div class='card-header'>
                                 <i class='fas fa-user'></i>
@@ -53,43 +52,44 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                 <div class='contenido'>
 
                                     <div class='contenido1'>
-                                        <!-- Contenedor de la foto y los botones -->
+                                        <-- Contenedor de la foto y los botones --
                                         <div class='foto-usuario'>
                                             <img src='Images/Foto_Perfiles/user.png' alt='Foto de perfil' class='img-thumbnail'>
                                         </div>
 
                                         <div class='botones'>
+                                            
                                             <label class="switch">
                                                 <input type="checkbox" class="toggle-input">
                                                 <span class="slider"></span>
                                             </label>
+
+                                            <div class='card-body w-100 p-1 d-flex justify-content-center gap-2'>
+                                                <a href='#' class='card-link'>
+                                                    <button type='button' class='btn btn-outline-warning'>
+                                                    <i class='bi bi-pencil'></i>
+                                                    </button>
+                                                </a>
+                                                 
+                                            </div>
+
                                         </div>
                                     </div>
 
                                     <div class='datos-usuario'>
-                                        <span><strong>Correu Electrònic: </strong>
-                                        </span><br>
-                                        <span><strong>Telefon: </strong>
-                                        </span><br>
-                                        <span><strong>Rol: </strong>
-                                        </span><br>
-                                        <span><strong>Data de Registre: </strong>
-                                        </span><br>
-                                        <span><strong>Habilitat: </strong>
-                                        </span><br>
-
-                                        
+                                        <span><strong>Correu Electrònic:</strong></span><br>
+                                        <span><strong>Telefon: </strong></span><br>
+                                        <span><strong>Rol: </strong></span><br>
+                                        <span><strong>Data de Registre: </strong></span><br>
+                                        <span><strong>Habilitat: </strong></span><br>
                                     </div>
 
                                 </div>
 
                             </div>
 
-                        </div>
+                        </div> -->
 
-
-
-                        <!--
                         <?php
                         require_once('app/models/connexio.php');
 
@@ -98,7 +98,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                         // Consulta per obtenir les dades dels usuaris
                         $sql = "SELECT id, nom_cognoms, correu, telefon, rol, habilitat, data_registre, foto  
-                        FROM usuaris";
+                                FROM usuaris";
                         $stmt = $conn->prepare($sql);
                         $stmt->execute();
                         $result = $stmt->get_result();
@@ -119,27 +119,70 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
                                 echo "<div class='contenido'>";
 
+                                // Foto de usuario
+                                echo "<div class='contenido1'>";
                                 echo "<div class='foto-usuario'>";
                                 echo "<img src='" . $foto . "' alt='Foto de perfil' class='img-thumbnail'>";
                                 echo "</div>";
 
+                                echo "<div class='botones'>"; // div de botones
+
+                                if ($row['habilitat'] == 0) {
+                                    echo "<td><form method='POST' action='index.php?controller=Perfil&method=habilitar'>
+                                                <input type='hidden' name='id' value='" . $row['id'] . "'>
+                                                <button type='submit' class='btn btn-success mt-2 mb-1' style='background-color: #28a745'>Habilitar</button>
+                                            </form>";
+                                } else if ($row['habilitat'] == 1) {
+                                    echo "<td><form method='POST' action='index.php?controller=Perfil&method=deshabilitar'>
+                                                <input type='hidden' name='id' value='" . $row['id'] . "'>
+                                                <button type='submit' class='btn btn-danger mt-2 mb-1'style='background-color: #dc3545'>Deshabilitar</button>
+                                            </form>";
+                                }
+                                /*
+                                // Slider de habilitar/deshabilitar
+                                $checked = ($row['habilitat'] == 1) ? 'checked' : '';
+
+                                echo "<label class='switch'>";
+
+                                echo "<input type='checkbox' class='toggle-input' id='toggle-" . $row['id'] . "' $checked onclick='updateHabilitat(" . $row['id'] . ", this.checked)'>";                                
+                                echo "<span class='slider'></span>";
+
+                                echo "</label>";*/
+
+                                echo "<div class='card-body w-100 p-1 d-flex justify-content-center gap-2'>"; // div
+
+                                echo "<form method='POST' action='index.php?controller=Perfil&method=editar'>
+                                        <input type='hidden' name='id' value='" . $row['id'] . "'>
+                                        <button type='submit'id='editar' class='editar btn btn-outline-warning'>
+                                            <i class='bi bi-pencil'></i>
+                                        </button>
+                                    </form>";
+
+                                echo "</div>"; // div 
+
+                                echo "</div>"; // div de botones
+
+                                echo "</div>";
+
                                 echo "<div class='datos-usuario'>";
-                                echo "<span><strong>Correu Electrònic: </strong>" . $row['correu'] . "</span><br>";
-                                echo "<span><strong>Telefon: </strong>" . $row['telefon'] . "</span><br>";
-                                echo "<span><strong>Rol: </strong>" . $row['rol'] . "</span><br>";
-                                echo "<span><strong>Data de Registre: </strong>" . $row['data_registre'] . "</span><br>";
-                                echo "<span><strong>Habilitat: </strong>" . ($row['habilitat'] == 1 ? 'Habilitat' : 'Deshabilitat') . "</span><br>";
-                                echo "</div>";
 
-                                echo "</div>";
+                                echo "<strong>Correu Electrònic: </strong><span>" . $row['correu'] . "</span><br>";
+                                echo "<strong>Telefon: </strong><span>" . $row['telefon'] . "</span><br>";
+                                echo "<strong>Rol: </strong><span>" . $row['rol'] . "</span><br>";
+                                echo "<strong>Data de Registre: </strong><span>" . $row['data_registre'] . "</span><br>";
+                                echo "<strong>Habilitat: </strong><span>" . ($row['habilitat'] == 1 ? 'Habilitat' : 'Deshabilitat') . "</span><br>";
 
-                                echo "</div>";
+                                echo "</div>"; // Fin de datos-usuario
 
-                                echo "</div>";
+                                echo "</div>"; // Fin de cont-card-body
+
+                                echo "</div>"; // Fin de la tarjeta
+
+
+                                echo "</div>"; // 1 div
                             }
                         }
-
-                        ?> -->
+                        ?> 
                     </div>
                 </div>
             </div>
@@ -224,6 +267,9 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
+
+    <script src="assets/js/slider.js"></script>
 </body>

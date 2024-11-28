@@ -991,7 +991,6 @@ button[class="guardar"]:hover {
     align-items: center; /* Alinea los elementos verticalmente en el centro */
     justify-content: flex-start; /* Alinea los elementos hacia la izquierda */
 
-    max-height: 150px;
 
     gap: 10px;
 }
@@ -1040,15 +1039,21 @@ button[class="guardar"]:hover {
 .datos-usuario {
     margin-left: 20px;
 
-    width: 55%;
+    width: 100%;
     height: 100%;
+}
 
-    gap: 0;
+.datos-usuario strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+
+    color: var(--salle_azul);
 }
 
 .datos-usuario span {
     font-size: 1rem;
     font-weight: 300;
+    margin-bottom: 10px;
 }
 
 .datos-usuari p {
@@ -1106,6 +1111,19 @@ input:checked + .slider {
   
 input:checked + .slider:before {
     transform: translateX(26px); /* Mueve el círculo a la derecha */
+}
+
+#editar {
+    border: 1px solid var(--salle_amarillo);
+    background-color: transparent;
+    color: var(--salle_amarillo);
+}
+
+#editar:hover {
+    background-color: var(--salle_amarillo);
+    color: black;
+
+    box-shadow: 0px 3px 15px rgba(255, 193, 7, 0.5);
 }
 
 /*
