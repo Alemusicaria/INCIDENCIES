@@ -62,7 +62,7 @@ class registro
         if ($stmt->execute()) {
             // Si el rol és Tecnic, inserim les dades a la taula tecnicos
             if ($Rol === 'Tecnic') {
-                $stmt_tecnicos = $conn->prepare("INSERT INTO tecnicos (nom_cognoms, categoria, telefon) VALUES (?, ?, ?)");
+                $stmt_tecnicos = $conn->prepare("INSERT INTO tecnics (nom_cognoms, categoria, telefon) VALUES (?, ?, ?)");
                 $stmt_tecnicos->bind_param('sss', $Nombre, $Categoria, $Telefono);
                 if (!$stmt_tecnicos->execute()) {
                     $_SESSION['error'] = "Error al insertar el técnico: " . $stmt_tecnicos->error;
