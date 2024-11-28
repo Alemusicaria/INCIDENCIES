@@ -13,13 +13,14 @@ if (isset($_SESSION['usuari'])) {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <!-- Custom CSS File link -->
-    <link rel="stylesheet" href="public/css/stylesLogin.css?v=1">
+    <link rel="stylesheet" href="public/css/stylesLogin.css">
 </head>
 
 <body>
     <div class="header">
         <img src="Images/Login/Salleguard.png" alt="">
     </div>
+
     <div class="contenedor-login-principal">
         <div class="contenedor-login-detalles">
             <div class="home" id="home">
@@ -36,6 +37,7 @@ if (isset($_SESSION['usuari'])) {
                         <i class="fas fa-lock"></i>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Contrasenya" required minlength="3">
                     </div>
+                    
                     <button type="submit" class="anm-levantar">Iniciar Sessió</button>
 
                     <p class="text-center">
@@ -54,6 +56,7 @@ if (isset($_SESSION['usuari'])) {
             </div>
         </div>
     </div>
+
     <div class="footer">
         <img src="Images/Login/la_salle_white.jpeg" alt="">
     </div>
