@@ -10,6 +10,7 @@ class registro
         $Contraseña = $_POST['Contraseña'];
         $Telefono = htmlspecialchars(trim($_POST['Ntelefono']));
         $Rol = htmlspecialchars(trim($_POST['Rol']));
+        $Categoria = isset($_POST['categoria']) ? htmlspecialchars(trim($_POST['categoria'])) : null;
 
         // Comprovem si el correu electrònic és vàlid
         if (!$Correo) {
@@ -59,6 +60,16 @@ class registro
 
         // Executem la consulta i verifiquem si s'ha inserit correctament
         if ($stmt->execute()) {
+            // Si el rol és Tecnic, inserim les dades a la taula tecnicos
+            if ($Rol === 'Tecnic') {
+                $stmt_tecnicos = $conn->prepare("INSERT INTO tecnics (nom_cognoms, categoria, telefon) VALUES (?, ?, ?)");
+                $stmt_tecnicos->bind_param('sss', $Nombre, $Categoria, $Telefono);
+                if (!$stmt_tecnicos->execute()) {
+                    $_SESSION['error'] = "Error al insertar el técnico: " . $stmt_tecnicos->error;
+                    return false;
+                }
+            }
+
             $_SESSION['exito'] = "Usuario registrado con éxito.";
             return true;
         } else {

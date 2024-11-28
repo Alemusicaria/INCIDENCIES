@@ -51,6 +51,14 @@ include("layouts/header/header.php"); // Incloure el header
                 </div>
             </div>
 
+            <!-- Botó per recuperar la contrasenya -->
+            <div class="text-center mt-4 mb-4">
+                <form action="index.php?controller=Login&method=send_reset_email" method="post">
+                    <input type="hidden" name="email" value="<?php echo $_SESSION['usuari'][2]; ?>">
+                    <button type="submit" class="btn btn-warning">Recuperar Contrasenya</button>
+                </form>
+            </div>
+
             <!-- Botó per tornar a l'inici -->
             <div class="text-center mt-4 mb-4">
                 <a href="index.php?controller=Login&method=bienvenido" class="btn" id="volver">Torna a l'inici</a>

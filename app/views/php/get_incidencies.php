@@ -56,6 +56,7 @@ while ($row = $result->fetch_assoc()) {
     $incidencies[] = [
         'id' => $row['id'],
         'titol_fallo' => $row['titol_fallo'],
+        
         'descripcio' => $row['descripcio'],
         'tipus_incidencia' => $row['tipus_incidencia'],
         'ubicacio' => $ubicacio,

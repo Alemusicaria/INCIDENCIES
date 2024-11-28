@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-11-2024 a las 09:15:04
+-- Tiempo de generación: 28-11-2024 a las 10:18:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -142,12 +142,22 @@ INSERT INTO `missatges` (`id`, `grup_id`, `xat_id`, `usuari_id`, `missatge`, `da
 (27, NULL, 1, 2, 'sdfsdf', '2024-11-14 08:04:09'),
 (28, NULL, 1, 1, 'sdfsdf', '2024-11-14 08:04:15'),
 (29, NULL, 1, 2, 'reertwertwertwertwert', '2024-11-14 08:05:21'),
-(30, NULL, 4, 10, 'fsdfsdfsdf', '2024-11-18 09:20:46'),
-(31, NULL, 4, 10, 'cxvcxvxcv', '2024-11-18 09:20:48'),
-(32, NULL, 4, 10, 'xcvxcv', '2024-11-18 09:20:49'),
 (33, NULL, 1, 1, 'putin\r\n', '2024-11-19 11:02:52'),
 (34, NULL, 3, 3, 'hola bebe\r\n', '2024-11-19 11:12:35'),
 (35, NULL, 3, 2, 'ctmr :3\r\n', '2024-11-19 11:13:13');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `token` varchar(100) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -200,21 +210,21 @@ INSERT INTO `sales` (`id`, `planta`, `sala`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tecnicos`
+-- Estructura de tabla para la tabla `tecnics`
 --
 
-CREATE TABLE `tecnicos` (
+CREATE TABLE `tecnics` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nom_cognoms` varchar(100) NOT NULL,
   `categoria` enum('Calefacció','Electricitat','Fontaner','Informàtica','Fusteria','Ferrer','Obres','Audiovisual','Equips de seguretat','Neteja de clavegueram','Altres') NOT NULL,
-  `telefono` varchar(15) NOT NULL
+  `telefon` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `tecnicos`
+-- Volcado de datos para la tabla `tecnics`
 --
 
-INSERT INTO `tecnicos` (`id`, `nombre`, `categoria`, `telefono`) VALUES
+INSERT INTO `tecnics` (`id`, `nom_cognoms`, `categoria`, `telefon`) VALUES
 (1, 'Leandro Clavijo', 'Calefacció', '+34614147941'),
 (2, 'Ana Gómez', 'Electricitat', '987654321'),
 (3, 'Pedro Martínez', 'Fontaner', '543216789'),
@@ -262,8 +272,7 @@ INSERT INTO `usuaris` (`id`, `nom_cognoms`, `correu`, `contrasenya`, `telefon`, 
 (1, 'Leandro Clavijo ', 'leandro@gmail.com', '$2y$10$tLFg6JKV3an/8GWhQma/9.8Cfs1JVmWEokEMjATt9HCZrirK47w8e', '65487958', 'Admin', 1, '2024-11-11 22:31:32', ' Images/Foto_Perfiles/WhatsApp Image 2024-10-24 at 12.38.40 PM.jpeg'),
 (2, 'Steve Portella', 'steve@gmail.com', '$2y$10$.wwXvhIjjn1wkXUGBIJxo.GsWBkvz50W/dtbEIQzy61irvrVrO2B2', '684985274', 'Professor', 1, '2024-11-11 22:34:42', ' Images/Foto_Perfiles/'),
 (3, 'Aleix Prat', 'aleix@gmail.com', '$2y$10$7Oa.ByYazLbG0j3SaFQMFus/ygZjQPqE5AkGHO5Aa69plku8sYDxi', '65751818', 'Tecnic', 1, '2024-11-12 20:23:09', ' Images/Foto_Perfiles/arriba1.png'),
-(4, '', '', '$2y$10$LUpmhMOcXmN2dz8x8Jv2o.QUNTIxeLRGIPT4XvCMBF4okLTOmXO86', '', '', 1, '2024-11-18 09:03:55', ' Images/Foto_Perfiles/'),
-(10, 'prova', 'hola@gmail.com', '123456', '987654321', 'Professor', 1, '2024-11-18 09:20:10', NULL);
+(4, 'User', 'user@aprat.cat', '$2y$10$soyiSF/LJo2iS6lERp0XSOukVF4OQQBkcQo0ubYb3g3.esNWSkFX.', '987654321', 'Professor', 1, '2024-11-28 09:14:34', 'Images/Foto_Perfiles/6748347ad6f5a.png');
 
 -- --------------------------------------------------------
 
@@ -283,8 +292,7 @@ CREATE TABLE `xats` (
 
 INSERT INTO `xats` (`id`, `usuari1_id`, `usuari2_id`) VALUES
 (1, 2, 1),
-(3, 2, 3),
-(4, 10, 3);
+(3, 2, 3);
 
 --
 -- Índices para tablas volcadas
@@ -322,15 +330,21 @@ ALTER TABLE `missatges`
   ADD KEY `usuari_id` (`usuari_id`);
 
 --
+-- Indices de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `sales`
 --
 ALTER TABLE `sales`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `tecnicos`
+-- Indices de la tabla `tecnics`
 --
-ALTER TABLE `tecnicos`
+ALTER TABLE `tecnics`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -377,22 +391,28 @@ ALTER TABLE `missatges`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
+-- AUTO_INCREMENT de la tabla `password_resets`
+--
+ALTER TABLE `password_resets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `sales`
 --
 ALTER TABLE `sales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de la tabla `tecnicos`
+-- AUTO_INCREMENT de la tabla `tecnics`
 --
-ALTER TABLE `tecnicos`
+ALTER TABLE `tecnics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `usuaris`
 --
 ALTER TABLE `usuaris`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `xats`
@@ -408,7 +428,7 @@ ALTER TABLE `xats`
 -- Filtros para la tabla `incidencies`
 --
 ALTER TABLE `incidencies`
-  ADD CONSTRAINT `fk_tecnico` FOREIGN KEY (`id_tecnico`) REFERENCES `tecnicos` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `fk_tecnico` FOREIGN KEY (`id_tecnico`) REFERENCES `tecnics` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `incidencies_ibfk_1` FOREIGN KEY (`id_ubicacio`) REFERENCES `sales` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --

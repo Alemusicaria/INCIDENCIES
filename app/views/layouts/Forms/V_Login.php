@@ -39,7 +39,7 @@ if (isset($_SESSION['usuari'])) {
                     <button type="submit" class="anm-levantar">Iniciar Sessió</button>
 
                     <p class="text-center">
-                        <a href="index.php?controller=Login&method=show_reset_form" class="forgot-password">¿Has oblidat el teu nom d' usuari o contrasenya?</a>
+                        <a href="index.php?controller=Login&method=show_reset_form" class="forgot-password">¿Has oblidat la teva contrasenya?</a>
                     </p>                    
                 </form>
             </div>
