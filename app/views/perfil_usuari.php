@@ -1,7 +1,7 @@
 <?php
 if (isset($dades_perfil)) {
     // Mostrar los datos de la incidencia
-?>
+    ?>
     <?php
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -23,6 +23,12 @@ if (isset($dades_perfil)) {
                     <div class="perfil-img mb-3">
                         <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil" class="perfil-img">
                     </div>
+
+                    <!-- Formulario para cambiar la foto de perfil -->
+                    <form action="app/views/php/cambiar_foto.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="nueva_foto" accept="image/*" required>
+                        <button type="submit">Cambiar foto de perfil</button>
+                    </form>
 
                     <a href="#">Cambiar foto de perfil</a>
                 </div>
@@ -58,9 +64,12 @@ if (isset($dades_perfil)) {
                             <div class="mb-2">
                                 <label for="rol" class="perfil-label">Rol</label>
                                 <select id="rol" name="rol" class="form-control" required>
-                                    <option value="Admin" <?= $dades_perfil['rol'] === 'Admin' ? 'selected' : ''; ?>>Administrador</option>
-                                    <option value="Tecnic" <?= $dades_perfil['rol'] === 'Tecnic' ? 'selected' : ''; ?>>Tecnic</option>
-                                    <option value="Professor" <?= $dades_perfil['rol'] === 'Professor' ? 'selected' : ''; ?>>Professor</option>
+                                    <option value="Admin" <?= $dades_perfil['rol'] === 'Admin' ? 'selected' : ''; ?>>
+                                        Administrador</option>
+                                    <option value="Tecnic" <?= $dades_perfil['rol'] === 'Tecnic' ? 'selected' : ''; ?>>Tecnic
+                                    </option>
+                                    <option value="Professor" <?= $dades_perfil['rol'] === 'Professor' ? 'selected' : ''; ?>>
+                                        Professor</option>
                                 </select>
                             </div>
 
@@ -71,12 +80,13 @@ if (isset($dades_perfil)) {
 
                 <!-- Botó per tornar a l'inici -->
                 <div class="text-center mt-4 mb-4">
-                    <a href="index.php?controller=Login&method=gestionar_usuaris" class="btn" id="volver">Torna endarrere</a>
+                    <a href="index.php?controller=Login&method=gestionar_usuaris" class="btn" id="volver">Torna
+                        endarrere</a>
                 </div>
             </div>
         </div>
     </body>
-<?php
+    <?php
 } else {
     echo "<div class='alert alert-danger'>No se encontraron datos de la incidencia.</div>";
 }
