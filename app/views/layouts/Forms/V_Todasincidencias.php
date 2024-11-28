@@ -107,7 +107,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         </button>
                                     </a>
 
-                                    <a href='edit.php?id=$id' class='card-link'>
+                                    <a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=$id' class='card-link'>
                                         <button type='button' class='btn btn-outline-warning'>
                                             <i class='bi bi-pencil'></i>
                                         </button>
