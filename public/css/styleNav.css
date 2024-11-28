@@ -985,6 +985,54 @@ button[class="guardar"]:hover {
     box-shadow: 0 3px 15px rgba(0, 123, 255, 0.5);
 }
 
+.contenido {
+    display: flex;
+    flex-direction: row; /* Los elementos estarán en fila (horizontalmente) */
+    align-items: center; /* Alinea los elementos verticalmente en el centro */
+    justify-content: flex-start; /* Alinea los elementos hacia la izquierda */
+
+    max-height: 150px;
+}
+
+.foto-usuario {
+    width: 40%;
+    height: auto;
+
+    max-height: 120px;
+    max-width: 120px;
+
+    border-radius: 50%;
+    padding: 0;
+
+    overflow: hidden;
+
+    background-color: transparent;
+
+    border: 1px solid #000000;
+}
+
+.foto-usuario img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+
+    background-color: transparent;
+}
+
+.datos-usuario {
+    margin-left: 20px;
+
+    width: 60%;
+    height: 100%;
+
+    gap: 0;
+}
+
+.datos-usuari p {
+    margin: 0 0 0 0 !important;
+    padding: 0;
+}
+
 /*
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 

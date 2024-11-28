@@ -50,10 +50,20 @@ document.addEventListener('DOMContentLoaded', function () {
         info.el.innerHTML += `<div style="text-align: center;">${indicator}</div>`;
       }
     },
+
     dateClick: function (info) {
       const dateText = info.dateStr; // Data clicada
+      /*
       document.getElementById('date-text').innerText = dateText;
       document.getElementById('selected-date').style.display = 'block';
+      selectedDateElement.style.width = '100%';
+*/
+      const selectedDateElement = document.getElementById('selected-date'); // Define el elemento
+      document.getElementById('date-text').innerText = dateText;
+
+      // Ajustar estilo para mostrar y expandir al 100%
+      selectedDateElement.style.display = 'block';
+      selectedDateElement.style.width = '100%';
 
       const previouslySelected = document.querySelector('.selected-day');
       if (previouslySelected) {

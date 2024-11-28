@@ -40,13 +40,58 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
 
             <div class="espacio-grande">
                 <div class="espacio-medio">
-                    <div class="cont-user">
-                        <div class="card">
-                            <div class="card-header">
-                                <i class="fas fa-table"></i>
-                                Nombre usuaris
-                            </div>
-                        </div>
+                    <div class="w-100">
+
+                        <?php
+                        require_once('app/models/connexio.php');
+
+                        // ID de l'usuari autenticat
+                        $idUsuari = $_SESSION['usuari'][0]; // Assegura't que tens aquesta variable definida
+
+                        // Consulta per obtenir les dades dels usuaris
+                        $sql = "SELECT id, nom_cognoms, correu, telefon, rol, habilitat, data_registre, foto  
+                        FROM usuaris";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+
+                        // Comprovar si hi ha resultats
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+
+                                $foto = $row['foto'] ? $row['foto'] : 'Images/Foto_Perfiles/user.png';
+
+                                echo "<div class='card mt-2 mb-2'>";
+
+                                echo "<div class='card-header'>";
+                                echo "<i class='fas fa-user'></i>" . $row['nom_cognoms'];;
+                                echo "</div>";
+
+                                echo "<div class='cont-card-body card-body'>";
+
+                                echo "<div class='contenido'>";
+
+                                echo "<div class='foto-usuario'>";
+                                echo "<img src='" . $foto . "' alt='Foto de perfil' class='img-thumbnail'>";
+                                echo "</div>";
+
+                                echo "<div class='datos-usuario'>";
+                                echo "<span><strong>Correu Electrònic: </strong>" . $row['correu'] . "</span><br>";
+                                echo "<span><strong>Telefon: </strong>" . $row['telefon'] . "</span><br>";
+                                echo "<span><strong>Rol: </strong>" . $row['rol'] . "</span><br>";
+                                echo "<span><strong>Data de Registre: </strong>" . $row['data_registre'] . "</span><br>";
+                                echo "<span><strong>Habilitat: </strong>" . ($row['habilitat'] == 1 ? 'Habilitat' : 'Deshabilitat') . "</span><br>";
+                                echo "</div>";
+
+                                echo "</div>";
+
+                                echo "</div>";
+
+                                echo "</div>";
+                            }
+                        }
+
+                        ?> 
                     </div>
                 </div>
             </div>
@@ -56,8 +101,6 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                     <i class="fas fa-table"></i>
                     Taula d'incidències
                 </div>
-
-                
 
                 <div class="card-body">
                     <!-- Contenedor para permitir scroll horizontal -->

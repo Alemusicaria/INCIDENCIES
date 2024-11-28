@@ -47,6 +47,8 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             $data = $row['data_incidencia'];
                             $estat = $row['estat'];
                             $prioritat = $row['prioritat'];
+
+                            //$foto = $row['foto'] ? $row['foto'] : 'Images/Foto_Perfiles/user.png';
                             $imatge = !empty($row['imatges']) && file_exists($row['imatges']) ? $row['imatges'] : 'Images/imgpreg.png';
 
                             // Asignar color basado en el estado
@@ -72,7 +74,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             // Renderizar la tarjeta
                             echo "
                             <div class='card mb-3' style='width: 18rem;'>
-                                <img class='card-img-top' src='$imatge' alt='Imatge de la incidència'>
+                                <img class='card-img-top' src='$foto' alt='Imatge de la incidència'>
 
                                 <!-- Contenido de la tarjeta -->
                                 <div class='card-body'>

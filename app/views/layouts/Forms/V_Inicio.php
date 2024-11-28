@@ -9,6 +9,10 @@ include("app/views/layouts/header/header.php");
         ?>
 
         <div class="main p-3">
+
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+
             <div class="tittle-page">
                 <h2>INICI</h2>
             </div>
@@ -23,6 +27,9 @@ include("app/views/layouts/header/header.php");
             <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js'></script>
             <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
             <!-- Script personalitzat -->
-            <script src="assets/js/script_inici.js?v=1"></script>
+            <script src="assets/js/script_inici.js"></script>
+
+            </div>
+            </div>
         </div>
 </body>
