@@ -42,6 +42,63 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 <div class="espacio-medio">
                     <div class="w-100">
 
+                        <div class='card mt-2 mb-2'>
+                            <div class='card-header'>
+                                <i class='fas fa-user'></i>
+                                Usuari
+                            </div>
+
+                            <div class='cont-card-body card-body'>
+
+                                <div class='contenido'>
+
+                                    <div class='contenido1'>
+                                        <!-- Contenedor de la foto y los botones -->
+                                        <div class='foto-usuario'>
+                                            <img src='Images/Foto_Perfiles/user.png' alt='Foto de perfil' class='img-thumbnail'>
+                                        </div>
+
+                                        <div class='botones'>
+                                            <!-- 
+                                            <form method='POST' action='index.php?controller=Perfil&method=habilitar'>
+                                                <input type='hidden' name='id' value=''>
+                                                <button type='submit' class='btn btn-success' style='background-color: #28a745'>Habilitar</button>
+                                            </form><hr>
+
+                                            <form method='POST' action='index.php?controller=Perfil&method=deshabilitar'>
+                                                <input type='hidden' name='id' value=''>
+                                                <button type='submit' class='btn btn-danger' style='background-color: #dc3545'>Deshabilitar</button>
+                                            </form><hr>
+
+                                            <form method='POST' action='index.php?controller=Perfil&method=editar'>
+                                                <input type='hidden' name='id' value=''>
+                                                <button type='submit' class='btn btn-primary'>Editar</button>
+                                            </form> -->
+                                        </div>
+                                    </div>
+
+                                    <div class='datos-usuario'>
+                                        <span><strong>Correu Electrònic: </strong>
+                                        </span><br>
+                                        <span><strong>Telefon: </strong>
+                                        </span><br>
+                                        <span><strong>Rol: </strong>
+                                        </span><br>
+                                        <span><strong>Data de Registre: </strong>
+                                        </span><br>
+                                        <span><strong>Habilitat: </strong>
+                                        </span><br>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!--
                         <?php
                         require_once('app/models/connexio.php');
 
@@ -91,7 +148,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                             }
                         }
 
-                        ?> 
+                        ?> -->
                     </div>
                 </div>
             </div>
