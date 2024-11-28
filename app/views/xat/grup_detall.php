@@ -1,5 +1,5 @@
 <?php
-        require_once 'app/models/connexio.php';
+require_once 'app/models/connexio.php';
 
 $usuari_id = $_SESSION['usuari'][0];
 
@@ -51,6 +51,11 @@ error_reporting(E_ALL);
 
 <?php include("app/views/layouts/header/header.php"); ?>
 <link rel="stylesheet" href="public/css/styleXat.css">
+<style>
+    .btn-chat {
+        display: none;
+    }
+</style>
 
 <body>
     <div class="wrapper">
