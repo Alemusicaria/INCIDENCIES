@@ -21,20 +21,68 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
             <div class="espacio-grande">
                 <div class="espacio-medio">
 
-                    <!-- Tarjeta 1 -->
                     <?php
                     require_once('app/models/connexio.php');
 
+                    // Orden por defecto
+                    $orden = 'data_incidencia'; // Cambia a tu campo por defecto si es necesario
+
+                    // Verificar si hay un parámetro de orden en la URL
+                    if (isset($_GET['orden'])) {
+                        $orden = $_GET['orden'];
+
+                        // Validar el valor de 'orden' para evitar inyección SQL
+                        $valores_permitidos = ['prioritat', 'estat', 'data_incidencia'];
+                        if (!in_array($orden, $valores_permitidos)) {
+                            $orden = 'data_incidencia'; // Volver al valor por defecto
+                        }
+                    }
+
+                    // ID de l'usuari autenticat
+                    $idUsuari = $_SESSION['usuari'][0]; // Asegúrate de tener esta variable definida
+
+                    // Consulta para obtener las incidencias del usuario
+                    $sql = "SELECT id, creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
+                            FROM incidencies
+                            WHERE habilitado = 1
+                            ORDER BY $orden ASC";
+
+                    $stmt = $conn->prepare($sql);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    ?>
+
+                    <form method="GET" class="mb-3">
+                        <label for="orden">Ordenar por:</label>
+                        <select name="orden" id="orden" class="form-select w-auto d-inline-block" onchange="this.form.submit()">
+                            <option value="data_incidencia" <?php echo $orden == 'data_incidencia' ? 'selected' : ''; ?>>Fecha</option>
+                            <option value="prioritat" <?php echo $orden == 'prioritat' ? 'selected' : ''; ?>>Prioridad</option>
+                            <option value="estat" <?php echo $orden == 'estat' ? 'selected' : ''; ?>>Estado</option>
+                        </select>
+
+                        <!-- Campo oculto para mantener otros parámetros -->
+                        <?php foreach ($_GET as $key => $value): ?>
+                            <?php if ($key !== 'orden'): ?>
+                                <input type="hidden" name="<?php echo htmlspecialchars($key); ?>" value="<?php echo htmlspecialchars($value); ?>">
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </form>
+
+
+                    <!-- Tarjeta 1 -->
+                    <?php
+                    /*
                     // ID de l'usuari autenticat
                     $idUsuari = $_SESSION['usuari'][0]; // Asegúrate de tener esta variable definida
 
                     // Consulta per obtenir les incidències de l'usuari
                     $sql = "SELECT id, creador_nom_cognoms, titol_fallo, descripcio, tipus_incidencia, id_ubicacio, data_incidencia, estat, prioritat, imatges 
                             FROM incidencies
-                            WHERE habilitado = 1";
+                            WHERE habilitado = 1
+                            ORDER BY $orden ASC";
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
-                    $result = $stmt->get_result();
+                    $result = $stmt->get_result();*/
 
                     // Comprovar si hi ha resultats
                     if ($result->num_rows > 0) {
