@@ -17,6 +17,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
             <div class="tittle-page">
                 <h2>Afegeix Incidencia</h2>
             </div>
+
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+            <div class="w-100">
         
             <div class="card">
                 <div class="card-header">
@@ -139,6 +143,10 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         
                     </form>
                 </div>
+            </div>
+
+            </div>
+            </div>
             </div>
         </div>
     </div>

@@ -62,7 +62,7 @@ error_reporting(E_ALL);
 ?>
 
 <?php include("app/views/layouts/header/header.php"); ?>
-<link rel="stylesheet" href="public/css/styleXat.css">
+<link rel="stylesheet" href="public/css/styleXat.css?v=1">
 <style>
     .btn-chat {
         display: none;
@@ -85,7 +85,11 @@ error_reporting(E_ALL);
                 <h1><?php echo $conversant['usuari_conversant']; ?></h1>
             </div>
 
-            <div class="p-3">
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+            <div class="w-100">
+
+            <div class="mmmm">
                 <!-- Missatges del xat -->
                 <section class="missatges">
                     <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
@@ -104,10 +108,14 @@ error_reporting(E_ALL);
                 </section>
             </div>
 
+            </div>
+            </div>
+            </div>
+
             <!-- Formulari per enviar un missatge -->
             <section class="enviar-missatge">
                 <form method="POST">
-                    <textarea name="missatge" row="1" placeholder="Escriu el teu missatge aquí..." required></textarea>
+                    <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
                     <button type="submit">
                         <i class="lni lni-telegram-original"></i>
                     </button>

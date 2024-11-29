@@ -27,6 +27,10 @@ include("layouts/header/header.php"); // Incloure el header
                 </div>
             </div>
 
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+            <div class="w-100">
+
             <!-- Dades de l'usuari -->
             <div class="card m-4">
                 <div class="card-header">
@@ -67,6 +71,10 @@ include("layouts/header/header.php"); // Incloure el header
             <!-- Botó per tornar a l'inici -->
             <div class="text-center mt-4 mb-4">
                 <a href="index.php?controller=Login&method=bienvenido" class="btn" id="volver">Torna a l'inici</a>
+            </div>
+
+            </div>
+            </div>
             </div>
         </div>
     </div>

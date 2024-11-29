@@ -91,7 +91,10 @@ error_reporting(E_ALL);
                     <label>Chat</label>
                 </div>
             </div>
-
+            
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+            <div class="w-100">
 
             <div class="p-3">
                 <header class="header">
@@ -161,18 +164,9 @@ error_reporting(E_ALL);
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+            </div>
+            </div>
+            </div>
 
         </main>
     </div>

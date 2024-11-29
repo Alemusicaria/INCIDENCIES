@@ -59,38 +59,59 @@ error_reporting(E_ALL);
 
 <body>
     <div class="wrapper">
-        <?php include("app/views/layouts/menu/menu.php"); ?>
-        <main class="main p-3">
-            <header>
-                <h1>Grup: <?php echo $grup['nom']; ?></h1>
-            </header>
+        <?php 
+        include("app/views/layouts/menu/menu.php"); 
+        ?>
 
-            <!-- Missatges del grup -->
-            <section class="missatges">
-                <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
-                    <ul>
-                        <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
-                            <li>
-                                <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
-                                <p><?php echo $missatge['missatge']; ?></p>
-                                <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
-                            </li>
-                        <?php endwhile; ?>
-                    </ul>
-                <?php else: ?>
-                    <p>No hi ha missatges en aquest grup.</p>
-                <?php endif; ?>
-            </section>
+        <main class="main">
+            <div class="fondo-xatamb">
+                <a href="index.php?controller=Login&method=xat" class="volver-icono">
+                    <i class="lni lni-chevron-left"></i>
+                </a>
+
+                <h1><?php echo $grup['nom']; ?></h1>
+            </div>
+
+            <div class="espacio-grande">
+            <div class="espacio-medio">
+            <div class="w-100">
+
+            <div class="mmmm">
+                <!-- Missatges del grup -->
+                <section class="missatges">
+                        <?php if (mysqli_num_rows($resultat_missatges) > 0): ?>
+                            <ul>
+                            <?php while ($missatge = mysqli_fetch_assoc($resultat_missatges)): ?>
+                                <li>
+                                    <strong><?php echo $missatge['nom_cognoms']; ?>:</strong>
+                                    <p><?php echo $missatge['missatge']; ?></p>
+                                    <small><?php echo date("d/m/Y H:i", strtotime($missatge['data'])); ?></small>
+                                </li>
+                            <?php endwhile; ?>
+                        </ul>
+                    <?php else: ?>
+                        <p>No hi ha missatges en aquest grup.</p>
+                    <?php endif; ?>
+                </section>
+            </div>
+
+            </div>
+            </div>
+            </div>
+
+            
 
             <!-- Formulari per enviar un missatge -->
             <section class="enviar-missatge">
                 <form method="POST">
                     <textarea name="missatge" placeholder="Escriu el teu missatge aquí..." required></textarea>
-                    <button type="submit">Enviar missatge</button>
+                    <button type="submit">
+                        <i class="lni lni-telegram-original"></i>
+                    </button>
                 </form>
             </section>
-
-            <a href="index.php?controller=Login&method=xat" class="btn btn-primary">Tornar a les converses</a>
+            
+            <!--- <a href="index.php?controller=Login&method=xat" class="btn btn-primary">Tornar a les converses</a> -->
         </main>
     </div>
 </body>

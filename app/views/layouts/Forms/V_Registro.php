@@ -19,6 +19,10 @@ include("app/views/layouts/header/header.php");
             <h2>Afegeix Usuari</h2>
         </div>
 
+        <div class="espacio-grande">
+        <div class="espacio-medio">
+        <div class="w-100">
+
         <div class="card">
             <div class="card-header">
                 <i class="lni lni-pencil-alt"></i>
@@ -87,6 +91,10 @@ include("app/views/layouts/header/header.php");
                     <button type="submit" class="btn btn-primary">Registrar</button>
                 </form>
             </div>
+        </div>
+
+        </div>
+        </div>
         </div>
     </div>
 </body>

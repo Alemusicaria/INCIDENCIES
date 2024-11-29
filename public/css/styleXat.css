@@ -18,6 +18,12 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    margin: 0;
 }
 
 .container {
@@ -379,10 +385,6 @@ header h1 {
     margin: 0;
 }
 
-.fondo-xatamb .volver-icono:hover {
-    color: #000000;
-}
-
 .fondo-xatamb .volver-icono {
     position: absolute;
     top: 15px; /* Ajusta según el diseño */
@@ -393,8 +395,29 @@ header h1 {
     transition: color 0.2s ease;
 }
 
+.fondo-xatamb .volver-icono:hover {
+    color: #000000;
+}
+
+.mmmm {
+    flex-grow: 1;
+    overflow-y: auto; /* Permite desplazarse si el contenido es demasiado largo */
+
+    margin: 0 20px;;
+
+    height: 100%;
+}
+
 ul {
     padding: 0;
+}
+
+.missatges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 70vh; /* Limita la altura del área de mensajes */
+    overflow-y: auto; /* Añade scroll cuando hay muchos mensajes */
 }
 
 .missatges li {
@@ -434,10 +457,13 @@ ul {
 .enviar-missatge {
     background-color: rgb(210, 210, 210);
     width: 100%;
-    height: auto;
 
     padding: 10px 5px;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 
 .enviar-missatge form {

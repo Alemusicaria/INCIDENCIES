@@ -187,6 +187,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 </div>
             </div>
 
+            <!--
             <div class="card">
                 <div class="card-header">
                     <i class="fas fa-table"></i>
@@ -194,7 +195,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                 </div>
 
                 <div class="card-body">
-                    <!-- Contenedor para permitir scroll horizontal -->
+                    <-- Contenedor para permitir scroll horizontal --
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
@@ -266,7 +267,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                         </table>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
