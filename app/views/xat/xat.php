@@ -105,7 +105,7 @@ error_reporting(E_ALL);
                 <!-- Cercador dinàmic -->
                 <section class="cercador">
                     <input type="text" id="cercador" class="cercador-input" placeholder="Cerca una conversa o grup" oninput="cercar()">
-                    <button id="cercador" class="cercador-button btn">Crear XAT</button>
+                    <!-- <button id="cercador" type="button" class="cercador-button btn btn-primary" onclick="window.location.href='app/views/xat/crear_conversa.php'">Crear Xat</button> -->
                     <!-- <a href="crear_conversa.php" class="crear-xat-btn btn btn-primary"> Crear XAT </a> -->
                 </section>
 
