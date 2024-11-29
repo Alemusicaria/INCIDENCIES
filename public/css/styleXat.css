@@ -68,7 +68,7 @@ header h1 {
 }
 
 #cerca-usuari {
-    width: 100%;
+    /*width: 100%;*/
     padding: 10px;
     font-size: 1rem;
     border-radius: 5px;
