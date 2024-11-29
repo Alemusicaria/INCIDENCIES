@@ -22,15 +22,7 @@ if (isset($dades_perfil)) {
                     <!-- Imatge de Perfil -->
                     <div class="perfil-img mb-3">
                         <img src="<?php echo $_SESSION['usuari'][5]; ?>" alt="Perfil" class="perfil-img">
-                    </div>
-
-                    <!-- Formulario para cambiar la foto de perfil -->
-                    <form action="app/views/php/cambiar_foto.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="nueva_foto" accept="image/*" required>
-                        <button type="submit">Cambiar foto de perfil</button>
-                    </form>
-
-                    <a href="#">Cambiar foto de perfil</a>
+                    </div>                    
                 </div>
 
                 <!-- Dades de l'usuari -->
