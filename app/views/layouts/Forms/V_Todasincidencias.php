@@ -106,7 +106,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                             <i class='bi bi-eye'></i>
                                         </button>
                                     </a>
-
+                                    <!--
                                     <a href='index.php?controller=Editar_Incidencia&method=verificar_id_incidencia&id=$id' class='card-link'>
                                         <button type='button' class='btn btn-outline-warning'>
                                             <i class='bi bi-pencil'></i>
@@ -117,7 +117,7 @@ include("app/views/layouts/header/header.php"); // Aquí se incluye la barra lat
                                         <button type='button' class='btn btn-outline-danger'>
                                             <i class='bi bi-trash'></i>
                                         </button>
-                                    </a>
+                                    </a>-->
                                 </div>
                             </div>
                             ";
