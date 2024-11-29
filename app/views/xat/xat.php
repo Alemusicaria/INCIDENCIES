@@ -104,8 +104,8 @@ error_reporting(E_ALL);
 
                 <!-- Cercador dinàmic -->
                 <section class="cercador">
-                    <input type="text" id="cercador" class="cercador-input w-100" placeholder="Cerca una conversa o grup" oninput="cercar()">
-                    <!-- <button id="cercador" type="button" class="cercador-button btn btn-primary" onclick="window.location.href='app/views/xat/crear_conversa.php'">Crear Xat</button> -->
+                    <input type="text" id="cercador-input" class="cercador-input w-100" placeholder="Cerca una conversa o grup" oninput="cercar()">
+                    <!-- <button id="crear-xat" type="button" class="cercador-button btn btn-primary" onclick="window.location.href='app/views/xat/crear_conversa.php'">Crear Xat</button> -->
                     <!-- <a href="crear_conversa.php" class="crear-xat-btn btn btn-primary"> Crear XAT </a> -->
                 </section>
 
@@ -172,9 +172,10 @@ error_reporting(E_ALL);
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
         function cercar() {
-            var cerca = document.getElementById("cercador").value;
+            var cerca = document.getElementById("cercador-input").value;
             $.ajax({
                 url: 'xat.php',
                 type: 'GET',
